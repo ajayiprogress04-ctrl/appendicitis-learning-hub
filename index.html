@@ -8,6 +8,7 @@
   <title>Appendicitis Research Statistical Test Learning Hub</title>
   <link rel="stylesheet" href="./styles.css">
   <script src="./content.js" defer></script>
+  <script src="./variables.js" defer></script>
   <script src="./script.js" defer></script>
 </head>
 <body>
@@ -26,8 +27,11 @@
       <p class="intro">Six research objectives. Clear statistical reasoning.<br>Learn what each method tells you—and when it cannot help.</p>
       <div class="hero-tags"><span>MAS + hsCRP</span><span>Study-aware explanations</span><span id="method-count"></span></div>
     </section>
+    <section class="research-overview" aria-labelledby="research-title"><div class="section-label">The research behind the methods</div><h2 id="research-title"></h2><p id="research-purpose"></p></section>
+    <nav class="workspace-tabs" aria-label="Learning workspace"><button id="objectives-tab" type="button" aria-pressed="true">Six objectives</button><button id="variables-tab" type="button" aria-pressed="false">Research variables</button></nav>
+    <section class="progress-strip" aria-label="Learning progress"><div><strong id="progress-label"></strong><span id="storage-note">Saved in this browser · reviewed, not assessed</span></div><progress id="progress-bar" max="34" value="0"></progress></section>
     <section class="learning-tools" aria-label="Learning controls">
-      <div class="search-wrap"><label for="search">Find a statistical method</label><div class="search-box"><span aria-hidden="true">⌕</span><input id="search" type="search" autocomplete="off" placeholder="Try sensitivity, paired, AUC or costs"><button id="clear-search" type="button" aria-label="Clear search" hidden>×</button></div></div>
+      <div class="search-wrap"><label for="search">Find a method, variable or objective</label><div class="search-box"><span aria-hidden="true">⌕</span><input id="search" type="search" autocomplete="off" placeholder="Try ROC, histology or objective 5"><button id="clear-search" type="button" aria-label="Clear search" hidden>×</button></div></div>
       <div class="mode-wrap"><span id="mode-label">Learning mode</span><div class="mode-switch" role="group" aria-labelledby="mode-label"><button id="mode-detail" type="button" aria-pressed="true">Detailed learning</button><button id="mode-quick" type="button" aria-pressed="false">Quick revision</button></div></div>
     </section>
     <nav id="objective-nav" class="objective-nav" aria-label="Switch objective" hidden></nav>
