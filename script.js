@@ -3,6 +3,7 @@
   'use strict';
   const data = window.HUB_DATA;
   const schema = window.HUB_VARIABLES;
+  if(!data||!schema){document.getElementById('main').textContent='Required application files did not load. Check content.js and variables.js in the deployed project root.';return;}
   const $ = id => document.getElementById(id);
   const esc = value => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
   const norm = value => String(value).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[–—−]/g,'-');
@@ -73,6 +74,7 @@
   $('study-notes').innerHTML=data.studyNotes.map(note=>`<article class="note"><h3>${esc(note.title)}</h3><p>${esc(note.text)}</p></article>`).join('');
   $('source-list').innerHTML=data.sources.map(source=>`<li><a href="${esc(source.url)}" target="_blank" rel="noopener noreferrer">${esc(source.name)} ↗</a></li>`).join('');
   render();
+  window.HUB_NAV={openObjective,openVariables};
   /* Test hook exists only when a test harness explicitly opts in before loading. */
   if(window.__HUB_TEST__)window.__HUB_TEST_API__={state,getEntries,matches,esc,render,openObjective,openVariables,variableMatches,setMode,clearSearch,copyText,handleAction};
 })();

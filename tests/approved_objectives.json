@@ -1,0 +1,34 @@
+{
+  "objectives": [
+    {
+      "title": "Does adding hsCRP help?",
+      "short": "MAS plus hsCRP",
+      "approved": "compare the accuracy of modified Alvarado score (MAS) alone versus MAS plus high sensitivity c-reactive protein (hsCRP) in the diagnosis of acute appendicitis"
+    },
+    {
+      "title": "Does hsCRP distinguish severity?",
+      "short": "Simple vs complicated",
+      "approved": "determine the diagnostic value of hsCRP in simple acute appendicitis and complicated appendicitis"
+    },
+    {
+      "title": "Does performance vary with age?",
+      "short": "Children vs adults",
+      "approved": "compare the accuracy of combined MAS and hsCRP in children (under 16 years) and adults (16 years and above)"
+    },
+    {
+      "title": "How often was surgery negative?",
+      "short": "Negative appendicectomy",
+      "approved": "determine the rate of negative appendicectomy in the study"
+    },
+    {
+      "title": "Did clinicians feel more confident?",
+      "short": "Ease and confidence",
+      "approved": "test the ease of diagnosis of acute appendicitis among resident doctors and medical officers using the combined MAS and hsCRP"
+    },
+    {
+      "title": "What do the monetary records show?",
+      "short": "Hospital amounts",
+      "approved": "estimate the direct hospital cost implications of using combined MAS and hsCRP in the evaluation of patients with suspected acute appendicitis"
+    }
+  ]
+}

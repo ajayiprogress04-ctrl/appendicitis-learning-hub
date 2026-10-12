@@ -1,11 +1,11 @@
-/* Schema and aggregate completeness only. Never add patient rows or identifiers. */
+/* Verified current SAV metadata and aggregate completeness; no patient rows. */
 window.HUB_VARIABLES = {
   "n": 85,
   "verified": "12 October 2026",
   "variables": [
     {
       "name": "hosp_n0",
-      "label": null,
+      "label": "Hospital identifier as recorded",
       "storage": "string",
       "measure": "nominal",
       "codes": {},
@@ -15,7 +15,7 @@ window.HUB_VARIABLES = {
       "meaning": "Hospital record identifier",
       "analysisType": "Identifier",
       "unit": "No measurement unit",
-      "issue": "Links assessments belonging to the same patient. Values are deliberately hidden.",
+      "issue": "Identifiers are excluded from this public dictionary and the aggregate results export.",
       "nonmissing": 85,
       "objectives": [
         1,
@@ -28,9 +28,9 @@ window.HUB_VARIABLES = {
     },
     {
       "name": "age",
-      "label": null,
+      "label": "Age in years",
       "storage": "double",
-      "measure": "nominal",
+      "measure": "scale",
       "codes": {},
       "systemMissing": 0,
       "userMissing": [],
@@ -38,7 +38,7 @@ window.HUB_VARIABLES = {
       "meaning": "Age",
       "analysisType": "Numerical age",
       "unit": "Years: protocol/context; no SAV unit label",
-      "issue": "Children <16 and adults ≥16 are the approved groups. The stored nominal setting does not make age categorical.",
+      "issue": "Original values and value labels retained. See the current derived definitions; no inference from unrecorded observations.",
       "nonmissing": 85,
       "objectives": [
         3,
@@ -47,7 +47,7 @@ window.HUB_VARIABLES = {
     },
     {
       "name": "sex",
-      "label": null,
+      "label": "Participant sex",
       "storage": "double",
       "measure": "nominal",
       "codes": {
@@ -60,7 +60,7 @@ window.HUB_VARIABLES = {
       "meaning": "Sex",
       "analysisType": "Nominal category",
       "unit": "Not applicable",
-      "issue": "Use the labelled categories to describe participants; no adjusted sex model is assumed.",
+      "issue": "Original values and value labels retained. See the current derived definitions; no inference from unrecorded observations.",
       "nonmissing": 85,
       "objectives": [
         3,
@@ -69,7 +69,7 @@ window.HUB_VARIABLES = {
     },
     {
       "name": "religion",
-      "label": null,
+      "label": "Religion as recorded",
       "storage": "double",
       "measure": "nominal",
       "codes": {
@@ -84,15 +84,15 @@ window.HUB_VARIABLES = {
       "meaning": "Religion",
       "analysisType": "Nominal category",
       "unit": "Not applicable",
-      "issue": "Descriptive background only; not a primary outcome of any approved objective.",
+      "issue": "Original values and value labels retained. See the current derived definitions; no inference from unrecorded observations.",
       "nonmissing": 85,
       "objectives": []
     },
     {
       "name": "education",
-      "label": null,
+      "label": "Highest recorded education category",
       "storage": "double",
-      "measure": "nominal",
+      "measure": "ordinal",
       "codes": {
         "0.0": "none",
         "1.0": "pry",
@@ -105,13 +105,13 @@ window.HUB_VARIABLES = {
       "meaning": "Education level",
       "analysisType": "Ordered categories",
       "unit": "Not applicable",
-      "issue": "The labels imply an order; the stored level is nominal. Include only when relevant to describing participants.",
+      "issue": "Original values and value labels retained. See the current derived definitions; no inference from unrecorded observations.",
       "nonmissing": 85,
       "objectives": []
     },
     {
       "name": "marital_status",
-      "label": null,
+      "label": "Marital status as recorded",
       "storage": "double",
       "measure": "nominal",
       "codes": {
@@ -125,13 +125,13 @@ window.HUB_VARIABLES = {
       "meaning": "Marital status",
       "analysisType": "Nominal category",
       "unit": "Not applicable",
-      "issue": "Descriptive background; no primary association test is justified simply because this field exists.",
+      "issue": "Original values and value labels retained. See the current derived definitions; no inference from unrecorded observations.",
       "nonmissing": 85,
       "objectives": []
     },
     {
       "name": "occupation",
-      "label": null,
+      "label": "Participant occupation as recorded",
       "storage": "double",
       "measure": "nominal",
       "codes": {
@@ -150,13 +150,13 @@ window.HUB_VARIABLES = {
       "meaning": "Patient occupation",
       "analysisType": "Nominal category",
       "unit": "Not applicable",
-      "issue": "This describes patients, not the clinician’s professional group. “cs” and “nysc” are retained as stored abbreviations.",
+      "issue": "Original values and value labels retained. See the current derived definitions; no inference from unrecorded observations.",
       "nonmissing": 85,
       "objectives": []
     },
     {
       "name": "abdominal_pain",
-      "label": null,
+      "label": "Abdominal pain reported",
       "storage": "double",
       "measure": "nominal",
       "codes": {
@@ -169,13 +169,13 @@ window.HUB_VARIABLES = {
       "meaning": "Abdominal pain",
       "analysisType": "Binary category",
       "unit": "Not applicable",
-      "issue": "Supports recruited symptom context; not itself the reference diagnosis.",
+      "issue": "Original values and value labels retained. See the current derived definitions; no inference from unrecorded observations.",
       "nonmissing": 85,
       "objectives": []
     },
     {
       "name": "migratory",
-      "label": null,
+      "label": "Migratory abdominal pain reported",
       "storage": "double",
       "measure": "nominal",
       "codes": {
@@ -188,7 +188,7 @@ window.HUB_VARIABLES = {
       "meaning": "Migratory pain",
       "analysisType": "Binary category",
       "unit": "Not applicable",
-      "issue": "A recorded MAS component. Audit against the original score, not a new diagnostic outcome.",
+      "issue": "Original values and value labels retained. See the current derived definitions; no inference from unrecorded observations.",
       "nonmissing": 85,
       "objectives": [
         1
@@ -196,23 +196,23 @@ window.HUB_VARIABLES = {
     },
     {
       "name": "duration_of_pain",
-      "label": null,
+      "label": "Recorded abdominal pain duration in hours",
       "storage": "double",
-      "measure": "nominal",
+      "measure": "scale",
       "codes": {},
       "systemMissing": 0,
       "userMissing": [],
       "invalid": null,
       "meaning": "Duration of pain",
       "analysisType": "Numerical duration",
-      "unit": "Unit not recorded; confirmation required",
-      "issue": "Do not silently call the values hours or days.",
+      "unit": "Hours, confirmed; no rescaling",
+      "issue": "Original values and value labels retained. See the current derived definitions; no inference from unrecorded observations.",
       "nonmissing": 85,
       "objectives": []
     },
     {
       "name": "anorexia",
-      "label": null,
+      "label": "Anorexia response as originally recorded",
       "storage": "double",
       "measure": "nominal",
       "codes": {
@@ -225,7 +225,7 @@ window.HUB_VARIABLES = {
       "meaning": "Anorexia",
       "analysisType": "Binary response with an unlabelled entry",
       "unit": "Not applicable",
-      "issue": "One entry is code 20, outside labelled 1/2; it must not be treated as “no” or assigned zero in scoring.",
+      "issue": "Unlabelled source response remains unchanged; ANOREXIA_PRESENT is missing where the source response cannot be established.",
       "nonmissing": 85,
       "objectives": [
         1
@@ -233,7 +233,7 @@ window.HUB_VARIABLES = {
     },
     {
       "name": "Vomiting",
-      "label": null,
+      "label": "Nausea or vomiting as recorded",
       "storage": "double",
       "measure": "nominal",
       "codes": {
@@ -246,7 +246,7 @@ window.HUB_VARIABLES = {
       "meaning": "Nausea/vomiting item",
       "analysisType": "Binary category",
       "unit": "Not applicable",
-      "issue": "The proforma combines nausea/vomiting; the SAV field name is Vomiting. Preserve that distinction.",
+      "issue": "Original values and value labels retained. See the current derived definitions; no inference from unrecorded observations.",
       "nonmissing": 85,
       "objectives": [
         1
@@ -254,7 +254,7 @@ window.HUB_VARIABLES = {
     },
     {
       "name": "fever",
-      "label": null,
+      "label": "Fever recorded - measured temperature unavailable",
       "storage": "double",
       "measure": "nominal",
       "codes": {
@@ -267,7 +267,7 @@ window.HUB_VARIABLES = {
       "meaning": "Fever checkbox",
       "analysisType": "Binary category",
       "unit": "Not applicable",
-      "issue": "Reported fever is not a measured temperature >37.5°C, the protocol MAS scoring criterion.",
+      "issue": "Original values and value labels retained. See the current derived definitions; no inference from unrecorded observations.",
       "nonmissing": 85,
       "objectives": [
         1
@@ -275,7 +275,7 @@ window.HUB_VARIABLES = {
     },
     {
       "name": "diarrhea",
-      "label": null,
+      "label": "Diarrhea reported",
       "storage": "double",
       "measure": "nominal",
       "codes": {
@@ -288,13 +288,13 @@ window.HUB_VARIABLES = {
       "meaning": "Diarrhoea",
       "analysisType": "Binary category",
       "unit": "Not applicable",
-      "issue": "Clinical description, not a primary diagnostic reference.",
+      "issue": "Original values and value labels retained. See the current derived definitions; no inference from unrecorded observations.",
       "nonmissing": 85,
       "objectives": []
     },
     {
       "name": "tendernessRIF",
-      "label": null,
+      "label": "Right iliac fossa tenderness recorded",
       "storage": "double",
       "measure": "nominal",
       "codes": {
@@ -307,7 +307,7 @@ window.HUB_VARIABLES = {
       "meaning": "Right iliac fossa tenderness",
       "analysisType": "Binary category",
       "unit": "Not applicable",
-      "issue": "This is the recorded tenderness item and a MAS component; no additional generic tenderness field exists.",
+      "issue": "Original values and value labels retained. See the current derived definitions; no inference from unrecorded observations.",
       "nonmissing": 85,
       "objectives": [
         1
@@ -315,7 +315,7 @@ window.HUB_VARIABLES = {
     },
     {
       "name": "reboundtenderness",
-      "label": null,
+      "label": "Rebound tenderness recorded",
       "storage": "double",
       "measure": "nominal",
       "codes": {
@@ -328,7 +328,7 @@ window.HUB_VARIABLES = {
       "meaning": "Rebound tenderness",
       "analysisType": "Binary category",
       "unit": "Not applicable",
-      "issue": "Recorded MAS component; do not give it a negative weight.",
+      "issue": "Original values and value labels retained. See the current derived definitions; no inference from unrecorded observations.",
       "nonmissing": 85,
       "objectives": [
         1
@@ -336,7 +336,7 @@ window.HUB_VARIABLES = {
     },
     {
       "name": "signs",
-      "label": null,
+      "label": "Single selected clinical sign category - other signs not excluded",
       "storage": "double",
       "measure": "nominal",
       "codes": {
@@ -352,13 +352,13 @@ window.HUB_VARIABLES = {
       "meaning": "Recorded clinical sign category",
       "analysisType": "Nominal category",
       "unit": "Not applicable",
-      "issue": "One coded sign category, not separate yes/no fields for each sign. “generalised” is retained without guessing its meaning.",
+      "issue": "Original values and value labels retained. See the current derived definitions; no inference from unrecorded observations.",
       "nonmissing": 85,
       "objectives": []
     },
     {
       "name": "comorbidity",
-      "label": null,
+      "label": "Single recorded comorbidity category",
       "storage": "double",
       "measure": "nominal",
       "codes": {
@@ -377,7 +377,7 @@ window.HUB_VARIABLES = {
       "meaning": "Comorbidity category",
       "analysisType": "Nominal category",
       "unit": "Not applicable",
-      "issue": "RVS is unexpanded; hepatitis does not establish active infection. Neither label alone proves protocol ineligibility.",
+      "issue": "RVS is an undefined value label, not a confirmed diagnosis or automatic exclusion.",
       "nonmissing": 85,
       "objectives": [
         1,
@@ -386,9 +386,9 @@ window.HUB_VARIABLES = {
     },
     {
       "name": "diagnostic_confi1",
-      "label": null,
+      "label": "Doctor's diagnostic confidence before receiving MAS and hs-CRP information.",
       "storage": "double",
-      "measure": "nominal",
+      "measure": "ordinal",
       "codes": {
         "1.0": "not confident at all",
         "2.0": "slightly confident",
@@ -401,8 +401,8 @@ window.HUB_VARIABLES = {
       "invalid": 0,
       "meaning": "Diagnostic confidence before combined assessment",
       "analysisType": "Ordered five-category rating",
-      "unit": "Category code 1–5",
-      "issue": "Timing and same-rater pairing were confirmed by the liaison; not documented by a SAV variable label.",
+      "unit": "Category code 1\u20135",
+      "issue": "Original values and value labels retained. See the current derived definitions; no inference from unrecorded observations.",
       "nonmissing": 85,
       "objectives": [
         5
@@ -410,7 +410,7 @@ window.HUB_VARIABLES = {
     },
     {
       "name": "pcv",
-      "label": null,
+      "label": "Packed cell volume in percent under the specified working representation",
       "storage": "double",
       "measure": "scale",
       "codes": {},
@@ -419,14 +419,14 @@ window.HUB_VARIABLES = {
       "invalid": null,
       "meaning": "Packed cell volume",
       "analysisType": "Numerical blood measure",
-      "unit": "Unit not recorded; confirmation required",
-      "issue": "Do not assume percentages from the field name alone.",
+      "unit": "Percent",
+      "issue": "Original values and value labels retained. See the current derived definitions; no inference from unrecorded observations.",
       "nonmissing": 85,
       "objectives": []
     },
     {
       "name": "wbc",
-      "label": null,
+      "label": "White blood cell count in 10^9 cells/L under the specified working unit",
       "storage": "double",
       "measure": "scale",
       "codes": {},
@@ -435,8 +435,8 @@ window.HUB_VARIABLES = {
       "invalid": null,
       "meaning": "White blood cell count",
       "analysisType": "Numerical blood measure",
-      "unit": "Protocol scoring threshold: >10 × 10⁹/L; source unit unverified",
-      "issue": "Supports the MAS audit. The absence of a source unit limits independent reconstruction.",
+      "unit": "\u00d710\u2079/L",
+      "issue": "Original values and value labels retained. See the current derived definitions; no inference from unrecorded observations.",
       "nonmissing": 85,
       "objectives": [
         1
@@ -444,7 +444,7 @@ window.HUB_VARIABLES = {
     },
     {
       "name": "neutrophil",
-      "label": null,
+      "label": "Neutrophil percentage per researcher clarification",
       "storage": "double",
       "measure": "scale",
       "codes": {},
@@ -453,16 +453,16 @@ window.HUB_VARIABLES = {
       "invalid": null,
       "meaning": "Neutrophil measurement",
       "analysisType": "Numerical blood measure",
-      "unit": "Count versus percentage unverified",
-      "issue": "Not a primary marker in these objectives; do not add it as a predictor without justification.",
+      "unit": "Percent",
+      "issue": "Original values and value labels retained. See the current derived definitions; no inference from unrecorded observations.",
       "nonmissing": 85,
       "objectives": []
     },
     {
       "name": "MAS",
-      "label": null,
+      "label": "Recorded Modified Alvarado Score - protocol range 0 to 9",
       "storage": "double",
-      "measure": "nominal",
+      "measure": "scale",
       "codes": {},
       "systemMissing": 0,
       "userMissing": [],
@@ -470,7 +470,7 @@ window.HUB_VARIABLES = {
       "meaning": "Modified Alvarado Score",
       "analysisType": "Bounded ordered clinical score",
       "unit": "Protocol maximum: 9 points",
-      "issue": "Recorded totals were retained after the earlier component audit found discrepancies; no silent correction or fabricated combined rule.",
+      "issue": "Original values and value labels retained. See the current derived definitions; no inference from unrecorded observations.",
       "nonmissing": 85,
       "objectives": [
         1,
@@ -481,9 +481,9 @@ window.HUB_VARIABLES = {
     },
     {
       "name": "AIR",
-      "label": null,
+      "label": "Recorded AIR score - assumed standard 0 to 12 range per researcher instruction",
       "storage": "double",
-      "measure": "nominal",
+      "measure": "scale",
       "codes": {},
       "systemMissing": 0,
       "userMissing": [],
@@ -491,23 +491,23 @@ window.HUB_VARIABLES = {
       "meaning": "Appendicitis Inflammatory Response score",
       "analysisType": "Stored clinical score",
       "unit": "Scoring construction not verified",
-      "issue": "Available but not the approved MAS exposure. No AIR performance analysis is added automatically.",
+      "issue": "Original values and value labels retained. See the current derived definitions; no inference from unrecorded observations.",
       "nonmissing": 85,
       "objectives": []
     },
     {
       "name": "CRP",
-      "label": null,
+      "label": "High sensitivity C reactive protein concentration in mg/L per study context",
       "storage": "double",
-      "measure": "nominal",
+      "measure": "scale",
       "codes": {},
       "systemMissing": 0,
       "userMissing": [],
       "invalid": null,
       "meaning": "Protocol hsCRP measurement",
       "analysisType": "Numerical concentration",
-      "unit": "mg/L: protocol and liaison confirmation, not a SAV unit label",
-      "issue": "Retain continuous values. >3 mg/L is assay elevation; it is not a validated appendicitis threshold or combined rule.",
+      "unit": "mg/L",
+      "issue": "Original values and value labels retained. See the current derived definitions; no inference from unrecorded observations.",
       "nonmissing": 85,
       "objectives": [
         1,
@@ -519,7 +519,7 @@ window.HUB_VARIABLES = {
     },
     {
       "name": "abd_SCAN",
-      "label": null,
+      "label": "Recorded abdominal scan diagnosis - code 3 combines normal and inconclusive",
       "storage": "double",
       "measure": "nominal",
       "codes": {
@@ -536,7 +536,7 @@ window.HUB_VARIABLES = {
       "meaning": "Abdominal scan category",
       "analysisType": "Nominal category",
       "unit": "Not applicable",
-      "issue": "The code 3 label combines normal and inconclusive; those outcomes cannot be separated from that code alone.",
+      "issue": "Original values and value labels retained. See the current derived definitions; no inference from unrecorded observations.",
       "nonmissing": 85,
       "objectives": [
         6
@@ -544,9 +544,9 @@ window.HUB_VARIABLES = {
     },
     {
       "name": "diagnostic_confi2",
-      "label": null,
+      "label": "Doctor's diagnostic confidence after receiving MAS and hs-CRP information.",
       "storage": "double",
-      "measure": "nominal",
+      "measure": "ordinal",
       "codes": {
         "1.0": "not confident at all",
         "2.0": "slightly confident",
@@ -559,8 +559,8 @@ window.HUB_VARIABLES = {
       "invalid": 0,
       "meaning": "Diagnostic confidence after combined assessment",
       "analysisType": "Ordered five-category rating",
-      "unit": "Category code 1–5",
-      "issue": "Paired within patient by liaison confirmation. Confidence is not recorded likely/unlikely diagnosis or accuracy.",
+      "unit": "Category code 1\u20135",
+      "issue": "Original values and value labels retained. See the current derived definitions; no inference from unrecorded observations.",
       "nonmissing": 85,
       "objectives": [
         5
@@ -568,7 +568,7 @@ window.HUB_VARIABLES = {
     },
     {
       "name": "INTRAOP_FINDING",
-      "label": null,
+      "label": "Single recorded intraoperative finding category",
       "storage": "double",
       "measure": "nominal",
       "codes": {
@@ -583,7 +583,7 @@ window.HUB_VARIABLES = {
       "meaning": "Intraoperative appearance",
       "analysisType": "Nominal category",
       "unit": "Not applicable",
-      "issue": "Supports evidence of surgery. Normal operative appearance does not equal normal histology.",
+      "issue": "Original values and value labels retained. See the current derived definitions; no inference from unrecorded observations.",
       "nonmissing": 85,
       "objectives": [
         2,
@@ -592,7 +592,7 @@ window.HUB_VARIABLES = {
     },
     {
       "name": "Appendix_position",
-      "label": null,
+      "label": "Appendix anatomical position as recorded",
       "storage": "double",
       "measure": "nominal",
       "codes": {
@@ -609,7 +609,7 @@ window.HUB_VARIABLES = {
       "meaning": "Appendix position",
       "analysisType": "Nominal category",
       "unit": "Not applicable",
-      "issue": "Anatomical description and supporting operation evidence; no primary diagnostic association is implied.",
+      "issue": "Original values and value labels retained. See the current derived definitions; no inference from unrecorded observations.",
       "nonmissing": 85,
       "objectives": [
         4
@@ -617,7 +617,7 @@ window.HUB_VARIABLES = {
     },
     {
       "name": "length_of_appendix",
-      "label": null,
+      "label": "Recorded appendix length in centimetres per researcher instruction",
       "storage": "double",
       "measure": "scale",
       "codes": {},
@@ -626,8 +626,8 @@ window.HUB_VARIABLES = {
       "invalid": null,
       "meaning": "Appendix length",
       "analysisType": "Numerical measurement",
-      "unit": "Unit not recorded; confirmation required",
-      "issue": "Specimen-related evidence of operation; do not invent centimetres.",
+      "unit": "Centimetres",
+      "issue": "Original values and value labels retained. See the current derived definitions; no inference from unrecorded observations.",
       "nonmissing": 85,
       "objectives": [
         4
@@ -635,7 +635,7 @@ window.HUB_VARIABLES = {
     },
     {
       "name": "histology",
-      "label": null,
+      "label": "Original detailed histopathological diagnosis",
       "storage": "double",
       "measure": "nominal",
       "codes": {
@@ -652,7 +652,7 @@ window.HUB_VARIABLES = {
       "meaning": "Appendix histology reference",
       "analysisType": "Nominal pathology category",
       "unit": "Category code",
-      "issue": "Protocol reference standard. Codes 1–5 are appendicitis labels; code 6 is negative only assuming isolated reactive lymphoid hyperplasia. Normal/abscess proforma crosswalk remains unresolved.",
+      "issue": "Original values and value labels retained. See the current derived definitions; no inference from unrecorded observations.",
       "nonmissing": 85,
       "objectives": [
         1,
@@ -664,7 +664,7 @@ window.HUB_VARIABLES = {
     },
     {
       "name": "faecolith",
-      "label": null,
+      "label": "Faecolith documented - obstruction status not distinguished",
       "storage": "double",
       "measure": "nominal",
       "codes": {
@@ -677,23 +677,23 @@ window.HUB_VARIABLES = {
       "meaning": "Faecolith present",
       "analysisType": "Binary category",
       "unit": "Not applicable",
-      "issue": "An appendix finding; not a reference diagnosis or required predictor in the approved primary analyses.",
+      "issue": "Original values and value labels retained. See the current derived definitions; no inference from unrecorded observations.",
       "nonmissing": 85,
       "objectives": []
     },
     {
       "name": "time_to_diagnosis",
-      "label": null,
+      "label": "Recorded time to diagnosis in hours",
       "storage": "double",
-      "measure": "nominal",
+      "measure": "scale",
       "codes": {},
       "systemMissing": 0,
       "userMissing": [],
       "invalid": null,
       "meaning": "Time to diagnosis",
       "analysisType": "Numerical duration",
-      "unit": "Unit not recorded; confirmation required",
-      "issue": "Only one time field exists, not separate before/after times. Faster diagnosis cannot be inferred.",
+      "unit": "Recorded hours",
+      "issue": "Original values and value labels retained. See the current derived definitions; no inference from unrecorded observations.",
       "nonmissing": 85,
       "objectives": [
         5
@@ -701,23 +701,23 @@ window.HUB_VARIABLES = {
     },
     {
       "name": "time_to_surgery",
-      "label": null,
+      "label": "Recorded time to surgery in hours",
       "storage": "double",
-      "measure": "nominal",
+      "measure": "scale",
       "codes": {},
       "systemMissing": 0,
       "userMissing": [],
       "invalid": null,
       "meaning": "Time to surgery",
       "analysisType": "Numerical duration",
-      "unit": "Unit not recorded; confirmation required",
-      "issue": "Clinical timeline context, not a priced resource or a paired diagnostic-time outcome.",
+      "unit": "Recorded hours",
+      "issue": "Original values and value labels retained. See the current derived definitions; no inference from unrecorded observations.",
       "nonmissing": 85,
       "objectives": []
     },
     {
       "name": "postop_complication",
-      "label": null,
+      "label": "Recorded postoperative complication category",
       "storage": "double",
       "measure": "nominal",
       "codes": {
@@ -736,7 +736,7 @@ window.HUB_VARIABLES = {
       "meaning": "Postoperative complication category",
       "analysisType": "Nominal category",
       "unit": "Not applicable",
-      "issue": "Complication labels exist, but their treatment amounts are not separately recorded.",
+      "issue": "Original values and value labels retained. See the current derived definitions; no inference from unrecorded observations.",
       "nonmissing": 85,
       "objectives": [
         6
@@ -744,17 +744,17 @@ window.HUB_VARIABLES = {
     },
     {
       "name": "Duration_of_admission",
-      "label": null,
+      "label": "Recorded duration of admission in days per researcher instruction",
       "storage": "double",
-      "measure": "nominal",
+      "measure": "scale",
       "codes": {},
       "systemMissing": 0,
       "userMissing": [],
       "invalid": null,
       "meaning": "Duration of admission",
       "analysisType": "Numerical duration",
-      "unit": "Hospital days intended in protocol; source unit unlabelled",
-      "issue": "May describe resource use, but there is no bed-day price to calculate a component cost.",
+      "unit": "Recorded days",
+      "issue": "Original values and value labels retained. See the current derived definitions; no inference from unrecorded observations.",
       "nonmissing": 85,
       "objectives": [
         6
@@ -762,7 +762,7 @@ window.HUB_VARIABLES = {
     },
     {
       "name": "total_costs",
-      "label": null,
+      "label": "Recorded total hospital cost in NGN",
       "storage": "double",
       "measure": "scale",
       "codes": {},
@@ -771,8 +771,8 @@ window.HUB_VARIABLES = {
       "invalid": null,
       "meaning": "Recorded total amount",
       "analysisType": "Numerical monetary amount",
-      "unit": "NGN: liaison confirmation",
-      "issue": "Components, price year and charges-versus-resource-cost basis are unknown. No hsCRP component or comparator amount is available.",
+      "unit": "NGN; original totals unchanged",
+      "issue": "Original values and value labels retained. See the current derived definitions; no inference from unrecorded observations.",
       "nonmissing": 85,
       "objectives": [
         6
@@ -780,9 +780,9 @@ window.HUB_VARIABLES = {
     },
     {
       "name": "diagnosis_satisfaction",
-      "label": null,
+      "label": "Patient satisfaction with diagnosis",
       "storage": "double",
-      "measure": "nominal",
+      "measure": "ordinal",
       "codes": {
         "1.0": "not satisfied",
         "2.0": "satisfied",
@@ -794,11 +794,1090 @@ window.HUB_VARIABLES = {
       "meaning": "Patient satisfaction with diagnosis",
       "analysisType": "Ordered categories",
       "unit": "Category code",
-      "issue": "The proforma identifies this as patient satisfaction, not clinician ease. Preserve the distinction.",
+      "issue": "Original values and value labels retained. See the current derived definitions; no inference from unrecorded observations.",
       "nonmissing": 85,
       "objectives": [
         5
       ]
+    },
+    {
+      "name": "AGE_GROUP",
+      "meaning": "Age group using the approved 16 year boundary",
+      "storage": "double",
+      "analysisType": "ordinal derived measurement",
+      "unit": "See exact operational definition",
+      "issue": "Nonmissing age >=0 and <16 ->1; age >=16 ->2; missing or negative -> system missing. No protocol age limits are specified. Observed ages 8 to 70 years were retained.",
+      "objectives": [
+        3,
+        4
+      ],
+      "invalid": 0,
+      "label": "Age group using the approved 16 year boundary",
+      "measure": "ordinal",
+      "codes": {
+        "1.0": "Children younger than 16 years",
+        "2.0": "Adults aged 16 years and above"
+      },
+      "systemMissing": 0,
+      "nonmissing": 85,
+      "userMissing": []
+    },
+    {
+      "name": "HISTOLOGY_ACUTE_APPENDICITIS",
+      "meaning": "Histopathological acute appendicitis reference diagnosis",
+      "storage": "double",
+      "analysisType": "nominal derived measurement",
+      "unit": "See exact operational definition",
+      "issue": "1 -> 1; 2 -> 1; 3 -> 1; 4 -> 1; 5 -> 1; 6 -> 0; other or missing source -> system missing. User agreed mapping, verified against SAV labels. Code 6 assumes isolated reactive lymphoid hyperplasia without acute appendicitis. Unlisted diagnoses are not negative.",
+      "objectives": [
+        1,
+        2,
+        3,
+        4,
+        6
+      ],
+      "invalid": 0,
+      "label": "Histopathological acute appendicitis reference diagnosis",
+      "measure": "nominal",
+      "codes": {
+        "0.0": "Negative acute appendicitis",
+        "1.0": "Positive acute appendicitis"
+      },
+      "systemMissing": 0,
+      "nonmissing": 85,
+      "userMissing": []
+    },
+    {
+      "name": "HISTOLOGY_SEVERITY",
+      "meaning": "Histological appendicitis severity independent of operative findings",
+      "storage": "double",
+      "analysisType": "nominal derived measurement",
+      "unit": "See exact operational definition",
+      "issue": "1 -> 1; 2 -> 1; 3 -> 1; 4 -> 2; 5 -> 2; 6 -> 0; other or missing source -> system missing. Researcher approved operational histology crosswalk: codes 1 to 3 simple; gangrenous code 4 and perforated code 5 complicated; isolated reactive lymphoid hyperplasia code 6 not applicable. Operative findings do not modify this classification. Not recovered as a prespecified protocol severity definition.",
+      "objectives": [
+        1,
+        2,
+        3,
+        4,
+        6
+      ],
+      "invalid": 0,
+      "label": "Histological appendicitis severity independent of operative findings",
+      "measure": "nominal",
+      "codes": {
+        "0.0": "Negative acute appendicitis / not applicable",
+        "1.0": "Simple acute appendicitis",
+        "2.0": "Complicated acute appendicitis"
+      },
+      "systemMissing": 0,
+      "nonmissing": 85,
+      "userMissing": []
+    },
+    {
+      "name": "APPENDICITIS_SEVERITY",
+      "meaning": "Histological severity alias of HISTOLOGY_SEVERITY",
+      "storage": "double",
+      "analysisType": "nominal derived measurement",
+      "unit": "See exact operational definition",
+      "issue": "Exact copy of HISTOLOGY_SEVERITY; no operative override. ",
+      "objectives": [
+        1,
+        2,
+        3,
+        4,
+        6
+      ],
+      "invalid": 0,
+      "label": "Histological severity alias of HISTOLOGY_SEVERITY",
+      "measure": "nominal",
+      "codes": {
+        "0.0": "Negative acute appendicitis / not applicable",
+        "1.0": "Simple acute appendicitis",
+        "2.0": "Complicated acute appendicitis"
+      },
+      "systemMissing": 0,
+      "nonmissing": 85,
+      "userMissing": []
+    },
+    {
+      "name": "OPERATIVE_RUPTURE",
+      "meaning": "Operative rupture documented independently of histology",
+      "storage": "double",
+      "analysisType": "nominal derived measurement",
+      "unit": "See exact operational definition",
+      "issue": "2 -> 1; 3 -> 0; other or missing source -> system missing. Ruptured category supports Yes; normal appendix supports No. Inflamed or gangrenous alone does not explicitly exclude rupture and remains unknown. Original operative categories retained.",
+      "objectives": [
+        2,
+        4
+      ],
+      "invalid": 0,
+      "label": "Operative rupture documented independently of histology",
+      "measure": "nominal",
+      "codes": {
+        "0.0": "No rupture - normal appendix recorded",
+        "1.0": "Yes - ruptured appendix recorded"
+      },
+      "systemMissing": 64,
+      "nonmissing": 21,
+      "userMissing": []
+    },
+    {
+      "name": "FECALITH",
+      "meaning": "Documented fecalith presence",
+      "storage": "double",
+      "analysisType": "nominal derived measurement",
+      "unit": "See exact operational definition",
+      "issue": "1 -> 1; 2 -> 0; other or missing source -> system missing. Source does not distinguish incidental from obstructing fecalith. It does not determine severity.",
+      "objectives": [],
+      "invalid": 0,
+      "label": "Documented fecalith presence",
+      "measure": "nominal",
+      "codes": {
+        "0.0": "Absent",
+        "1.0": "Present"
+      },
+      "systemMissing": 0,
+      "nonmissing": 85,
+      "userMissing": []
+    },
+    {
+      "name": "DIAG_CONFIDENCE_1",
+      "meaning": "Doctor's diagnostic confidence before receiving MAS and hs-CRP information.",
+      "storage": "double",
+      "analysisType": "ordinal derived measurement",
+      "unit": "See exact operational definition",
+      "issue": "1 -> 1; 2 -> 2; 3 -> 3; 4 -> 4; 5 -> 5; other or missing source -> system missing. Researcher clarification: stage 1 is before any MAS or hsCRP information; stage 2 is after receiving both. Protocol confirms the five point scale; the supplied proforma omits confidence fields. The same clinician supplies both ratings for a case. Original responses copied, not inferred or calculated. See confidence methods note.",
+      "objectives": [
+        5
+      ],
+      "invalid": 0,
+      "label": "Doctor's diagnostic confidence before receiving MAS and hs-CRP information.",
+      "measure": "ordinal",
+      "codes": {
+        "1.0": "Not confident at all",
+        "2.0": "Slightly confident",
+        "3.0": "Moderately confident",
+        "4.0": "Very confident",
+        "5.0": "Extremely confident"
+      },
+      "systemMissing": 0,
+      "nonmissing": 85,
+      "userMissing": []
+    },
+    {
+      "name": "DIAG_CONFIDENCE_2",
+      "meaning": "Doctor's diagnostic confidence after receiving MAS and hs-CRP information.",
+      "storage": "double",
+      "analysisType": "ordinal derived measurement",
+      "unit": "See exact operational definition",
+      "issue": "1 -> 1; 2 -> 2; 3 -> 3; 4 -> 4; 5 -> 5; other or missing source -> system missing. Researcher clarification: stage 1 is before any MAS or hsCRP information; stage 2 is after receiving both. Protocol confirms the five point scale; the supplied proforma omits confidence fields. The same clinician supplies both ratings for a case. Original responses copied, not inferred or calculated. See confidence methods note.",
+      "objectives": [
+        5
+      ],
+      "invalid": 0,
+      "label": "Doctor's diagnostic confidence after receiving MAS and hs-CRP information.",
+      "measure": "ordinal",
+      "codes": {
+        "1.0": "Not confident at all",
+        "2.0": "Slightly confident",
+        "3.0": "Moderately confident",
+        "4.0": "Very confident",
+        "5.0": "Extremely confident"
+      },
+      "systemMissing": 0,
+      "nonmissing": 85,
+      "userMissing": []
+    },
+    {
+      "name": "REBOUND_TENDERNESS",
+      "meaning": "Documented rebound tenderness",
+      "storage": "double",
+      "analysisType": "nominal derived measurement",
+      "unit": "See exact operational definition",
+      "issue": "1 -> 1; 2 -> 0; other or missing source -> system missing. ",
+      "objectives": [
+        1
+      ],
+      "invalid": 0,
+      "label": "Documented rebound tenderness",
+      "measure": "nominal",
+      "codes": {
+        "0.0": "Absent",
+        "1.0": "Present"
+      },
+      "systemMissing": 0,
+      "nonmissing": 85,
+      "userMissing": []
+    },
+    {
+      "name": "RIF_TENDERNESS",
+      "meaning": "Documented right iliac fossa tenderness",
+      "storage": "double",
+      "analysisType": "nominal derived measurement",
+      "unit": "See exact operational definition",
+      "issue": "1 -> 1; 2 -> 0; other or missing source -> system missing. Tenderness is not a substitute for a separately documented RIF pain variable.",
+      "objectives": [
+        1
+      ],
+      "invalid": 0,
+      "label": "Documented right iliac fossa tenderness",
+      "measure": "nominal",
+      "codes": {
+        "0.0": "Absent",
+        "1.0": "Present"
+      },
+      "systemMissing": 0,
+      "nonmissing": 85,
+      "userMissing": []
+    },
+    {
+      "name": "POINTING_SIGN",
+      "meaning": "Pointing sign documented as the selected clinical sign",
+      "storage": "double",
+      "analysisType": "nominal derived measurement",
+      "unit": "See exact operational definition",
+      "issue": "1 -> 1; other or missing source -> system missing. Positive only extraction. Other selected categories do not document absence or exclude coexistence; they remain system missing. Source code 5 means generalized tenderness per researcher clarification.",
+      "objectives": [],
+      "invalid": 0,
+      "label": "Pointing sign documented as the selected clinical sign",
+      "measure": "nominal",
+      "codes": {
+        "0.0": "Absent",
+        "1.0": "Present"
+      },
+      "systemMissing": 38,
+      "nonmissing": 47,
+      "userMissing": []
+    },
+    {
+      "name": "ROVSING_SIGN",
+      "meaning": "Rovsing sign documented as the selected clinical sign",
+      "storage": "double",
+      "analysisType": "nominal derived measurement",
+      "unit": "See exact operational definition",
+      "issue": "2 -> 1; other or missing source -> system missing. Positive only extraction. Other selected categories do not document absence or exclude coexistence; they remain system missing. Source code 5 means generalized tenderness per researcher clarification.",
+      "objectives": [],
+      "invalid": 0,
+      "label": "Rovsing sign documented as the selected clinical sign",
+      "measure": "nominal",
+      "codes": {
+        "0.0": "Absent",
+        "1.0": "Present"
+      },
+      "systemMissing": 72,
+      "nonmissing": 13,
+      "userMissing": []
+    },
+    {
+      "name": "PSOAS_SIGN",
+      "meaning": "Psoas sign documented as the selected clinical sign",
+      "storage": "double",
+      "analysisType": "nominal derived measurement",
+      "unit": "See exact operational definition",
+      "issue": "3 -> 1; other or missing source -> system missing. Positive only extraction. Other selected categories do not document absence or exclude coexistence; they remain system missing. Source code 5 means generalized tenderness per researcher clarification.",
+      "objectives": [],
+      "invalid": 0,
+      "label": "Psoas sign documented as the selected clinical sign",
+      "measure": "nominal",
+      "codes": {
+        "0.0": "Absent",
+        "1.0": "Present"
+      },
+      "systemMissing": 65,
+      "nonmissing": 20,
+      "userMissing": []
+    },
+    {
+      "name": "OBTURATOR_SIGN",
+      "meaning": "Obturator sign documented as the selected clinical sign",
+      "storage": "double",
+      "analysisType": "nominal derived measurement",
+      "unit": "See exact operational definition",
+      "issue": "4 -> 1; other or missing source -> system missing. Positive only extraction. Other selected categories do not document absence or exclude coexistence; they remain system missing. Source code 5 means generalized tenderness per researcher clarification.",
+      "objectives": [],
+      "invalid": 0,
+      "label": "Obturator sign documented as the selected clinical sign",
+      "measure": "nominal",
+      "codes": {
+        "0.0": "Absent",
+        "1.0": "Present"
+      },
+      "systemMissing": 81,
+      "nonmissing": 4,
+      "userMissing": []
+    },
+    {
+      "name": "GENERALIZED_TENDERNESS",
+      "meaning": "Generalized tenderness documented as the selected clinical sign",
+      "storage": "double",
+      "analysisType": "nominal derived measurement",
+      "unit": "See exact operational definition",
+      "issue": "5 -> 1; other or missing source -> system missing. Researcher confirms signs code 5 means generalized tenderness. Other selected categories remain unknown, not absent.",
+      "objectives": [],
+      "invalid": 0,
+      "label": "Generalized tenderness documented as the selected clinical sign",
+      "measure": "nominal",
+      "codes": {
+        "0.0": "Absent",
+        "1.0": "Present"
+      },
+      "systemMissing": 84,
+      "nonmissing": 1,
+      "userMissing": []
+    },
+    {
+      "name": "MAS_CATEGORY",
+      "meaning": "Modified Alvarado Score category using approved protocol boundaries",
+      "storage": "double",
+      "analysisType": "ordinal derived measurement",
+      "unit": "See exact operational definition",
+      "issue": "Integer MAS 0 to 4 ->1; 5 to 6 ->2; 7 to 9 ->3; other or missing ->system missing. Descriptive probability labels follow the requested category names; they do not provide an independently validated disease classification. No original MAS was recalculated.",
+      "objectives": [
+        1,
+        3,
+        4,
+        6
+      ],
+      "invalid": 0,
+      "label": "Modified Alvarado Score category using approved protocol boundaries",
+      "measure": "ordinal",
+      "codes": {
+        "1.0": "Low probability (0 to 4)",
+        "2.0": "Intermediate probability / equivocal (5 to 6)",
+        "3.0": "High probability (7 to 9)"
+      },
+      "systemMissing": 0,
+      "nonmissing": 85,
+      "userMissing": []
+    },
+    {
+      "name": "HS_CRP_3MG_CATEGORY",
+      "meaning": "hsCRP elevation using study laboratory upper reference limit of 3 mg/L",
+      "storage": "double",
+      "analysisType": "nominal derived measurement",
+      "unit": "See exact operational definition",
+      "issue": "Nonnegative nonmissing CRP <=3 ->0; CRP >3 ->1; negative or missing ->system missing. Protocol specifies elevation above 3 mg/L. This is a study laboratory elevation threshold, not a universally validated appendicitis cutoff. Continuous CRP is retained without conversion.",
+      "objectives": [
+        1,
+        2,
+        3,
+        4,
+        6
+      ],
+      "invalid": 0,
+      "label": "hsCRP elevation using study laboratory upper reference limit of 3 mg/L",
+      "measure": "nominal",
+      "codes": {
+        "0.0": "At or below 3 mg/L",
+        "1.0": "Above 3 mg/L"
+      },
+      "systemMissing": 0,
+      "nonmissing": 85,
+      "userMissing": []
+    },
+    {
+      "name": "SCAN_DIAGNOSIS",
+      "meaning": "Standardized recorded abdominal scan diagnosis - ambiguous source code 3 unclassified",
+      "storage": "double",
+      "analysisType": "nominal derived measurement",
+      "unit": "See exact operational definition",
+      "issue": "1 -> 1; 4 -> 2; 2 -> 3; 5 -> 5; 6 -> 9; other or missing source -> system missing. Source code 3 combines normal study and inconclusive. Its 11 records remain system missing in this derived field and require source report review. Code 9 is user missing. No scan accuracy binary was fabricated.",
+      "objectives": [
+        6
+      ],
+      "invalid": 0,
+      "label": "Standardized recorded abdominal scan diagnosis - ambiguous source code 3 unclassified",
+      "measure": "nominal",
+      "codes": {
+        "1.0": "Acute appendicitis",
+        "2.0": "Appendiceal mass",
+        "3.0": "Other diagnosis",
+        "4.0": "Normal study",
+        "5.0": "Inconclusive",
+        "9.0": "Not done / not performed"
+      },
+      "systemMissing": 11,
+      "nonmissing": 74,
+      "userMissing": [
+        {
+          "lo": 9.0,
+          "hi": 9.0
+        }
+      ]
+    },
+    {
+      "name": "INTRAOP_FINDING_STD",
+      "meaning": "Standardized single recorded intraoperative finding",
+      "storage": "double",
+      "analysisType": "nominal derived measurement",
+      "unit": "See exact operational definition",
+      "issue": "1 -> 1; 2 -> 2; 4 -> 3; 3 -> 4; other or missing source -> system missing. INTRAOP_FINDING already exists; an STD suffix avoids overwriting it. The single selected source category does not exclude additional operative findings; no separate absent indicators were inferred.",
+      "objectives": [
+        2,
+        4
+      ],
+      "invalid": 0,
+      "label": "Standardized single recorded intraoperative finding",
+      "measure": "nominal",
+      "codes": {
+        "1.0": "Inflamed appendix",
+        "2.0": "Ruptured / perforated appendix",
+        "3.0": "Gangrenous appendix",
+        "4.0": "Normal appendix",
+        "5.0": "Other documented finding"
+      },
+      "systemMissing": 0,
+      "nonmissing": 85,
+      "userMissing": []
+    },
+    {
+      "name": "SUPERFICIAL_SSI",
+      "meaning": "Recorded superficial surgical site infection status",
+      "storage": "double",
+      "analysisType": "nominal derived measurement",
+      "unit": "See exact operational definition",
+      "issue": "1 -> 1; 7 -> 0; other or missing source -> system missing. Selected complication ->Yes; explicit none ->No; other categories ->unknown. See postoperative complication definitions.",
+      "objectives": [
+        6
+      ],
+      "invalid": 0,
+      "label": "Recorded superficial surgical site infection status",
+      "measure": "nominal",
+      "codes": {
+        "0.0": "No",
+        "1.0": "Yes"
+      },
+      "systemMissing": 2,
+      "nonmissing": 83,
+      "userMissing": []
+    },
+    {
+      "name": "DEEP_SSI",
+      "meaning": "Recorded deep surgical site infection status",
+      "storage": "double",
+      "analysisType": "nominal derived measurement",
+      "unit": "See exact operational definition",
+      "issue": "2 -> 1; 7 -> 0; other or missing source -> system missing. Selected complication ->Yes; explicit none ->No; other categories ->unknown. See postoperative complication definitions.",
+      "objectives": [
+        6
+      ],
+      "invalid": 0,
+      "label": "Recorded deep surgical site infection status",
+      "measure": "nominal",
+      "codes": {
+        "0.0": "No",
+        "1.0": "Yes"
+      },
+      "systemMissing": 7,
+      "nonmissing": 78,
+      "userMissing": []
+    },
+    {
+      "name": "ORGAN_SPACE_SSI",
+      "meaning": "Recorded organ space surgical site infection status",
+      "storage": "double",
+      "analysisType": "nominal derived measurement",
+      "unit": "See exact operational definition",
+      "issue": "3 -> 1; 7 -> 0; other or missing source -> system missing. Selected complication ->Yes; explicit none ->No; other categories ->unknown. See postoperative complication definitions.",
+      "objectives": [
+        6
+      ],
+      "invalid": 0,
+      "label": "Recorded organ space surgical site infection status",
+      "measure": "nominal",
+      "codes": {
+        "0.0": "No",
+        "1.0": "Yes"
+      },
+      "systemMissing": 7,
+      "nonmissing": 78,
+      "userMissing": []
+    },
+    {
+      "name": "INCISIONAL_COMPLICATION",
+      "meaning": "Recorded incisional dehiscence status",
+      "storage": "double",
+      "analysisType": "nominal derived measurement",
+      "unit": "See exact operational definition",
+      "issue": "4 -> 1; 7 -> 0; other or missing source -> system missing. Selected complication ->Yes; explicit none ->No; other categories ->unknown. See postoperative complication definitions.",
+      "objectives": [
+        6
+      ],
+      "invalid": 0,
+      "label": "Recorded incisional dehiscence status",
+      "measure": "nominal",
+      "codes": {
+        "0.0": "No",
+        "1.0": "Yes"
+      },
+      "systemMissing": 7,
+      "nonmissing": 78,
+      "userMissing": []
+    },
+    {
+      "name": "INCISIONAL_HERNIA",
+      "meaning": "Recorded incisional hernia status",
+      "storage": "double",
+      "analysisType": "nominal derived measurement",
+      "unit": "See exact operational definition",
+      "issue": "5 -> 1; 7 -> 0; other or missing source -> system missing. Selected complication ->Yes; explicit none ->No; other categories ->unknown. See postoperative complication definitions.",
+      "objectives": [
+        6
+      ],
+      "invalid": 0,
+      "label": "Recorded incisional hernia status",
+      "measure": "nominal",
+      "codes": {
+        "0.0": "No",
+        "1.0": "Yes"
+      },
+      "systemMissing": 7,
+      "nonmissing": 78,
+      "userMissing": []
+    },
+    {
+      "name": "POSTOPERATIVE_ILEUS",
+      "meaning": "Recorded postoperative ileus status",
+      "storage": "double",
+      "analysisType": "nominal derived measurement",
+      "unit": "See exact operational definition",
+      "issue": "8 -> 1; 7 -> 0; other or missing source -> system missing. Selected complication ->Yes; explicit none ->No; other categories ->unknown. See postoperative complication definitions.",
+      "objectives": [
+        6
+      ],
+      "invalid": 0,
+      "label": "Recorded postoperative ileus status",
+      "measure": "nominal",
+      "codes": {
+        "0.0": "No",
+        "1.0": "Yes"
+      },
+      "systemMissing": 5,
+      "nonmissing": 80,
+      "userMissing": []
+    },
+    {
+      "name": "POSTOPERATIVE_DEATH",
+      "meaning": "Recorded postoperative death status",
+      "storage": "double",
+      "analysisType": "nominal derived measurement",
+      "unit": "See exact operational definition",
+      "issue": "6 -> 1; 7 -> 0; other or missing source -> system missing. Selected complication ->Yes; explicit none ->No; other categories ->unknown. See postoperative complication definitions.",
+      "objectives": [
+        6
+      ],
+      "invalid": 0,
+      "label": "Recorded postoperative death status",
+      "measure": "nominal",
+      "codes": {
+        "0.0": "No",
+        "1.0": "Yes"
+      },
+      "systemMissing": 7,
+      "nonmissing": 78,
+      "userMissing": []
+    },
+    {
+      "name": "ANY_POSTOP_COMPLICATION",
+      "meaning": "Any documented postoperative complication in the recorded category",
+      "storage": "double",
+      "analysisType": "nominal derived measurement",
+      "unit": "See exact operational definition",
+      "issue": "1 -> 1; 2 -> 1; 3 -> 1; 4 -> 1; 5 -> 1; 6 -> 1; 7 -> 0; 8 -> 1; other or missing source -> system missing. No is assigned only to explicit source category none; see methods notes.",
+      "objectives": [
+        6
+      ],
+      "invalid": 0,
+      "label": "Any documented postoperative complication in the recorded category",
+      "measure": "nominal",
+      "codes": {
+        "0.0": "No documented postoperative complication",
+        "1.0": "At least one postoperative complication"
+      },
+      "systemMissing": 0,
+      "nonmissing": 85,
+      "userMissing": []
+    },
+    {
+      "name": "DIAGNOSTIC_SATISFACTION",
+      "meaning": "Patient satisfaction with diagnosis using original questionnaire wording",
+      "storage": "double",
+      "analysisType": "ordinal derived measurement",
+      "unit": "See exact operational definition",
+      "issue": "1 -> 1; 2 -> 2; 3 -> 3; other or missing source -> system missing. Original questionnaire includes not satisfied, not slightly satisfied. This is patient satisfaction, distinct from clinician confidence.",
+      "objectives": [
+        5
+      ],
+      "invalid": 0,
+      "label": "Patient satisfaction with diagnosis using original questionnaire wording",
+      "measure": "ordinal",
+      "codes": {
+        "1.0": "Not satisfied",
+        "2.0": "Satisfied",
+        "3.0": "Very satisfied"
+      },
+      "systemMissing": 0,
+      "nonmissing": 85,
+      "userMissing": []
+    },
+    {
+      "name": "ANOREXIA_PRESENT",
+      "meaning": "Anorexia presence from labelled source responses",
+      "storage": "double",
+      "analysisType": "nominal derived measurement",
+      "unit": "See exact operational definition",
+      "issue": "1 -> 1; 2 -> 0; other or missing source -> system missing. Only labelled responses are classified; unlabelled source values remain unchanged and derived status is system missing.",
+      "objectives": [
+        1
+      ],
+      "invalid": 0,
+      "label": "Anorexia presence from labelled source responses",
+      "measure": "nominal",
+      "codes": {
+        "0.0": "No",
+        "1.0": "Yes"
+      },
+      "systemMissing": 1,
+      "nonmissing": 84,
+      "userMissing": []
+    },
+    {
+      "name": "ABDOMINAL_PAIN_DURATION_HRS",
+      "meaning": "Recorded abdominal pain duration in hours",
+      "storage": "double",
+      "analysisType": "scale derived measurement",
+      "unit": "See exact operational definition",
+      "issue": "Exact copy of source; no multiplication, division or conversion. Hours are the explicitly requested working unit. Fractional recorded values such as 0.25 and 0.5 remain unchanged; no days to hours conversion was made.",
+      "objectives": [],
+      "invalid": null,
+      "label": "Recorded abdominal pain duration in hours",
+      "measure": "scale",
+      "codes": {},
+      "systemMissing": 0,
+      "nonmissing": 85,
+      "userMissing": []
+    },
+    {
+      "name": "APPENDIX_LENGTH_CM",
+      "meaning": "Recorded appendix length in centimetres",
+      "storage": "double",
+      "analysisType": "scale derived measurement",
+      "unit": "See exact operational definition",
+      "issue": "Exact copy of source; no multiplication, division or conversion. ",
+      "objectives": [
+        4
+      ],
+      "invalid": null,
+      "label": "Recorded appendix length in centimetres",
+      "measure": "scale",
+      "codes": {},
+      "systemMissing": 0,
+      "nonmissing": 85,
+      "userMissing": []
+    },
+    {
+      "name": "TIME_TO_DIAGNOSIS_HRS",
+      "meaning": "Recorded time to diagnosis in hours",
+      "storage": "double",
+      "analysisType": "scale derived measurement",
+      "unit": "See exact operational definition",
+      "issue": "Exact copy of source; no multiplication, division or conversion. Exact recorded interval; see methods notes.",
+      "objectives": [
+        5
+      ],
+      "invalid": null,
+      "label": "Recorded time to diagnosis in hours",
+      "measure": "scale",
+      "codes": {},
+      "systemMissing": 0,
+      "nonmissing": 85,
+      "userMissing": []
+    },
+    {
+      "name": "TIME_TO_SURGERY_HRS",
+      "meaning": "Recorded time to surgery in hours",
+      "storage": "double",
+      "analysisType": "scale derived measurement",
+      "unit": "See exact operational definition",
+      "issue": "Exact copy of source; no multiplication, division or conversion. Exact recorded interval; see methods notes.",
+      "objectives": [],
+      "invalid": null,
+      "label": "Recorded time to surgery in hours",
+      "measure": "scale",
+      "codes": {},
+      "systemMissing": 0,
+      "nonmissing": 85,
+      "userMissing": []
+    },
+    {
+      "name": "LENGTH_OF_STAY_DAYS",
+      "meaning": "Recorded length of stay in days",
+      "storage": "double",
+      "analysisType": "scale derived measurement",
+      "unit": "See exact operational definition",
+      "issue": "Exact copy of source; no multiplication, division or conversion. Exact recorded days; see methods notes.",
+      "objectives": [
+        6
+      ],
+      "invalid": null,
+      "label": "Recorded length of stay in days",
+      "measure": "scale",
+      "codes": {},
+      "systemMissing": 0,
+      "nonmissing": 85,
+      "userMissing": []
+    },
+    {
+      "name": "TOTAL_COST",
+      "meaning": "Recorded total hospital cost in NGN",
+      "storage": "double",
+      "analysisType": "scale derived measurement",
+      "unit": "See exact operational definition",
+      "issue": "Exact copy of source; no multiplication, division or conversion. Exact recorded NGN totals; see methods notes.",
+      "objectives": [
+        6
+      ],
+      "invalid": null,
+      "label": "Recorded total hospital cost in NGN",
+      "measure": "scale",
+      "codes": {},
+      "systemMissing": 0,
+      "nonmissing": 85,
+      "userMissing": []
+    },
+    {
+      "name": "ABDOMINAL_PAIN_DURATION_CAT",
+      "meaning": "Recorded hour category of recorded abdominal pain duration",
+      "storage": "double",
+      "analysisType": "ordinal derived measurement",
+      "unit": "See exact operational definition",
+      "issue": "0 to 6 inclusive ->1; >6 to 12 ->2; >12 to 24 ->3; >24 ->4; negative or missing ->system missing. Analyst operational categories explicitly authorized in the correction prompt; not protocol prespecified. All original numeric values treated as hours without rescaling.",
+      "objectives": [],
+      "invalid": 0,
+      "label": "Recorded hour category of recorded abdominal pain duration",
+      "measure": "ordinal",
+      "codes": {
+        "1.0": "6 hours or less",
+        "2.0": "More than 6 to 12 hours",
+        "3.0": "More than 12 to 24 hours",
+        "4.0": "More than 24 hours"
+      },
+      "systemMissing": 0,
+      "nonmissing": 85,
+      "userMissing": []
+    },
+    {
+      "name": "TIME_TO_DIAGNOSIS_CAT",
+      "meaning": "Recorded hour category of recorded time to diagnosis",
+      "storage": "double",
+      "analysisType": "ordinal derived measurement",
+      "unit": "See exact operational definition",
+      "issue": "0 to 6 inclusive ->1; >6 to 12 ->2; >12 to 24 ->3; >24 ->4; negative or missing ->system missing. Analyst operational categories explicitly authorized in the correction prompt; not protocol prespecified. All original numeric values treated as hours without rescaling.",
+      "objectives": [
+        5
+      ],
+      "invalid": 0,
+      "label": "Recorded hour category of recorded time to diagnosis",
+      "measure": "ordinal",
+      "codes": {
+        "1.0": "6 hours or less",
+        "2.0": "More than 6 to 12 hours",
+        "3.0": "More than 12 to 24 hours",
+        "4.0": "More than 24 hours"
+      },
+      "systemMissing": 0,
+      "nonmissing": 85,
+      "userMissing": []
+    },
+    {
+      "name": "TIME_TO_SURGERY_CAT",
+      "meaning": "Recorded hour category of recorded time to surgery",
+      "storage": "double",
+      "analysisType": "ordinal derived measurement",
+      "unit": "See exact operational definition",
+      "issue": "0 to 6 inclusive ->1; >6 to 12 ->2; >12 to 24 ->3; >24 ->4; negative or missing ->system missing. Analyst operational categories explicitly authorized in the correction prompt; not protocol prespecified. All original numeric values treated as hours without rescaling.",
+      "objectives": [],
+      "invalid": 0,
+      "label": "Recorded hour category of recorded time to surgery",
+      "measure": "ordinal",
+      "codes": {
+        "1.0": "6 hours or less",
+        "2.0": "More than 6 to 12 hours",
+        "3.0": "More than 12 to 24 hours",
+        "4.0": "More than 24 hours"
+      },
+      "systemMissing": 0,
+      "nonmissing": 85,
+      "userMissing": []
+    },
+    {
+      "name": "LENGTH_OF_STAY_CAT",
+      "meaning": "Provisional recorded hospital stay category in days",
+      "storage": "double",
+      "analysisType": "ordinal derived measurement",
+      "unit": "See exact operational definition",
+      "issue": "1 to 3 inclusive ->1; >3 to 7 ->2; >7 ->3; <1 or missing ->system missing. All observed stays are integer days from 2 to 8. Zero and same day stays would remain unclassified rather than forced into 1 to 3 days; no such observations occur.",
+      "objectives": [
+        6
+      ],
+      "invalid": 0,
+      "label": "Provisional recorded hospital stay category in days",
+      "measure": "ordinal",
+      "codes": {
+        "1.0": "1 to 3 days",
+        "2.0": "4 to 7 days",
+        "3.0": "More than 7 days"
+      },
+      "systemMissing": 0,
+      "nonmissing": 85,
+      "userMissing": []
+    },
+    {
+      "name": "AIR_CATEGORY",
+      "meaning": "Provisional standard AIR score probability category",
+      "storage": "double",
+      "analysisType": "ordinal derived measurement",
+      "unit": "See exact operational definition",
+      "issue": "Integer AIR 0 to 4 ->1; 5 to 8 ->2; 9 to 12 ->3; other or missing ->system missing. Standard AIR identity and 0 to 12 range are working assumptions explicitly supplied by the researcher. The protocol and proforma do not define AIR. Original score was not recalculated.",
+      "objectives": [],
+      "invalid": 0,
+      "label": "Provisional standard AIR score probability category",
+      "measure": "ordinal",
+      "codes": {
+        "1.0": "Low probability (0 to 4)",
+        "2.0": "Intermediate probability (5 to 8)",
+        "3.0": "High probability (9 to 12)"
+      },
+      "systemMissing": 0,
+      "nonmissing": 85,
+      "userMissing": []
+    },
+    {
+      "name": "PCV_REF_LOW",
+      "meaning": "PCV external reference low bound",
+      "storage": "double",
+      "analysisType": "scale derived measurement",
+      "unit": "See exact operational definition",
+      "issue": "Assign age and sex specific reference bound; age below 8 or missing required age or sex remains missing; adult bounds have no upper age cap. External research reference, not an EKSUTH laboratory limit. Scope covers the observed ages 8 to 70. Source: Mayo CBC. See reference interval table in dictionary.",
+      "objectives": [
+        3,
+        4
+      ],
+      "invalid": null,
+      "label": "PCV external reference low bound",
+      "measure": "scale",
+      "codes": {},
+      "systemMissing": 0,
+      "nonmissing": 85,
+      "userMissing": []
+    },
+    {
+      "name": "PCV_REF_HIGH",
+      "meaning": "PCV external reference high bound",
+      "storage": "double",
+      "analysisType": "scale derived measurement",
+      "unit": "See exact operational definition",
+      "issue": "Assign age and sex specific reference bound; age below 8 or missing required age or sex remains missing; adult bounds have no upper age cap. External research reference, not an EKSUTH laboratory limit. Scope covers the observed ages 8 to 70. Source: Mayo CBC. See reference interval table in dictionary.",
+      "objectives": [
+        3,
+        4
+      ],
+      "invalid": null,
+      "label": "PCV external reference high bound",
+      "measure": "scale",
+      "codes": {},
+      "systemMissing": 0,
+      "nonmissing": 85,
+      "userMissing": []
+    },
+    {
+      "name": "PCV_CATEGORY",
+      "meaning": "PCV classification against external reference intervals",
+      "storage": "double",
+      "analysisType": "ordinal derived measurement",
+      "unit": "See exact operational definition",
+      "issue": "Below lower reference bound ->1; within inclusive bounds ->2; above upper bound ->3; invalid measurement or missing reference ->system missing. Units follow researcher instructions. Reference intervals vary by age and, for PCV, sex. No diagnostic disease state is inferred. Percentage data retained without conversion.",
+      "objectives": [
+        3,
+        4
+      ],
+      "invalid": 0,
+      "label": "PCV classification against external reference intervals",
+      "measure": "ordinal",
+      "codes": {
+        "1.0": "Low",
+        "2.0": "Normal",
+        "3.0": "High"
+      },
+      "systemMissing": 0,
+      "nonmissing": 85,
+      "userMissing": []
+    },
+    {
+      "name": "WBC_REF_LOW",
+      "meaning": "WBC external reference low bound",
+      "storage": "double",
+      "analysisType": "scale derived measurement",
+      "unit": "See exact operational definition",
+      "issue": "Assign age specific reference bound; age below 8 or missing required age or sex remains missing; adult bounds have no upper age cap. External research reference, not an EKSUTH laboratory limit. Scope covers the observed ages 8 to 70. Source: Mayo CBC. See reference interval table in dictionary.",
+      "objectives": [
+        3,
+        4
+      ],
+      "invalid": null,
+      "label": "WBC external reference low bound",
+      "measure": "scale",
+      "codes": {},
+      "systemMissing": 0,
+      "nonmissing": 85,
+      "userMissing": []
+    },
+    {
+      "name": "WBC_REF_HIGH",
+      "meaning": "WBC external reference high bound",
+      "storage": "double",
+      "analysisType": "scale derived measurement",
+      "unit": "See exact operational definition",
+      "issue": "Assign age specific reference bound; age below 8 or missing required age or sex remains missing; adult bounds have no upper age cap. External research reference, not an EKSUTH laboratory limit. Scope covers the observed ages 8 to 70. Source: Mayo CBC. See reference interval table in dictionary.",
+      "objectives": [
+        3,
+        4
+      ],
+      "invalid": null,
+      "label": "WBC external reference high bound",
+      "measure": "scale",
+      "codes": {},
+      "systemMissing": 0,
+      "nonmissing": 85,
+      "userMissing": []
+    },
+    {
+      "name": "WBC_CATEGORY",
+      "meaning": "WBC classification against external reference intervals",
+      "storage": "double",
+      "analysisType": "ordinal derived measurement",
+      "unit": "See exact operational definition",
+      "issue": "Below lower reference bound ->1; within inclusive bounds ->2; above upper bound ->3; invalid measurement or missing reference ->system missing. WBC laboratory intervals are distinct from the protocol MAS diagnostic threshold. No conversion of original counts.",
+      "objectives": [
+        1,
+        3,
+        4
+      ],
+      "invalid": 0,
+      "label": "WBC classification against external reference intervals",
+      "measure": "ordinal",
+      "codes": {
+        "1.0": "Low",
+        "2.0": "Normal",
+        "3.0": "High"
+      },
+      "systemMissing": 0,
+      "nonmissing": 85,
+      "userMissing": []
+    },
+    {
+      "name": "NEUTROPHIL_REF_LOW",
+      "meaning": "NEUTROPHIL external reference low bound",
+      "storage": "double",
+      "analysisType": "scale derived measurement",
+      "unit": "See exact operational definition",
+      "issue": "Assign age specific reference bound; age below 8 or missing required age or sex remains missing; adult bounds have no upper age cap. External research reference, not an EKSUTH laboratory limit. Scope covers the observed ages 8 to 70. Source: Children Minnesota CBC. See reference interval table in dictionary.",
+      "objectives": [
+        3,
+        4
+      ],
+      "invalid": null,
+      "label": "NEUTROPHIL external reference low bound",
+      "measure": "scale",
+      "codes": {},
+      "systemMissing": 0,
+      "nonmissing": 85,
+      "userMissing": []
+    },
+    {
+      "name": "NEUTROPHIL_REF_HIGH",
+      "meaning": "NEUTROPHIL external reference high bound",
+      "storage": "double",
+      "analysisType": "scale derived measurement",
+      "unit": "See exact operational definition",
+      "issue": "Assign age specific reference bound; age below 8 or missing required age or sex remains missing; adult bounds have no upper age cap. External research reference, not an EKSUTH laboratory limit. Scope covers the observed ages 8 to 70. Source: Children Minnesota CBC. See reference interval table in dictionary.",
+      "objectives": [
+        3,
+        4
+      ],
+      "invalid": null,
+      "label": "NEUTROPHIL external reference high bound",
+      "measure": "scale",
+      "codes": {},
+      "systemMissing": 0,
+      "nonmissing": 85,
+      "userMissing": []
+    },
+    {
+      "name": "NEUTROPHIL_CATEGORY",
+      "meaning": "NEUTROPHIL classification against external reference intervals",
+      "storage": "double",
+      "analysisType": "ordinal derived measurement",
+      "unit": "See exact operational definition",
+      "issue": "Below lower reference bound ->1; within inclusive bounds ->2; above upper bound ->3; invalid measurement or missing reference ->system missing. Units follow researcher instructions. Reference intervals vary by age and, for PCV, sex. No diagnostic disease state is inferred. Percentage data retained without conversion.",
+      "objectives": [
+        3,
+        4
+      ],
+      "invalid": 0,
+      "label": "NEUTROPHIL classification against external reference intervals",
+      "measure": "ordinal",
+      "codes": {
+        "1.0": "Low",
+        "2.0": "Normal",
+        "3.0": "High"
+      },
+      "systemMissing": 0,
+      "nonmissing": 85,
+      "userMissing": []
+    },
+    {
+      "name": "WBC_MAS_THRESHOLD",
+      "meaning": "Protocol MAS leukocytosis threshold greater than 10 x 10^9 cells/L",
+      "storage": "double",
+      "analysisType": "nominal derived measurement",
+      "unit": "See exact operational definition",
+      "issue": "Nonnegative WBC <=10 ->0; WBC >10 ->1; missing or negative ->system missing. Protocol MAS table specifies this exact cutoff. This does not replace the age appropriate WBC laboratory reference classification. No separate neutrophil threshold is in the approved Modified Alvarado Score.",
+      "objectives": [
+        1
+      ],
+      "invalid": 0,
+      "label": "Protocol MAS leukocytosis threshold greater than 10 x 10^9 cells/L",
+      "measure": "nominal",
+      "codes": {
+        "0.0": "Not above the threshold",
+        "1.0": "Above the threshold"
+      },
+      "systemMissing": 0,
+      "nonmissing": 85,
+      "userMissing": []
+    },
+    {
+      "name": "TOTAL_COST_CAT",
+      "meaning": "Sample relative total cost tertile group in Nigerian naira",
+      "storage": "double",
+      "analysisType": "ordinal derived measurement",
+      "unit": "See exact operational definition",
+      "issue": "Cost >=0 and <= 217450 ->1; >217450 to 238900 ->2; >238900 ->3; negative or missing ->system missing. Cut points are the original 85 nonnegative recorded costs at the one third and two thirds empirical quantiles using linear interpolation (type 7). Tied costs stay together, so group sizes can differ. Boundaries are sample relative, not universal economic or protocol thresholds. Syntax uses the full precision fixed boundaries recovered from this original dataset; derive new quantiles if a different dataset is substituted.",
+      "objectives": [
+        6
+      ],
+      "invalid": 0,
+      "label": "Sample relative total cost tertile group in Nigerian naira",
+      "measure": "ordinal",
+      "codes": {
+        "1.0": "Lower-cost group",
+        "2.0": "Middle-cost group",
+        "3.0": "Higher-cost group"
+      },
+      "systemMissing": 0,
+      "nonmissing": 85,
+      "userMissing": []
     }
   ]
 };

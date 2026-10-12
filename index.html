@@ -3,13 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="A personal statistical learning hub for six appendicitis research objectives, with concise explanations and hypothetical examples.">
+  <meta name="description" content="A personal statistical learning hub for six appendicitis research objectives, with learning resources and private, reproducible research-analysis results.">
   <meta name="theme-color" content="#142b46">
   <title>Appendicitis Research Statistical Test Learning Hub</title>
-  <link rel="stylesheet" href="./styles.css">
-  <script src="./content.js" defer></script>
-  <script src="./variables.js" defer></script>
-  <script src="./script.js" defer></script>
+  <link rel="stylesheet" href="./styles.css?v=20261012-v3">
+  <script src="./content.js?v=20261012-v3" defer></script>
+  <script src="./variables.js?v=20261012-v3" defer></script>
+  <script src="./script.js?v=20261012-v3" defer></script>
+  <script src="./workspace.js?v=20261012-v3" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to learning content</a>
@@ -18,17 +19,28 @@
       <span class="brand-mark" aria-hidden="true">∑</span>
       <span>Research <strong>Learning Hub</strong></span>
     </button>
-    <div class="top-actions"><span class="personal">Personal tutoring</span><button id="notes-toggle" type="button" class="quiet-button" aria-expanded="false" aria-controls="notes">Study notes</button></div>
+    <div class="top-actions"><button id="theme-toggle" type="button" class="quiet-button" aria-pressed="false">Dark mode</button><span class="personal">Personal tutoring</span><button id="notes-toggle" type="button" class="quiet-button" aria-expanded="false" aria-controls="notes">Study notes</button></div>
   </header>
-  <div class="page-shell">
+  <aside class="desktop-sidebar" aria-label="Workspace navigation">
+ <div class="side-heading">Your research</div>
+ <button data-side-target="home">⌂ Home & objectives</button>
+ <button data-side-target="variables-tab">≡ Research variables</button>
+ <button data-side-analysis="overview">▦ Analysis workspace</button>
+ <button data-side-analysis="data">↥ Data management</button>
+ <button data-side-analysis="costs">₦ Costs & severity</button>
+ <button data-side-analysis="diagnostics">∿ Diagnostic strategies</button>
+ <button data-side-analysis="associations">↗ Associations</button>
+ <button data-side-target="notes-toggle">? Learning sources</button>
+ <div class="side-version">Research workspace v3<br>12 October 2026</div>
+ </aside><div class="page-shell">
     <section class="hero" aria-labelledby="hub-title">
-      <div class="eyebrow"><span class="gold-dot" aria-hidden="true"></span> UNDERSTAND THE WHY. EXPLAIN IT CLEARLY.</div>
-      <h1 id="hub-title">Appendicitis Research<br><span>Statistical Test Learning Hub</span></h1>
-      <p class="intro">Six research objectives. Clear statistical reasoning.<br>Learn what each method tells you—and when it cannot help.</p>
+      <div class="eyebrow"><span class="gold-dot" aria-hidden="true"></span> YOUR RESEARCH. YOUR LEARNING SPACE.</div>
+      <h1 id="hub-title">Appendicitis research<br><span>Learn. Analyse. Explore.</span></h1>
+      <p class="intro">Six research objectives. Clear statistical reasoning.<br>Learn the methods. Explore your private research results.</p>
       <div class="hero-tags"><span>MAS + hsCRP</span><span>Study-aware explanations</span><span id="method-count"></span></div>
     </section>
     <section class="research-overview" aria-labelledby="research-title"><div class="section-label">The research behind the methods</div><h2 id="research-title"></h2><p id="research-purpose"></p></section>
-    <nav class="workspace-tabs" aria-label="Learning workspace"><button id="objectives-tab" type="button" aria-pressed="true">Six objectives</button><button id="variables-tab" type="button" aria-pressed="false">Research variables</button></nav>
+    <nav class="workspace-tabs" aria-label="Learning workspace"><button id="objectives-tab" type="button" aria-pressed="true">Six objectives</button><button id="variables-tab" type="button" aria-pressed="false">Research variables</button><button id="analysis-tab" type="button" aria-pressed="false">Analysis workspace</button></nav>
     <section class="progress-strip" aria-label="Learning progress"><div><strong id="progress-label"></strong><span id="storage-note">Saved in this browser · reviewed, not assessed</span></div><progress id="progress-bar" max="34" value="0"></progress></section>
     <section class="learning-tools" aria-label="Learning controls">
       <div class="search-wrap"><label for="search">Find a method, variable or objective</label><div class="search-box"><span aria-hidden="true">⌕</span><input id="search" type="search" autocomplete="off" placeholder="Try ROC, histology or objective 5"><button id="clear-search" type="button" aria-label="Clear search" hidden>×</button></div></div>
@@ -36,13 +48,15 @@
     </section>
     <nav id="objective-nav" class="objective-nav" aria-label="Switch objective" hidden></nav>
     <main id="main" tabindex="-1"></main>
+    <p id="analysis-search-status" role="status" hidden></p>
+    <section id="analysis-workspace" tabindex="-1" aria-label="Private research analysis workspace" hidden></section>
     <section id="notes" class="notes-section" aria-labelledby="notes-title" hidden>
       <h2 id="notes-title">Study notes and sources</h2>
       <div id="study-notes" class="notes-grid"></div>
       <h3>Method references</h3><ul id="source-list" class="source-list"></ul>
       <p class="small-note">Method sources checked in October 2026. Consult the complete study reports for actual findings. Method-card examples are hypothetical teaching illustrations.</p>
     </section>
-    <footer><span>Learn the method. Respect the design.</span><span>No accounts, patient uploads or external APIs.</span></footer>
+    <footer><span>Learn the method. Respect the design.</span><span>Local aggregate results · no patient-data upload · v3</span></footer>
   </div>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
   <noscript><p class="noscript">Enable JavaScript to open the objective cards and learning explanations.</p></noscript>
