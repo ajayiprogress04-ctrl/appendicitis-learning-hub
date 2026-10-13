@@ -1,0 +1,80 @@
+{
+  "schema": "appendicitis-private-rows-v1",
+  "source_sha256": "4f6695defb1e5e32464cc85347bc295de27a697f3394a0b68b4b2d183024a853",
+  "source_records": 4,
+  "records": [
+    {
+      "age": 12.0,
+      "sex": 1.0,
+      "MAS": 7.0,
+      "CRP": 12.0,
+      "histology": 1.0
+    },
+    {
+      "age": 25.0,
+      "sex": 2.0,
+      "MAS": 5.0,
+      "CRP": 2.0,
+      "histology": 6.0
+    },
+    {
+      "age": 31.0,
+      "sex": 1.0,
+      "MAS": 9.0,
+      "CRP": 30.0,
+      "histology": 5.0
+    },
+    {
+      "age": 42.0,
+      "sex": 2.0,
+      "MAS": 8.0,
+      "CRP": 18.0,
+      "histology": 2.0
+    }
+  ],
+  "labels": {
+    "age": null,
+    "sex": null,
+    "MAS": "Synthetic MAS",
+    "CRP": null,
+    "histology": null
+  },
+  "value_labels": {
+    "age": {},
+    "sex": {
+      "1.0": "Male",
+      "2.0": "Female"
+    },
+    "MAS": {},
+    "CRP": {},
+    "histology": {}
+  },
+  "missing_ranges": {
+    "CRP": [
+      {
+        "lo": 2.0,
+        "hi": 2.0
+      }
+    ]
+  },
+  "variable_measure": {
+    "age": "unknown",
+    "sex": "unknown",
+    "MAS": "scale",
+    "CRP": "unknown",
+    "histology": "unknown",
+    "hosp_n0": "unknown"
+  },
+  "original_variable_types": {
+    "age": "F8.2",
+    "sex": "F8.2",
+    "MAS": "F8.2",
+    "CRP": "F8.2",
+    "histology": "F8.2",
+    "hosp_n0": "A10"
+  },
+  "file_label": null,
+  "identifier_fields_removed": [
+    "hosp_n0"
+  ]
+}

@@ -1,3 +1,35 @@
+# Appearance and whole-hub search — 13 October 2026
+
+The existing search box now also searches actual objectives, variable definitions/bindings, methods, glossary/study notes, catalogue titles, generated interpretations/outputs and loaded aggregate results. Partial/case-insensitive multiword matching, title-first ranking, clickable destinations, Show more, Clear and Escape are implemented. Search does not generate analyses or index participant rows. Existing local learning search and catalogue filters remain available. Current titles and generated results are read from memory.
+
+Visual refinements include navy/teal surfaces, improved light/dark contrast, spacing/cards, larger table/explanatory text, 44px controls, wrapping navigation, scrollable tables and charts, and reduced-motion support. Charts retain at least 540px width inside a scrolling figure. Existing objectives, modes, review/progress, import and exports are preserved.
+
+Native verification passed in headless Chromium 153 at 320/390/1440 CSS pixels: search destinations, no page overflow on checked screens, tab target sizes, CSV/XLSX/XLS preview/activation and real Worker-generated tables, generated-result search, narrow figure scrolling, dark mode/reduced motion, glossary/method destinations, and persistent review/quick mode. Screenshots were inspected internally. No page errors or HTTP requests occurred. Real Android hardware, Safari/Firefox and production deployment remain untested.
+
+Optional native test: install Playwright and Chromium in a separate test environment, then run `node tests/test_browser_ui.cjs`. `HUB_BROWSER_EXECUTABLE` optionally selects a browser binary. This test uses synthetic fixtures and temporary screenshots. `node tests/test_global_search.cjs` checks indexed queries and destinations; aggregate-indexing checks run when locally generated reference data is available.
+
+---
+
+# Data import update — 13 October 2026
+
+Start with **Tables & figures** (or Data management → Open dataset import). Choose or drop XLSX, Excel 97–2003 XLS, CSV UTF-8, or a compatible participant JSON. Select the intended worksheet, review names/types/missing counts/labels and the first five records, then click **Use this dataset for analysis**. Nothing is calculated during preview. Confirming a replacement clears prior results; a failed preview leaves the active dataset unchanged. Remove dataset and results clears active and pending inputs from memory. Reloading the page also clears them. Theme and learning progress retain their existing behaviour.
+
+Excel/CSV use first-row original variable names and numeric source codes. Names are matched case-insensitively to known SAV names; no clinical code mapping or unit conversion is invented. Missing fields disable affected results. Blank, NA, N/A and dot are missing; commas are CSV delimiters. Limits: 15 MB, 5,000 records, 300 columns. Formula workbooks require a values-only copy. Excel/CSV do not carry SPSS value labels or measurement metadata. Mixed/text columns are excluded from numerical analysis and identified in preview. Review all exclusions. Values shown are local and private. The numerical engine's existing study definitions still apply; importing a new file does not approve new protocols or thresholds.
+
+SheetJS CE 0.20.3 is bundled in vendor with its license; no CDN connection is made at runtime. Keep vendor and data-import.js with the other root assets. The standalone preview embeds the parser and all application assets.
+
+**SAV is not parsed directly in the browser.** For a local file-picker alternative, install Python and `python -m pip install pyreadstat==1.3.6 pandas==2.2.3`, then run `python analysis/import_spss_local.py`. Select the SAV and where to save its private input; select that prepared file in Tables & figures. Conversion is automatic and local, but still requires this desktop utility and a second file selection. Tkinter is needed for dialogs (some Linux installations require a separate tkinter package). The command-line fallback is `python analysis/import_spss_local.py "source.sav" --output "private_browser_data.json"`. No server or API receives records. Labels, value labels, declared missing ranges, measurement levels and original formats are retained as available; hospital identifiers are excluded. The converter was tested on synthetic and supplied SAV data; desktop dialogs were not tested here. Numeric CSV export from SPSS is another alternative, but loses SPSS metadata.
+
+Do not publish SAVs, imported files or private outputs. Deployment excludes samples and analysis tools; bundled samples are explicitly SYNTHETIC and are not study findings. No real participant dataset is embedded in the app ZIP or preview.
+
+Verification: `node tests/test_import.cjs`; `node tests/test_import_controller.cjs`; `node tests/test_learning.cjs`. Controller tests use simulated DOM and the actual engine. Native Chrome/Android layout/file-picker/Worker behaviour remains unverified: browser binary installation failed in this environment.
+
+---
+
+## Retained earlier documentation (v3/v4 historical instructions)
+
+The following describes the preserved earlier workflows. For dataset import use the instructions above. Earlier references to a separately supplied aggregate JSON do not mean that file is in this package.
+
 # Appendicitis Research Learning and Analysis Hub
 
 This is the existing static app, extended with a private results workspace. The six approved objectives, detailed learning, quick revision, search, review/completion buttons and browser progress are preserved. The screenshot references informed the rounded search, sidebar, navigation chips, cards and optional dark mode.

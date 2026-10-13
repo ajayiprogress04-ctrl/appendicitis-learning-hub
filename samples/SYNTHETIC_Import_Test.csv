@@ -1,0 +1,5 @@
+age,sex,MAS,CRP,histology,total_costs,AIR,pcv,diagnostic_confi1,diagnostic_confi2
+12,1,7,12,1,200000,6,39,2,4
+25,2,5,2,6,210000,4,36,3,3
+31,1,9,30,5,250000,10,42,3,5
+42,2,8,18,2,230000,8,37,3,4

@@ -6,15 +6,18 @@
   <meta name="description" content="A personal statistical learning hub for six appendicitis research objectives, with learning resources and private, reproducible research-analysis results.">
   <meta name="theme-color" content="#142b46">
   <title>Appendicitis Research Statistical Test Learning Hub</title>
-  <link rel="stylesheet" href="./styles.css?v=20261012-v4">
+  <link rel="stylesheet" href="./styles.css?v=20261013-ui">
   <script src="./content.js?v=20261012-v4" defer></script>
   <script src="./variables.js?v=20261012-v4" defer></script>
   <script src="./script.js?v=20261012-v4" defer></script>
-  <script src="./workspace.js?v=20261012-v4" defer></script>
+  <script src="./workspace.js?v=20261013-ui" defer></script>
   <script src="./analysis-engine.js?v=20261012-v4" defer></script>
   <script src="./result-catalog.js?v=20261012-v4" defer></script>
   <script src="./result-exports.js?v=20261012-v4" defer></script>
-  <script src="./results-browser.js?v=20261012-v4" defer></script>
+  <script src="./vendor/xlsx.full.min.js?v=0.20.3" defer></script>
+  <script src="./data-import.js?v=20261013-import" defer></script>
+  <script src="./results-browser.js?v=20261013-ui" defer></script>
+  <script src="./global-search.js?v=20261013-ui" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to learning content</a>
@@ -48,9 +51,10 @@
     <nav class="workspace-tabs" aria-label="Learning workspace"><button id="objectives-tab" type="button" aria-pressed="true">Six objectives</button><button id="variables-tab" type="button" aria-pressed="false">Research variables</button><button id="analysis-tab" type="button" aria-pressed="false">Analysis workspace</button><button id="results-tab" type="button" aria-pressed="false">Tables & figures</button></nav>
     <section class="progress-strip" aria-label="Learning progress"><div><strong id="progress-label"></strong><span id="storage-note">Saved in this browser · reviewed, not assessed</span></div><progress id="progress-bar" max="34" value="0"></progress></section>
     <section class="learning-tools" aria-label="Learning controls">
-      <div class="search-wrap"><label for="search">Find a method, variable or objective</label><div class="search-box"><span aria-hidden="true">⌕</span><input id="search" type="search" autocomplete="off" placeholder="Try ROC, histology or objective 5"><button id="clear-search" type="button" aria-label="Clear search" hidden>×</button></div></div>
+      <div class="search-wrap"><label for="search">Search the whole research hub</label><div class="search-box"><span aria-hidden="true">⌕</span><input id="search" type="search" autocomplete="off" placeholder="Try ROC, histology or objective 5"><button id="clear-search" type="button" aria-label="Clear search" hidden>×</button></div></div>
       <div class="mode-wrap"><span id="mode-label">Learning mode</span><div class="mode-switch" role="group" aria-labelledby="mode-label"><button id="mode-detail" type="button" aria-pressed="true">Detailed learning</button><button id="mode-quick" type="button" aria-pressed="false">Quick revision</button></div></div>
     </section>
+    <section id="global-search-results" aria-label="Search across the research hub" hidden></section>
     <nav id="objective-nav" class="objective-nav" aria-label="Switch objective" hidden></nav>
     <main id="main" tabindex="-1"></main>
     <p id="analysis-search-status" role="status" hidden></p>
@@ -59,6 +63,7 @@
     <section id="notes" class="notes-section" aria-labelledby="notes-title" hidden>
       <h2 id="notes-title">Study notes and sources</h2>
       <div id="study-notes" class="notes-grid"></div>
+      <details class="learning-glossary"><summary>Statistical glossary</summary><dl id="learning-glossary-list" class="glossary-list"></dl></details>
       <h3>Method references</h3><ul id="source-list" class="source-list"></ul>
       <p class="small-note">Method sources checked in October 2026. Consult the complete study reports for actual findings. Method-card examples are hypothetical teaching illustrations.</p>
     </section>

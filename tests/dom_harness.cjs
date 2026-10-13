@@ -20,14 +20,14 @@ function harness(blockedStorage=false,memory=new Map()){
  document.body.classList={add(){},remove(){},toggle(){}}; const originalQuery=document.querySelectorAll;document.querySelectorAll=selector=>selector.startsWith('[data-side-')?[]:originalQuery(selector);
  const window={__HUB_TEST__:true,isSecureContext:true};const storage={getItem:key=>{if(blockedStorage)throw Error('blocked');return memory.get(key)||null;},setItem:(key,value)=>{if(blockedStorage)throw Error('blocked');memory.set(key,value);}};
  const downloadedBlobs=[];
- const context=vm.createContext({TextEncoder,Uint8Array,DataView,Blob,URL:{createObjectURL:blob=>{downloadedBlobs.push(blob);return 'blob:test';},revokeObjectURL(){}},window,document,localStorage:storage,navigator:{clipboard:{writeText:async text=>{copied=text;}}},setTimeout:()=>1,clearTimeout(){}});
+ const context=vm.createContext({TextEncoder,TextDecoder,Uint8Array,DataView,Blob,URL:{createObjectURL:blob=>{downloadedBlobs.push(blob);return 'blob:test';},revokeObjectURL(){}},window,document,localStorage:storage,navigator:{clipboard:{writeText:async text=>{copied=text;}}},setTimeout:()=>1,clearTimeout(){}});
  vm.runInContext(fs.readFileSync(path.join(dir,'content.js'),'utf8'),context);
  vm.runInContext(fs.readFileSync(path.join(dir,'variables.js'),'utf8'),context);
  vm.runInContext(fs.readFileSync(path.join(dir,'script.js'),'utf8'),context);
  vm.runInContext(fs.readFileSync(path.join(dir,'workspace.js'),'utf8'),context);
  class FakeWorker{constructor(){this.c=vm.createContext({self:{postMessage:value=>setImmediate(()=>this.onmessage?.({data:structuredClone(value)}))},console});vm.runInContext('('+window.APPENDICITIS_ENGINE.toString()+')()',this.c);}postMessage(value){setImmediate(()=>this.c.self.onmessage({data:structuredClone(value)}));}terminate(){this.stopped=true;}}
  context.Worker=FakeWorker;
- for(const name of ['analysis-engine.js','result-catalog.js','result-exports.js','results-browser.js'])vm.runInContext(fs.readFileSync(path.join(dir,name),'utf8'),context);
+ for(const name of ['vendor/xlsx.full.min.js','data-import.js','analysis-engine.js','result-catalog.js','result-exports.js','results-browser.js','global-search.js'])vm.runInContext(fs.readFileSync(path.join(dir,name),'utf8'),context);
  return {context,window,document,elements,memory,downloadedBlobs,get cards(){return cards;},get variables(){return variables;},get copied(){return copied;},setFallback:v=>{fallback=v;},click:async data=>{const b=new El();b.dataset=data;await elements.main.fire('click',{target:b});return b;}};
 }
 module.exports=harness;
