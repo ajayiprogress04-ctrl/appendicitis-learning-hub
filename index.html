@@ -6,19 +6,19 @@
   <meta name="description" content="A personal statistical learning hub for six appendicitis research objectives, with learning resources and private, reproducible research-analysis results.">
   <meta name="theme-color" content="#142b46">
   <title>Appendicitis Research Statistical Test Learning Hub</title>
-  <link rel="stylesheet" href="./styles.css?v=20261013-final-v5">
+  <link rel="stylesheet" href="./styles.css?v=20261013-three-tabs">
   <script src="./content.js?v=20261013-final-v5" defer></script>
   <script src="./variables.js?v=20261013-final-v5" defer></script>
-  <script src="./script.js?v=20261013-final-v5" defer></script>
-  <script src="./workspace.js?v=20261013-final-v5" defer></script>
-  <script src="./analysis-engine.js?v=20261013-final-v5" defer></script>
+  <script src="./script.js?v=20261013-three-tabs" defer></script>
+  <script src="./workspace.js?v=20261013-three-tabs" defer></script>
+  <script src="./analysis-engine.js?v=20261013-biostat" defer></script>
   <script src="./result-catalog.js?v=20261013-final-v5" defer></script>
-  <script src="./result-exports.js?v=20261013-final-v5" defer></script>
+  <script src="./result-exports.js?v=20261013-three-tabs" defer></script>
   <script src="./vendor/xlsx.full.min.js?v=0.20.3" defer></script>
   <script src="./vendor/spss-reader.js?v=0.2.1" defer></script>
   <script src="./data-import.js?v=20261013-final-v5" defer></script>
-  <script src="./results-browser.js?v=20261013-final-v5" defer></script>
-  <script src="./global-search.js?v=20261013-final-v5" defer></script>
+  <script src="./results-browser.js?v=20261013-three-tabs" defer></script>
+  <script src="./global-search.js?v=20261013-three-tabs" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to learning content</a>
@@ -29,18 +29,12 @@
     </button>
     <div class="top-actions"><button id="theme-toggle" type="button" class="quiet-button" aria-pressed="false">Dark mode</button><span class="personal">Personal tutoring</span><button id="notes-toggle" type="button" class="quiet-button" aria-expanded="false" aria-controls="notes">Study notes</button></div>
   </header>
-  <aside class="desktop-sidebar" aria-label="Workspace navigation">
- <div class="side-heading">Your research</div>
- <button data-side-target="home">⌂ Home & objectives</button>
- <button data-side-target="results-tab">▤ Tables & figures</button>
- <button data-side-target="variables-tab">≡ Research variables</button>
- <button data-side-analysis="overview">▦ Analysis workspace</button>
- <button data-side-analysis="data">↥ Data management</button>
- <button data-side-analysis="costs">₦ Costs & severity</button>
- <button data-side-analysis="diagnostics">∿ Diagnostic strategies</button>
- <button data-side-analysis="associations">↗ Associations</button>
- <button data-side-target="notes-toggle">? Learning sources</button>
- <div class="side-version">Research workspace v5<br>13 October 2026</div>
+  <aside class="desktop-sidebar" aria-label="Research workflow">
+ <div class="side-heading">Research workflow</div>
+ <button data-side-target="objectives-tab">Objectives</button>
+ <button data-side-target="results-tab">Tables &amp; Figures</button>
+ <button data-side-target="interpretations-tab">Interpretations</button>
+ <div class="side-version">Connected research workflow<br>13 October 2026</div>
  </aside><div class="page-shell">
     <section class="hero" aria-labelledby="hub-title">
       <div class="eyebrow"><span class="gold-dot" aria-hidden="true"></span> YOUR RESEARCH. YOUR LEARNING SPACE.</div>
@@ -49,7 +43,8 @@
       <div class="hero-tags"><span>MAS + hsCRP</span><span>Study-aware explanations</span><span id="method-count"></span></div>
     </section>
     <section class="research-overview" aria-labelledby="research-title"><div class="section-label">The research behind the methods</div><h2 id="research-title"></h2><p id="research-purpose"></p></section>
-    <nav class="workspace-tabs" aria-label="Learning workspace"><button id="objectives-tab" type="button" aria-pressed="true">Six objectives</button><button id="variables-tab" type="button" aria-pressed="false">Research variables</button><button id="analysis-tab" type="button" aria-pressed="false">Analysis workspace</button><button id="results-tab" type="button" aria-pressed="false">Tables & figures</button></nav>
+    <nav class="workspace-tabs" aria-label="Research reporting workflow"><button id="objectives-tab" type="button" aria-pressed="true" aria-controls="main">Objectives</button><button id="results-tab" type="button" aria-pressed="false" aria-controls="objective-results">Tables &amp; Figures</button><button id="interpretations-tab" type="button" aria-pressed="false" aria-controls="objective-results">Interpretations</button></nav>
+    <details class="supporting-tools"><summary>Supporting tools</summary><div class="supporting-actions"><button id="variables-tab" type="button" class="quiet-button" aria-pressed="false">Research variables</button><button id="analysis-tab" type="button" class="quiet-button" aria-pressed="false">Aggregate analysis workspace</button><span class="small-note">Statistical learning stays within each objective; study notes are available in the header.</span></div></details>
     <section class="progress-strip" aria-label="Learning progress"><div><strong id="progress-label"></strong><span id="storage-note">Saved in this browser · reviewed, not assessed</span></div><progress id="progress-bar" max="34" value="0"></progress></section>
     <section class="learning-tools" aria-label="Learning controls">
       <div class="search-wrap"><label for="search">Search the whole research hub</label><div class="search-box"><span aria-hidden="true">⌕</span><input id="search" type="search" autocomplete="off" placeholder="Try ROC, histology or objective 5"><button id="clear-search" type="button" aria-label="Clear search" hidden>×</button></div></div>

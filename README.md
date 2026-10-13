@@ -1,97 +1,60 @@
-# Appearance and whole-hub search — 13 October 2026
+# Appendicitis Research Statistical Test Learning Hub
 
-The existing search box now also searches actual objectives, variable definitions/bindings, methods, glossary/study notes, catalogue titles, generated interpretations/outputs and loaded aggregate results. Partial/case-insensitive multiword matching, title-first ranking, clickable destinations, Show more, Clear and Escape are implemented. Search does not generate analyses or index participant rows. Existing local learning search and catalogue filters remain available. Current titles and generated results are read from memory.
+A buildless research-learning app with three connected primary views, local dataset import and calculation, compact Inter typography and a black/charcoal gradient dark theme.
 
-Visual refinements include navy/teal surfaces, improved light/dark contrast, spacing/cards, larger table/explanatory text, 44px controls, wrapping navigation, scrollable tables and charts, and reduced-motion support. Charts retain at least 540px width inside a scrolling figure. Existing objectives, modes, review/progress, import and exports are preserved.
+## Start locally
 
-Native verification passed in headless Chromium 153 at 320/390/1440 CSS pixels: search destinations, no page overflow on checked screens, tab target sizes, CSV/XLSX/XLS preview/activation and real Worker-generated tables, generated-result search, narrow figure scrolling, dark mode/reduced motion, glossary/method destinations, and persistent review/quick mode. Screenshots were inspected internally. No page errors or HTTP requests occurred. Real Android hardware, Safari/Firefox and production deployment remain untested.
+1. Extract the complete ZIP. Keep the root files and `vendor/` directory together.
+2. Open the standalone preview, or serve the extracted project with `python -m http.server 8080` and visit `http://localhost:8080`.
+3. Switch between light/dark modes with the header button. The server serves application assets; imported patient files are read in browser memory and are not sent to this server.
 
-Optional native test: install Playwright and Chromium in a separate test environment, then run `node tests/test_browser_ui.cjs`. `HUB_BROWSER_EXECUTABLE` optionally selects a browser binary. This test uses synthetic fixtures and temporary screenshots. `node tests/test_global_search.cjs` checks indexed queries and destinations; aggregate-indexing checks run when locally generated reference data is available.
+No npm installation/build is required. Directly opening `index.html` also provides system-font fallback where a browser blocks local font loading. The standalone preview embeds scripts, styles and Inter for offline use.
 
----
+## Connected workflow
 
-# Data import update — 13 October 2026
+- **Objectives:** retained approved wording, associated variables, statistical learning methods and counts of calculated results. Selecting an objective synchronises the reporting scope.
+- **Tables & Figures:** import/preview a dataset, confirm it, choose an objective and generate the relevant results. Titles, notes, captions and interpretations stay with the result. Each output links to its interpretation and associated objective.
+- **Interpretations:** objective-organised prose drawn from the same result objects. Unrun/unavailable analyses show an explicit unavailable message. Links return to the corresponding output/objective.
 
-Start with **Tables & figures** (or Data management → Open dataset import). Choose or drop XLSX, Excel 97–2003 XLS, CSV UTF-8, or a compatible participant JSON. Select the intended worksheet, review names/types/missing counts/labels and the first five records, then click **Use this dataset for analysis**. Nothing is calculated during preview. Confirming a replacement clears prior results; a failed preview leaves the active dataset unchanged. Remove dataset and results clears active and pending inputs from memory. Reloading the page also clears them. Theme and learning progress retain their existing behaviour.
+`Supporting tools` contains the research-variable explorer and optional aggregate-analysis workspace. Learning modes, review/progress, global search and header study notes remain available. The desktop sidebar mirrors the same three primary destinations. The Scope Reports interface remains removed.
 
-Excel/CSV use first-row original variable names and numeric source codes. Names are matched case-insensitively to known SAV names; no clinical code mapping or unit conversion is invented. Missing fields disable affected results. Blank, NA, N/A and dot are missing; commas are CSV delimiters. Limits: 15 MB, 5,000 records, 300 columns. Formula workbooks require a values-only copy. Excel/CSV do not carry SPSS value labels or measurement metadata. Mixed/text columns are excluded from numerical analysis and identified in preview. Review all exclusions. Values shown are local and private. The numerical engine's existing study definitions still apply; importing a new file does not approve new protocols or thresholds.
+Title edits/recalculations update the linked views. Selected publication results retain Move Up/Move Down controls, with complete content kept together. Current table/figure numbers are used by application-generated HTML/DOCX report exports; numbering modes remain available. Interpretations remain directly beneath output previews as well as in the linked interpretation view.
 
-SheetJS CE 0.20.3 is bundled in vendor with its license; no CDN connection is made at runtime. Keep vendor and data-import.js with the other root assets. The standalone preview embeds the parser and all application assets.
+## Private dataset import
 
-**Direct SAV import is available locally in the browser.** Open Tables & figures, select/drop a `.sav`, inspect its variables, labels, missing counts and first five records, then click **Use this dataset for analysis**. Numeric study fields feed the existing analysis; string values and unknown fields remain in the preview and retained import. SPSS system/user missing values are excluded from calculations; raw user-missing codes and their definitions remain in memory. The hospital identifier `hosp_n0` stays excluded from retained source rows and analysis. No imported file is uploaded or persisted. See `SPSS_IMPORT_VALIDATION.md` for the tested scope and limitations. The bundled MIT-licensed `datareader-spss 0.2.1` requires no npm installation, build or remote CDN. Keep both vendor parsers when deploying. The Python converter remains an optional fallback.
+Under Tables & Figures, select/drop `.sav`, `.xlsx`, `.xls`, `.csv` or compatible participant JSON. Review names, labels, missing counts, records and warnings; then choose **Use this dataset for analysis**. Limits: 15 MiB input, 5,000 records, 300 variables. Excel formulas require a values-only workbook; CSV uses UTF-8, comma delimiters and first-row variable names. Known study names are matched case-insensitively. Numeric category codes are required for analysis.
 
-Do not publish SAVs, imported files or private outputs. Deployment excludes samples and analysis tools; bundled samples are explicitly SYNTHETIC and are not study findings. No real participant dataset is embedded in the app ZIP or preview.
+SPSS is read locally through bundled datareader-spss 0.2.1. Variable/value labels, missing definitions, formats and measurement settings are retained where supported. Raw imported strings/source values remain in memory; numeric analysis excludes strings, the known hospital identifier and declared missing codes. Uncompressed and row-compressed SAV have been tested with genuine generated fixtures. Zlib-compressed variants and exotic SPSS constructs remain unverified; `.zsav` and `.por` extensions are not enabled. See `SPSS_IMPORT_VALIDATION.md`.
 
-Verification: `node tests/test_import.cjs`; `node tests/test_import_controller.cjs`; `node tests/test_learning.cjs`. Controller tests use simulated DOM and the actual engine. Native Chrome/Android layout/file-picker/Worker behaviour remains unverified: browser binary installation failed in this environment.
+Imported data/generated results are not saved to browser storage or uploaded. Theme and learning-progress preferences are saved locally. Reloading or removing the dataset clears results. The app is not an automatic anonymisation tool: do not put confidential input files in the public source folder/repository.
 
----
+## Statistical reporting and limits
 
-## Retained earlier documentation (v3/v4 historical instructions)
+The app reports available counts, denominators, descriptive estimates, intervals, test statistics and methods. P-values use three decimals or `<0.001`; unrounded stored statistics remain in calculation logs where available. Added footnotes expose existing group summaries, diagnostic definitions, uncertainty and methodological limits. Combined models, sparse subgroups and observational effects are not treated as validated clinical decisions. No unavailable p-value, coefficient interval or conclusion is filled in.
 
-The following describes the preserved earlier workflows. For dataset import use the instructions above. Earlier references to a separately supplied aggregate JSON do not mean that file is in this package.
+The existing age boundary, thresholds and histology coding are retained working definitions; full protocol approval and unresolved design assumptions still require review. See `BIOSTATISTICS_VALIDATION.md` and `STATISTICAL_REPORTING_INVENTORY.md`. Native mobile/desktop appearance has not been verified for this version.
 
-# Appendicitis Research Learning and Analysis Hub
+## Optional local analysis and validation
 
-This is the existing static app, extended with a private results workspace. The six approved objectives, detailed learning, quick revision, search, review/completion buttons and browser progress are preserved. The screenshot references informed the rounded search, sidebar, navigation chips, cards and optional dark mode.
+Install the pinned Python dependencies for the existing analysis tools:
 
-## Open locally
-
-Open `index.html` in Chrome. Keep `styles.css`, `content.js`, `variables.js`, `script.js` and `workspace.js` beside it. No framework, npm installation or browser API key is required. The standalone preview is an alternative single-file version.
-
-## Use the real analyses
-
-1. Open **Analysis workspace → Data management**.
-2. Choose the separately supplied `Appendicitis_Private_Analysis_Results.json`. It contains actual aggregate analyses from the 85-record categorized SAV, without patient identifiers or patient-level rows.
-3. Open **Costs & severity**, **Diagnostics** or **Associations**. Select strategies or relationships to update charts. Export tables with the CSV buttons; export the complete loaded JSON for all estimates and confidence intervals.
-4. Reloading the page removes loaded results. Learning progress and theme are saved in this browser; results are not.
-
-To rerun on your SAV locally, use Python 3.12 and the pinned dependencies:
-
-```text
+```
 python -m pip install -r analysis/requirements.txt
-python analysis/run_analysis.py "PATH/Acute_Appendicitis_Categorized.sav" --output "results.json"
+python scripts/test_project.py
 ```
 
-The analysis script reads the source fields and derives reference/severity in memory using the approved mappings. It does not write to the SAV. It accepts the original or current categorized SAV when required source columns exist. It does not silently reconstruct unknown variables.
+This test command generates synthetic fixtures temporarily, then checks imports, learning/search, all supported result families, statistical references, reporting, reordering and the three-tab workflow. Node is required for tests. Additional CSS/font checks use `tinycss2`, `fonttools` and `brotli`; they are not browser runtime dependencies.
 
-## Update your existing GitHub repository
+The optional `analysis/run_analysis.py` and SAV converter tools remain available for producing private aggregate/participant JSON on your computer. They are not required for direct browser SAV upload.
 
-1. Make a local copy of your current project before replacing files.
-2. Extract the updated ZIP. Its `index.html` is directly at the ZIP root.
-3. In `ajayiprogress04-ctrl/appendicitis-learning-hub`, choose **Add file → Upload files**.
-4. Upload the extracted project contents into the existing repository root, including the new `workspace.js`, `vercel.json`, `.vercelignore`, `.gitignore` and the `analysis` and `tests` folders. Preserve folder names. On systems that hide dotfiles, enable hidden-file display.
-5. Commit to `main` with a message such as **Add reproducible research workspace v3**.
-6. Verify that all JavaScript/CSS assets referenced by `index.html` are present with exact lowercase filenames. Do not upload the SAV, private results JSON, private source documents or backups.
+## GitHub and Vercel
 
-The newest GitHub commit inspected before this work was `95df367`, **Fix outdated script and stylesheet**. The previous missing updated script/style pair has therefore been corrected in GitHub. The new workspace has not been committed by the assistant.
+No repository or deployment was modified or verified in this task.
 
-## Vercel
+1. Update the existing repository with the extracted application files, keeping `vendor/`, `vercel.json`, `.vercelignore` and `.gitignore`.
+2. Commit/push to the branch actually connected to your Vercel project; that branch has not been verified here.
+3. Use the project folder as the Vercel root directory. The delivered configuration is static: framework `null`, empty install/build commands, output directory `.`.
+4. Verify Vercel's project settings agree with the file and allow the automatic deployment to finish.
+5. Test the live site: three-tab links, supporting tools, theme, synthetic SAV/CSV import, a table/figure, its interpretation, selected report export and a narrow mobile viewport.
 
-Use the same GitHub repository and `main` production branch. Framework: **Other**. Root directory: the directory containing `index.html`, normally the repository root. Build and install commands: leave empty. Output directory: `.`. `vercel.json` explicitly keeps the framework static and root output and makes HTML/JS/CSS revalidate. `.vercelignore` excludes local analysis/test files and private data patterns from hosting. There is no service worker or external script dependency in this project.
-
-After the commit, let Vercel create the new production deployment. Open **Deployments**, select the newest entry, and verify its commit matches your new GitHub commit and its status is **Ready**. If no deployment starts, check the linked repository/production branch before using **Redeploy** on the correct latest source deployment. Redeploying an old commit can still serve an old app.
-
-Use **Visit** to open the public `.vercel.app` URL. Confirm the footer says **v3**, Research Variables includes `HISTOLOGY_SEVERITY`, and Analysis workspace is available. Test result loading, all three modules, strategy changes, variable objective filtering, both learning modes and completion persistence. In developer tools, confirm CSS and four JavaScript files load with HTTP 200 and no console exceptions. Repeat at Android/mobile width and desktop width; test dark mode.
-
-No successful live deployment or browser layout verification is claimed. See `IMPLEMENTATION_REPORT.md` for tested and unverified parts.
-
-## Objective-by-objective generation — v4
-
-1. Open **Tables & figures**. You can also open this catalogue directly from any of the six objective cards.
-2. Select `Appendicitis_Private_Browser_Data.json` using the private dataset chooser. This file contains the actual numerical study records, with hospital identifiers removed. It is private participant data, not an anonymous public dataset: keep it on your device and do not upload it to GitHub/Vercel.
-3. Choose Objective 1–6 or an exploratory scope. AIR, PCV and clinical signs have separate exploratory scopes.
-4. Choose **Generate table**, **Generate figure**, or **Generate all eligible results**. Calculations run in this browser's worker. Entries that require genuinely unavailable data explain the gap.
-5. Preview results/methods, edit titles, select publication entries and choose objective/publication numbering. Rerunning does not duplicate IDs.
-6. Export CSV, SVG, high-resolution PNG or genuine Word DOCX. Select completed results to create a combined report. The calculation log preserves source metadata and numerical results; keep it private.
-
-To prepare browser input from an updated SAV locally:
-
-```text
-python analysis/export_browser_data.py "PATH/Acute_Appendicitis_Categorized.sav" --output "private_browser_data.json"
-```
-
-The older **Analysis workspace → Data management** still accepts the separate aggregate `Appendicitis_Private_Analysis_Results.json`; it is not the raw-record input for the new catalogue. Both modes are preserved.
-
-Upload **all root CSS/JavaScript assets and the vendor directory** plus `index.html` and configuration from the updated ZIP. New required scripts are `analysis-engine.js`, `result-catalog.js`, `result-exports.js` and `results-browser.js`. The project footer now displays **v4**. No install/build step is needed for the static app; Python is only for local SAV conversion/reference analysis.
-
-Live checklist: confirm every versioned script returns HTTP 200; load the private browser input locally; generate a table and figure in each objective; check AIR/PCV/sign scopes; verify title edits and publication numbering; test CSV/SVG/PNG/DOCX downloads; switch back to learning/variables and confirm progress survives. Test desktop and Android widths, light/dark modes, and console errors. Native browser Worker or download errors should be reported with the console message; no successful live deployment is claimed here.
+The deployment allowlist includes all runtime assets, both parser libraries, local Inter and their licences. It excludes samples/tests/analysis directories. Do not publish real imports, patient rows, private outputs or credentials. Local validation does not establish live deployment success.
