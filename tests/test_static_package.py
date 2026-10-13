@@ -6,7 +6,7 @@ class Handler(http.server.SimpleHTTPRequestHandler):
  def __init__(self,*args,**kw):super().__init__(*args,directory=str(root),**kw)
  def log_message(self,*args):pass
 html=(root/'index.html').read_text();assets=re.findall(r'(?:src|href)="(\./[^"]+)"',html)
-assert len(assets)==13,len(assets)
+assert len(assets)==14,len(assets)
 for a in assets:assert (root/a.split('?')[0]).is_file(),a
 config=json.loads((root/'vercel.json').read_text());assert config['framework'] is None;assert config['outputDirectory']=='.';assert config['buildCommand']=='';assert config['installCommand']==''
 assert not re.search(r'<(?:script|link)[^>]*(?:src|href)="https?://',html)

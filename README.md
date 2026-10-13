@@ -1,3 +1,7 @@
+## Collapsible navigation update
+
+Use the fixed ☰ button to open/close navigation. Desktop collapse releases workspace width; mobile uses a drawer with a close button, backdrop dismissal and Escape. Desktop/mobile preferences are stored separately, without research data. Mobile is closed on the first visit; desktop is open. The existing three-tab workflow is unchanged. See SIDEBAR_VALIDATION.md for the tested scope and native-browser limitations.
+
 # Appendicitis Research Statistical Test Learning Hub
 
 A buildless research-learning app with three connected primary views, local dataset import and calculation, compact Inter typography and a black/charcoal gradient dark theme.
