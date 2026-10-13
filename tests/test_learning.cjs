@@ -57,14 +57,14 @@ function harness(blockedStorage=false,memory=new Map()){
  check(()=>assert(!html.match(/<script[^>]+src="https?:/)));check(()=>assert(!fs.readFileSync(path.join(dir,'script.js'),'utf8').includes('fetch(')));
  const css=fs.readFileSync(path.join(dir,'styles.css'),'utf8');check(()=>assert(css.includes('@media(max-width:580px)')));check(()=>assert(css.includes('grid-template-columns:1fr')));check(()=>assert(css.includes(':focus-visible')));
  
- const schema=h.window.HUB_VARIABLES;check(()=>assert.equal(schema.variables.length,92));check(()=>assert.equal(schema.n,85));
+ const schema=h.window.HUB_VARIABLES;check(()=>assert.equal(schema.variables.length,92));check(()=>assert.equal(schema.n,null));
  for(const m of Object.values(data.methods))check(()=>m.terms.forEach(t=>assert(data.glossary[t],t)));
  const baseline=require('./approved_objectives.json');
  data.objectives.forEach((o,i)=>check(()=>assert.deepEqual([o.title,o.short,o.approved],[baseline.objectives[i].title,baseline.objectives[i].short,baseline.objectives[i].approved])));
  await h.elements.home.fire('click');await h.elements['variables-tab'].fire('click');check(()=>assert.equal(h.variables.length,92));
  for(const o of data.objectives){await h.elements.main.fire('change',{target:{id:'variable-objective',value:String(o.id)}});check(()=>assert.equal(h.variables.length,schema.variables.filter(v=>v.objectives.includes(o.id)).length));check(()=>assert(h.elements.main.innerHTML.includes(api.esc(o.approved))));for(const b of data.bindings[String(o.id)])check(()=>assert(schema.variables.some(v=>v.name===b.name)));}
  await h.elements.main.fire('change',{target:{id:'variable-objective',value:'1'}});await h.elements.main.fire('change',{target:{id:'variable-role',value:'Main diagnostic predictor'}});check(()=>assert.equal(h.variables.length,2));
- await h.elements.main.fire('change',{target:{id:'variable-objective',value:'all'}});h.elements.search.value='anorexia';await h.elements.search.fire('input');check(()=>assert.equal(h.variables.length,2));check(()=>assert(h.elements.main.innerHTML.includes('1 unlabelled entries')));await h.elements['clear-search'].fire('click');
+ await h.elements.main.fire('change',{target:{id:'variable-objective',value:'all'}});h.elements.search.value='anorexia';await h.elements.search.fire('input');check(()=>assert.equal(h.variables.length,2));check(()=>assert(h.elements.main.innerHTML.includes('completeness and category-validity counts are unavailable')));await h.elements['clear-search'].fire('click');
  await h.click({variable:'histology',objective:'1'});check(()=>assert(h.variables.find(v=>v.dataset.name==='histology').open));await h.elements['mode-quick'].fire('click');check(()=>assert(h.variables.find(v=>v.dataset.name==='histology').open));await h.elements['mode-detail'].fire('click');await h.click({focusMethod:'roc',objective:'1'});check(()=>assert(h.cards.find(c=>c.dataset.method==='roc').open));
  await h.click({review:'roc',objective:'1'});check(()=>assert(api.state.reviews.has('1:roc')));check(()=>assert.equal(h.elements['progress-bar'].value,1));check(()=>assert(h.cards.find(c=>c.dataset.method==='roc').open));
  const reload=harness(false,h.memory);check(()=>assert(reload.window.__HUB_TEST_API__.state.reviews.has('1:roc')));await h.click({review:'roc',objective:'1'});check(()=>assert(!api.state.reviews.has('1:roc')));

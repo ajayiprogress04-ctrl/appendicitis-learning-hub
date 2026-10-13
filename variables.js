@@ -1,6 +1,6 @@
 /* Verified 92-variable categorized SAV metadata; no patient rows. */
 window.HUB_VARIABLES = {
-  "n": 85,
+  "n": null,
   "verified": "12 October 2026",
   "variables": [
     {
@@ -9,14 +9,14 @@ window.HUB_VARIABLES = {
       "storage": "string",
       "measure": "nominal",
       "codes": {},
-      "systemMissing": 0,
+      "systemMissing": null,
       "userMissing": [],
       "invalid": null,
       "meaning": "Hospital record identifier",
       "analysisType": "Identifier",
       "unit": "No measurement unit",
       "issue": "Identifiers are excluded from this public dictionary and the aggregate results export.",
-      "nonmissing": 85,
+      "nonmissing": null,
       "objectives": [
         1,
         2,
@@ -32,14 +32,14 @@ window.HUB_VARIABLES = {
       "storage": "double",
       "measure": "scale",
       "codes": {},
-      "systemMissing": 0,
+      "systemMissing": null,
       "userMissing": [],
       "invalid": null,
       "meaning": "Age",
       "analysisType": "Numerical age",
       "unit": "Years: protocol/context; no SAV unit label",
       "issue": "Original values and value labels retained. See the current derived definitions; no inference from unrecorded observations.",
-      "nonmissing": 85,
+      "nonmissing": null,
       "objectives": [
         3,
         4
@@ -54,14 +54,14 @@ window.HUB_VARIABLES = {
         "1.0": "male",
         "2.0": "female"
       },
-      "systemMissing": 0,
+      "systemMissing": null,
       "userMissing": [],
-      "invalid": 0,
+      "invalid": null,
       "meaning": "Sex",
       "analysisType": "Nominal category",
       "unit": "Not applicable",
       "issue": "Original values and value labels retained. See the current derived definitions; no inference from unrecorded observations.",
-      "nonmissing": 85,
+      "nonmissing": null,
       "objectives": [
         3,
         4
@@ -78,14 +78,14 @@ window.HUB_VARIABLES = {
         "3.0": "traditional",
         "4.0": "others"
       },
-      "systemMissing": 0,
+      "systemMissing": null,
       "userMissing": [],
-      "invalid": 0,
+      "invalid": null,
       "meaning": "Religion",
       "analysisType": "Nominal category",
       "unit": "Not applicable",
       "issue": "Original values and value labels retained. See the current derived definitions; no inference from unrecorded observations.",
-      "nonmissing": 85,
+      "nonmissing": null,
       "objectives": []
     },
     {
@@ -99,14 +99,14 @@ window.HUB_VARIABLES = {
         "2.0": "sec",
         "3.0": "tertiary"
       },
-      "systemMissing": 0,
+      "systemMissing": null,
       "userMissing": [],
-      "invalid": 0,
+      "invalid": null,
       "meaning": "Education level",
       "analysisType": "Ordered categories",
       "unit": "Not applicable",
       "issue": "Original values and value labels retained. See the current derived definitions; no inference from unrecorded observations.",
-      "nonmissing": 85,
+      "nonmissing": null,
       "objectives": []
     },
     {
@@ -119,14 +119,14 @@ window.HUB_VARIABLES = {
         "2.0": "married",
         "3.0": "widow"
       },
-      "systemMissing": 0,
+      "systemMissing": null,
       "userMissing": [],
-      "invalid": 0,
+      "invalid": null,
       "meaning": "Marital status",
       "analysisType": "Nominal category",
       "unit": "Not applicable",
       "issue": "Original values and value labels retained. See the current derived definitions; no inference from unrecorded observations.",
-      "nonmissing": 85,
+      "nonmissing": null,
       "objectives": []
     },
     {
@@ -144,14 +144,14 @@ window.HUB_VARIABLES = {
         "7.0": "teacher",
         "8.0": "driver"
       },
-      "systemMissing": 0,
+      "systemMissing": null,
       "userMissing": [],
-      "invalid": 0,
+      "invalid": null,
       "meaning": "Patient occupation",
       "analysisType": "Nominal category",
       "unit": "Not applicable",
       "issue": "Original values and value labels retained. See the current derived definitions; no inference from unrecorded observations.",
-      "nonmissing": 85,
+      "nonmissing": null,
       "objectives": []
     },
     {
@@ -163,14 +163,14 @@ window.HUB_VARIABLES = {
         "1.0": "yes",
         "2.0": "no"
       },
-      "systemMissing": 0,
+      "systemMissing": null,
       "userMissing": [],
-      "invalid": 0,
+      "invalid": null,
       "meaning": "Abdominal pain",
       "analysisType": "Binary category",
       "unit": "Not applicable",
       "issue": "Original values and value labels retained. See the current derived definitions; no inference from unrecorded observations.",
-      "nonmissing": 85,
+      "nonmissing": null,
       "objectives": []
     },
     {
@@ -182,14 +182,14 @@ window.HUB_VARIABLES = {
         "1.0": "yes",
         "2.0": "no"
       },
-      "systemMissing": 0,
+      "systemMissing": null,
       "userMissing": [],
-      "invalid": 0,
+      "invalid": null,
       "meaning": "Migratory pain",
       "analysisType": "Binary category",
       "unit": "Not applicable",
       "issue": "Original values and value labels retained. See the current derived definitions; no inference from unrecorded observations.",
-      "nonmissing": 85,
+      "nonmissing": null,
       "objectives": [
         1
       ]
@@ -200,14 +200,14 @@ window.HUB_VARIABLES = {
       "storage": "double",
       "measure": "scale",
       "codes": {},
-      "systemMissing": 0,
+      "systemMissing": null,
       "userMissing": [],
       "invalid": null,
       "meaning": "Duration of pain",
       "analysisType": "Numerical duration",
       "unit": "Hours, confirmed; no rescaling",
       "issue": "Original values and value labels retained. See the current derived definitions; no inference from unrecorded observations.",
-      "nonmissing": 85,
+      "nonmissing": null,
       "objectives": []
     },
     {
@@ -219,14 +219,14 @@ window.HUB_VARIABLES = {
         "1.0": "yes",
         "2.0": "no"
       },
-      "systemMissing": 0,
+      "systemMissing": null,
       "userMissing": [],
-      "invalid": 1,
+      "invalid": null,
       "meaning": "Anorexia",
       "analysisType": "Binary response with an unlabelled entry",
       "unit": "Not applicable",
       "issue": "Unlabelled source response remains unchanged; ANOREXIA_PRESENT is missing where the source response cannot be established.",
-      "nonmissing": 85,
+      "nonmissing": null,
       "objectives": [
         1
       ]
@@ -240,14 +240,14 @@ window.HUB_VARIABLES = {
         "1.0": "yes",
         "2.0": "no"
       },
-      "systemMissing": 0,
+      "systemMissing": null,
       "userMissing": [],
-      "invalid": 0,
+      "invalid": null,
       "meaning": "Nausea/vomiting item",
       "analysisType": "Binary category",
       "unit": "Not applicable",
       "issue": "Original values and value labels retained. See the current derived definitions; no inference from unrecorded observations.",
-      "nonmissing": 85,
+      "nonmissing": null,
       "objectives": [
         1
       ]
@@ -261,14 +261,14 @@ window.HUB_VARIABLES = {
         "1.0": "yes",
         "2.0": "no"
       },
-      "systemMissing": 0,
+      "systemMissing": null,
       "userMissing": [],
-      "invalid": 0,
+      "invalid": null,
       "meaning": "Fever checkbox",
       "analysisType": "Binary category",
       "unit": "Not applicable",
       "issue": "Original values and value labels retained. See the current derived definitions; no inference from unrecorded observations.",
-      "nonmissing": 85,
+      "nonmissing": null,
       "objectives": [
         1
       ]
@@ -282,14 +282,14 @@ window.HUB_VARIABLES = {
         "1.0": "yes",
         "2.0": "no"
       },
-      "systemMissing": 0,
+      "systemMissing": null,
       "userMissing": [],
-      "invalid": 0,
+      "invalid": null,
       "meaning": "Diarrhoea",
       "analysisType": "Binary category",
       "unit": "Not applicable",
       "issue": "Original values and value labels retained. See the current derived definitions; no inference from unrecorded observations.",
-      "nonmissing": 85,
+      "nonmissing": null,
       "objectives": []
     },
     {
@@ -301,14 +301,14 @@ window.HUB_VARIABLES = {
         "1.0": "yes",
         "2.0": "no"
       },
-      "systemMissing": 0,
+      "systemMissing": null,
       "userMissing": [],
-      "invalid": 0,
+      "invalid": null,
       "meaning": "Right iliac fossa tenderness",
       "analysisType": "Binary category",
       "unit": "Not applicable",
       "issue": "Original values and value labels retained. See the current derived definitions; no inference from unrecorded observations.",
-      "nonmissing": 85,
+      "nonmissing": null,
       "objectives": [
         1
       ]
@@ -322,14 +322,14 @@ window.HUB_VARIABLES = {
         "1.0": "yes",
         "2.0": "no"
       },
-      "systemMissing": 0,
+      "systemMissing": null,
       "userMissing": [],
-      "invalid": 0,
+      "invalid": null,
       "meaning": "Rebound tenderness",
       "analysisType": "Binary category",
       "unit": "Not applicable",
       "issue": "Original values and value labels retained. See the current derived definitions; no inference from unrecorded observations.",
-      "nonmissing": 85,
+      "nonmissing": null,
       "objectives": [
         1
       ]
@@ -346,14 +346,14 @@ window.HUB_VARIABLES = {
         "4.0": "obturator",
         "5.0": "generalised"
       },
-      "systemMissing": 0,
+      "systemMissing": null,
       "userMissing": [],
-      "invalid": 0,
+      "invalid": null,
       "meaning": "Recorded clinical sign category",
       "analysisType": "Nominal category",
       "unit": "Not applicable",
       "issue": "Original values and value labels retained. See the current derived definitions; no inference from unrecorded observations.",
-      "nonmissing": 85,
+      "nonmissing": null,
       "objectives": []
     },
     {
@@ -371,14 +371,14 @@ window.HUB_VARIABLES = {
         "7.0": "hepatitis",
         "8.0": "RVS"
       },
-      "systemMissing": 0,
+      "systemMissing": null,
       "userMissing": [],
-      "invalid": 0,
+      "invalid": null,
       "meaning": "Comorbidity category",
       "analysisType": "Nominal category",
       "unit": "Not applicable",
       "issue": "RVS is an undefined value label, not a confirmed diagnosis or automatic exclusion.",
-      "nonmissing": 85,
+      "nonmissing": null,
       "objectives": [
         1,
         2
@@ -396,14 +396,14 @@ window.HUB_VARIABLES = {
         "4.0": "very confident",
         "5.0": "extremely confident"
       },
-      "systemMissing": 0,
+      "systemMissing": null,
       "userMissing": [],
-      "invalid": 0,
+      "invalid": null,
       "meaning": "Diagnostic confidence before combined assessment",
       "analysisType": "Ordered five-category rating",
       "unit": "Category code 1\u20135",
       "issue": "Original values and value labels retained. See the current derived definitions; no inference from unrecorded observations.",
-      "nonmissing": 85,
+      "nonmissing": null,
       "objectives": [
         5
       ]
@@ -414,14 +414,14 @@ window.HUB_VARIABLES = {
       "storage": "double",
       "measure": "scale",
       "codes": {},
-      "systemMissing": 0,
+      "systemMissing": null,
       "userMissing": [],
       "invalid": null,
       "meaning": "Packed cell volume",
       "analysisType": "Numerical blood measure",
       "unit": "Percent",
       "issue": "Original values and value labels retained. See the current derived definitions; no inference from unrecorded observations. See exploratory PCV; external age/sex intervals are not appendicitis diagnostic thresholds.",
-      "nonmissing": 85,
+      "nonmissing": null,
       "objectives": []
     },
     {
@@ -430,14 +430,14 @@ window.HUB_VARIABLES = {
       "storage": "double",
       "measure": "scale",
       "codes": {},
-      "systemMissing": 0,
+      "systemMissing": null,
       "userMissing": [],
       "invalid": null,
       "meaning": "White blood cell count",
       "analysisType": "Numerical blood measure",
       "unit": "\u00d710\u2079/L",
       "issue": "Original values and value labels retained. See the current derived definitions; no inference from unrecorded observations.",
-      "nonmissing": 85,
+      "nonmissing": null,
       "objectives": [
         1
       ]
@@ -448,14 +448,14 @@ window.HUB_VARIABLES = {
       "storage": "double",
       "measure": "scale",
       "codes": {},
-      "systemMissing": 0,
+      "systemMissing": null,
       "userMissing": [],
       "invalid": null,
       "meaning": "Neutrophil measurement",
       "analysisType": "Numerical blood measure",
       "unit": "Percent",
       "issue": "Original values and value labels retained. See the current derived definitions; no inference from unrecorded observations.",
-      "nonmissing": 85,
+      "nonmissing": null,
       "objectives": []
     },
     {
@@ -464,14 +464,14 @@ window.HUB_VARIABLES = {
       "storage": "double",
       "measure": "scale",
       "codes": {},
-      "systemMissing": 0,
+      "systemMissing": null,
       "userMissing": [],
       "invalid": null,
       "meaning": "Modified Alvarado Score",
       "analysisType": "Bounded ordered clinical score",
       "unit": "Protocol maximum: 9 points",
       "issue": "Original values and value labels retained. See the current derived definitions; no inference from unrecorded observations.",
-      "nonmissing": 85,
+      "nonmissing": null,
       "objectives": [
         1,
         3,
@@ -485,14 +485,14 @@ window.HUB_VARIABLES = {
       "storage": "double",
       "measure": "scale",
       "codes": {},
-      "systemMissing": 0,
+      "systemMissing": null,
       "userMissing": [],
       "invalid": null,
       "meaning": "Appendicitis Inflammatory Response score",
       "analysisType": "Stored clinical score",
       "unit": "Scoring construction not verified",
       "issue": "Original values and value labels retained. See the current derived definitions; no inference from unrecorded observations. See exploratory AIR and diagnostic strategies. Working categories; no AIR-specific approved protocol recovered.",
-      "nonmissing": 85,
+      "nonmissing": null,
       "objectives": []
     },
     {
@@ -501,14 +501,14 @@ window.HUB_VARIABLES = {
       "storage": "double",
       "measure": "scale",
       "codes": {},
-      "systemMissing": 0,
+      "systemMissing": null,
       "userMissing": [],
       "invalid": null,
       "meaning": "Protocol hsCRP measurement",
       "analysisType": "Numerical concentration",
       "unit": "mg/L",
       "issue": "Original values and value labels retained. See the current derived definitions; no inference from unrecorded observations.",
-      "nonmissing": 85,
+      "nonmissing": null,
       "objectives": [
         1,
         2,
@@ -530,14 +530,14 @@ window.HUB_VARIABLES = {
         "5.0": "inconclusive",
         "6.0": "not done"
       },
-      "systemMissing": 0,
+      "systemMissing": null,
       "userMissing": [],
-      "invalid": 0,
+      "invalid": null,
       "meaning": "Abdominal scan category",
       "analysisType": "Nominal category",
       "unit": "Not applicable",
       "issue": "Original values and value labels retained. See the current derived definitions; no inference from unrecorded observations.",
-      "nonmissing": 85,
+      "nonmissing": null,
       "objectives": [
         6
       ]
@@ -554,14 +554,14 @@ window.HUB_VARIABLES = {
         "4.0": "very confident",
         "5.0": "extremely confident"
       },
-      "systemMissing": 0,
+      "systemMissing": null,
       "userMissing": [],
-      "invalid": 0,
+      "invalid": null,
       "meaning": "Diagnostic confidence after combined assessment",
       "analysisType": "Ordered five-category rating",
       "unit": "Category code 1\u20135",
       "issue": "Original values and value labels retained. See the current derived definitions; no inference from unrecorded observations.",
-      "nonmissing": 85,
+      "nonmissing": null,
       "objectives": [
         5
       ]
@@ -577,14 +577,14 @@ window.HUB_VARIABLES = {
         "3.0": "normal appendix",
         "4.0": "gangrenous"
       },
-      "systemMissing": 0,
+      "systemMissing": null,
       "userMissing": [],
-      "invalid": 0,
+      "invalid": null,
       "meaning": "Intraoperative appearance",
       "analysisType": "Nominal category",
       "unit": "Not applicable",
       "issue": "Original values and value labels retained. See the current derived definitions; no inference from unrecorded observations.",
-      "nonmissing": 85,
+      "nonmissing": null,
       "objectives": [
         2,
         4
@@ -603,14 +603,14 @@ window.HUB_VARIABLES = {
         "5.0": "preileal",
         "6.0": "postileal"
       },
-      "systemMissing": 0,
+      "systemMissing": null,
       "userMissing": [],
-      "invalid": 0,
+      "invalid": null,
       "meaning": "Appendix position",
       "analysisType": "Nominal category",
       "unit": "Not applicable",
       "issue": "Original values and value labels retained. See the current derived definitions; no inference from unrecorded observations.",
-      "nonmissing": 85,
+      "nonmissing": null,
       "objectives": [
         4
       ]
@@ -621,14 +621,14 @@ window.HUB_VARIABLES = {
       "storage": "double",
       "measure": "scale",
       "codes": {},
-      "systemMissing": 0,
+      "systemMissing": null,
       "userMissing": [],
       "invalid": null,
       "meaning": "Appendix length",
       "analysisType": "Numerical measurement",
       "unit": "Centimetres",
       "issue": "Original values and value labels retained. See the current derived definitions; no inference from unrecorded observations.",
-      "nonmissing": 85,
+      "nonmissing": null,
       "objectives": [
         4
       ]
@@ -646,14 +646,14 @@ window.HUB_VARIABLES = {
         "5.0": "perforated appendicitis",
         "6.0": "reactive lymphoid hyperplasia"
       },
-      "systemMissing": 0,
+      "systemMissing": null,
       "userMissing": [],
-      "invalid": 0,
+      "invalid": null,
       "meaning": "Appendix histology reference",
       "analysisType": "Nominal pathology category",
       "unit": "Category code",
       "issue": "Original values and value labels retained. See the current derived definitions; no inference from unrecorded observations.",
-      "nonmissing": 85,
+      "nonmissing": null,
       "objectives": [
         1,
         2,
@@ -671,14 +671,14 @@ window.HUB_VARIABLES = {
         "1.0": "yes",
         "2.0": "no"
       },
-      "systemMissing": 0,
+      "systemMissing": null,
       "userMissing": [],
-      "invalid": 0,
+      "invalid": null,
       "meaning": "Faecolith present",
       "analysisType": "Binary category",
       "unit": "Not applicable",
       "issue": "Original values and value labels retained. See the current derived definitions; no inference from unrecorded observations.",
-      "nonmissing": 85,
+      "nonmissing": null,
       "objectives": []
     },
     {
@@ -687,14 +687,14 @@ window.HUB_VARIABLES = {
       "storage": "double",
       "measure": "scale",
       "codes": {},
-      "systemMissing": 0,
+      "systemMissing": null,
       "userMissing": [],
       "invalid": null,
       "meaning": "Time to diagnosis",
       "analysisType": "Numerical duration",
       "unit": "Recorded hours",
       "issue": "Original values and value labels retained. See the current derived definitions; no inference from unrecorded observations.",
-      "nonmissing": 85,
+      "nonmissing": null,
       "objectives": [
         5
       ]
@@ -705,14 +705,14 @@ window.HUB_VARIABLES = {
       "storage": "double",
       "measure": "scale",
       "codes": {},
-      "systemMissing": 0,
+      "systemMissing": null,
       "userMissing": [],
       "invalid": null,
       "meaning": "Time to surgery",
       "analysisType": "Numerical duration",
       "unit": "Recorded hours",
       "issue": "Original values and value labels retained. See the current derived definitions; no inference from unrecorded observations.",
-      "nonmissing": 85,
+      "nonmissing": null,
       "objectives": []
     },
     {
@@ -730,14 +730,14 @@ window.HUB_VARIABLES = {
         "7.0": "none",
         "8.0": "ileus"
       },
-      "systemMissing": 0,
+      "systemMissing": null,
       "userMissing": [],
-      "invalid": 0,
+      "invalid": null,
       "meaning": "Postoperative complication category",
       "analysisType": "Nominal category",
       "unit": "Not applicable",
       "issue": "Original values and value labels retained. See the current derived definitions; no inference from unrecorded observations.",
-      "nonmissing": 85,
+      "nonmissing": null,
       "objectives": [
         6
       ]
@@ -748,14 +748,14 @@ window.HUB_VARIABLES = {
       "storage": "double",
       "measure": "scale",
       "codes": {},
-      "systemMissing": 0,
+      "systemMissing": null,
       "userMissing": [],
       "invalid": null,
       "meaning": "Duration of admission",
       "analysisType": "Numerical duration",
       "unit": "Recorded days",
       "issue": "Original values and value labels retained. See the current derived definitions; no inference from unrecorded observations.",
-      "nonmissing": 85,
+      "nonmissing": null,
       "objectives": [
         6
       ]
@@ -766,14 +766,14 @@ window.HUB_VARIABLES = {
       "storage": "double",
       "measure": "scale",
       "codes": {},
-      "systemMissing": 0,
+      "systemMissing": null,
       "userMissing": [],
       "invalid": null,
       "meaning": "Recorded total amount",
       "analysisType": "Numerical monetary amount",
       "unit": "NGN; original totals unchanged",
       "issue": "Original values and value labels retained. See the current derived definitions; no inference from unrecorded observations.",
-      "nonmissing": 85,
+      "nonmissing": null,
       "objectives": [
         6
       ]
@@ -788,14 +788,14 @@ window.HUB_VARIABLES = {
         "2.0": "satisfied",
         "3.0": "very satisfied"
       },
-      "systemMissing": 0,
+      "systemMissing": null,
       "userMissing": [],
-      "invalid": 0,
+      "invalid": null,
       "meaning": "Patient satisfaction with diagnosis",
       "analysisType": "Ordered categories",
       "unit": "Category code",
       "issue": "Original values and value labels retained. See the current derived definitions; no inference from unrecorded observations.",
-      "nonmissing": 85,
+      "nonmissing": null,
       "objectives": [
         5
       ]
@@ -806,20 +806,20 @@ window.HUB_VARIABLES = {
       "storage": "double",
       "analysisType": "ordinal derived measurement",
       "unit": "See exact operational definition",
-      "issue": "Nonmissing age >=0 and <16 ->1; age >=16 ->2; missing or negative -> system missing. No protocol age limits are specified. Observed ages 8 to 70 years were retained.",
+      "issue": "Nonmissing age >=0 and <16 ->1; age >=16 ->2; missing or negative -> system missing. No protocol age limits are specified. No cohort age range is embedded in the public package.",
       "objectives": [
         3,
         4
       ],
-      "invalid": 0,
+      "invalid": null,
       "label": "Age group using the approved 16 year boundary",
       "measure": "ordinal",
       "codes": {
         "1.0": "Children younger than 16 years",
         "2.0": "Adults aged 16 years and above"
       },
-      "systemMissing": 0,
-      "nonmissing": 85,
+      "systemMissing": null,
+      "nonmissing": null,
       "userMissing": []
     },
     {
@@ -836,15 +836,15 @@ window.HUB_VARIABLES = {
         4,
         6
       ],
-      "invalid": 0,
+      "invalid": null,
       "label": "Histopathological acute appendicitis reference diagnosis",
       "measure": "nominal",
       "codes": {
         "0.0": "Negative acute appendicitis",
         "1.0": "Positive acute appendicitis"
       },
-      "systemMissing": 0,
-      "nonmissing": 85,
+      "systemMissing": null,
+      "nonmissing": null,
       "userMissing": []
     },
     {
@@ -861,7 +861,7 @@ window.HUB_VARIABLES = {
         4,
         6
       ],
-      "invalid": 0,
+      "invalid": null,
       "label": "Histological appendicitis severity independent of operative findings",
       "measure": "nominal",
       "codes": {
@@ -869,8 +869,8 @@ window.HUB_VARIABLES = {
         "1.0": "Simple acute appendicitis",
         "2.0": "Complicated acute appendicitis"
       },
-      "systemMissing": 0,
-      "nonmissing": 85,
+      "systemMissing": null,
+      "nonmissing": null,
       "userMissing": []
     },
     {
@@ -887,7 +887,7 @@ window.HUB_VARIABLES = {
         4,
         6
       ],
-      "invalid": 0,
+      "invalid": null,
       "label": "Histological severity alias of HISTOLOGY_SEVERITY",
       "measure": "nominal",
       "codes": {
@@ -895,8 +895,8 @@ window.HUB_VARIABLES = {
         "1.0": "Simple acute appendicitis",
         "2.0": "Complicated acute appendicitis"
       },
-      "systemMissing": 0,
-      "nonmissing": 85,
+      "systemMissing": null,
+      "nonmissing": null,
       "userMissing": []
     },
     {
@@ -910,15 +910,15 @@ window.HUB_VARIABLES = {
         2,
         4
       ],
-      "invalid": 0,
+      "invalid": null,
       "label": "Operative rupture documented independently of histology",
       "measure": "nominal",
       "codes": {
         "0.0": "No rupture - normal appendix recorded",
         "1.0": "Yes - ruptured appendix recorded"
       },
-      "systemMissing": 64,
-      "nonmissing": 21,
+      "systemMissing": null,
+      "nonmissing": null,
       "userMissing": []
     },
     {
@@ -929,15 +929,15 @@ window.HUB_VARIABLES = {
       "unit": "See exact operational definition",
       "issue": "1 -> 1; 2 -> 0; other or missing source -> system missing. Source does not distinguish incidental from obstructing fecalith. It does not determine severity.",
       "objectives": [],
-      "invalid": 0,
+      "invalid": null,
       "label": "Documented fecalith presence",
       "measure": "nominal",
       "codes": {
         "0.0": "Absent",
         "1.0": "Present"
       },
-      "systemMissing": 0,
-      "nonmissing": 85,
+      "systemMissing": null,
+      "nonmissing": null,
       "userMissing": []
     },
     {
@@ -950,7 +950,7 @@ window.HUB_VARIABLES = {
       "objectives": [
         5
       ],
-      "invalid": 0,
+      "invalid": null,
       "label": "Doctor's diagnostic confidence before receiving MAS and hs-CRP information.",
       "measure": "ordinal",
       "codes": {
@@ -960,8 +960,8 @@ window.HUB_VARIABLES = {
         "4.0": "Very confident",
         "5.0": "Extremely confident"
       },
-      "systemMissing": 0,
-      "nonmissing": 85,
+      "systemMissing": null,
+      "nonmissing": null,
       "userMissing": []
     },
     {
@@ -974,7 +974,7 @@ window.HUB_VARIABLES = {
       "objectives": [
         5
       ],
-      "invalid": 0,
+      "invalid": null,
       "label": "Doctor's diagnostic confidence after receiving MAS and hs-CRP information.",
       "measure": "ordinal",
       "codes": {
@@ -984,8 +984,8 @@ window.HUB_VARIABLES = {
         "4.0": "Very confident",
         "5.0": "Extremely confident"
       },
-      "systemMissing": 0,
-      "nonmissing": 85,
+      "systemMissing": null,
+      "nonmissing": null,
       "userMissing": []
     },
     {
@@ -998,15 +998,15 @@ window.HUB_VARIABLES = {
       "objectives": [
         1
       ],
-      "invalid": 0,
+      "invalid": null,
       "label": "Documented rebound tenderness",
       "measure": "nominal",
       "codes": {
         "0.0": "Absent",
         "1.0": "Present"
       },
-      "systemMissing": 0,
-      "nonmissing": 85,
+      "systemMissing": null,
+      "nonmissing": null,
       "userMissing": []
     },
     {
@@ -1019,15 +1019,15 @@ window.HUB_VARIABLES = {
       "objectives": [
         1
       ],
-      "invalid": 0,
+      "invalid": null,
       "label": "Documented right iliac fossa tenderness",
       "measure": "nominal",
       "codes": {
         "0.0": "Absent",
         "1.0": "Present"
       },
-      "systemMissing": 0,
-      "nonmissing": 85,
+      "systemMissing": null,
+      "nonmissing": null,
       "userMissing": []
     },
     {
@@ -1038,15 +1038,15 @@ window.HUB_VARIABLES = {
       "unit": "See exact operational definition",
       "issue": "1 -> 1; other or missing source -> system missing. Positive only extraction. Other selected categories do not document absence or exclude coexistence; they remain system missing. Source code 5 means generalized tenderness per researcher clarification.",
       "objectives": [],
-      "invalid": 0,
+      "invalid": null,
       "label": "Pointing sign documented as the selected clinical sign",
       "measure": "nominal",
       "codes": {
         "0.0": "Absent",
         "1.0": "Present"
       },
-      "systemMissing": 38,
-      "nonmissing": 47,
+      "systemMissing": null,
+      "nonmissing": null,
       "userMissing": []
     },
     {
@@ -1057,15 +1057,15 @@ window.HUB_VARIABLES = {
       "unit": "See exact operational definition",
       "issue": "2 -> 1; other or missing source -> system missing. Positive only extraction. Other selected categories do not document absence or exclude coexistence; they remain system missing. Source code 5 means generalized tenderness per researcher clarification.",
       "objectives": [],
-      "invalid": 0,
+      "invalid": null,
       "label": "Rovsing sign documented as the selected clinical sign",
       "measure": "nominal",
       "codes": {
         "0.0": "Absent",
         "1.0": "Present"
       },
-      "systemMissing": 72,
-      "nonmissing": 13,
+      "systemMissing": null,
+      "nonmissing": null,
       "userMissing": []
     },
     {
@@ -1076,15 +1076,15 @@ window.HUB_VARIABLES = {
       "unit": "See exact operational definition",
       "issue": "3 -> 1; other or missing source -> system missing. Positive only extraction. Other selected categories do not document absence or exclude coexistence; they remain system missing. Source code 5 means generalized tenderness per researcher clarification.",
       "objectives": [],
-      "invalid": 0,
+      "invalid": null,
       "label": "Psoas sign documented as the selected clinical sign",
       "measure": "nominal",
       "codes": {
         "0.0": "Absent",
         "1.0": "Present"
       },
-      "systemMissing": 65,
-      "nonmissing": 20,
+      "systemMissing": null,
+      "nonmissing": null,
       "userMissing": []
     },
     {
@@ -1095,15 +1095,15 @@ window.HUB_VARIABLES = {
       "unit": "See exact operational definition",
       "issue": "4 -> 1; other or missing source -> system missing. Positive only extraction. Other selected categories do not document absence or exclude coexistence; they remain system missing. Source code 5 means generalized tenderness per researcher clarification.",
       "objectives": [],
-      "invalid": 0,
+      "invalid": null,
       "label": "Obturator sign documented as the selected clinical sign",
       "measure": "nominal",
       "codes": {
         "0.0": "Absent",
         "1.0": "Present"
       },
-      "systemMissing": 81,
-      "nonmissing": 4,
+      "systemMissing": null,
+      "nonmissing": null,
       "userMissing": []
     },
     {
@@ -1114,15 +1114,15 @@ window.HUB_VARIABLES = {
       "unit": "See exact operational definition",
       "issue": "5 -> 1; other or missing source -> system missing. Researcher confirms signs code 5 means generalized tenderness. Other selected categories remain unknown, not absent.",
       "objectives": [],
-      "invalid": 0,
+      "invalid": null,
       "label": "Generalized tenderness documented as the selected clinical sign",
       "measure": "nominal",
       "codes": {
         "0.0": "Absent",
         "1.0": "Present"
       },
-      "systemMissing": 84,
-      "nonmissing": 1,
+      "systemMissing": null,
+      "nonmissing": null,
       "userMissing": []
     },
     {
@@ -1138,7 +1138,7 @@ window.HUB_VARIABLES = {
         4,
         6
       ],
-      "invalid": 0,
+      "invalid": null,
       "label": "Modified Alvarado Score category using approved protocol boundaries",
       "measure": "ordinal",
       "codes": {
@@ -1146,8 +1146,8 @@ window.HUB_VARIABLES = {
         "2.0": "Intermediate probability / equivocal (5 to 6)",
         "3.0": "High probability (7 to 9)"
       },
-      "systemMissing": 0,
-      "nonmissing": 85,
+      "systemMissing": null,
+      "nonmissing": null,
       "userMissing": []
     },
     {
@@ -1164,15 +1164,15 @@ window.HUB_VARIABLES = {
         4,
         6
       ],
-      "invalid": 0,
+      "invalid": null,
       "label": "hsCRP elevation using study laboratory upper reference limit of 3 mg/L",
       "measure": "nominal",
       "codes": {
         "0.0": "At or below 3 mg/L",
         "1.0": "Above 3 mg/L"
       },
-      "systemMissing": 0,
-      "nonmissing": 85,
+      "systemMissing": null,
+      "nonmissing": null,
       "userMissing": []
     },
     {
@@ -1185,7 +1185,7 @@ window.HUB_VARIABLES = {
       "objectives": [
         6
       ],
-      "invalid": 0,
+      "invalid": null,
       "label": "Standardized recorded abdominal scan diagnosis - ambiguous source code 3 unclassified",
       "measure": "nominal",
       "codes": {
@@ -1196,8 +1196,8 @@ window.HUB_VARIABLES = {
         "5.0": "Inconclusive",
         "9.0": "Not done / not performed"
       },
-      "systemMissing": 11,
-      "nonmissing": 74,
+      "systemMissing": null,
+      "nonmissing": null,
       "userMissing": [
         {
           "lo": 9.0,
@@ -1216,7 +1216,7 @@ window.HUB_VARIABLES = {
         2,
         4
       ],
-      "invalid": 0,
+      "invalid": null,
       "label": "Standardized single recorded intraoperative finding",
       "measure": "nominal",
       "codes": {
@@ -1226,8 +1226,8 @@ window.HUB_VARIABLES = {
         "4.0": "Normal appendix",
         "5.0": "Other documented finding"
       },
-      "systemMissing": 0,
-      "nonmissing": 85,
+      "systemMissing": null,
+      "nonmissing": null,
       "userMissing": []
     },
     {
@@ -1240,15 +1240,15 @@ window.HUB_VARIABLES = {
       "objectives": [
         6
       ],
-      "invalid": 0,
+      "invalid": null,
       "label": "Recorded superficial surgical site infection status",
       "measure": "nominal",
       "codes": {
         "0.0": "No",
         "1.0": "Yes"
       },
-      "systemMissing": 2,
-      "nonmissing": 83,
+      "systemMissing": null,
+      "nonmissing": null,
       "userMissing": []
     },
     {
@@ -1261,15 +1261,15 @@ window.HUB_VARIABLES = {
       "objectives": [
         6
       ],
-      "invalid": 0,
+      "invalid": null,
       "label": "Recorded deep surgical site infection status",
       "measure": "nominal",
       "codes": {
         "0.0": "No",
         "1.0": "Yes"
       },
-      "systemMissing": 7,
-      "nonmissing": 78,
+      "systemMissing": null,
+      "nonmissing": null,
       "userMissing": []
     },
     {
@@ -1282,15 +1282,15 @@ window.HUB_VARIABLES = {
       "objectives": [
         6
       ],
-      "invalid": 0,
+      "invalid": null,
       "label": "Recorded organ space surgical site infection status",
       "measure": "nominal",
       "codes": {
         "0.0": "No",
         "1.0": "Yes"
       },
-      "systemMissing": 7,
-      "nonmissing": 78,
+      "systemMissing": null,
+      "nonmissing": null,
       "userMissing": []
     },
     {
@@ -1303,15 +1303,15 @@ window.HUB_VARIABLES = {
       "objectives": [
         6
       ],
-      "invalid": 0,
+      "invalid": null,
       "label": "Recorded incisional dehiscence status",
       "measure": "nominal",
       "codes": {
         "0.0": "No",
         "1.0": "Yes"
       },
-      "systemMissing": 7,
-      "nonmissing": 78,
+      "systemMissing": null,
+      "nonmissing": null,
       "userMissing": []
     },
     {
@@ -1324,15 +1324,15 @@ window.HUB_VARIABLES = {
       "objectives": [
         6
       ],
-      "invalid": 0,
+      "invalid": null,
       "label": "Recorded incisional hernia status",
       "measure": "nominal",
       "codes": {
         "0.0": "No",
         "1.0": "Yes"
       },
-      "systemMissing": 7,
-      "nonmissing": 78,
+      "systemMissing": null,
+      "nonmissing": null,
       "userMissing": []
     },
     {
@@ -1345,15 +1345,15 @@ window.HUB_VARIABLES = {
       "objectives": [
         6
       ],
-      "invalid": 0,
+      "invalid": null,
       "label": "Recorded postoperative ileus status",
       "measure": "nominal",
       "codes": {
         "0.0": "No",
         "1.0": "Yes"
       },
-      "systemMissing": 5,
-      "nonmissing": 80,
+      "systemMissing": null,
+      "nonmissing": null,
       "userMissing": []
     },
     {
@@ -1366,15 +1366,15 @@ window.HUB_VARIABLES = {
       "objectives": [
         6
       ],
-      "invalid": 0,
+      "invalid": null,
       "label": "Recorded postoperative death status",
       "measure": "nominal",
       "codes": {
         "0.0": "No",
         "1.0": "Yes"
       },
-      "systemMissing": 7,
-      "nonmissing": 78,
+      "systemMissing": null,
+      "nonmissing": null,
       "userMissing": []
     },
     {
@@ -1387,15 +1387,15 @@ window.HUB_VARIABLES = {
       "objectives": [
         6
       ],
-      "invalid": 0,
+      "invalid": null,
       "label": "Any documented postoperative complication in the recorded category",
       "measure": "nominal",
       "codes": {
         "0.0": "No documented postoperative complication",
         "1.0": "At least one postoperative complication"
       },
-      "systemMissing": 0,
-      "nonmissing": 85,
+      "systemMissing": null,
+      "nonmissing": null,
       "userMissing": []
     },
     {
@@ -1408,7 +1408,7 @@ window.HUB_VARIABLES = {
       "objectives": [
         5
       ],
-      "invalid": 0,
+      "invalid": null,
       "label": "Patient satisfaction with diagnosis using original questionnaire wording",
       "measure": "ordinal",
       "codes": {
@@ -1416,8 +1416,8 @@ window.HUB_VARIABLES = {
         "2.0": "Satisfied",
         "3.0": "Very satisfied"
       },
-      "systemMissing": 0,
-      "nonmissing": 85,
+      "systemMissing": null,
+      "nonmissing": null,
       "userMissing": []
     },
     {
@@ -1430,15 +1430,15 @@ window.HUB_VARIABLES = {
       "objectives": [
         1
       ],
-      "invalid": 0,
+      "invalid": null,
       "label": "Anorexia presence from labelled source responses",
       "measure": "nominal",
       "codes": {
         "0.0": "No",
         "1.0": "Yes"
       },
-      "systemMissing": 1,
-      "nonmissing": 84,
+      "systemMissing": null,
+      "nonmissing": null,
       "userMissing": []
     },
     {
@@ -1453,8 +1453,8 @@ window.HUB_VARIABLES = {
       "label": "Recorded abdominal pain duration in hours",
       "measure": "scale",
       "codes": {},
-      "systemMissing": 0,
-      "nonmissing": 85,
+      "systemMissing": null,
+      "nonmissing": null,
       "userMissing": []
     },
     {
@@ -1471,8 +1471,8 @@ window.HUB_VARIABLES = {
       "label": "Recorded appendix length in centimetres",
       "measure": "scale",
       "codes": {},
-      "systemMissing": 0,
-      "nonmissing": 85,
+      "systemMissing": null,
+      "nonmissing": null,
       "userMissing": []
     },
     {
@@ -1489,8 +1489,8 @@ window.HUB_VARIABLES = {
       "label": "Recorded time to diagnosis in hours",
       "measure": "scale",
       "codes": {},
-      "systemMissing": 0,
-      "nonmissing": 85,
+      "systemMissing": null,
+      "nonmissing": null,
       "userMissing": []
     },
     {
@@ -1505,8 +1505,8 @@ window.HUB_VARIABLES = {
       "label": "Recorded time to surgery in hours",
       "measure": "scale",
       "codes": {},
-      "systemMissing": 0,
-      "nonmissing": 85,
+      "systemMissing": null,
+      "nonmissing": null,
       "userMissing": []
     },
     {
@@ -1523,8 +1523,8 @@ window.HUB_VARIABLES = {
       "label": "Recorded length of stay in days",
       "measure": "scale",
       "codes": {},
-      "systemMissing": 0,
-      "nonmissing": 85,
+      "systemMissing": null,
+      "nonmissing": null,
       "userMissing": []
     },
     {
@@ -1541,8 +1541,8 @@ window.HUB_VARIABLES = {
       "label": "Recorded total hospital cost in NGN",
       "measure": "scale",
       "codes": {},
-      "systemMissing": 0,
-      "nonmissing": 85,
+      "systemMissing": null,
+      "nonmissing": null,
       "userMissing": []
     },
     {
@@ -1553,7 +1553,7 @@ window.HUB_VARIABLES = {
       "unit": "See exact operational definition",
       "issue": "0 to 6 inclusive ->1; >6 to 12 ->2; >12 to 24 ->3; >24 ->4; negative or missing ->system missing. Analyst operational categories explicitly authorized in the correction prompt; not protocol prespecified. All original numeric values treated as hours without rescaling.",
       "objectives": [],
-      "invalid": 0,
+      "invalid": null,
       "label": "Recorded hour category of recorded abdominal pain duration",
       "measure": "ordinal",
       "codes": {
@@ -1562,8 +1562,8 @@ window.HUB_VARIABLES = {
         "3.0": "More than 12 to 24 hours",
         "4.0": "More than 24 hours"
       },
-      "systemMissing": 0,
-      "nonmissing": 85,
+      "systemMissing": null,
+      "nonmissing": null,
       "userMissing": []
     },
     {
@@ -1576,7 +1576,7 @@ window.HUB_VARIABLES = {
       "objectives": [
         5
       ],
-      "invalid": 0,
+      "invalid": null,
       "label": "Recorded hour category of recorded time to diagnosis",
       "measure": "ordinal",
       "codes": {
@@ -1585,8 +1585,8 @@ window.HUB_VARIABLES = {
         "3.0": "More than 12 to 24 hours",
         "4.0": "More than 24 hours"
       },
-      "systemMissing": 0,
-      "nonmissing": 85,
+      "systemMissing": null,
+      "nonmissing": null,
       "userMissing": []
     },
     {
@@ -1597,7 +1597,7 @@ window.HUB_VARIABLES = {
       "unit": "See exact operational definition",
       "issue": "0 to 6 inclusive ->1; >6 to 12 ->2; >12 to 24 ->3; >24 ->4; negative or missing ->system missing. Analyst operational categories explicitly authorized in the correction prompt; not protocol prespecified. All original numeric values treated as hours without rescaling.",
       "objectives": [],
-      "invalid": 0,
+      "invalid": null,
       "label": "Recorded hour category of recorded time to surgery",
       "measure": "ordinal",
       "codes": {
@@ -1606,8 +1606,8 @@ window.HUB_VARIABLES = {
         "3.0": "More than 12 to 24 hours",
         "4.0": "More than 24 hours"
       },
-      "systemMissing": 0,
-      "nonmissing": 85,
+      "systemMissing": null,
+      "nonmissing": null,
       "userMissing": []
     },
     {
@@ -1616,11 +1616,11 @@ window.HUB_VARIABLES = {
       "storage": "double",
       "analysisType": "ordinal derived measurement",
       "unit": "See exact operational definition",
-      "issue": "1 to 3 inclusive ->1; >3 to 7 ->2; >7 ->3; <1 or missing ->system missing. All observed stays are integer days from 2 to 8. Zero and same day stays would remain unclassified rather than forced into 1 to 3 days; no such observations occur.",
+      "issue": "1 to 3 inclusive ->1; >3 to 7 ->2; >7 ->3; <1 or missing ->system missing. Zero and same-day stays remain unclassified rather than forced into 1 to 3 days.",
       "objectives": [
         6
       ],
-      "invalid": 0,
+      "invalid": null,
       "label": "Provisional recorded hospital stay category in days",
       "measure": "ordinal",
       "codes": {
@@ -1628,8 +1628,8 @@ window.HUB_VARIABLES = {
         "2.0": "4 to 7 days",
         "3.0": "More than 7 days"
       },
-      "systemMissing": 0,
-      "nonmissing": 85,
+      "systemMissing": null,
+      "nonmissing": null,
       "userMissing": []
     },
     {
@@ -1640,7 +1640,7 @@ window.HUB_VARIABLES = {
       "unit": "See exact operational definition",
       "issue": "Integer AIR 0 to 4 ->1; 5 to 8 ->2; 9 to 12 ->3; other or missing ->system missing. Standard AIR identity and 0 to 12 range are working assumptions explicitly supplied by the researcher. The protocol and proforma do not define AIR. Original score was not recalculated. See exploratory AIR and diagnostic strategies. Working categories; no AIR-specific approved protocol recovered.",
       "objectives": [],
-      "invalid": 0,
+      "invalid": null,
       "label": "Provisional standard AIR score probability category",
       "measure": "ordinal",
       "codes": {
@@ -1648,8 +1648,8 @@ window.HUB_VARIABLES = {
         "2.0": "Intermediate probability (5 to 8)",
         "3.0": "High probability (9 to 12)"
       },
-      "systemMissing": 0,
-      "nonmissing": 85,
+      "systemMissing": null,
+      "nonmissing": null,
       "userMissing": []
     },
     {
@@ -1658,7 +1658,7 @@ window.HUB_VARIABLES = {
       "storage": "double",
       "analysisType": "scale derived measurement",
       "unit": "See exact operational definition",
-      "issue": "Assign age and sex specific reference bound; age below 8 or missing required age or sex remains missing; adult bounds have no upper age cap. External research reference, not an EKSUTH laboratory limit. Scope covers the observed ages 8 to 70. Source: Mayo CBC. See reference interval table in dictionary. See exploratory PCV; external age/sex intervals are not appendicitis diagnostic thresholds.",
+      "issue": "Assign age and sex specific reference bound; age below 8 or missing required age or sex remains missing; adult bounds have no upper age cap. External research reference, not an EKSUTH laboratory limit. Source: Mayo CBC. See reference interval table in dictionary. See exploratory PCV; external age/sex intervals are not appendicitis diagnostic thresholds.",
       "objectives": [
         3,
         4
@@ -1667,8 +1667,8 @@ window.HUB_VARIABLES = {
       "label": "PCV external reference low bound",
       "measure": "scale",
       "codes": {},
-      "systemMissing": 0,
-      "nonmissing": 85,
+      "systemMissing": null,
+      "nonmissing": null,
       "userMissing": []
     },
     {
@@ -1677,7 +1677,7 @@ window.HUB_VARIABLES = {
       "storage": "double",
       "analysisType": "scale derived measurement",
       "unit": "See exact operational definition",
-      "issue": "Assign age and sex specific reference bound; age below 8 or missing required age or sex remains missing; adult bounds have no upper age cap. External research reference, not an EKSUTH laboratory limit. Scope covers the observed ages 8 to 70. Source: Mayo CBC. See reference interval table in dictionary. See exploratory PCV; external age/sex intervals are not appendicitis diagnostic thresholds.",
+      "issue": "Assign age and sex specific reference bound; age below 8 or missing required age or sex remains missing; adult bounds have no upper age cap. External research reference, not an EKSUTH laboratory limit. Source: Mayo CBC. See reference interval table in dictionary. See exploratory PCV; external age/sex intervals are not appendicitis diagnostic thresholds.",
       "objectives": [
         3,
         4
@@ -1686,8 +1686,8 @@ window.HUB_VARIABLES = {
       "label": "PCV external reference high bound",
       "measure": "scale",
       "codes": {},
-      "systemMissing": 0,
-      "nonmissing": 85,
+      "systemMissing": null,
+      "nonmissing": null,
       "userMissing": []
     },
     {
@@ -1701,7 +1701,7 @@ window.HUB_VARIABLES = {
         3,
         4
       ],
-      "invalid": 0,
+      "invalid": null,
       "label": "PCV classification against external reference intervals",
       "measure": "ordinal",
       "codes": {
@@ -1709,8 +1709,8 @@ window.HUB_VARIABLES = {
         "2.0": "Normal PCV",
         "3.0": "High PCV"
       },
-      "systemMissing": 0,
-      "nonmissing": 85,
+      "systemMissing": null,
+      "nonmissing": null,
       "userMissing": []
     },
     {
@@ -1719,7 +1719,7 @@ window.HUB_VARIABLES = {
       "storage": "double",
       "analysisType": "scale derived measurement",
       "unit": "See exact operational definition",
-      "issue": "Assign age specific reference bound; age below 8 or missing required age or sex remains missing; adult bounds have no upper age cap. External research reference, not an EKSUTH laboratory limit. Scope covers the observed ages 8 to 70. Source: Mayo CBC. See reference interval table in dictionary.",
+      "issue": "Assign age specific reference bound; age below 8 or missing required age or sex remains missing; adult bounds have no upper age cap. External research reference, not an EKSUTH laboratory limit. Source: Mayo CBC. See reference interval table in dictionary.",
       "objectives": [
         3,
         4
@@ -1728,8 +1728,8 @@ window.HUB_VARIABLES = {
       "label": "WBC external reference low bound",
       "measure": "scale",
       "codes": {},
-      "systemMissing": 0,
-      "nonmissing": 85,
+      "systemMissing": null,
+      "nonmissing": null,
       "userMissing": []
     },
     {
@@ -1738,7 +1738,7 @@ window.HUB_VARIABLES = {
       "storage": "double",
       "analysisType": "scale derived measurement",
       "unit": "See exact operational definition",
-      "issue": "Assign age specific reference bound; age below 8 or missing required age or sex remains missing; adult bounds have no upper age cap. External research reference, not an EKSUTH laboratory limit. Scope covers the observed ages 8 to 70. Source: Mayo CBC. See reference interval table in dictionary.",
+      "issue": "Assign age specific reference bound; age below 8 or missing required age or sex remains missing; adult bounds have no upper age cap. External research reference, not an EKSUTH laboratory limit. Source: Mayo CBC. See reference interval table in dictionary.",
       "objectives": [
         3,
         4
@@ -1747,8 +1747,8 @@ window.HUB_VARIABLES = {
       "label": "WBC external reference high bound",
       "measure": "scale",
       "codes": {},
-      "systemMissing": 0,
-      "nonmissing": 85,
+      "systemMissing": null,
+      "nonmissing": null,
       "userMissing": []
     },
     {
@@ -1763,7 +1763,7 @@ window.HUB_VARIABLES = {
         3,
         4
       ],
-      "invalid": 0,
+      "invalid": null,
       "label": "WBC classification against external reference intervals",
       "measure": "ordinal",
       "codes": {
@@ -1771,8 +1771,8 @@ window.HUB_VARIABLES = {
         "2.0": "Normal",
         "3.0": "High"
       },
-      "systemMissing": 0,
-      "nonmissing": 85,
+      "systemMissing": null,
+      "nonmissing": null,
       "userMissing": []
     },
     {
@@ -1781,7 +1781,7 @@ window.HUB_VARIABLES = {
       "storage": "double",
       "analysisType": "scale derived measurement",
       "unit": "See exact operational definition",
-      "issue": "Assign age specific reference bound; age below 8 or missing required age or sex remains missing; adult bounds have no upper age cap. External research reference, not an EKSUTH laboratory limit. Scope covers the observed ages 8 to 70. Source: Children Minnesota CBC. See reference interval table in dictionary.",
+      "issue": "Assign age specific reference bound; age below 8 or missing required age or sex remains missing; adult bounds have no upper age cap. External research reference, not an EKSUTH laboratory limit. Source: Children Minnesota CBC. See reference interval table in dictionary.",
       "objectives": [
         3,
         4
@@ -1790,8 +1790,8 @@ window.HUB_VARIABLES = {
       "label": "NEUTROPHIL external reference low bound",
       "measure": "scale",
       "codes": {},
-      "systemMissing": 0,
-      "nonmissing": 85,
+      "systemMissing": null,
+      "nonmissing": null,
       "userMissing": []
     },
     {
@@ -1800,7 +1800,7 @@ window.HUB_VARIABLES = {
       "storage": "double",
       "analysisType": "scale derived measurement",
       "unit": "See exact operational definition",
-      "issue": "Assign age specific reference bound; age below 8 or missing required age or sex remains missing; adult bounds have no upper age cap. External research reference, not an EKSUTH laboratory limit. Scope covers the observed ages 8 to 70. Source: Children Minnesota CBC. See reference interval table in dictionary.",
+      "issue": "Assign age specific reference bound; age below 8 or missing required age or sex remains missing; adult bounds have no upper age cap. External research reference, not an EKSUTH laboratory limit. Source: Children Minnesota CBC. See reference interval table in dictionary.",
       "objectives": [
         3,
         4
@@ -1809,8 +1809,8 @@ window.HUB_VARIABLES = {
       "label": "NEUTROPHIL external reference high bound",
       "measure": "scale",
       "codes": {},
-      "systemMissing": 0,
-      "nonmissing": 85,
+      "systemMissing": null,
+      "nonmissing": null,
       "userMissing": []
     },
     {
@@ -1824,7 +1824,7 @@ window.HUB_VARIABLES = {
         3,
         4
       ],
-      "invalid": 0,
+      "invalid": null,
       "label": "NEUTROPHIL classification against external reference intervals",
       "measure": "ordinal",
       "codes": {
@@ -1832,8 +1832,8 @@ window.HUB_VARIABLES = {
         "2.0": "Normal",
         "3.0": "High"
       },
-      "systemMissing": 0,
-      "nonmissing": 85,
+      "systemMissing": null,
+      "nonmissing": null,
       "userMissing": []
     },
     {
@@ -1846,15 +1846,15 @@ window.HUB_VARIABLES = {
       "objectives": [
         1
       ],
-      "invalid": 0,
+      "invalid": null,
       "label": "Protocol MAS leukocytosis threshold greater than 10 x 10^9 cells/L",
       "measure": "nominal",
       "codes": {
         "0.0": "Not above the threshold",
         "1.0": "Above the threshold"
       },
-      "systemMissing": 0,
-      "nonmissing": 85,
+      "systemMissing": null,
+      "nonmissing": null,
       "userMissing": []
     },
     {
@@ -1863,11 +1863,11 @@ window.HUB_VARIABLES = {
       "storage": "double",
       "analysisType": "ordinal derived measurement",
       "unit": "See exact operational definition",
-      "issue": "Cost >=0 and <= 217450 ->1; >217450 to 238900 ->2; >238900 ->3; negative or missing ->system missing. Cut points are the original 85 nonnegative recorded costs at the one third and two thirds empirical quantiles using linear interpolation (type 7). Tied costs stay together, so group sizes can differ. Boundaries are sample relative, not universal economic or protocol thresholds. Syntax uses the full precision fixed boundaries recovered from this original dataset; derive new quantiles if a different dataset is substituted.",
+      "issue": "Cost >=0 classified using the loaded dataset one-third and two-thirds quantiles; negative or missing ->system missing. Cut points must be calculated from the intended dataset nonnegative recorded costs at the one-third and two-thirds empirical quantiles using linear interpolation (type 7). Tied costs stay together, so group sizes can differ. Boundaries are sample relative, not universal economic or protocol thresholds. No sample-derived boundaries are embedded in this public dictionary. Review or derive categories locally for the intended dataset.",
       "objectives": [
         6
       ],
-      "invalid": 0,
+      "invalid": null,
       "label": "Sample relative total cost tertile group in Nigerian naira",
       "measure": "ordinal",
       "codes": {
@@ -1875,8 +1875,8 @@ window.HUB_VARIABLES = {
         "2.0": "Middle-cost group",
         "3.0": "Higher-cost group"
       },
-      "systemMissing": 0,
-      "nonmissing": 85,
+      "systemMissing": null,
+      "nonmissing": null,
       "userMissing": []
     },
     {
@@ -1887,7 +1887,7 @@ window.HUB_VARIABLES = {
       "unit": "Category code",
       "issue": "0 -> 1; 1 -> 1; 2 -> 1; 3 -> 1; 4 -> 1; 5 -> 2; 6 -> 2; 7 -> 2; 8 -> 2; 9 -> 3; 10 -> 3; 11 -> 3; 12 -> 3; other or missing source -> system missing. Requested naming alias for existing AIR_CATEGORY. Identical working categories, no score replacement. No AIR-specific approved protocol or complete component algorithm is supplied; this is the researcher-approved working interpretation, not recovered protocol-prespecified scoring. See exploratory AIR and diagnostic strategies. Working categories; no AIR-specific approved protocol recovered.",
       "objectives": [],
-      "invalid": 0,
+      "invalid": null,
       "label": "Working AIR risk category preserving the recorded score",
       "measure": "ordinal",
       "codes": {
@@ -1895,8 +1895,8 @@ window.HUB_VARIABLES = {
         "2.0": "Intermediate probability (5 to 8)",
         "3.0": "High probability (9 to 12)"
       },
-      "systemMissing": 0,
-      "nonmissing": 85,
+      "systemMissing": null,
+      "nonmissing": null,
       "userMissing": []
     },
     {
@@ -1909,15 +1909,15 @@ window.HUB_VARIABLES = {
       "objectives": [
         1
       ],
-      "invalid": 0,
+      "invalid": null,
       "label": "Recorded migratory abdominal pain presence",
       "measure": "nominal",
       "codes": {
         "0.0": "Absent",
         "1.0": "Present"
       },
-      "systemMissing": 0,
-      "nonmissing": 85,
+      "systemMissing": null,
+      "nonmissing": null,
       "userMissing": []
     },
     {
@@ -1928,15 +1928,15 @@ window.HUB_VARIABLES = {
       "unit": "Category code",
       "issue": "1 -> 1; 2 -> 0; other or missing source -> system missing. Confirmed source mapping. General abdominal pain is not a separate RIF pain variable.",
       "objectives": [],
-      "invalid": 0,
+      "invalid": null,
       "label": "Recorded abdominal pain presence",
       "measure": "nominal",
       "codes": {
         "0.0": "Absent",
         "1.0": "Present"
       },
-      "systemMissing": 0,
-      "nonmissing": 85,
+      "systemMissing": null,
+      "nonmissing": null,
       "userMissing": []
     }
   ]

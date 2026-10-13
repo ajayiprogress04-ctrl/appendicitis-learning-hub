@@ -37,3 +37,5 @@ body{color:var(--ink);background:radial-gradient(ellipse at top right,#e6f1f4 0,
 .report-order {margin:1rem 0;padding:1rem;border:1px solid var(--border,#ccd4dc);border-radius:.5rem;}
 .report-order li {padding:.5rem 0;}
 .report-order .result-export-actions {margin-top:.4rem;}
+
+.report-order li strong,.academic-caption {overflow-wrap:anywhere;}

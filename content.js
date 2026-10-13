@@ -40,7 +40,7 @@ window.HUB_DATA = {
         {
           "id": "ci",
           "status": "Conditional uncertainty",
-          "here": "Show imprecision, particularly with only eight reference-negative specimens.",
+          "here": "Show imprecision, when reference-negative specimens are sparse.",
           "client": "The interval tells us how uncertain the estimate is; it does not remove model-development bias."
         },
         {
@@ -88,7 +88,7 @@ window.HUB_DATA = {
       "color": "#7654a3",
       "description": "Compare concentrations and severity discrimination.",
       "approved": "determine the diagnostic value of hsCRP in simple acute appendicitis and complicated appendicitis",
-      "note": "Approved histological severity is independent of operative findings: histology 1\u20133 simple, 4\u20135 complicated, 6 not applicable. Code 4 is unobserved; the eight complicated cases have perforated histology. No combined clinical severity endpoint is inferred.",
+      "note": "Approved histological severity is independent of operative findings: histology 1\u20133 simple, 4\u20135 complicated, 6 not applicable. No combined clinical severity endpoint is inferred.",
       "contribution": "Distinguish a concentration difference from useful severity classification.",
       "methods": [
         {
@@ -160,7 +160,7 @@ window.HUB_DATA = {
         {
           "id": "ci",
           "status": "Sparse-data uncertainty",
-          "here": "Show the effect of one negative child on subgroup precision.",
+          "here": "Show how sparse reference-negative children limit subgroup precision.",
           "client": "Very wide specificity intervals prevent a confident age-specific conclusion."
         },
         {
@@ -173,13 +173,13 @@ window.HUB_DATA = {
           "id": "roc",
           "status": "Descriptive AUC only",
           "here": "Describe ranking while withholding unreliable paediatric AUC inference.",
-          "client": "A perfect observed paediatric AUC against one negative specimen is not proof of superior performance."
+          "client": "A perfect paediatric AUC with sparse reference negatives is not proof of superior performance."
         },
         {
           "id": "validation",
           "status": "Exploratory internal check",
           "here": "Use pooled refits consistently across ages.",
-          "client": "Held-out results can reveal optimism, but one negative child still limits subgroup inference."
+          "client": "Held-out results can reveal optimism, but sparse reference-negative children limit subgroup inference."
         }
       ]
     },
@@ -456,7 +456,7 @@ window.HUB_DATA = {
       "meaning": "A paired comparison accounts for correlation between two scores measured on the same patients.",
       "interpret": "Read the AUC difference, its interval and p-value together; specify score direction and paired versus independent design.",
       "example": "Two fixed hypothetical markers measured in the same patients have AUCs 0.80 and 0.85; the relevant difference is 0.05.",
-      "limits": "Do not use a routine paired DeLong test as confirmatory evidence for nested models trained on the same outcomes. One paediatric negative cannot support reliable group AUC inference.",
+      "limits": "Do not use a routine paired DeLong test as confirmatory evidence for nested models trained on the same outcomes. Sparse paediatric reference negatives cannot support reliable group AUC inference.",
       "tags": "paired ROC covariance",
       "terms": [
         "ROC",
@@ -855,7 +855,7 @@ window.HUB_DATA = {
   },
   "overview": "Appendicitis can be difficult to identify from symptoms alone. This study asks whether combining the clinical MAS score with the blood marker hsCRP improves diagnosis. It also examines severity, age groups, negative surgery, diagnostic confidence and recorded hospital amounts. The findings could inform patient evaluation, but the conclusions depend on valid definitions and appropriate validation.",
   "version": "2.0",
-  "dictionaryNotes": "Current categorized SAV: 38 original and 54 derived variables. Histology and operative findings remain independent. AIR, PCV and clinical-sign analyses are explicitly exploratory. The public dictionary contains metadata and aggregate completeness only.",
+  "dictionaryNotes": "Current categorized SAV: 38 original and 54 derived variables. Histology and operative findings remain independent. AIR, PCV and clinical-sign analyses are explicitly exploratory. The public dictionary contains variable definitions; completeness is calculated only from the currently loaded private dataset.",
   "bindings": {
     "1": [
       {
@@ -1277,7 +1277,7 @@ window.HUB_DATA = {
         "name": "AGE_GROUP",
         "role": "Derived grouping variable",
         "why": "Traceable derivation from age. Nonmissing age >=0 and <16 ->1; age >=16 ->2; missing or negative -> system missing",
-        "result": "Age group using the approved 16 year boundary. No protocol age limits are specified. Observed ages 8 to 70 years were retained.",
+        "result": "Age group using the approved 16 year boundary. No protocol age limits are specified. No cohort age range is embedded in the public package.",
         "methods": [
           "sensitivity",
           "fisher",
@@ -1346,7 +1346,7 @@ window.HUB_DATA = {
         "name": "PCV_REF_LOW",
         "role": "Derived grouping variable",
         "why": "Traceable derivation from age; sex. Assign age and sex specific reference bound; age below 8 or missing required age or sex remains missing; adult bounds have no upper age cap",
-        "result": "PCV external reference low bound. External research reference, not an EKSUTH laboratory limit. Scope covers the observed ages 8 to 70. Source: Mayo CBC. See reference interval table in dictionary.",
+        "result": "PCV external reference low bound. External research reference, not an EKSUTH laboratory limit. Source: Mayo CBC. See reference interval table in dictionary.",
         "methods": [
           "sensitivity",
           "fisher",
@@ -1357,7 +1357,7 @@ window.HUB_DATA = {
         "name": "PCV_REF_HIGH",
         "role": "Derived grouping variable",
         "why": "Traceable derivation from age; sex. Assign age and sex specific reference bound; age below 8 or missing required age or sex remains missing; adult bounds have no upper age cap",
-        "result": "PCV external reference high bound. External research reference, not an EKSUTH laboratory limit. Scope covers the observed ages 8 to 70. Source: Mayo CBC. See reference interval table in dictionary.",
+        "result": "PCV external reference high bound. External research reference, not an EKSUTH laboratory limit. Source: Mayo CBC. See reference interval table in dictionary.",
         "methods": [
           "sensitivity",
           "fisher",
@@ -1379,7 +1379,7 @@ window.HUB_DATA = {
         "name": "WBC_REF_LOW",
         "role": "Derived grouping variable",
         "why": "Traceable derivation from age. Assign age specific reference bound; age below 8 or missing required age or sex remains missing; adult bounds have no upper age cap",
-        "result": "WBC external reference low bound. External research reference, not an EKSUTH laboratory limit. Scope covers the observed ages 8 to 70. Source: Mayo CBC. See reference interval table in dictionary.",
+        "result": "WBC external reference low bound. External research reference, not an EKSUTH laboratory limit. Source: Mayo CBC. See reference interval table in dictionary.",
         "methods": [
           "sensitivity",
           "fisher",
@@ -1390,7 +1390,7 @@ window.HUB_DATA = {
         "name": "WBC_REF_HIGH",
         "role": "Derived grouping variable",
         "why": "Traceable derivation from age. Assign age specific reference bound; age below 8 or missing required age or sex remains missing; adult bounds have no upper age cap",
-        "result": "WBC external reference high bound. External research reference, not an EKSUTH laboratory limit. Scope covers the observed ages 8 to 70. Source: Mayo CBC. See reference interval table in dictionary.",
+        "result": "WBC external reference high bound. External research reference, not an EKSUTH laboratory limit. Source: Mayo CBC. See reference interval table in dictionary.",
         "methods": [
           "sensitivity",
           "fisher",
@@ -1412,7 +1412,7 @@ window.HUB_DATA = {
         "name": "NEUTROPHIL_REF_LOW",
         "role": "Derived grouping variable",
         "why": "Traceable derivation from age. Assign age specific reference bound; age below 8 or missing required age or sex remains missing; adult bounds have no upper age cap",
-        "result": "NEUTROPHIL external reference low bound. External research reference, not an EKSUTH laboratory limit. Scope covers the observed ages 8 to 70. Source: Children Minnesota CBC. See reference interval table in dictionary.",
+        "result": "NEUTROPHIL external reference low bound. External research reference, not an EKSUTH laboratory limit. Source: Children Minnesota CBC. See reference interval table in dictionary.",
         "methods": [
           "sensitivity",
           "fisher",
@@ -1423,7 +1423,7 @@ window.HUB_DATA = {
         "name": "NEUTROPHIL_REF_HIGH",
         "role": "Derived grouping variable",
         "why": "Traceable derivation from age. Assign age specific reference bound; age below 8 or missing required age or sex remains missing; adult bounds have no upper age cap",
-        "result": "NEUTROPHIL external reference high bound. External research reference, not an EKSUTH laboratory limit. Scope covers the observed ages 8 to 70. Source: Children Minnesota CBC. See reference interval table in dictionary.",
+        "result": "NEUTROPHIL external reference high bound. External research reference, not an EKSUTH laboratory limit. Source: Children Minnesota CBC. See reference interval table in dictionary.",
         "methods": [
           "sensitivity",
           "fisher",
@@ -1530,7 +1530,7 @@ window.HUB_DATA = {
         "name": "AGE_GROUP",
         "role": "Derived supplementary description",
         "why": "Traceable derivation from age. Nonmissing age >=0 and <16 ->1; age >=16 ->2; missing or negative -> system missing",
-        "result": "Age group using the approved 16 year boundary. No protocol age limits are specified. Observed ages 8 to 70 years were retained.",
+        "result": "Age group using the approved 16 year boundary. No protocol age limits are specified. No cohort age range is embedded in the public package.",
         "methods": [
           "summaries",
           "wilson"
@@ -1615,7 +1615,7 @@ window.HUB_DATA = {
         "name": "PCV_REF_LOW",
         "role": "Derived supplementary description",
         "why": "Traceable derivation from age; sex. Assign age and sex specific reference bound; age below 8 or missing required age or sex remains missing; adult bounds have no upper age cap",
-        "result": "PCV external reference low bound. External research reference, not an EKSUTH laboratory limit. Scope covers the observed ages 8 to 70. Source: Mayo CBC. See reference interval table in dictionary.",
+        "result": "PCV external reference low bound. External research reference, not an EKSUTH laboratory limit. Source: Mayo CBC. See reference interval table in dictionary.",
         "methods": [
           "summaries",
           "wilson"
@@ -1625,7 +1625,7 @@ window.HUB_DATA = {
         "name": "PCV_REF_HIGH",
         "role": "Derived supplementary description",
         "why": "Traceable derivation from age; sex. Assign age and sex specific reference bound; age below 8 or missing required age or sex remains missing; adult bounds have no upper age cap",
-        "result": "PCV external reference high bound. External research reference, not an EKSUTH laboratory limit. Scope covers the observed ages 8 to 70. Source: Mayo CBC. See reference interval table in dictionary.",
+        "result": "PCV external reference high bound. External research reference, not an EKSUTH laboratory limit. Source: Mayo CBC. See reference interval table in dictionary.",
         "methods": [
           "summaries",
           "wilson"
@@ -1645,7 +1645,7 @@ window.HUB_DATA = {
         "name": "WBC_REF_LOW",
         "role": "Derived supplementary description",
         "why": "Traceable derivation from age. Assign age specific reference bound; age below 8 or missing required age or sex remains missing; adult bounds have no upper age cap",
-        "result": "WBC external reference low bound. External research reference, not an EKSUTH laboratory limit. Scope covers the observed ages 8 to 70. Source: Mayo CBC. See reference interval table in dictionary.",
+        "result": "WBC external reference low bound. External research reference, not an EKSUTH laboratory limit. Source: Mayo CBC. See reference interval table in dictionary.",
         "methods": [
           "summaries",
           "wilson"
@@ -1655,7 +1655,7 @@ window.HUB_DATA = {
         "name": "WBC_REF_HIGH",
         "role": "Derived supplementary description",
         "why": "Traceable derivation from age. Assign age specific reference bound; age below 8 or missing required age or sex remains missing; adult bounds have no upper age cap",
-        "result": "WBC external reference high bound. External research reference, not an EKSUTH laboratory limit. Scope covers the observed ages 8 to 70. Source: Mayo CBC. See reference interval table in dictionary.",
+        "result": "WBC external reference high bound. External research reference, not an EKSUTH laboratory limit. Source: Mayo CBC. See reference interval table in dictionary.",
         "methods": [
           "summaries",
           "wilson"
@@ -1675,7 +1675,7 @@ window.HUB_DATA = {
         "name": "NEUTROPHIL_REF_LOW",
         "role": "Derived supplementary description",
         "why": "Traceable derivation from age. Assign age specific reference bound; age below 8 or missing required age or sex remains missing; adult bounds have no upper age cap",
-        "result": "NEUTROPHIL external reference low bound. External research reference, not an EKSUTH laboratory limit. Scope covers the observed ages 8 to 70. Source: Children Minnesota CBC. See reference interval table in dictionary.",
+        "result": "NEUTROPHIL external reference low bound. External research reference, not an EKSUTH laboratory limit. Source: Children Minnesota CBC. See reference interval table in dictionary.",
         "methods": [
           "summaries",
           "wilson"
@@ -1685,7 +1685,7 @@ window.HUB_DATA = {
         "name": "NEUTROPHIL_REF_HIGH",
         "role": "Derived supplementary description",
         "why": "Traceable derivation from age. Assign age specific reference bound; age below 8 or missing required age or sex remains missing; adult bounds have no upper age cap",
-        "result": "NEUTROPHIL external reference high bound. External research reference, not an EKSUTH laboratory limit. Scope covers the observed ages 8 to 70. Source: Children Minnesota CBC. See reference interval table in dictionary.",
+        "result": "NEUTROPHIL external reference high bound. External research reference, not an EKSUTH laboratory limit. Source: Children Minnesota CBC. See reference interval table in dictionary.",
         "methods": [
           "summaries",
           "wilson"
@@ -2026,7 +2026,7 @@ window.HUB_DATA = {
         "name": "LENGTH_OF_STAY_CAT",
         "role": "Derived resource context \u2014 unpriced",
         "why": "Traceable derivation from Duration_of_admission. 1 to 3 inclusive ->1; >3 to 7 ->2; >7 ->3; <1 or missing ->system missing",
-        "result": "Provisional recorded hospital stay category in days. All observed stays are integer days from 2 to 8. Zero and same day stays would remain unclassified rather than forced into 1 to 3 days; no such observations occur.",
+        "result": "Provisional recorded hospital stay category in days. Zero and same-day stays remain unclassified rather than forced into 1 to 3 days.",
         "methods": [
           "summaries"
         ]
@@ -2034,8 +2034,8 @@ window.HUB_DATA = {
       {
         "name": "TOTAL_COST_CAT",
         "role": "Derived recorded monetary outcome",
-        "why": "Traceable derivation from total_costs. Cost >=0 and <= 217450 ->1; >217450 to 238900 ->2; >238900 ->3; negative or missing ->system missing",
-        "result": "Sample relative total cost tertile group in Nigerian naira. Cut points are the original 85 nonnegative recorded costs at the one third and two thirds empirical quantiles using linear interpolation (type 7). Tied costs stay together, so group sizes can differ. Boundaries are sample relative, not universal economic or protocol thresholds. Syntax uses the full precision fixed boundaries recovered from this original dataset; derive new quantiles if a different dataset is substituted.",
+        "why": "Traceable derivation from total_costs. Cost >=0 classified using the loaded dataset one-third and two-thirds quantiles; negative or missing ->system missing",
+        "result": "Sample relative total cost tertile group in Nigerian naira. Cut points must be calculated from the intended dataset nonnegative recorded costs at the one-third and two-thirds empirical quantiles using linear interpolation (type 7). Tied costs stay together, so group sizes can differ. Boundaries are sample relative, not universal economic or protocol thresholds. No sample-derived boundaries are embedded in this public dictionary. Review or derive categories locally for the intended dataset.",
         "methods": [
           "cost",
           "summaries"
@@ -2046,7 +2046,7 @@ window.HUB_DATA = {
   "missingByObjective": {
     "1": "No prespecified combined classification; a model output is derived, not a raw SAV field.",
     "2": "Histological severity is available under the approved histology-only operational mapping. A separate abscess endpoint is not ascertainable from the SAV codes.",
-    "3": "No reliable paediatric AUC uncertainty from the single negative child.",
+    "3": "Paediatric AUC uncertainty depends on reference-class counts; sparse negatives may prevent reliable estimation.",
     "4": "No explicit operation-status or normal-histology code; operated evidence and the negative rule are qualified.",
     "5": "No clinician ID, professional group, direct ease item or recorded binary clinician decisions.",
     "6": "No itemised hsCRP cost, unit prices, comparator pathway, price year or verified accounting basis."
