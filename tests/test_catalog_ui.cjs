@@ -1,0 +1,13 @@
+const fs=require('fs'),assert=require('assert'),harness=require('./dom_harness.cjs');
+(async()=>{const h=harness(),api=h.window.__CATALOG_TEST__,C=h.window.RESULT_CATALOG,root=h.elements['objective-results'];const input=JSON.parse(fs.readFileSync(process.argv[2],'utf8'));let count=0;const check=fn=>{fn();count++;};
+await h.elements['results-tab'].fire('click');check(()=>assert(!root.hidden));check(()=>assert(root.innerHTML.includes('exact approved')||root.innerHTML.includes(C.scopes[0].statement.replace(/&/g,'&amp;'))));check(()=>assert.equal(api.status(C.entries[0]),'Not run'));
+await api.load(input);check(()=>assert.equal(api.status(C.entries[0]),'Ready to run'));
+for(const scope of C.scopes){api.open(scope.id);check(()=>assert(root.innerHTML.includes(scope.name.replace(/&/g,'&amp;'))));check(()=>assert(api.visible().length>0));const ready=C.entries.find(e=>e.scope===scope.id&&!e.requires);await api.generate(ready);check(()=>assert.equal(api.status(ready),'Completed'));check(()=>assert(root.innerHTML.includes(api.fullTitle(ready))));}
+const a=C.entries.find(e=>e.key==='neg_rate'),b=C.entries.find(e=>e.key==='neg_histology');await api.generate(a);await api.generate(b);const oldNumber=api.number(a);await api.generate(a);check(()=>assert.equal(api.number(a),oldNumber));
+api.state.selected.add(a.id);api.state.selected.add(b.id);api.state.numbering='publication';check(()=>assert.equal(api.number(b),'Table 1'));check(()=>assert.equal(api.number(a),'Table 2'));
+const before=JSON.stringify(api.state.completed.get(a.id));api.state.titles.set(a.id,'Edited research title');api.render();check(()=>assert(api.fullTitle(a).includes('Edited research title')));check(()=>assert.equal(JSON.stringify(api.state.completed.get(a.id)),before));
+api.open('5');check(()=>assert.equal(api.status(C.entries.find(e=>e.key==='conf_inference_unavailable')),'Requires data'));api.state.query='transition';check(()=>assert(api.visible().every(e=>[e.title,e.key,e.category,e.method,...e.variables].join(' ').toLowerCase().includes('transition'))));
+await h.elements['variables-tab'].fire('click');check(()=>assert(root.hidden));check(()=>assert(h.elements.main.innerHTML.includes('AIR_RISK_CATEGORY')));
+api.open('1');await root.fire('click',{target:{closest:()=>({dataset:{exportLog:'true'}})}});const log=JSON.parse(await h.downloadedBlobs.at(-1).text());check(()=>assert(log.results.length>=12));check(()=>assert(!log.records));
+console.log(`${count} objective catalogue/controller assertions passed; simulated DOM and actual worker engine, not a real-browser layout test.`);
+})().catch(e=>{console.error(e);process.exit(1);});

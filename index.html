@@ -6,11 +6,15 @@
   <meta name="description" content="A personal statistical learning hub for six appendicitis research objectives, with learning resources and private, reproducible research-analysis results.">
   <meta name="theme-color" content="#142b46">
   <title>Appendicitis Research Statistical Test Learning Hub</title>
-  <link rel="stylesheet" href="./styles.css?v=20261012-v3">
-  <script src="./content.js?v=20261012-v3" defer></script>
-  <script src="./variables.js?v=20261012-v3" defer></script>
-  <script src="./script.js?v=20261012-v3" defer></script>
-  <script src="./workspace.js?v=20261012-v3" defer></script>
+  <link rel="stylesheet" href="./styles.css?v=20261012-v4">
+  <script src="./content.js?v=20261012-v4" defer></script>
+  <script src="./variables.js?v=20261012-v4" defer></script>
+  <script src="./script.js?v=20261012-v4" defer></script>
+  <script src="./workspace.js?v=20261012-v4" defer></script>
+  <script src="./analysis-engine.js?v=20261012-v4" defer></script>
+  <script src="./result-catalog.js?v=20261012-v4" defer></script>
+  <script src="./result-exports.js?v=20261012-v4" defer></script>
+  <script src="./results-browser.js?v=20261012-v4" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to learning content</a>
@@ -24,6 +28,7 @@
   <aside class="desktop-sidebar" aria-label="Workspace navigation">
  <div class="side-heading">Your research</div>
  <button data-side-target="home">⌂ Home & objectives</button>
+ <button data-side-target="results-tab">▤ Tables & figures</button>
  <button data-side-target="variables-tab">≡ Research variables</button>
  <button data-side-analysis="overview">▦ Analysis workspace</button>
  <button data-side-analysis="data">↥ Data management</button>
@@ -31,7 +36,7 @@
  <button data-side-analysis="diagnostics">∿ Diagnostic strategies</button>
  <button data-side-analysis="associations">↗ Associations</button>
  <button data-side-target="notes-toggle">? Learning sources</button>
- <div class="side-version">Research workspace v3<br>12 October 2026</div>
+ <div class="side-version">Research workspace v4<br>12 October 2026</div>
  </aside><div class="page-shell">
     <section class="hero" aria-labelledby="hub-title">
       <div class="eyebrow"><span class="gold-dot" aria-hidden="true"></span> YOUR RESEARCH. YOUR LEARNING SPACE.</div>
@@ -40,7 +45,7 @@
       <div class="hero-tags"><span>MAS + hsCRP</span><span>Study-aware explanations</span><span id="method-count"></span></div>
     </section>
     <section class="research-overview" aria-labelledby="research-title"><div class="section-label">The research behind the methods</div><h2 id="research-title"></h2><p id="research-purpose"></p></section>
-    <nav class="workspace-tabs" aria-label="Learning workspace"><button id="objectives-tab" type="button" aria-pressed="true">Six objectives</button><button id="variables-tab" type="button" aria-pressed="false">Research variables</button><button id="analysis-tab" type="button" aria-pressed="false">Analysis workspace</button></nav>
+    <nav class="workspace-tabs" aria-label="Learning workspace"><button id="objectives-tab" type="button" aria-pressed="true">Six objectives</button><button id="variables-tab" type="button" aria-pressed="false">Research variables</button><button id="analysis-tab" type="button" aria-pressed="false">Analysis workspace</button><button id="results-tab" type="button" aria-pressed="false">Tables & figures</button></nav>
     <section class="progress-strip" aria-label="Learning progress"><div><strong id="progress-label"></strong><span id="storage-note">Saved in this browser · reviewed, not assessed</span></div><progress id="progress-bar" max="34" value="0"></progress></section>
     <section class="learning-tools" aria-label="Learning controls">
       <div class="search-wrap"><label for="search">Find a method, variable or objective</label><div class="search-box"><span aria-hidden="true">⌕</span><input id="search" type="search" autocomplete="off" placeholder="Try ROC, histology or objective 5"><button id="clear-search" type="button" aria-label="Clear search" hidden>×</button></div></div>
@@ -50,13 +55,14 @@
     <main id="main" tabindex="-1"></main>
     <p id="analysis-search-status" role="status" hidden></p>
     <section id="analysis-workspace" tabindex="-1" aria-label="Private research analysis workspace" hidden></section>
+    <section id="objective-results" tabindex="-1" aria-label="Objective results catalogue" hidden></section>
     <section id="notes" class="notes-section" aria-labelledby="notes-title" hidden>
       <h2 id="notes-title">Study notes and sources</h2>
       <div id="study-notes" class="notes-grid"></div>
       <h3>Method references</h3><ul id="source-list" class="source-list"></ul>
       <p class="small-note">Method sources checked in October 2026. Consult the complete study reports for actual findings. Method-card examples are hypothetical teaching illustrations.</p>
     </section>
-    <footer><span>Learn the method. Respect the design.</span><span>Local aggregate results · no patient-data upload · v3</span></footer>
+    <footer><span>Learn the method. Respect the design.</span><span>Local aggregate results · no patient-data upload · v4</span></footer>
   </div>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
   <noscript><p class="noscript">Enable JavaScript to open the objective cards and learning explanations.</p></noscript>

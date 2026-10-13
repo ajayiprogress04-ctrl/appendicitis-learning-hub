@@ -1,4 +1,4 @@
-/* Verified current SAV metadata and aggregate completeness; no patient rows. */
+/* Verified 92-variable categorized SAV metadata; no patient rows. */
 window.HUB_VARIABLES = {
   "n": 85,
   "verified": "12 October 2026",
@@ -420,7 +420,7 @@ window.HUB_VARIABLES = {
       "meaning": "Packed cell volume",
       "analysisType": "Numerical blood measure",
       "unit": "Percent",
-      "issue": "Original values and value labels retained. See the current derived definitions; no inference from unrecorded observations.",
+      "issue": "Original values and value labels retained. See the current derived definitions; no inference from unrecorded observations. See exploratory PCV; external age/sex intervals are not appendicitis diagnostic thresholds.",
       "nonmissing": 85,
       "objectives": []
     },
@@ -491,7 +491,7 @@ window.HUB_VARIABLES = {
       "meaning": "Appendicitis Inflammatory Response score",
       "analysisType": "Stored clinical score",
       "unit": "Scoring construction not verified",
-      "issue": "Original values and value labels retained. See the current derived definitions; no inference from unrecorded observations.",
+      "issue": "Original values and value labels retained. See the current derived definitions; no inference from unrecorded observations. See exploratory AIR and diagnostic strategies. Working categories; no AIR-specific approved protocol recovered.",
       "nonmissing": 85,
       "objectives": []
     },
@@ -1638,7 +1638,7 @@ window.HUB_VARIABLES = {
       "storage": "double",
       "analysisType": "ordinal derived measurement",
       "unit": "See exact operational definition",
-      "issue": "Integer AIR 0 to 4 ->1; 5 to 8 ->2; 9 to 12 ->3; other or missing ->system missing. Standard AIR identity and 0 to 12 range are working assumptions explicitly supplied by the researcher. The protocol and proforma do not define AIR. Original score was not recalculated.",
+      "issue": "Integer AIR 0 to 4 ->1; 5 to 8 ->2; 9 to 12 ->3; other or missing ->system missing. Standard AIR identity and 0 to 12 range are working assumptions explicitly supplied by the researcher. The protocol and proforma do not define AIR. Original score was not recalculated. See exploratory AIR and diagnostic strategies. Working categories; no AIR-specific approved protocol recovered.",
       "objectives": [],
       "invalid": 0,
       "label": "Provisional standard AIR score probability category",
@@ -1658,7 +1658,7 @@ window.HUB_VARIABLES = {
       "storage": "double",
       "analysisType": "scale derived measurement",
       "unit": "See exact operational definition",
-      "issue": "Assign age and sex specific reference bound; age below 8 or missing required age or sex remains missing; adult bounds have no upper age cap. External research reference, not an EKSUTH laboratory limit. Scope covers the observed ages 8 to 70. Source: Mayo CBC. See reference interval table in dictionary.",
+      "issue": "Assign age and sex specific reference bound; age below 8 or missing required age or sex remains missing; adult bounds have no upper age cap. External research reference, not an EKSUTH laboratory limit. Scope covers the observed ages 8 to 70. Source: Mayo CBC. See reference interval table in dictionary. See exploratory PCV; external age/sex intervals are not appendicitis diagnostic thresholds.",
       "objectives": [
         3,
         4
@@ -1677,7 +1677,7 @@ window.HUB_VARIABLES = {
       "storage": "double",
       "analysisType": "scale derived measurement",
       "unit": "See exact operational definition",
-      "issue": "Assign age and sex specific reference bound; age below 8 or missing required age or sex remains missing; adult bounds have no upper age cap. External research reference, not an EKSUTH laboratory limit. Scope covers the observed ages 8 to 70. Source: Mayo CBC. See reference interval table in dictionary.",
+      "issue": "Assign age and sex specific reference bound; age below 8 or missing required age or sex remains missing; adult bounds have no upper age cap. External research reference, not an EKSUTH laboratory limit. Scope covers the observed ages 8 to 70. Source: Mayo CBC. See reference interval table in dictionary. See exploratory PCV; external age/sex intervals are not appendicitis diagnostic thresholds.",
       "objectives": [
         3,
         4
@@ -1696,7 +1696,7 @@ window.HUB_VARIABLES = {
       "storage": "double",
       "analysisType": "ordinal derived measurement",
       "unit": "See exact operational definition",
-      "issue": "Below lower reference bound ->1; within inclusive bounds ->2; above upper bound ->3; invalid measurement or missing reference ->system missing. Units follow researcher instructions. Reference intervals vary by age and, for PCV, sex. No diagnostic disease state is inferred. Percentage data retained without conversion.",
+      "issue": "Below lower reference bound ->1; within inclusive bounds ->2; above upper bound ->3; invalid measurement or missing reference ->system missing. Units follow researcher instructions. Reference intervals vary by age and, for PCV, sex. No diagnostic disease state is inferred. Percentage data retained without conversion. See exploratory PCV; external age/sex intervals are not appendicitis diagnostic thresholds.",
       "objectives": [
         3,
         4
@@ -1705,9 +1705,9 @@ window.HUB_VARIABLES = {
       "label": "PCV classification against external reference intervals",
       "measure": "ordinal",
       "codes": {
-        "1.0": "Low",
-        "2.0": "Normal",
-        "3.0": "High"
+        "1.0": "Low PCV",
+        "2.0": "Normal PCV",
+        "3.0": "High PCV"
       },
       "systemMissing": 0,
       "nonmissing": 85,
@@ -1874,6 +1874,66 @@ window.HUB_VARIABLES = {
         "1.0": "Lower-cost group",
         "2.0": "Middle-cost group",
         "3.0": "Higher-cost group"
+      },
+      "systemMissing": 0,
+      "nonmissing": 85,
+      "userMissing": []
+    },
+    {
+      "name": "AIR_RISK_CATEGORY",
+      "meaning": "Working AIR risk category preserving the recorded score",
+      "storage": "double",
+      "analysisType": "ordinal derived measurement",
+      "unit": "Category code",
+      "issue": "0 -> 1; 1 -> 1; 2 -> 1; 3 -> 1; 4 -> 1; 5 -> 2; 6 -> 2; 7 -> 2; 8 -> 2; 9 -> 3; 10 -> 3; 11 -> 3; 12 -> 3; other or missing source -> system missing. Requested naming alias for existing AIR_CATEGORY. Identical working categories, no score replacement. No AIR-specific approved protocol or complete component algorithm is supplied; this is the researcher-approved working interpretation, not recovered protocol-prespecified scoring. See exploratory AIR and diagnostic strategies. Working categories; no AIR-specific approved protocol recovered.",
+      "objectives": [],
+      "invalid": 0,
+      "label": "Working AIR risk category preserving the recorded score",
+      "measure": "ordinal",
+      "codes": {
+        "1.0": "Low probability (0 to 4)",
+        "2.0": "Intermediate probability (5 to 8)",
+        "3.0": "High probability (9 to 12)"
+      },
+      "systemMissing": 0,
+      "nonmissing": 85,
+      "userMissing": []
+    },
+    {
+      "name": "MIGRATORY_PAIN",
+      "meaning": "Recorded migratory abdominal pain presence",
+      "storage": "double",
+      "analysisType": "nominal derived measurement",
+      "unit": "Category code",
+      "issue": "1 -> 1; 2 -> 0; other or missing source -> system missing. Confirmed Yes/No source mapping; no imputation.",
+      "objectives": [
+        1
+      ],
+      "invalid": 0,
+      "label": "Recorded migratory abdominal pain presence",
+      "measure": "nominal",
+      "codes": {
+        "0.0": "Absent",
+        "1.0": "Present"
+      },
+      "systemMissing": 0,
+      "nonmissing": 85,
+      "userMissing": []
+    },
+    {
+      "name": "ABDOMINAL_PAIN_PRESENT",
+      "meaning": "Recorded abdominal pain presence",
+      "storage": "double",
+      "analysisType": "nominal derived measurement",
+      "unit": "Category code",
+      "issue": "1 -> 1; 2 -> 0; other or missing source -> system missing. Confirmed source mapping. General abdominal pain is not a separate RIF pain variable.",
+      "objectives": [],
+      "invalid": 0,
+      "label": "Recorded abdominal pain presence",
+      "measure": "nominal",
+      "codes": {
+        "0.0": "Absent",
+        "1.0": "Present"
       },
       "systemMissing": 0,
       "nonmissing": 85,

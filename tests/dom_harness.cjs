@@ -16,15 +16,18 @@ function harness(blockedStorage=false,memory=new Map()){
  }
  for(const id of ids)elements[id]=new El(id);
  elements.notes.hidden=true;
- const document={getElementById:id=>{if(id==='results-status'&&!elements[id])elements[id]=new El(id);assert(elements[id],`Missing DOM id ${id}`);return elements[id];},querySelectorAll:selector=>selector.includes('.variable-card')?variables.filter(v=>v.open):cards.filter(c=>c.open),querySelector:selector=>{const m=selector.match(/data-method="([^"]+)".*data-context="([^"]+)"/);if(m)return cards.find(c=>c.dataset.method===m[1]&&c.dataset.context===m[2]);const v=selector.match(/data-name="([^"]+)"/);if(v)return variables.find(e=>e.dataset.name===v[1]);if(selector.startsWith("button[data-review"))return new El();return null;},createElement:()=>new El(),body:{appendChild(){}},execCommand:()=>fallback};
+ const document={getElementById:id=>{if((id==='results-status'||id.startsWith('catalog-'))&&!elements[id])elements[id]=new El(id);assert(elements[id],`Missing DOM id ${id}`);return elements[id];},querySelectorAll:selector=>selector.includes('.variable-card')?variables.filter(v=>v.open):cards.filter(c=>c.open),querySelector:selector=>{const m=selector.match(/data-method="([^"]+)".*data-context="([^"]+)"/);if(m)return cards.find(c=>c.dataset.method===m[1]&&c.dataset.context===m[2]);const v=selector.match(/data-name="([^"]+)"/);if(v)return variables.find(e=>e.dataset.name===v[1]);if(selector.startsWith("button[data-review"))return new El();return null;},createElement:()=>new El(),body:{appendChild(){}},execCommand:()=>fallback};
  document.body.classList={add(){},remove(){},toggle(){}}; const originalQuery=document.querySelectorAll;document.querySelectorAll=selector=>selector.startsWith('[data-side-')?[]:originalQuery(selector);
  const window={__HUB_TEST__:true,isSecureContext:true};const storage={getItem:key=>{if(blockedStorage)throw Error('blocked');return memory.get(key)||null;},setItem:(key,value)=>{if(blockedStorage)throw Error('blocked');memory.set(key,value);}};
  const downloadedBlobs=[];
- const context=vm.createContext({Blob,URL:{createObjectURL:blob=>{downloadedBlobs.push(blob);return 'blob:test';},revokeObjectURL(){}},window,document,localStorage:storage,navigator:{clipboard:{writeText:async text=>{copied=text;}}},setTimeout:()=>1,clearTimeout(){}});
+ const context=vm.createContext({TextEncoder,Uint8Array,DataView,Blob,URL:{createObjectURL:blob=>{downloadedBlobs.push(blob);return 'blob:test';},revokeObjectURL(){}},window,document,localStorage:storage,navigator:{clipboard:{writeText:async text=>{copied=text;}}},setTimeout:()=>1,clearTimeout(){}});
  vm.runInContext(fs.readFileSync(path.join(dir,'content.js'),'utf8'),context);
  vm.runInContext(fs.readFileSync(path.join(dir,'variables.js'),'utf8'),context);
  vm.runInContext(fs.readFileSync(path.join(dir,'script.js'),'utf8'),context);
  vm.runInContext(fs.readFileSync(path.join(dir,'workspace.js'),'utf8'),context);
+ class FakeWorker{constructor(){this.c=vm.createContext({self:{postMessage:value=>setImmediate(()=>this.onmessage?.({data:structuredClone(value)}))},console});vm.runInContext('('+window.APPENDICITIS_ENGINE.toString()+')()',this.c);}postMessage(value){setImmediate(()=>this.c.self.onmessage({data:structuredClone(value)}));}terminate(){this.stopped=true;}}
+ context.Worker=FakeWorker;
+ for(const name of ['analysis-engine.js','result-catalog.js','result-exports.js','results-browser.js'])vm.runInContext(fs.readFileSync(path.join(dir,name),'utf8'),context);
  return {context,window,document,elements,memory,downloadedBlobs,get cards(){return cards;},get variables(){return variables;},get copied(){return copied;},setFallback:v=>{fallback=v;},click:async data=>{const b=new El();b.dataset=data;await elements.main.fire('click',{target:b});return b;}};
 }
 module.exports=harness;

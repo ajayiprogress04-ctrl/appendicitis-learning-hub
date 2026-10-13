@@ -1,0 +1,6 @@
+"""Convert SAV into a PRIVATE, identifier-free local browser input; never deploy the output."""
+import argparse,hashlib,json
+from pathlib import Path
+import pyreadstat
+import pandas as pd
+p=argparse.ArgumentParser();p.add_argument('sav',type=Path);p.add_argument('--output',type=Path,default=Path('private_browser_data.json'));args=p.parse_args();data,meta=pyreadstat.read_sav(args.sav);fields=[c for c in data if c!='hosp_n0' and pd.api.types.is_numeric_dtype(data[c])];rows=[{c:None if pd.isna(r[c]) else float(r[c]) for c in fields} for _,r in data.iterrows()];hash_=hashlib.sha256(args.sav.read_bytes()).hexdigest();obj={'schema':'appendicitis-private-rows-v1','source_sha256':hash_,'source_records':len(rows),'identifier_fields_removed':['hosp_n0'],'records':rows,'labels':{c:meta.column_names_to_labels[c] for c in fields},'value_labels':{c:meta.variable_value_labels.get(c,{}) for c in fields},'notice':'Private participant measurements, not anonymous public data. Load locally in the browser; never commit or deploy this file.'};args.output.write_text(json.dumps(obj,indent=2,allow_nan=False));print('Wrote private browser input:',len(rows),'rows;',len(fields),'numeric fields; hospital identifier excluded.')

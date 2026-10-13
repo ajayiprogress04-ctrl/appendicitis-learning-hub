@@ -1,4 +1,4 @@
-/* Existing approved objectives retained. Method examples remain hypothetical. */
+/* Approved objective statements retained unchanged. */
 window.HUB_DATA = {
   "title": "Appendicitis Research Statistical Test Learning Hub",
   "researchTitle": "Diagnostic Accuracy of Modified Alvarado Score Plus High Sensitivity C-Reactive Protein in Acute Appendicitis",
@@ -855,7 +855,7 @@ window.HUB_DATA = {
   },
   "overview": "Appendicitis can be difficult to identify from symptoms alone. This study asks whether combining the clinical MAS score with the blood marker hsCRP improves diagnosis. It also examines severity, age groups, negative surgery, diagnostic confidence and recorded hospital amounts. The findings could inform patient evaluation, but the conclusions depend on valid definitions and appropriate validation.",
   "version": "2.0",
-  "dictionaryNotes": "Current categorized SAV: 38 original and 51 derived variables. Original responses are preserved. Histology and operative findings are independent; unknown findings remain missing. The public dictionary contains metadata and aggregate completeness only.",
+  "dictionaryNotes": "Current categorized SAV: 38 original and 54 derived variables. Histology and operative findings remain independent. AIR, PCV and clinical-sign analyses are explicitly exploratory. The public dictionary contains metadata and aggregate completeness only.",
   "bindings": {
     "1": [
       {
@@ -1075,6 +1075,15 @@ window.HUB_DATA = {
         "role": "Derived score audit \u2014 not extra predictors",
         "why": "Traceable derivation from wbc. Nonnegative WBC <=10 ->0; WBC >10 ->1; missing or negative ->system missing",
         "result": "Protocol MAS leukocytosis threshold greater than 10 x 10^9 cells/L. Protocol MAS table specifies this exact cutoff. This does not replace the age appropriate WBC laboratory reference classification. No separate neutrophil threshold is in the approved Modified Alvarado Score.",
+        "methods": [
+          "summaries"
+        ]
+      },
+      {
+        "name": "MIGRATORY_PAIN",
+        "role": "Derived score audit \u2014 not extra predictors",
+        "why": "Traceable derivation: 1 -> 1; 2 -> 0; other or missing source -> system missing",
+        "result": "Recorded migratory abdominal pain presence. Confirmed Yes/No source mapping; no imputation.",
         "methods": [
           "summaries"
         ]
