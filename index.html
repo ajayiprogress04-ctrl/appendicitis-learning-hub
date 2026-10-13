@@ -6,20 +6,25 @@
   <meta name="description" content="A personal statistical learning hub for six appendicitis research objectives, with learning resources and private, reproducible research-analysis results.">
   <meta name="theme-color" content="#142b46">
   <title>Appendicitis Research Statistical Test Learning Hub</title>
-  <link rel="stylesheet" href="./styles.css?v=20261013-sidebar">
+  <link rel="stylesheet" href="./styles.css?v=20261013-legends">
+  <link rel="stylesheet" href="./glossary.css?v=20261013-glossary">
+  <link rel="stylesheet" href="./legends.css?v=20261013-legends">
   <script src="./content.js?v=20261013-final-v5" defer></script>
   <script src="./variables.js?v=20261013-final-v5" defer></script>
   <script src="./script.js?v=20261013-three-tabs" defer></script>
   <script src="./workspace.js?v=20261013-three-tabs" defer></script>
   <script src="./analysis-engine.js?v=20261013-biostat" defer></script>
   <script src="./result-catalog.js?v=20261013-final-v5" defer></script>
-  <script src="./result-exports.js?v=20261013-three-tabs" defer></script>
+  <script src="./result-exports.js?v=20261013-legends" defer></script>
+  <script src="./legends.js?v=20261013-legends" defer></script>
   <script src="./vendor/xlsx.full.min.js?v=0.20.3" defer></script>
   <script src="./vendor/spss-reader.js?v=0.2.1" defer></script>
   <script src="./data-import.js?v=20261013-final-v5" defer></script>
-  <script src="./results-browser.js?v=20261013-three-tabs" defer></script>
+  <script src="./results-browser.js?v=20261013-legends" defer></script>
   <script src="./global-search.js?v=20261013-three-tabs" defer></script>
   <script src="./sidebar.js?v=20261013-sidebar" defer></script>
+  <script src="./glossary-data.js?v=20261013-glossary" defer></script>
+  <script src="./statistical-glossary.js?v=20261013-glossary" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to learning content</a>
@@ -36,7 +41,9 @@
  <div class="side-heading">Research workflow</div>
  <button data-side-target="objectives-tab">Objectives</button>
  <button data-side-target="results-tab">Tables &amp; Figures</button>
+ <button data-side-target="legends-tab">Legends</button>
  <button data-side-target="interpretations-tab">Interpretations</button>
+ <button data-side-target="glossary-tab">Statistical Glossary</button>
  <div class="side-version">Connected research workflow<br>13 October 2026</div>
  </aside><button id="sidebar-backdrop" class="sidebar-backdrop" type="button" aria-label="Close navigation" tabindex="-1" hidden></button><div class="page-shell">
     <section class="hero" aria-labelledby="hub-title">
@@ -46,7 +53,7 @@
       <div class="hero-tags"><span>MAS + hsCRP</span><span>Study-aware explanations</span><span id="method-count"></span></div>
     </section>
     <section class="research-overview" aria-labelledby="research-title"><div class="section-label">The research behind the methods</div><h2 id="research-title"></h2><p id="research-purpose"></p></section>
-    <nav class="workspace-tabs" aria-label="Research reporting workflow"><button id="objectives-tab" type="button" aria-pressed="true" aria-controls="main">Objectives</button><button id="results-tab" type="button" aria-pressed="false" aria-controls="objective-results">Tables &amp; Figures</button><button id="interpretations-tab" type="button" aria-pressed="false" aria-controls="objective-results">Interpretations</button></nav>
+    <nav class="workspace-tabs" aria-label="Research reporting workflow"><button id="objectives-tab" type="button" aria-pressed="true" aria-controls="main">Objectives</button><button id="results-tab" type="button" aria-pressed="false" aria-controls="objective-results">Tables &amp; Figures</button><button id="legends-tab" type="button" aria-pressed="false" aria-controls="objective-results">Legends</button><button id="interpretations-tab" type="button" aria-pressed="false" aria-controls="objective-results">Interpretations</button><button id="glossary-tab" type="button" aria-pressed="false" aria-controls="statistical-glossary">Statistical Glossary</button></nav>
     <details class="supporting-tools"><summary>Supporting tools</summary><div class="supporting-actions"><button id="variables-tab" type="button" class="quiet-button" aria-pressed="false">Research variables</button><button id="analysis-tab" type="button" class="quiet-button" aria-pressed="false">Aggregate analysis workspace</button><span class="small-note">Statistical learning stays within each objective; study notes are available in the header.</span></div></details>
     <section class="progress-strip" aria-label="Learning progress"><div><strong id="progress-label"></strong><span id="storage-note">Saved in this browser · reviewed, not assessed</span></div><progress id="progress-bar" max="34" value="0"></progress></section>
     <section class="learning-tools" aria-label="Learning controls">
@@ -59,6 +66,7 @@
     <p id="analysis-search-status" role="status" hidden></p>
     <section id="analysis-workspace" tabindex="-1" aria-label="Private research analysis workspace" hidden></section>
     <section id="objective-results" tabindex="-1" aria-label="Objective results catalogue" hidden></section>
+    <section id="statistical-glossary" tabindex="-1" aria-label="Statistical Glossary" hidden></section>
     <section id="notes" class="notes-section" aria-labelledby="notes-title" hidden>
       <h2 id="notes-title">Study notes and sources</h2>
       <div id="study-notes" class="notes-grid"></div>

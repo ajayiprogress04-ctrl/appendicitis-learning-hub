@@ -27,7 +27,7 @@ function harness(blockedStorage=false,memory=new Map()){
  vm.runInContext(fs.readFileSync(path.join(dir,'workspace.js'),'utf8'),context);
  class FakeWorker{constructor(){this.c=vm.createContext({self:{postMessage:value=>setImmediate(()=>this.onmessage?.({data:structuredClone(value)}))},console});vm.runInContext('('+window.APPENDICITIS_ENGINE.toString()+')()',this.c);}postMessage(value){setImmediate(()=>this.c.self.onmessage({data:structuredClone(value)}));}terminate(){this.stopped=true;}}
  context.Worker=FakeWorker;
- for(const name of ['vendor/xlsx.full.min.js','vendor/spss-reader.js','data-import.js','analysis-engine.js','result-catalog.js','result-exports.js','results-browser.js','global-search.js'])vm.runInContext(fs.readFileSync(path.join(dir,name),'utf8'),context);
+ for(const name of ['vendor/xlsx.full.min.js','vendor/spss-reader.js','data-import.js','analysis-engine.js','result-catalog.js','result-exports.js','legends.js','results-browser.js','global-search.js'])vm.runInContext(fs.readFileSync(path.join(dir,name),'utf8'),context);
  return {context,window,document,elements,memory,downloadedBlobs,get cards(){return cards;},get variables(){return variables;},get copied(){return copied;},setFallback:v=>{fallback=v;},click:async data=>{const b=new El();b.dataset=data;await elements.main.fire('click',{target:b});return b;}};
 }
 module.exports=harness;

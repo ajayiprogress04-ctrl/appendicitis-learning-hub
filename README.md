@@ -1,10 +1,26 @@
+## Legends and Interpretations update
+
+Use **Legends** to select a table/figure, inspect the actual output and edit its four writing components. Save the reviewed legend, then use **View / write interpretation** to explain the finding's meaning separately. Saved writing appears in the linked output and HTML/DOCX reports. Source changes flag writing for review; stale edited prose is excluded from reports until reviewed and saved again.
+
+**Save lasts for this visit. Download legend/interpretation text before closing or reloading.** Drafts require scientific review; no unsupported tests, units, error bars or significance are inferred. The four-component structure follows the recovered 30 September reference. See `LEGENDS_VALIDATION.md` for changed files, native desktop/mobile tests and limitations.
+
+## Independent scrolling update
+
+Tables & Figures now has separate scroll containers for its list and selected output. Scroll offsets and title drafts survive reordering and rendering. See INDEPENDENT_SCROLL_VALIDATION.md for native desktop/mobile viewport tests.
+
+## Dedicated Statistical Glossary update
+
+Select **Statistical Glossary** from the sidebar or the Statistical Glossary tab. Search definitions/abbreviations, filter by category, browse A–Z, and select an entry. Underlined statistical terms in explanatory text, tables and captions open the same reference. **Return to previous section** restores the current view without recreating it or clearing the dataset. Reopen the sidebar using ☰ at any time.
+
+Includes 57 entries in 16 categories; examples are illustrative, not actual study findings. No extra runtime dependencies or environment variables are needed. See `STATISTICAL_GLOSSARY_VALIDATION.md` for changed files, tests and remaining visual-verification limits.
+
 ## Collapsible navigation update
 
-Use the fixed ☰ button to open/close navigation. Desktop collapse releases workspace width; mobile uses a drawer with a close button, backdrop dismissal and Escape. Desktop/mobile preferences are stored separately, without research data. Mobile is closed on the first visit; desktop is open. The existing three-tab workflow is unchanged. See SIDEBAR_VALIDATION.md for the tested scope and native-browser limitations.
+Use the fixed ☰ button to open/close navigation. Desktop collapse releases workspace width; mobile uses a drawer with a close button, backdrop dismissal and Escape. Desktop/mobile preferences are stored separately, without research data. Mobile is closed on the first visit; desktop is open. The three reporting tabs retain their connected workflow; Legends and the glossary are separate reporting/reference tabs. See SIDEBAR_VALIDATION.md for the tested scope and native-browser limitations.
 
 # Appendicitis Research Statistical Test Learning Hub
 
-A buildless research-learning app with three connected primary views, local dataset import and calculation, compact Inter typography and a black/charcoal gradient dark theme.
+A buildless research-learning app with three connected reporting views plus a dedicated Statistical Glossary, local dataset import and calculation, compact Inter typography and a black/charcoal gradient dark theme.
 
 ## Start locally
 
@@ -20,7 +36,7 @@ No npm installation/build is required. Directly opening `index.html` also provid
 - **Tables & Figures:** import/preview a dataset, confirm it, choose an objective and generate the relevant results. Titles, notes, captions and interpretations stay with the result. Each output links to its interpretation and associated objective.
 - **Interpretations:** objective-organised prose drawn from the same result objects. Unrun/unavailable analyses show an explicit unavailable message. Links return to the corresponding output/objective.
 
-`Supporting tools` contains the research-variable explorer and optional aggregate-analysis workspace. Learning modes, review/progress, global search and header study notes remain available. The desktop sidebar mirrors the same three primary destinations. The Scope Reports interface remains removed.
+`Supporting tools` contains the research-variable explorer and optional aggregate-analysis workspace. Learning modes, review/progress, global search and header study notes remain available. The desktop sidebar mirrors the same five primary destinations. The Scope Reports interface remains removed.
 
 Title edits/recalculations update the linked views. Selected publication results retain Move Up/Move Down controls, with complete content kept together. Current table/figure numbers are used by application-generated HTML/DOCX report exports; numbering modes remain available. Interpretations remain directly beneath output previews as well as in the linked interpretation view.
 

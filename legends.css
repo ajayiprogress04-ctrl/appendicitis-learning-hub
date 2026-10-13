@@ -1,0 +1,9 @@
+/* Scoped editing controls; inherited OLED palette and compact type scale. */
+.writing-editor { margin:10px 0; }.writing-editor label { display:grid;gap:4px;font-size:11px; }
+.writing-fields { display:grid;gap:10px;margin:12px 0; }
+.writing-editor textarea { width:100%;min-width:0;resize:vertical;font:inherit;line-height:1.6;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:8px; }
+.writing-editor textarea:focus-visible { outline:2px solid var(--accent);outline-offset:2px; }
+.writing-final { white-space:pre-wrap;line-height:1.65;overflow-wrap:anywhere; }
+.writing-warning { padding:8px;color:var(--ink);background:var(--soft);border-left:2px solid var(--accent); }
+.legend-list-button { width:100%;text-align:left;margin:6px 0; }
+@media(max-width:800px) { .writing-editor textarea { font-size:16px; }.legend-list-button { min-height:40px; } }

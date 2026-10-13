@@ -13,7 +13,7 @@ with tempfile.TemporaryDirectory(prefix='appendicitis-synthetic-audit-') as temp
  d=Path(temp)
  for p in list(root.glob('*.js'))+list((root/'tests').glob('*.cjs')):run([node,'--check',p])
  run([sys.executable,'tests/generate_sav_import.py']);run([node,'tests/test_direct_sav.cjs'])
- for test in ['test_import.cjs','test_import_controller.cjs','test_edge_cases.cjs','test_learning.cjs','test_global_search.cjs','test_interpretations.cjs','test_report_reordering.cjs','test_scope_reports_removed.cjs','test_chapter_reporting.cjs','test_biostat_reporting.cjs','test_three_tab_workflow.cjs','test_sidebar.cjs']:
+ for test in ['test_import.cjs','test_import_controller.cjs','test_edge_cases.cjs','test_learning.cjs','test_global_search.cjs','test_interpretations.cjs','test_report_reordering.cjs','test_scope_reports_removed.cjs','test_chapter_reporting.cjs','test_biostat_reporting.cjs','test_three_tab_workflow.cjs','test_sidebar.cjs','test_glossary.cjs','test_legends.cjs']:
   run([node,'tests/'+test])
  run([sys.executable,'tests/test_static_package.py']);run([sys.executable,'tests/test_statistics.py']);run([sys.executable,'tests/test_sav_conversion.py'])
  run([sys.executable,'tests/generate_synthetic_fixture.py',d]);run([sys.executable,'analysis/run_analysis.py',d/'SYNTHETIC_Audit.sav','--output',d/'SYNTHETIC_Aggregate.private.json'])
