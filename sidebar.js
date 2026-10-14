@@ -13,5 +13,6 @@
  const changed=()=>setOpen(preference(),{persist:false});if(mobile.addEventListener)mobile.addEventListener('change',changed);else mobile.addListener(changed);
  window.addEventListener('resize',layout);if(window.ResizeObserver)new ResizeObserver(layout).observe(document.querySelector('.topbar'));
  setOpen(preference(),{persist:false});
+ window.HUB_SIDEBAR={setOpen,isOpen:()=>opened};
  if(window.__HUB_TEST__)window.__SIDEBAR_TEST__={setOpen,isOpen:()=>opened,preference};
 })();

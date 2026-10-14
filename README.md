@@ -106,3 +106,50 @@ At 100% browser zoom, the current default follows the previous 150% appearance: 
 ## Five main research tabs
 
 Objectives → Tables & Figures → Interpretations → Statistical Glossary → Reports. Figure legends and table notes are now edited beside the selected output in Tables & Figures. Reports can include or exclude legends independently and links directly to that inline editor. About remains in the sidebar/footer. See FIVE_TAB_NAVIGATION_VALIDATION.md for changed files and actual tests.
+
+## Resizable Tables & Figures workspace
+
+Hide/reopen the results list, drag or keyboard-resize its desktop divider, and use **Focus workspace** for viewport viewing. **Fit to View**, **Actual Size**, zoom and reset control the selected output without altering analyses or exports. Large outputs retain readable text and scroll when they cannot fit completely. Mobile uses a results drawer. See RESULT_WORKSPACE_VALIDATION.md for details and actual checks.
+
+## Independent page and panel scrolling
+Tables & Figures retains the native page scrollbar in ordinary mode. Optional Focus Workspace fills the available viewport with panel-only scrolling; Exit focused workspace or Escape restores page scrolling. The left list and right result/details region have independent, bounded scrolling; focus either region to scroll with Page Up/Page Down. The inner fit/zoom viewport retains its own panning for oversized output. See THREE_SCROLL_VALIDATION.md for checks and limitations.
+
+## Comprehensive Reports content
+Reports now groups selected outputs by objective and shows calculated/expected counts and unavailable analyses. Select an objective's calculated outputs or individual items; legends, explanatory notes, results prose and interpretations have independent controls. Review/edit results paragraphs and click Use reviewed results paragraph before exporting edits. Source changes flag edited prose for review. Preview updates from the same content model as Word; it is not a Word pagination renderer. The approved combined formatting profile is retained. See COMPREHENSIVE_REPORTS_VALIDATION.md. Sample documents use synthetic validation data, not patient findings.
+
+## Integrated output explanations
+Each selected output now presents one unlabelled prose paragraph after its legend, statistical notes and abbreviations, both in the app and Word reports. Figures have captions below the plot. Saved authored writing remains authoritative; the Reports editor starts with the integrated explanation. Existing inclusion controls choose the evidence/meaning included in that paragraph. See INTEGRATED_PROSE_VALIDATION.md.
+
+## Histopathology learning in Interpretations
+Use Simple Appendicitis, Complicated Appendicitis and Negative / non-appendicitis to inspect the documented operational crosswalk. Codes 1–3 are simple, 4–5 complicated and isolated reactive lymphoid hyperplasia (6) is outside severity grouping. No data is recoded. Definitions, source labels, reasons and local loaded-code counts are shown; conflicting imported labels trigger review. See HISTOLOGY_INTERPRETATIONS_VALIDATION.md for evidence and the unresolved prespecified-protocol status.
+
+## Shared parameter ranges and classifications
+Search Statistical Glossary or use the parameter selector in Interpretations to open the same canonical reference for each variable or statistical concept. Exact study boundaries, units, external alternatives and unresolved protocol issues are kept distinct. See PARAMETER_REFERENCE_INVENTORY.md and PARAMETER_REFERENCE_VALIDATION.md for all 160 entries, source references, actual tests and remaining scientific confirmations. This read-only extension does not change analyses or exports.
+
+## Histopathology reference-standard learning
+Interpretations contains a shared interactive diagnostic 2 × 2 table and hypothetical MAS examples. Search Reference standard or Index test in Statistical Glossary for linked definitions. Diagnostic outputs and Reports include target-specific reference/operating-point notes when explanatory notes are included. Existing data and calculations are unchanged. See REFERENCE_STANDARD_VALIDATION.md for verified coding, actual tests and protocol limitations.
+
+## Context-aware educational Back
+Open a linked glossary term and use the visible arrow Back to restore its actual source, selected output, scroll positions and drafts. Related definitions form a sequential history; direct entry returns to the glossary landing first. Reports iframe previews also offer glossary links without changing exported documents. See CONTEXT_BACK_VALIDATION.md for actual desktop/mobile/theme tests and changed files.
+
+## Accuracy linked to Sensitivity and Specificity
+The Accuracy glossary entry explains its prevalence-weighted relationship to Sensitivity/Specificity, distinguishes balanced accuracy, provides a hypothetical example and links to both entries. Existing calculations are unchanged. See ACCURACY_RELATIONSHIP_VALIDATION.md for sources, assumptions and actual tests.
+
+## Statistical reporting completeness
+Tables & Figures and Reports now offer a live 100-template reporting audit: 86 catalogue outputs and 14 supporting aggregate templates. Applicable methods, tests, effects, intervals and sample sizes accompany the result and Word export; descriptive outputs do not gain arbitrary p-values. Existing companion comparisons/associations provide qualified figure evidence. Unavailable analyses/precision and protocol issues remain flagged. See STATISTICAL_REPORTING_VALIDATION.md and both reporting inventories for scope, actual tests and limitations.
+
+
+## Integrated scientific reporting
+
+Results now end with one unlabelled paragraph after the table/figure caption, legend and statistical notes. Separate Essence and Interpretation-labelled blocks are not displayed or exported. The educational registry remains preserved internally, but is not appended to scientific reports. Reviewed report prose takes precedence over another interpretation, preventing duplicate explanations. Saved writing is preserved; heading and bullet cleanup occurs only when presenting text.
+
+No new dependencies are required. Run `python3 -m http.server 8000` and open `http://localhost:8000`. See `INTEGRATED_NARRATIVE_VALIDATION.md` for changed files and actual tests.
+
+
+## Publication content and internal review
+
+Word and HTML reports now use a separate publication-content policy. Internal validation messages and statistical teaching notes remain in the app and calculation log; they are not copied into the research document. In Reports, **Internal publication content review** shows classifications of source notes and any blocking issues. Required missing p-values, unresolved result fields, unclassified new source notes or instructional authored text must be reviewed before export. Original writing is preserved.
+
+Scientific methods, reference definitions, sample sizes, tests, p-values, effects and intervals remain. Repeated identical method notes are printed once per objective in combined reports; standalone output reports retain their applicable notes. A mathematically non-estimable value is shown as an explained dash, while **Not applicable** retains its distinct meaning. Publication content auditing does not independently validate clinical source records or factual accuracy of researcher-authored paragraphs.
+
+See `PUBLICATION_CONTENT_AUDIT.md` and `PUBLICATION_CLEAN_VALIDATION.md`. No new dependencies or environment variables are required.

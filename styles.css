@@ -273,3 +273,57 @@ body{--sidebar-width:20.625rem;--navigation-top:5.25rem}
 }
 input:not([type=checkbox],[type=radio]){max-width:100%;min-width:0}
 #report-title{display:block;width:100%}
+
+/* Educational guidance inherits the active theme and existing type scale. */
+.output-essence{margin:.65rem 0;padding:.5rem .65rem;border-inline-start:2px solid var(--border,#252525);}
+.output-essence h4{margin:0 0 .3rem;font-size:inherit;font-weight:600;}
+.output-essence p{margin:0;line-height:1.55;overflow-wrap:anywhere;}
+
+/* Biomedical workspace refinement: shared hierarchy, section identity and scanning.
+   Locally hosted Inter remains the single downloaded family. No scientific meaning
+   is assigned to these navigation accents. Existing responsive sizes are retained. */
+:root{--font-heading:var(--font-ui);--font-math:ui-monospace,"SFMono-Regular",Consolas,"Liberation Mono",monospace;--leading-body:1.6;--weight-heading:600;--section-objectives:#156b79;--section-outputs:#245b9a;--section-interpretations:#6d4a8b;--section-glossary:#08736c;--section-reports:#855c21;--ui-radius:.8rem;--ui-divider:color-mix(in srgb,var(--ink) 12%,transparent);--ui-wash:color-mix(in srgb,var(--section-color,var(--teal)) 7%,var(--surface));}
+body.dark-theme,body.colored-theme{--ui-divider:color-mix(in srgb,var(--ink) 12%,transparent);--section-objectives:#83cbd1;--section-outputs:#a2badc;--section-interpretations:#c4a6db;--section-glossary:#8fd3c1;--section-reports:#dfc091;}
+#main{--section-color:var(--section-objectives)}
+#objective-results{--section-color:var(--section-outputs)}
+#objective-results:has(.interpretation-list){--section-color:var(--section-interpretations)}
+#objective-results:has(#report-title){--section-color:var(--section-reports)}
+#statistical-glossary{--section-color:var(--section-glossary)}
+h1,h2,h3,h4{font-family:var(--font-heading);text-wrap:pretty}
+h1{font-weight:650;letter-spacing:-.032em}h2{font-weight:650;letter-spacing:-.025em}h3,h4{font-weight:600;letter-spacing:-.012em}
+p{margin-bottom:1em}sup,sub{font-size:.75em;line-height:0}
+:is(#main,#objective-results,#statistical-glossary)>.section-label{color:var(--section-color);font-weight:600;margin-bottom:.45rem}
+:is(#objective-results,#statistical-glossary)>h2,.glossary-heading h2,.section-heading h2{display:flex;align-items:center;gap:.65rem;padding-bottom:.65rem;border-bottom:1px solid var(--ui-divider);margin-bottom:1rem}
+:is(#objective-results,#statistical-glossary)>h2::before,.glossary-heading h2::before,.section-heading h2::before{content:"";width:.45rem;height:1.2em;flex:none;border-radius:2px;background:var(--section-color,var(--teal))}
+/* Selective card hierarchy; narrative paragraphs remain continuous prose. */
+:is(body,body.dark-theme,body.colored-theme) .objective-card{border:0;border-radius:var(--ui-radius);box-shadow:0 2px 14px color-mix(in srgb,var(--ink) 4%,transparent);padding:1.35rem}
+.objective-card .card-label{margin:-1.35rem -1.35rem 1.2rem;padding:1rem 1.35rem;background:color-mix(in srgb,var(--accent) 8%,var(--surface));border-radius:var(--ui-radius) var(--ui-radius) 0 0}
+.objective-card .objective-number{font-weight:600;letter-spacing:.02em}.objective-card .number-disc{width:2.5rem;height:2.5rem;font-weight:650}
+:is(body,body.dark-theme,body.colored-theme) .objective-head{border:0;border-left:3px solid var(--section-color,var(--accent));border-radius:var(--ui-radius);padding:1.2rem 1.35rem}
+.catalog-controls,.glossary-controls{padding:1rem;background:color-mix(in srgb,var(--section-color,var(--teal)) 7%,var(--surface));border-radius:var(--ui-radius)}
+.catalog-item-top{font-size:var(--type-meta);align-items:center;gap:.5rem}.result-status{font-weight:500;padding:.25rem .5rem;border-radius:.35rem}
+:is(body,body.dark-theme,body.colored-theme) .catalog-selected{box-shadow:inset 3px 0 var(--section-outputs);background:color-mix(in srgb,var(--section-outputs) 7%,var(--surface))}
+.catalog-preview>h3,.glossary-detail h3{font-size:var(--type-subheading);font-weight:650}
+.output-narrative,.interpretation,.glossary-detail dd{line-height:1.65;max-width:78ch}
+.interpretation-card{padding:1.25rem;border-radius:var(--ui-radius);margin-bottom:1rem;border:0;border-top:1px solid var(--ui-divider)}
+.glossary-detail dl{display:grid;grid-template-columns:minmax(7rem,auto) minmax(0,1fr);column-gap:1.25rem;row-gap:.8rem;align-items:baseline}
+.glossary-detail dt{margin:0;color:var(--section-glossary);font-weight:600}.glossary-detail dd{margin:0}
+.glossary-related{padding-top:1rem;border-top:1px solid var(--ui-divider)}
+.glossary-entry[aria-pressed=true]{box-shadow:inset 3px 0 var(--section-glossary)}
+:is(.result-preview,.catalog-data,.parameter-browser,.glossary-detail) table{font-variant-numeric:tabular-nums lining-nums;border-collapse:collapse}
+:is(.result-preview,.catalog-data,.glossary-detail) th{font-weight:600;text-align:left;vertical-align:bottom}
+:is(.result-preview,.catalog-data,.glossary-detail) td{vertical-align:top}
+.result-preview th,.result-preview td{overflow-wrap:normal;word-break:normal;hyphens:manual}
+.result-preview th{min-width:7em}
+:is(.result-preview,.catalog-data,.glossary-detail) th,:is(.result-preview,.catalog-data,.glossary-detail) td{border-bottom:1px solid var(--ui-divider)}
+/* Formula-like code keeps distinct symbols; statistical tables retain Inter. */
+.glossary-detail code,.glossary-detail .formula{font-family:var(--font-math);font-variant-numeric:tabular-nums;font-size:.95em;white-space:normal;overflow-wrap:anywhere}
+blockquote{font-family:Georgia,"Times New Roman",serif;font-style:italic;border-left:2px solid var(--ui-divider);padding-left:1rem;line-height:1.6}
+:is(body,body.dark-theme,body.colored-theme) .desktop-sidebar [data-side-target][aria-current=page]{background:color-mix(in srgb,var(--teal) 12%,var(--surface));color:var(--ink);box-shadow:inset 3px 0 var(--teal);font-weight:600;border-radius:.5rem}
+.workspace-tabs button{font-weight:500}.workspace-tabs button[aria-pressed=true]{font-weight:600}
+:is(button,a,input,select,textarea,summary):focus-visible{outline:2px solid var(--teal);outline-offset:3px}
+button:not(:disabled),a{transition:background-color 120ms ease,color 120ms ease}
+#report-title{font-size:var(--type-body);padding:.65rem .8rem;background:var(--surface);color:var(--ink);border:1px solid var(--ui-divider);border-radius:.5rem}
+.report-order{padding:1rem;border-radius:var(--ui-radius)}
+@media(max-width:50rem){.glossary-detail dl{display:block}.glossary-detail dt{margin-top:1.1rem;margin-bottom:.35rem}.catalog-controls,.glossary-controls{padding:.75rem}.objective-card .card-label{padding:.85rem 1.35rem}.output-narrative,.interpretation,.glossary-detail dd{max-width:100%}}
+@media(prefers-reduced-motion:reduce){button:not(:disabled),a{transition:none}}

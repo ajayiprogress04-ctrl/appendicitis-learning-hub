@@ -1,0 +1,34 @@
+/* Local result workspace only. Export geometry and shared type tokens are untouched. */
+.catalog-layout.result-workspace{display:grid;position:relative;grid-template-columns:var(--result-list-width,330px) 16px minmax(0,1fr);grid-template-rows:auto minmax(0,1fr);gap:0;height:min(78dvh,900px);min-height:320px}
+.result-workspace-bar{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:.5rem;padding:.5rem 0;background:var(--surface);z-index:2}.result-workspace-bar button{min-height:40px;padding:.4rem .65rem}.result-workspace-bar span{color:var(--muted);font-size:var(--type-meta)}
+.result-workspace>.result-catalogue{grid-column:1;grid-row:2;min-height:0;padding-right:.5rem;overflow:auto;overscroll-behavior:contain;overflow-anchor:none}
+.result-workspace>.catalog-preview{grid-column:3;grid-row:2;min-height:0;max-height:none;overflow:auto;position:static;overscroll-behavior:contain;padding-left:.5rem}
+.result-divider{grid-column:2;grid-row:2;cursor:col-resize;touch-action:none;position:relative;outline-offset:-2px}.result-divider:before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:var(--line);border-radius:2px}.result-divider:hover:before,.result-divider:focus-visible:before{background:var(--teal)}
+.result-workspace.list-collapsed{grid-template-columns:0 0 minmax(0,1fr)}.result-workspace.list-collapsed>.result-catalogue,.result-workspace.list-collapsed>.result-divider{visibility:hidden;overflow:hidden;pointer-events:none}
+.result-view-controls{display:flex;flex-wrap:wrap;gap:.375rem;margin:.5rem 0}.result-view-controls button{min-height:38px;padding:.35rem .6rem;font-size:var(--type-control)}.result-view-controls [role=status]{flex-basis:100%;font-size:var(--type-meta);color:var(--muted)}
+.result-viewer{overflow:auto;position:relative;width:100%;max-width:100%;min-height:180px;overscroll-behavior:contain;overflow-anchor:none;background:var(--surface);border-radius:.5rem}
+.result-view-canvas{position:relative;margin:0 auto}.result-view-surface{position:absolute;top:0;left:0;transform-origin:top left}
+.result-viewer table{width:100%;table-layout:auto;margin:0;font-size:var(--type-table)}.result-viewer th,.result-viewer td{min-width:0!important;padding:.45rem .55rem!important;overflow-wrap:normal;word-break:normal;white-space:normal}
+.result-viewer svg{display:block;width:100%!important;height:auto!important;min-width:0!important;max-height:none!important}.result-viewer svg text{font-size:14px}
+/* Explicit focus mode has panel-only scrolling. Normal view retains document scrolling. */
+body.result-focus{overflow:hidden}
+.result-workspace.workspace-focused{position:fixed;left:var(--result-workspace-left,24px);right:16px;top:var(--result-workspace-top,90px);bottom:12px;height:auto;max-height:none;z-index:26;background:var(--surface);padding:.5rem;border-radius:.5rem}
+@media(max-width:75rem){
+ .catalog-layout.result-workspace{grid-template-columns:0 0 minmax(0,1fr);height:78dvh}
+ .result-workspace>.result-catalogue{grid-column:1/-1;grid-row:1/-1;position:absolute;top:var(--result-bar-height,56px);bottom:0;left:0;width:min(85%,380px);z-index:5;background:var(--surface);padding:.5rem;box-shadow:8px 0 20px #0005}
+ .result-workspace>.result-divider{display:none}.result-workspace>.catalog-preview{padding-left:0;max-height:none}
+ .result-workspace.list-collapsed>.result-catalogue{visibility:hidden;pointer-events:none}
+ .result-workspace.workspace-focused{left:12px!important;right:12px;bottom:8px}
+ .result-focus .topbar{position:fixed;top:0;left:0;right:0;z-index:44}
+ .result-focus .topbar .brand{display:none}
+ .result-focus .desktop-sidebar{top:var(--navigation-top)}
+}
+@media(prefers-reduced-motion:reduce){.result-workspace *{scroll-behavior:auto}}
+@media(max-width:75rem){.result-workspace-bar>span{display:none}.result-workspace-bar button,.result-view-controls button{min-height:44px}}
+.result-view-controls{position:sticky;top:0;z-index:2;background:var(--surface);padding:.25rem 0}
+.result-divider:focus-visible{outline:2px solid var(--teal)}
+
+.result-workspace>.result-catalogue:focus-visible,.result-workspace>.catalog-preview:focus-visible,.result-viewer:focus-visible{outline:2px solid var(--teal);outline-offset:-3px}
+
+/* Inline educational links retain complete statistical words in table headings. */
+.result-viewer .glossary-term{overflow-wrap:normal;word-break:normal}

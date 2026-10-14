@@ -1,0 +1,299 @@
+{
+  "scope": "Synthetic aggregate fixture; 14 supporting output templates, not patient findings",
+  "outputs": [
+    {
+      "id": "aggregate:data:Item",
+      "objective": "Supporting exploratory data",
+      "title": "Source definitions/provenance",
+      "kind": "table",
+      "type": "Descriptive",
+      "infer": "Descriptive / estimation, no automatic null test",
+      "status": "Aggregate source loaded; reporting qualified",
+      "method": "Descriptive/source definitions",
+      "testStatistic": "No test used for this output",
+      "p": "No test used / unavailable",
+      "effect": "Descriptive",
+      "ci": "No interval / unavailable",
+      "sampleSize": "Source record count 36",
+      "appEvidence": true,
+      "wordEvidence": false,
+      "issues": [
+        "Aggregate workspace exports CSV/JSON; no native Reports/Word mapping. Catalogue Word evidence is separately audited.",
+        "Protocol eligibility/assumptions and source missing-estimate fields require review."
+      ]
+    },
+    {
+      "id": "aggregate:costs:Group",
+      "objective": "Supporting exploratory costs",
+      "title": "Cost group summaries",
+      "kind": "table",
+      "type": "Descriptive",
+      "infer": "Descriptive / estimation, no automatic null test",
+      "status": "Aggregate source loaded; reporting qualified",
+      "method": "Descriptive/source definitions",
+      "testStatistic": "No test used for this output",
+      "p": "No test used / unavailable",
+      "effect": "Descriptive",
+      "ci": "No interval / unavailable",
+      "sampleSize": "Source record count 36",
+      "appEvidence": true,
+      "wordEvidence": false,
+      "issues": [
+        "Aggregate workspace exports CSV/JSON; no native Reports/Word mapping. Catalogue Word evidence is separately audited.",
+        "Protocol eligibility/assumptions and source missing-estimate fields require review."
+      ]
+    },
+    {
+      "id": "aggregate:costs:Method",
+      "objective": "Supporting exploratory costs",
+      "title": "Cost comparisons",
+      "kind": "table",
+      "type": "Group comparison",
+      "infer": "Applicable",
+      "status": "Aggregate source loaded; reporting qualified",
+      "method": "exact; two-sided; continuity/tie correction for asymptotic calculation; Welch independent-samples t-test",
+      "testStatistic": "Recorded / explicit not applicable",
+      "p": "Source p-values and supplied adjustment retained",
+      "effect": "Source estimates retained",
+      "ci": "Source intervals retained",
+      "sampleSize": "30, 30",
+      "appEvidence": true,
+      "wordEvidence": false,
+      "issues": [
+        "Aggregate workspace exports CSV/JSON; no native Reports/Word mapping. Catalogue Word evidence is separately audited.",
+        "Protocol eligibility/assumptions and source missing-estimate fields require review."
+      ]
+    },
+    {
+      "id": "aggregate:costs:Effect",
+      "objective": "Supporting exploratory costs",
+      "title": "Cost effects/intervals",
+      "kind": "table",
+      "type": "Group comparison",
+      "infer": "Applicable",
+      "status": "Aggregate source loaded; reporting qualified",
+      "method": "exact; two-sided; continuity/tie correction for asymptotic calculation; Welch independent-samples t-test",
+      "testStatistic": "Recorded / explicit not applicable",
+      "p": "Source p-values and supplied adjustment retained",
+      "effect": "Source estimates retained",
+      "ci": "Source intervals retained",
+      "sampleSize": "30, 30",
+      "appEvidence": true,
+      "wordEvidence": false,
+      "issues": [
+        "Aggregate workspace exports CSV/JSON; no native Reports/Word mapping. Catalogue Word evidence is separately audited.",
+        "Protocol eligibility/assumptions and source missing-estimate fields require review."
+      ]
+    },
+    {
+      "id": "aggregate:costs:box",
+      "objective": "Supporting exploratory costs",
+      "title": "Cost distribution comparison",
+      "kind": "figure",
+      "type": "Group comparison",
+      "infer": "Applicable",
+      "status": "Aggregate source loaded; reporting qualified",
+      "method": "exact; two-sided; continuity/tie correction for asymptotic calculation; Welch independent-samples t-test",
+      "testStatistic": "Recorded / explicit not applicable",
+      "p": "Source p-values and supplied adjustment retained",
+      "effect": "Source estimates retained",
+      "ci": "Source intervals retained",
+      "sampleSize": "30, 30",
+      "appEvidence": true,
+      "wordEvidence": false,
+      "issues": [
+        "Aggregate workspace exports CSV/JSON; no native Reports/Word mapping. Catalogue Word evidence is separately audited.",
+        "Protocol eligibility/assumptions and source missing-estimate fields require review."
+      ]
+    },
+    {
+      "id": "aggregate:diagnostics:Strategy / evaluation",
+      "objective": "Supporting exploratory diagnostics",
+      "title": "Diagnostic estimates",
+      "kind": "table",
+      "type": "Diagnostic estimation",
+      "infer": "Descriptive / estimation, no automatic null test",
+      "status": "Aggregate source loaded; reporting qualified",
+      "method": "Reference-standard diagnostic estimation; no arbitrary null test; Reference-standard diagnostic estimation; no arbitrary null test; Reference-standard diagnostic estimation; no arbitrary null test; Reference-standard diagnostic estimation; no arbitrary null test; Reference-standard diagnostic estimation; no arbitrary null test; Reference-standard diagnostic estimation; no arbitrary null test; Reference-standard diagnostic estimation; no arbitrary null test; Reference-standard diagnostic estimation; no arbitrary null test; Reference-standard diagnostic estimation; no arbitrary null test; Reference-standard diagnostic estimation; no arbitrary null test",
+      "testStatistic": "No test used for this output",
+      "p": "No test used / unavailable",
+      "effect": "Source estimates retained",
+      "ci": "Source intervals retained",
+      "sampleSize": "36, 36, 36, 36, 36, 36, 36, 36, 36, 36",
+      "appEvidence": true,
+      "wordEvidence": false,
+      "issues": [
+        "Aggregate workspace exports CSV/JSON; no native Reports/Word mapping. Catalogue Word evidence is separately audited.",
+        "Protocol eligibility/assumptions and source missing-estimate fields require review."
+      ]
+    },
+    {
+      "id": "aggregate:diagnostics:Comparison",
+      "objective": "Supporting exploratory diagnostics",
+      "title": "Paired raw-marker comparisons",
+      "kind": "table",
+      "type": "Group comparison",
+      "infer": "Applicable",
+      "status": "Aggregate source loaded; reporting qualified",
+      "method": "Paired DeLong; Paired DeLong; Paired DeLong; Exact McNemar sensitivity; Exact McNemar specificity; Exact McNemar sensitivity; Exact McNemar specificity; Exact McNemar sensitivity; Exact McNemar specificity",
+      "testStatistic": "Recorded / explicit not applicable",
+      "p": "Source p-values and supplied adjustment retained",
+      "effect": "Source estimates retained",
+      "ci": "Source intervals retained",
+      "sampleSize": "36, 36, 36, 30, 6, 30, 6, 30, 6",
+      "appEvidence": true,
+      "wordEvidence": false,
+      "issues": [
+        "Aggregate workspace exports CSV/JSON; no native Reports/Word mapping. Catalogue Word evidence is separately audited.",
+        "Protocol eligibility/assumptions and source missing-estimate fields require review."
+      ]
+    },
+    {
+      "id": "aggregate:diagnostics:Metric",
+      "objective": "Supporting exploratory diagnostics",
+      "title": "Highest point estimates",
+      "kind": "table",
+      "type": "Descriptive ranking",
+      "infer": "Descriptive / estimation, no automatic null test",
+      "status": "Aggregate source loaded; reporting qualified",
+      "method": "Descriptive/source definitions",
+      "testStatistic": "No test used for this output",
+      "p": "No test used / unavailable",
+      "effect": "Descriptive",
+      "ci": "No interval / unavailable",
+      "sampleSize": "Source record count 36",
+      "appEvidence": true,
+      "wordEvidence": false,
+      "issues": [
+        "Aggregate workspace exports CSV/JSON; no native Reports/Word mapping. Catalogue Word evidence is separately audited.",
+        "Protocol eligibility/assumptions and source missing-estimate fields require review."
+      ]
+    },
+    {
+      "id": "aggregate:diagnostics:roc",
+      "objective": "Supporting exploratory diagnostics",
+      "title": "Selected diagnostic ROC curves",
+      "kind": "figure",
+      "type": "Diagnostic estimation",
+      "infer": "Descriptive / estimation, no automatic null test",
+      "status": "Aggregate source loaded; reporting qualified",
+      "method": "Reference-standard diagnostic estimation; no arbitrary null test; Reference-standard diagnostic estimation; no arbitrary null test; Reference-standard diagnostic estimation; no arbitrary null test; Reference-standard diagnostic estimation; no arbitrary null test; Reference-standard diagnostic estimation; no arbitrary null test; Reference-standard diagnostic estimation; no arbitrary null test; Reference-standard diagnostic estimation; no arbitrary null test; Reference-standard diagnostic estimation; no arbitrary null test; Reference-standard diagnostic estimation; no arbitrary null test; Reference-standard diagnostic estimation; no arbitrary null test",
+      "testStatistic": "No test used for this output",
+      "p": "No test used / unavailable",
+      "effect": "Source estimates retained",
+      "ci": "Source intervals retained",
+      "sampleSize": "36, 36, 36, 36, 36, 36, 36, 36, 36, 36",
+      "appEvidence": true,
+      "wordEvidence": false,
+      "issues": [
+        "Aggregate workspace exports CSV/JSON; no native Reports/Word mapping. Catalogue Word evidence is separately audited.",
+        "Protocol eligibility/assumptions and source missing-estimate fields require review."
+      ]
+    },
+    {
+      "id": "aggregate:diagnostics:calibration",
+      "objective": "Supporting exploratory diagnostics",
+      "title": "Selected model calibration plots",
+      "kind": "figure",
+      "type": "Prediction evaluation",
+      "infer": "Descriptive / estimation, no automatic null test",
+      "status": "Aggregate source loaded; reporting qualified",
+      "method": "Reference-standard diagnostic estimation; no arbitrary null test; Reference-standard diagnostic estimation; no arbitrary null test; Reference-standard diagnostic estimation; no arbitrary null test; Reference-standard diagnostic estimation; no arbitrary null test; Held-out prediction evaluation; no coefficient inference; Reference-standard diagnostic estimation; no arbitrary null test; Held-out prediction evaluation; no coefficient inference; Reference-standard diagnostic estimation; no arbitrary null test; Held-out prediction evaluation; no coefficient inference; Reference-standard diagnostic estimation; no arbitrary null test; Held-out prediction evaluation; no coefficient inference; Reference-standard diagnostic estimation; no arbitrary null test; Held-out prediction evaluation; no coefficient inference; Reference-standard diagnostic estimation; no arbitrary null test; Held-out prediction evaluation; no coefficient inference; Reference-standard diagnostic estimation; no arbitrary null test; Held-out prediction evaluation; no coefficient inference",
+      "testStatistic": "No test used for this output",
+      "p": "No test used / unavailable",
+      "effect": "Source estimates retained",
+      "ci": "Source intervals retained",
+      "sampleSize": "36, 36, 36, 36, 36, 36, 36, 36, 36, 36, 36, 36, 36, 36, 36, 36, 36",
+      "appEvidence": true,
+      "wordEvidence": false,
+      "issues": [
+        "Aggregate workspace exports CSV/JSON; no native Reports/Word mapping. Catalogue Word evidence is separately audited.",
+        "Protocol eligibility/assumptions and source missing-estimate fields require review."
+      ]
+    },
+    {
+      "id": "aggregate:associations:Variables",
+      "objective": "Supporting exploratory associations",
+      "title": "Pairwise associations",
+      "kind": "table",
+      "type": "Association",
+      "infer": "Applicable",
+      "status": "Aggregate source loaded; reporting qualified",
+      "method": "Spearman rank association; source asymptotic t approximation; Spearman rank association; source asymptotic t approximation; Spearman rank association; source asymptotic t approximation; Spearman rank association; source asymptotic t approximation; Spearman rank association; source asymptotic t approximation; Spearman rank association; source asymptotic t approximation; Spearman rank association; source asymptotic t approximation; Spearman rank association; source asymptotic t approximation; Spearman rank association; source asymptotic t approximation; Spearman rank association; source asymptotic t approximation; Spearman rank association; source asymptotic t approximation; Spearman rank association; source asymptotic t approximation; Spearman rank association; source asymptotic t approximation; Spearman rank association; source asymptotic t approximation; Spearman rank association; source asymptotic t approximation; Spearman rank association; source asymptotic t approximation; Spearman rank association; source asymptotic t approximation; Spearman rank association; source asymptotic t approximation; Spearman rank association; source asymptotic t approximation; Spearman rank association; source asymptotic t approximation; Spearman rank association; source asymptotic t approximation",
+      "testStatistic": "Recorded / explicit not applicable",
+      "p": "Source p-values and supplied adjustment retained",
+      "effect": "Source estimates retained",
+      "ci": "Source intervals retained",
+      "sampleSize": "36, 36, 36, 36, 36, 36, 36, 36, 36, 36, 36, 36, 36, 36, 36, 36, 36, 36, 36, 36, 36",
+      "appEvidence": true,
+      "wordEvidence": false,
+      "issues": [
+        "Aggregate workspace exports CSV/JSON; no native Reports/Word mapping. Catalogue Word evidence is separately audited.",
+        "Protocol eligibility/assumptions and source missing-estimate fields require review."
+      ]
+    },
+    {
+      "id": "aggregate:associations:Measurement / grouping",
+      "objective": "Supporting exploratory associations",
+      "title": "Recorded-group comparisons",
+      "kind": "table",
+      "type": "Group comparison",
+      "infer": "Applicable",
+      "status": "Aggregate source loaded; reporting qualified",
+      "method": "Mann–Whitney U, asymptotic; Mann–Whitney U, asymptotic; Mann–Whitney U, asymptotic; Mann–Whitney U, exact; Mann–Whitney U, asymptotic; Mann–Whitney U, asymptotic; Mann–Whitney U, asymptotic; Mann–Whitney U, asymptotic; Mann–Whitney U, asymptotic; Mann–Whitney U, asymptotic; Mann–Whitney U, exact; Mann–Whitney U, asymptotic; Mann–Whitney U, asymptotic; Mann–Whitney U, asymptotic",
+      "testStatistic": "Recorded / explicit not applicable",
+      "p": "Source p-values and supplied adjustment retained",
+      "effect": "Source estimates retained",
+      "ci": "Source intervals retained",
+      "sampleSize": "30, 30, 30, 30, 30, 30, 30, 36, 36, 36, 36, 36, 36, 36",
+      "appEvidence": true,
+      "wordEvidence": false,
+      "issues": [
+        "Aggregate workspace exports CSV/JSON; no native Reports/Word mapping. Catalogue Word evidence is separately audited.",
+        "Protocol eligibility/assumptions and source missing-estimate fields require review."
+      ]
+    },
+    {
+      "id": "aggregate:associations:scatter",
+      "objective": "Supporting exploratory associations",
+      "title": "Selected association scatter",
+      "kind": "figure",
+      "type": "Association",
+      "infer": "Applicable",
+      "status": "Aggregate source loaded; reporting qualified",
+      "method": "Spearman rank association; source asymptotic t approximation",
+      "testStatistic": "Recorded / explicit not applicable",
+      "p": "Source p-values and supplied adjustment retained",
+      "effect": "Source estimates retained",
+      "ci": "Source intervals retained",
+      "sampleSize": "36",
+      "appEvidence": true,
+      "wordEvidence": false,
+      "issues": [
+        "Aggregate workspace exports CSV/JSON; no native Reports/Word mapping. Catalogue Word evidence is separately audited.",
+        "Protocol eligibility/assumptions and source missing-estimate fields require review."
+      ]
+    },
+    {
+      "id": "aggregate:associations:box",
+      "objective": "Supporting exploratory associations",
+      "title": "Selected group distributions",
+      "kind": "figure",
+      "type": "Group comparison",
+      "infer": "Applicable",
+      "status": "Aggregate source loaded; reporting qualified",
+      "method": "Mann–Whitney U, asymptotic",
+      "testStatistic": "Recorded / explicit not applicable",
+      "p": "Source p-values and supplied adjustment retained",
+      "effect": "Source estimates retained",
+      "ci": "Source intervals retained",
+      "sampleSize": "30",
+      "appEvidence": true,
+      "wordEvidence": false,
+      "issues": [
+        "Aggregate workspace exports CSV/JSON; no native Reports/Word mapping. Catalogue Word evidence is separately audited.",
+        "Protocol eligibility/assumptions and source missing-estimate fields require review."
+      ]
+    }
+  ]
+}

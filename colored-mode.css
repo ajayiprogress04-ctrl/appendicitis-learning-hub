@@ -11,41 +11,26 @@ body.colored-theme {
  --science-cover:rgba(9,13,35,.88);--science-soft-cover:rgba(14,18,43,.48);
  --science-panel-cover:rgba(17,24,46,.91);--science-panel-edge:rgba(23,29,57,.68);
  --science-light:rgba(120,90,240,.18);
- --art-dna:url("./scientific-textures/dna-colored.svg");
- --art-molecules:url("./scientific-textures/molecules-colored.svg");
- --art-cells:url("./scientific-textures/cells-colored.svg");
- --art-anatomy:url("./scientific-textures/anatomy-colored.svg");
- --art-data:url("./scientific-textures/data-colored.svg");
- --art-waveforms:url("./scientific-textures/waveforms-colored.svg");
  --colored-action:linear-gradient(125deg,#7752c6 0%,#5257a8 48%,#216d83 100%);
  --colored-action-hover:linear-gradient(125deg,#825cce 0%,#5860b2 48%,#26788b 100%);
  --colored-editorial:linear-gradient(120deg,#141d37 0%,#211933 52%,#123239 100%);
  color:var(--ink);color-scheme:dark;
  background-color:var(--science-base);
- background-image:var(--art-dna),var(--art-molecules),var(--art-cells),var(--art-anatomy),var(--art-waveforms),var(--art-data),radial-gradient(ellipse at 85% 9%,rgba(104,60,216,.43),transparent 46%),radial-gradient(ellipse at 5% 42%,rgba(13,146,167,.31),transparent 48%),radial-gradient(ellipse at 80% 80%,rgba(159,45,128,.25),transparent 46%),linear-gradient(140deg,#090d23,#14102c 52%,#08232c);
- background-size:45rem 90rem,103.125rem 103.125rem,86.25rem 86.25rem,98.4375rem 98.4375rem,93.75rem 93.75rem,121.875rem 121.875rem,100% 100%,100% 100%,100% 100%,100% 100%;
- background-position:right -9.375rem top 8.90625rem,left -26.25rem top 38%,right -26.25rem top 63%,left -13.125rem bottom 4%,right -13.125rem bottom 25%,left -15rem top 4%,center,center,center,center;
- background-repeat:no-repeat;
+ background-image:radial-gradient(ellipse at 85% 9%,rgba(104,60,216,.12),transparent 46%),radial-gradient(ellipse at 5% 70%,rgba(13,146,167,.08),transparent 48%);
  scrollbar-color:#667bb0 #10182d;
 }
 body.colored-theme .hero {
  background-color:#11142e;
- background-image:linear-gradient(100deg,rgba(19,22,53,.96) 5%,rgba(40,24,69,.82) 50%,rgba(12,51,65,.55)),var(--art-dna),var(--art-molecules);
+ background-image:none;
 }
-body.colored-theme #main {background-image:linear-gradient(110deg,rgba(16,20,49,.88),rgba(40,23,67,.57)),var(--art-dna),var(--art-cells);}
-body.colored-theme #objective-results {background-image:linear-gradient(110deg,rgba(11,29,53,.89),rgba(25,41,72,.55)),var(--art-data),var(--art-waveforms);}
-body.colored-theme #objective-results:has(.writing-fields) {background-image:linear-gradient(110deg,rgba(10,39,48,.89),rgba(57,25,64,.55)),var(--art-anatomy),var(--art-cells);}
-body.colored-theme #objective-results:has(.interpretation-list) {background-image:linear-gradient(110deg,rgba(19,28,55,.89),rgba(50,27,68,.55)),var(--art-cells),var(--art-dna);}
-body.colored-theme #statistical-glossary {background-image:linear-gradient(110deg,rgba(27,24,59,.9),rgba(16,53,60,.56)),var(--art-molecules),var(--art-cells);}
-body.colored-theme #analysis-workspace {background-image:linear-gradient(110deg,rgba(13,36,46,.9),rgba(18,38,65,.55)),var(--art-waveforms),var(--art-data);}
 body.colored-theme .topbar {background-color:#12172e;border-bottom-color:#354368;box-shadow:0 0.46875rem 2.34375rem rgba(104,65,213,.10);}
 body.colored-theme .desktop-sidebar {background-color:#11162c;border-right-color:#344565;}
 body.colored-theme .brand-mark {background:linear-gradient(135deg,#574282,#245765);color:#a8f4e6;}
 body.colored-theme .research-overview,body.colored-theme .objective-head {background-color:#171d39;}
 body.colored-theme .catalog-data {background-color:#112438;}
-body.colored-theme .objective-card,body.colored-theme .analysis-card {background-image:linear-gradient(115deg,rgba(24,28,58,.96),rgba(45,29,70,.83)),var(--art-cells);box-shadow:var(--shadow);}
-body.colored-theme .objective-card:nth-child(3n+2),body.colored-theme .analysis-card:nth-child(2n) {background-image:linear-gradient(115deg,rgba(14,38,48,.96),rgba(22,45,69,.82)),var(--art-molecules);}
-body.colored-theme .objective-card:nth-child(3n) {background-image:linear-gradient(115deg,rgba(40,25,57,.95),rgba(52,34,53,.83)),var(--art-data);}
+body.colored-theme .objective-card,body.colored-theme .analysis-card {background-image:none;box-shadow:var(--shadow);}
+body.colored-theme .objective-card:nth-child(3n+2),body.colored-theme .analysis-card:nth-child(2n) {background-image:none;}
+body.colored-theme .objective-card:nth-child(3n) {background-image:none;}
 body.colored-theme .method-card,body.colored-theme .variable-card {background-color:var(--surface);}
 body.colored-theme .report-order {background:var(--colored-editorial);border-color:var(--line);}
 body.colored-theme .interpretation-card,body.colored-theme .catalog-item,body.colored-theme .result-preview,body.colored-theme .glossary-detail,body.colored-theme .writing-editor,body.colored-theme .writing-final,body.colored-theme .interpretation,body.colored-theme .analysis-notes,body.colored-theme .results-scroll,body.colored-theme .analysis-figure,body.colored-theme .result-preview figure,body.colored-theme .catalog-data table {background:var(--surface);color:var(--ink);}
@@ -111,6 +96,5 @@ body.colored-theme ::-webkit-scrollbar-track {background:#10182d;}
 body.colored-theme ::-webkit-scrollbar-thumb {background:#6176a3;}
 @media(max-width:75rem) {
  .theme-picker>span {display:none;}.theme-picker select {min-height:3.75rem;font-size:var(--type-body);max-width:12.1875rem;}
- body.colored-theme {background-size:28.125rem 56.25rem,67.5rem 67.5rem,60.9375rem 60.9375rem,67.5rem 67.5rem,63.75rem 63.75rem,76.875rem 76.875rem,100% 100%,100% 100%,100% 100%,100% 100%;background-position:right -8.90625rem top 13.125rem,left -23.4375rem top 35%,right -22.5rem top 62%,left -19.6875rem bottom 4%,right -18.75rem bottom 24%,left -18.75rem top 5%,center,center,center,center;}
 }
 @media(prefers-reduced-motion:reduce) {body.colored-theme * {animation:none!important;transition:none!important;}}

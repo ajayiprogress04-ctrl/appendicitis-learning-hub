@@ -23,3 +23,15 @@
 .dark-theme .glossary-controls input,.dark-theme .glossary-controls select { background:#101010; }
 .dark-theme .glossary-detail { background:linear-gradient(135deg,#0D0D0D,#080808); }
 .dark-theme .glossary-entry:hover,.dark-theme .glossary-entry[aria-pressed=true] { background:#181818; }
+/* Shared parameter teaching panels use the established theme tokens. */
+[data-parameter-browser],.parameter-reference{min-width:0;max-width:100%;overflow-wrap:anywhere}
+[data-parameter-browser] input,[data-parameter-browser] select{width:100%;max-width:100%;min-width:0;font:inherit;color:var(--ink);background:var(--surface);padding:.5rem;border:1px solid var(--line);border-radius:.5rem}
+[data-parameter-browser]>label{display:block;margin:.5rem 0}
+.parameter-reference table{width:100%;border-collapse:collapse}.parameter-reference th,.parameter-reference td{padding:.5rem;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+
+/* The reference learner inherits existing theme tokens and scrollable tables. */
+.reference-standard-learning label{display:block;margin:.65rem 0}.reference-standard-learning select{width:100%;max-width:100%;font:inherit;color:inherit;background:var(--paper);padding:.5rem}.reference-standard-learning td,.reference-standard-learning th{white-space:normal;overflow-wrap:anywhere}.reference-matrix button{width:100%;white-space:normal}.reference-matrix button[aria-pressed="true"]{text-decoration:underline;text-underline-offset:.2em}.reference-standard-learning details{margin:.65rem 0}.reference-standard-learning h4{margin:.75rem 0 .35rem}
+
+.reference-matrix{table-layout:fixed;width:100%}.reference-matrix th:first-child{width:26%;word-break:normal;overflow-wrap:normal}
+
+.glossary-back{display:inline-flex;align-items:center;gap:.45rem;white-space:normal;text-align:left;min-height:2.75rem}.glossary-back span{font-size:1.2em}
