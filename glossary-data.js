@@ -1224,3 +1224,659 @@ window.HUB_GLOSSARY_DATA = {
 };
 
 HUB_GLOSSARY_DATA.entries.push({id:"validity-reliability",term:"Validity and Reliability",aliases:["methodological quality","assessment register","model validation","measurement quality"],category:"Statistical reporting and interpretation",definition:"Validity concerns support for a specified interpretation or use; reliability concerns measurement consistency. Neither follows merely because software calculated a result.",purpose:"Review study-specific diagnostic, measurement, data and methodological evidence.",formula:"",assumptions:"Assessment depends on the intended construct, population, design and evidence.",interpretation:"The register distinguishes calculated checks, documented methodological evidence and unperformed recommendations.",example:"Illustrative: before/after clinician ratings are not a test–retest reliability design.",mistake:"Treating statistical significance, successful calculation or reliability as proof of all forms of validity.",related:["reference","bias","roc"]});
+
+/* Short, study-specific reading text; authoritative coding and formulas elsewhere remain unchanged. */
+window.HUB_GLOSSARY_BRIEF = {
+  "mean": [
+    "The average: add the values and divide by the number measured.",
+    "Summarises average hs-CRP, hospital stay or expenditure; extreme values can pull it away from a typical patient."
+  ],
+  "median": [
+    "The middle value after sorting the measurements.",
+    "Describes a typical patient's hs-CRP, stay or cost when a few very large values distort the average."
+  ],
+  "sd": [
+    "How widely individual measurements spread around their average.",
+    "Shows whether patients' hs-CRP, stay or costs vary little or substantially within an appendicitis group."
+  ],
+  "se": [
+    "How uncertain an estimated average is.",
+    "Describes precision of a group average, not differences between individual appendicitis patients."
+  ],
+  "iqr": [
+    "The span containing the middle half of the measurements.",
+    "Shows the usual spread of hs-CRP, stay or costs without giving extreme patients undue weight."
+  ],
+  "proportion": [
+    "The share of an eligible group with a particular finding.",
+    "Makes histology and symptom counts comparable; check which patients form the denominator."
+  ],
+  "null": [
+    "The no-difference or no-association explanation tested against the data.",
+    "A cost or hs-CRP comparison asks whether the observed group differences provide evidence against that explanation."
+  ],
+  "pvalue": [
+    "How compatible the observed result, or something more extreme, is with the tested no-difference explanation.",
+    "Helps assess group differences under the chosen test; it is not the probability that our conclusion is wrong."
+  ],
+  "significance": [
+    "A result meeting the chosen statistical evidence threshold.",
+    "The app uses p < 0.05 as its reporting convention; this does not establish a clinically useful diagnostic improvement."
+  ],
+  "multiple": [
+    "Running several tests increases the chance of a chance finding.",
+    "Holm-adjusted p-values account for the comparison family shown in our tables; read them before claiming a group difference."
+  ],
+  "ci": [
+    "An interval showing how precisely a value has been estimated.",
+    "Wide sensitivity, specificity or cost-difference intervals mean the study leaves substantial uncertainty about the estimate."
+  ],
+  "welch": [
+    "A comparison of two group averages that allows different variability.",
+    "Used where reported for hs-CRP or costs; its estimate concerns the mean difference, not the median difference."
+  ],
+  "mann": [
+    "A comparison of how two groups' measurements rank against each other.",
+    "Checks hs-CRP, stay or cost distributions; a difference need not be only a shift in the median."
+  ],
+  "signed": [
+    "A comparison of paired measurements using the ranks of their changes.",
+    "Could examine valid before/after assessments, but clinician clustering is unresolved; no confidence p-value should be invented."
+  ],
+  "anova": [
+    "A test comparing averages across three or more independent groups.",
+    "Relevant to a planned multi-group numerical comparison only if its assumptions are supported; its presence here does not mean it was run."
+  ],
+  "kruskal": [
+    "A rank-based comparison of three or more independent groups.",
+    "Checks negative, simple and complicated groups' recorded costs or durations; follow the displayed method and actual p-value."
+  ],
+  "contingency": [
+    "A table counting combinations of categories.",
+    "Links test-positive/negative results with histology-positive/negative status to show correct classifications and errors."
+  ],
+  "chi": [
+    "A test checking whether two categorical findings are associated.",
+    "Can compare histology with grouped findings when expected counts are adequate; sparse tables may need an exact test instead."
+  ],
+  "fisher": [
+    "A test of categorical association that works with small cell counts.",
+    "Useful for sparse histology-negative or subgroup counts; the p-value describes association, not diagnostic usefulness by itself."
+  ],
+  "accuracy": [
+    "The share of all evaluated patients classified correctly: correct positives plus correct negatives, divided by everyone evaluated.",
+    "Combines sensitivity and specificity weighted by the study's disease frequency; it is not generally their simple average."
+  ],
+  "reference": [
+    "The diagnosis used as the benchmark for judging another test.",
+    "Our app compares MAS, hs-CRP and supported combinations with the removed appendix's histopathology, using the confirmed disease categories."
+  ],
+  "sensitivity": [
+    "Among patients who truly have the disease, the share the test identifies as positive.",
+    "Shows how often a diagnostic strategy detects histology-confirmed appendicitis; missed cases are false negatives."
+  ],
+  "specificity": [
+    "Among patients without the disease, the share the test identifies as negative.",
+    "Shows how often a strategy correctly excludes the study's histology-negative cases; incorrect positives reduce specificity."
+  ],
+  "ppv": [
+    "Among positive test results, the share that really have the disease.",
+    "Shows how often a positive strategy agrees with appendicitis-positive histology in this cohort; it changes with disease frequency."
+  ],
+  "npv": [
+    "Among negative test results, the share that really do not have the disease.",
+    "Shows how often a negative strategy agrees with negative histology in this cohort; it changes with disease frequency."
+  ],
+  "prevalence": [
+    "The share of evaluated patients who have the disease.",
+    "Here it refers to histology-positive participants in the selected analysis cohort, not appendicitis frequency in the general population."
+  ],
+  "likelihood": [
+    "How much more common a test result is in diseased versus non-diseased patients.",
+    "LR+ and LR− describe how results change diagnostic odds; zero error cells can leave some estimates infinite or undefined."
+  ],
+  "odds": [
+    "A comparison of odds between groups.",
+    "Where a model reports an odds ratio, it describes an appendicitis association, not a risk ratio or proof of causation."
+  ],
+  "risk": [
+    "The chance of an outcome in one group divided by that in another.",
+    "Use only when the reported analysis estimates risks with suitable denominators; do not relabel a model's odds ratio as relative risk."
+  ],
+  "pearson": [
+    "How strongly two numerical measurements follow a straight-line relationship.",
+    "Could relate continuous study measurements; it is not interchangeable with the rank-based Spearman analyses currently reported."
+  ],
+  "spearman": [
+    "How consistently higher values of one measurement accompany higher or lower values of another.",
+    "Describes ordered relationships between recorded scores, hs-CRP, costs and durations; association does not establish cause."
+  ],
+  "regression": [
+    "A model describing how a numerical outcome changes with selected predictors.",
+    "An adjusted cost or stay model needs a justified predictor set; the app must not imply such an analysis exists when unsupported."
+  ],
+  "logistic": [
+    "A model predicting the chance of a yes/no outcome.",
+    "Our fitted diagnostic models combine recorded measurements to predict histology-positive appendicitis; internal evaluation is not independent clinical validation."
+  ],
+  "roc": [
+    "A curve showing the trade-off between detecting disease and incorrectly flagging its absence as the cutoff changes.",
+    "Shows how MAS, hs-CRP or model scores distinguish the histology groups across thresholds, rather than at just one cutoff."
+  ],
+  "auc": [
+    "How often a score ranks a disease-positive patient above a disease-negative patient, with half-credit for ties.",
+    "Measures appendicitis discrimination; it does not tell us whether one chosen cutoff is safe or a model's probabilities are well calibrated."
+  ],
+  "threshold": [
+    "The boundary used to call a test positive or negative.",
+    "Current fixed rules use MAS ≥7, hs-CRP >3 mg/L and AIR ≥9; they must not be confused with fitted-model probability cutoffs."
+  ],
+  "delong": [
+    "A comparison of two ROC areas measured on the same patients.",
+    "The app uses it for unfitted markers; it must not be used to claim superiority of overlapping-training fitted models."
+  ],
+  "effect": [
+    "The size of a difference or association.",
+    "Shows whether a cost, biomarker or diagnostic comparison is substantial; read its interval alongside the p-value."
+  ],
+  "power": [
+    "The chance a planned test detects a specified effect if that effect exists.",
+    "A small reference-negative or complicated group can miss meaningful differences; a nonsignificant result does not prove equality."
+  ],
+  "sample": [
+    "The number of patients actually included in a calculation.",
+    "Check each table's evaluable n: missing fields or subgroup selection can change which patients support the result."
+  ],
+  "missing": [
+    "Information that was not recorded or could not be used.",
+    "Missing hs-CRP, histology or cost is not zero or a negative finding; exclusions change the analysis denominator."
+  ],
+  "mcar": [
+    "Missingness unrelated to either recorded or unrecorded patient characteristics.",
+    "Would make exclusions less selective, but the study does not establish this merely because some values are absent."
+  ],
+  "mar": [
+    "Missingness explained by other recorded information.",
+    "Recorded characteristics might explain an absent cost or measurement; this assumption is not automatically verified or an instruction to impute."
+  ],
+  "mnar": [
+    "Missingness related to the unseen value itself, even after considering recorded information.",
+    "If extreme costs or measurements are selectively absent, available-case appendicitis comparisons may be distorted."
+  ],
+  "quality": [
+    "Whether recorded information is complete, consistent and correctly coded.",
+    "Unexpected histology labels or invalid scores must be reviewed before diagnostic counts or group comparisons are trusted."
+  ],
+  "normality": [
+    "Whether measurements or model errors approximately follow a bell-shaped distribution, as required by the chosen method.",
+    "Helps assess some mean-based comparisons; it is not required for every diagnostic or rank-based analysis."
+  ],
+  "distribution": [
+    "The pattern of values, including their centre, spread and extremes.",
+    "Shows whether hs-CRP, stay or costs cluster tightly or contain extreme values, helping choose summaries and comparisons."
+  ],
+  "paired": [
+    "Two observations linked to the same patient or assessment unit.",
+    "Before/after confidence ratings are paired within cases; different tests on the same patients also require paired diagnostic comparisons."
+  ],
+  "independent": [
+    "Observations that do not repeat or depend on the same assessment unit.",
+    "Patient-group tests require this structure; repeated clinician ratings may need clustering rather than being treated as independent cases."
+  ],
+  "mcnemar": [
+    "A comparison of two yes/no classifications on the same patients, focusing on where they disagree.",
+    "Checks paired diagnostic strategies' discordant classifications; it does not compare independent patient groups."
+  ],
+  "clinical": [
+    "Whether a result matters for patient care, beyond meeting a statistical threshold.",
+    "A diagnostic difference needs evidence about missed disease and unnecessary positives; a small p-value alone does not establish benefit."
+  ],
+  "reporting": [
+    "Presenting findings with enough detail to understand the evidence.",
+    "Our tables and narratives need denominators, appropriate tests and uncertainty; descriptive histology counts do not need invented p-values."
+  ],
+  "bias": [
+    "A systematic distortion, including apparent relationships caused by other patient differences.",
+    "Selection into the operated cohort and differences in case mix can limit diagnostic and cost conclusions."
+  ],
+  "mas": [
+    "A clinical appendicitis score combining symptoms, examination and laboratory findings.",
+    "The recorded modified score runs from 0 to 9; current binary analyses use ≥7 as positive and compare it with histology."
+  ],
+  "hscrp": [
+    "A blood marker of inflammation measured using a sensitive CRP assay.",
+    "The app evaluates recorded hs-CRP against histology; >3 mg/L is its laboratory-elevation rule, not proof of appendicitis."
+  ],
+  "negative": [
+    "The share of eligible appendix removals whose histology does not confirm appendicitis.",
+    "Reactive lymphoid hyperplasia is negative here; this surgical outcome is different from a false-positive MAS or hs-CRP result."
+  ],
+  "complicated": [
+    "Simple and complicated describe the study's histological severity groups.",
+    "Acute, suppurative and phlegmonous are simple; gangrenous and perforated are complicated. Reactive lymphoid hyperplasia remains separate and negative."
+  ],
+  "validity-reliability": [
+    "Validity asks whether a measure supports its intended conclusion; reliability asks whether measurements are consistent.",
+    "Calculating diagnostic metrics does not establish clinical validation; before/after confidence changes are not a test of repeatability."
+  ],
+  "study-histopathology": [
+    "The study's rule for deciding whether the removed appendix confirms appendicitis.",
+    "Reactive lymphoid hyperplasia is negative. Acute, suppurative, phlegmonous, gangrenous and perforated appendicitis are positive; unknown findings need review."
+  ],
+  "index-test": [
+    "The test or rule whose diagnostic performance is being assessed.",
+    "MAS, hs-CRP and supported combined strategies are index tests; each is compared with the same defined histology reference status."
+  ],
+  "AIR": [
+    "An appendicitis score based on signs of inflammation.",
+    "The recorded score is 0–12; working groups are 0–4, 5–8 and 9–12, with ≥9 positive in current fixed-rule analyses."
+  ],
+  "AIR_CATEGORY": [
+    "The recorded AIR score grouped into low, intermediate or high probability.",
+    "The app uses 0–4, 5–8 and 9–12 respectively; these working groups are not confirmed diagnoses."
+  ],
+  "AIR_RISK_CATEGORY": [
+    "The recorded AIR score grouped into low, intermediate or high probability.",
+    "The app uses 0–4, 5–8 and 9–12 respectively; these working groups are not confirmed diagnoses."
+  ],
+  "MAS_CATEGORY": [
+    "The recorded MAS grouped into lower, intermediate or higher probability.",
+    "The dictionary uses 0–4, 5–6 and 7–9; a score ≥7 is positive for the fixed MAS-versus-histology analysis."
+  ],
+  "HS_CRP_3MG_CATEGORY": [
+    "Whether recorded hs-CRP is above the study laboratory limit.",
+    "Values >3 mg/L count as elevated; exactly 3 does not. Elevation alone does not confirm appendicitis."
+  ],
+  "combined-rule": [
+    "A diagnostic approach using both MAS and hs-CRP.",
+    "The app distinguishes fitted probability models from exploratory AND/OR rules; their classifications must not be treated as interchangeable."
+  ],
+  "tp": [
+    "The test is positive and the reference diagnosis confirms disease.",
+    "Counts patients correctly identified as having appendicitis when the selected diagnostic rule is compared with histology."
+  ],
+  "tn": [
+    "The test is negative and the reference diagnosis does not confirm disease.",
+    "Counts correctly negative classifications among the study’s reactive-lymphoid-hyperplasia cases."
+  ],
+  "fp": [
+    "The test is positive but the reference diagnosis does not confirm disease.",
+    "Counts diagnostic false alarms against negative histology; it is not itself the negative appendicectomy rate."
+  ],
+  "fn": [
+    "The test is negative but the reference diagnosis confirms disease.",
+    "Counts appendicitis missed by the selected diagnostic rule, directly affecting sensitivity."
+  ],
+  "age": [
+    "A patient’s age in years.",
+    "Describes the sample and supports the current children-under-16 versus adults-16-and-over comparisons."
+  ],
+  "AGE_GROUP": [
+    "Whether a patient belongs to the study’s child or adult group.",
+    "Under 16 is a child group; 16 or older is an adult group. This grouping does not define laboratory reference bands."
+  ],
+  "sex": [
+    "The patient’s recorded sex category.",
+    "Supports demographic and negative-histology subgroup summaries; it also affects the external PCV reference used by the app."
+  ],
+  "education": [
+    "The patient’s recorded level of education.",
+    "Describes participants’ backgrounds; it is not evidence of diagnostic performance or a demonstrated cause of appendicitis."
+  ],
+  "religion": [
+    "The patient’s recorded religious affiliation.",
+    "A participant-description field, not an appendicitis diagnostic test or an established explanation for the findings."
+  ],
+  "occupation": [
+    "The patient’s recorded occupation.",
+    "Describes the study population; no occupational effect on appendicitis is inferred from its presence in the dataset."
+  ],
+  "marital_status": [
+    "The patient’s recorded marital status.",
+    "Provides participant background; it does not establish an association with appendicitis unless a suitable analysis is reported."
+  ],
+  "hosp_n0": [
+    "The source record’s hospital identifier.",
+    "Links source records during verification; it must not appear in public results or be analysed as a measurement."
+  ],
+  "abdominal_pain": [
+    "Whether abdominal pain was reported.",
+    "Describes presentation, not pain severity or a specific pain location; source Yes/No responses determine the derived presence field."
+  ],
+  "ABDOMINAL_PAIN_PRESENT": [
+    "Whether abdominal pain was reported.",
+    "Describes presentation, not pain severity or a specific pain location; source Yes/No responses determine the derived presence field."
+  ],
+  "migratory": [
+    "Whether the patient reported pain moving from one area to another.",
+    "A recorded clinical feature examined against histology; do not infer the exact starting or ending location from this Yes/No item."
+  ],
+  "MIGRATORY_PAIN": [
+    "Whether the patient reported pain moving from one area to another.",
+    "A recorded clinical feature examined against histology; do not infer the exact starting or ending location from this Yes/No item."
+  ],
+  "duration_of_pain": [
+    "How long the recorded abdominal pain had lasted.",
+    "The dictionary treats this as hours for presentation comparisons; it is not a pain-intensity score."
+  ],
+  "ABDOMINAL_PAIN_DURATION_HRS": [
+    "How long the recorded abdominal pain had lasted.",
+    "The dictionary treats this as hours for presentation comparisons; it is not a pain-intensity score."
+  ],
+  "ABDOMINAL_PAIN_DURATION_CAT": [
+    "Pain duration grouped into time bands.",
+    "The app’s working bands are 0–6, over 6–12, over 12–24 and over 24 hours; these are descriptive, not severity grades."
+  ],
+  "tendernessRIF": [
+    "Tenderness found when examining the right lower abdomen.",
+    "A recorded examination finding evaluated against histology; tenderness must not be relabelled as a separate pain-location measure."
+  ],
+  "RIF_TENDERNESS": [
+    "Tenderness found when examining the right lower abdomen.",
+    "A recorded examination finding evaluated against histology; tenderness must not be relabelled as a separate pain-location measure."
+  ],
+  "reboundtenderness": [
+    "Pain elicited when pressure on the abdomen is released.",
+    "A recorded examination finding, not proof of complicated appendicitis; its Yes/No coding supports the app’s clinical-sign comparisons."
+  ],
+  "REBOUND_TENDERNESS": [
+    "Pain elicited when pressure on the abdomen is released.",
+    "A recorded examination finding, not proof of complicated appendicitis; its Yes/No coding supports the app’s clinical-sign comparisons."
+  ],
+  "anorexia": [
+    "Reported loss of appetite.",
+    "Only labelled Yes/No responses are classified; unexpected source codes remain unknown rather than being treated as absent."
+  ],
+  "ANOREXIA_PRESENT": [
+    "Reported loss of appetite.",
+    "Only labelled Yes/No responses are classified; unexpected source codes remain unknown rather than being treated as absent."
+  ],
+  "Vomiting": [
+    "The recorded nausea/vomiting response.",
+    "A clinical presentation item examined alongside histology; it does not by itself establish appendicitis or its severity."
+  ],
+  "fever": [
+    "Whether fever was recorded.",
+    "Describes a clinical feature in our diagnostic comparisons; it does not identify the cause of inflammation by itself."
+  ],
+  "diarrhea": [
+    "Whether diarrhoea was reported.",
+    "Describes presentation and supports recorded-sign comparisons; it is not a standalone appendicitis diagnosis."
+  ],
+  "signs": [
+    "One clinical sign selected in the source record.",
+    "The selected sign is documented; other unselected signs are unknown, not confirmed absent."
+  ],
+  "POINTING_SIGN": [
+    "Whether pointing sign was selected in the recorded examination category.",
+    "The derived field documents selected positives only; other selections cannot be used as confirmed negative findings."
+  ],
+  "ROVSING_SIGN": [
+    "Whether Rovsing sign was selected in the recorded examination category.",
+    "The derived field documents selected positives only; other selections cannot be used as confirmed negative findings."
+  ],
+  "PSOAS_SIGN": [
+    "Whether psoas sign was selected in the recorded examination category.",
+    "The derived field documents selected positives only; other selections cannot be used as confirmed negative findings."
+  ],
+  "OBTURATOR_SIGN": [
+    "Whether obturator sign was selected in the recorded examination category.",
+    "The derived field documents selected positives only; other selections cannot be used as confirmed negative findings."
+  ],
+  "GENERALIZED_TENDERNESS": [
+    "Whether generalised tenderness was selected in the recorded examination category.",
+    "The derived field documents selected positives only; other selections cannot be used as confirmed negative findings."
+  ],
+  "comorbidity": [
+    "Another recorded health condition alongside the suspected appendicitis.",
+    "May describe case mix, but the source label “RVS” is undefined; no diagnosis or exclusion can be assumed from it."
+  ],
+  "abd_SCAN": [
+    "The diagnosis category recorded from an abdominal scan.",
+    "Describes scan findings; the modality and ambiguous source code 3 need confirmation before treating it as a binary diagnostic strategy."
+  ],
+  "SCAN_DIAGNOSIS": [
+    "The diagnosis category recorded from an abdominal scan.",
+    "Describes scan findings; the modality and ambiguous source code 3 need confirmation before treating it as a binary diagnostic strategy."
+  ],
+  "Appendix_position": [
+    "The recorded anatomical position of the appendix.",
+    "Describes the surgical specimen or operative setting; it is not a recorded pain location or a disease-status classification."
+  ],
+  "length_of_appendix": [
+    "The recorded length of the removed appendix.",
+    "Retained in centimetres under the dictionary; length alone does not classify simple, complicated or negative appendicitis."
+  ],
+  "APPENDIX_LENGTH_CM": [
+    "The recorded length of the removed appendix.",
+    "Retained in centimetres under the dictionary; length alone does not classify simple, complicated or negative appendicitis."
+  ],
+  "faecolith": [
+    "Whether a hardened faecal deposit was recorded in the appendix.",
+    "Describes the finding independently of histology; it does not automatically establish appendicitis or complicated disease."
+  ],
+  "FECALITH": [
+    "Whether a hardened faecal deposit was recorded in the appendix.",
+    "Describes the finding independently of histology; it does not automatically establish appendicitis or complicated disease."
+  ],
+  "INTRAOP_FINDING": [
+    "The surgeon’s single recorded description of the appendix’s appearance.",
+    "Helps identify the specimen-linked operated cohort; histology, not operative appearance alone, determines the app’s disease and severity groups."
+  ],
+  "INTRAOP_FINDING_STD": [
+    "The surgeon’s single recorded description of the appendix’s appearance.",
+    "Helps identify the specimen-linked operated cohort; histology, not operative appearance alone, determines the app’s disease and severity groups."
+  ],
+  "OPERATIVE_RUPTURE": [
+    "Whether rupture was specifically recorded during surgery.",
+    "Kept separate from histological perforation; it must not silently override the histology-based severity group."
+  ],
+  "HISTOLOGY_ACUTE_APPENDICITIS": [
+    "Whether histology confirms appendicitis under the study’s case definition.",
+    "Codes 1–5 are positive and reactive lymphoid hyperplasia, code 6, is negative; missing or unknown labels are not negative."
+  ],
+  "HISTOLOGY_SEVERITY": [
+    "The severity group assigned from the recorded histological diagnosis.",
+    "Codes 1–3 are simple and 4–5 complicated; code 6 is negative, not simple appendicitis."
+  ],
+  "APPENDICITIS_SEVERITY": [
+    "The severity group assigned from the recorded histological diagnosis.",
+    "Codes 1–3 are simple and 4–5 complicated; code 6 is negative, not simple appendicitis."
+  ],
+  "diagnostic_confi1": [
+    "How confident the doctor felt before receiving MAS and hs-CRP information.",
+    "Compared with the same case’s after-rating; the five ordered responses measure confidence, not verified diagnostic accuracy."
+  ],
+  "DIAG_CONFIDENCE_1": [
+    "How confident the doctor felt before receiving MAS and hs-CRP information.",
+    "Compared with the same case’s after-rating; the five ordered responses measure confidence, not verified diagnostic accuracy."
+  ],
+  "diagnostic_confi2": [
+    "How confident the doctor felt after receiving MAS and hs-CRP information.",
+    "Shows the recorded after-rating; a higher response does not prove a correct diagnosis or that the information caused improvement."
+  ],
+  "DIAG_CONFIDENCE_2": [
+    "How confident the doctor felt after receiving MAS and hs-CRP information.",
+    "Shows the recorded after-rating; a higher response does not prove a correct diagnosis or that the information caused improvement."
+  ],
+  "confidence-change": [
+    "Whether confidence rose, stayed the same or fell within a case.",
+    "Preserves before/after pairing without assuming equal distances between ratings; repeated clinician involvement limits unrestricted inference."
+  ],
+  "diagnosis_satisfaction": [
+    "The patient’s recorded satisfaction with the diagnostic experience.",
+    "Describes patient experience using the original questionnaire categories; it is not a measure of diagnostic correctness."
+  ],
+  "DIAGNOSTIC_SATISFACTION": [
+    "The patient’s recorded satisfaction with the diagnostic experience.",
+    "Describes patient experience using the original questionnaire categories; it is not a measure of diagnostic correctness."
+  ],
+  "Duration_of_admission": [
+    "The recorded number of days admitted to hospital.",
+    "Measures hospital use for the histological groups; longer stays are not themselves monetary costs or proof of greater disease severity."
+  ],
+  "LENGTH_OF_STAY_DAYS": [
+    "The recorded number of days admitted to hospital.",
+    "Measures hospital use for the histological groups; longer stays are not themselves monetary costs or proof of greater disease severity."
+  ],
+  "LENGTH_OF_STAY_CAT": [
+    "Recorded hospital stay grouped into shorter or longer bands.",
+    "Working bands are 1–3, over 3–7 and over 7 days; same-day or missing stays are not forced into these categories."
+  ],
+  "time_to_diagnosis": [
+    "The recorded time taken to reach a diagnosis.",
+    "Retained as hours for timing comparisons; it does not establish faster diagnosis from MAS and hs-CRP without a suitable comparator."
+  ],
+  "TIME_TO_DIAGNOSIS_HRS": [
+    "The recorded time taken to reach a diagnosis.",
+    "Retained as hours for timing comparisons; it does not establish faster diagnosis from MAS and hs-CRP without a suitable comparator."
+  ],
+  "time_to_surgery": [
+    "The recorded time until surgery.",
+    "Retained as hours; group differences describe timing, not why surgery was delayed or whether a diagnostic strategy reduced delay."
+  ],
+  "TIME_TO_SURGERY_HRS": [
+    "The recorded time until surgery.",
+    "Retained as hours; group differences describe timing, not why surgery was delayed or whether a diagnostic strategy reduced delay."
+  ],
+  "TIME_TO_DIAGNOSIS_CAT": [
+    "The recorded time to diagnosis grouped into time bands.",
+    "Working bands are 0–6, over 6–12, over 12–24 and over 24 hours; these are not clinical delay thresholds."
+  ],
+  "TIME_TO_SURGERY_CAT": [
+    "The recorded time to surgery grouped into time bands.",
+    "Working bands are 0–6, over 6–12, over 12–24 and over 24 hours; these are not clinical delay thresholds."
+  ],
+  "total_costs": [
+    "The recorded total hospital expenditure, in Nigerian naira.",
+    "Supports cost comparisons across histological groups; there are no itemised costs or verified incremental MAS–hs-CRP pathway savings."
+  ],
+  "TOTAL_COST": [
+    "The recorded total hospital expenditure, in Nigerian naira.",
+    "Supports cost comparisons across histological groups; there are no itemised costs or verified incremental MAS–hs-CRP pathway savings."
+  ],
+  "TOTAL_COST_CAT": [
+    "Recorded costs grouped relative to this dataset’s lower and upper thirds.",
+    "Describes comparatively lower or higher spending in this sample, not universal affordability bands; tied values may give unequal group sizes."
+  ],
+  "postop_complication": [
+    "The single recorded postoperative outcome category.",
+    "Describes complications after surgery; an unselected complication is not necessarily confirmed absent when another category was selected."
+  ],
+  "ANY_POSTOP_COMPLICATION": [
+    "Whether the selected postoperative category documents any complication.",
+    "Distinguishes explicit “none” from a recorded complication; missing categories stay unknown, not complication-free."
+  ],
+  "SUPERFICIAL_SSI": [
+    "Whether superficial wound infection was specifically recorded after surgery.",
+    "Documents that selected outcome; explicit “none” supports absence, while a different selected complication does not exclude coexistence."
+  ],
+  "DEEP_SSI": [
+    "Whether deep wound infection was specifically recorded after surgery.",
+    "Documents that selected outcome; explicit “none” supports absence, while a different selected complication does not exclude coexistence."
+  ],
+  "ORGAN_SPACE_SSI": [
+    "Whether infection in the operated body space was specifically recorded after surgery.",
+    "Documents that selected outcome; explicit “none” supports absence, while a different selected complication does not exclude coexistence."
+  ],
+  "INCISIONAL_COMPLICATION": [
+    "Whether wound separation was specifically recorded after surgery.",
+    "Documents that selected outcome; explicit “none” supports absence, while a different selected complication does not exclude coexistence."
+  ],
+  "INCISIONAL_HERNIA": [
+    "Whether incisional hernia was specifically recorded after surgery.",
+    "Documents that selected outcome; explicit “none” supports absence, while a different selected complication does not exclude coexistence."
+  ],
+  "POSTOPERATIVE_DEATH": [
+    "Whether postoperative death was specifically recorded after surgery.",
+    "Documents that selected outcome; explicit “none” supports absence, while a different selected complication does not exclude coexistence."
+  ],
+  "POSTOPERATIVE_ILEUS": [
+    "Whether postoperative bowel inactivity was specifically recorded after surgery.",
+    "Documents that selected outcome; explicit “none” supports absence, while a different selected complication does not exclude coexistence."
+  ],
+  "pcv": [
+    "The percentage of blood volume occupied by red blood cells.",
+    "Describes a recorded blood measurement; the app’s external age/sex reference is not a verified local appendicitis diagnostic cutoff."
+  ],
+  "wbc": [
+    "The concentration of white blood cells.",
+    "A recorded inflammatory measurement and score component; the app does not infer a standalone WBC diagnostic strategy without a defined rule."
+  ],
+  "neutrophil": [
+    "The recorded percentage of white blood cells that are neutrophils.",
+    "Retained as a percentage, not an absolute count; inflammatory patterns are not specific proof of appendicitis."
+  ],
+  "PCV_CATEGORY": [
+    "Whether the recorded red-cell proportion is below, within or above the selected external reference.",
+    "The app uses an external laboratory comparison; these labels do not establish appendicitis and require local applicability checks."
+  ],
+  "PCV_REF_LOW": [
+    "The lower limit of the selected external reference for red-cell proportion.",
+    "Used to classify the corresponding blood measurement; it is not a threshold for histology-positive appendicitis."
+  ],
+  "PCV_REF_HIGH": [
+    "The upper limit of the selected external reference for red-cell proportion.",
+    "Used to classify the corresponding blood measurement; it is not a threshold for histology-positive appendicitis."
+  ],
+  "WBC_CATEGORY": [
+    "Whether the recorded white-cell count is below, within or above the selected external reference.",
+    "The app uses an external laboratory comparison; these labels do not establish appendicitis and require local applicability checks."
+  ],
+  "WBC_REF_LOW": [
+    "The lower limit of the selected external reference for white-cell count.",
+    "Used to classify the corresponding blood measurement; it is not a threshold for histology-positive appendicitis."
+  ],
+  "WBC_REF_HIGH": [
+    "The upper limit of the selected external reference for white-cell count.",
+    "Used to classify the corresponding blood measurement; it is not a threshold for histology-positive appendicitis."
+  ],
+  "NEUTROPHIL_CATEGORY": [
+    "Whether the recorded neutrophil percentage is below, within or above the selected external reference.",
+    "The app uses an external laboratory comparison; these labels do not establish appendicitis and require local applicability checks."
+  ],
+  "NEUTROPHIL_REF_LOW": [
+    "The lower limit of the selected external reference for neutrophil percentage.",
+    "Used to classify the corresponding blood measurement; it is not a threshold for histology-positive appendicitis."
+  ],
+  "NEUTROPHIL_REF_HIGH": [
+    "The upper limit of the selected external reference for neutrophil percentage.",
+    "Used to classify the corresponding blood measurement; it is not a threshold for histology-positive appendicitis."
+  ],
+  "WBC_MAS_THRESHOLD": [
+    "Whether WBC exceeds the MAS component boundary.",
+    "The documented rule is >10 ×10⁹/L; this score-component flag is different from age-specific laboratory normality."
+  ],
+  "brier-score": [
+    "The average squared gap between predicted probability and actual yes/no disease status.",
+    "Lower values mean better probability predictions in the stated model evaluation; apparent and held-out values must be kept separate."
+  ],
+  "log-loss": [
+    "A measure that penalises incorrect probability predictions, especially confident mistakes.",
+    "Lower values favour better model probabilities in the reported evaluation; they do not establish external validation."
+  ],
+  "calibration": [
+    "How closely predicted chances match observed disease frequency.",
+    "Shows whether a model’s appendicitis probabilities agree with histology in the evaluated patients; good ranking alone does not guarantee this."
+  ],
+  "cramer-v": [
+    "The strength of an association between categorical findings.",
+    "Complements categorical histology or AIR comparisons; it describes strength, not the direction or a causal relationship."
+  ],
+  "rank-biserial": [
+    "How often one group’s measurements rank above rather than below another’s.",
+    "Describes direction and size in rank-based hs-CRP, stay or cost comparisons; use the table’s stated first-minus-second orientation."
+  ],
+  "degrees-freedom": [
+    "The amount of independent information used in a test’s reference distribution.",
+    "Helps interpret a reported t or chi-square-type statistic; exact tests may have no applicable degrees of freedom."
+  ],
+  "t-statistic": [
+    "The estimated difference expressed relative to its uncertainty.",
+    "In a reported Welch comparison it relates group mean differences to variability; it is not the difference in NGN or mg/L itself."
+  ],
+  "z-statistic": [
+    "A result expressed in standard-error units.",
+    "Used in the app’s DeLong or approximate rank procedures; read the associated method and p-value rather than interpreting z as clinical size."
+  ]
+};
