@@ -1226,7 +1226,12 @@ window.HUB_GLOSSARY_DATA = {
 HUB_GLOSSARY_DATA.entries.push({id:"validity-reliability",term:"Validity and Reliability",aliases:["methodological quality","assessment register","model validation","measurement quality"],category:"Statistical reporting and interpretation",definition:"Validity concerns support for a specified interpretation or use; reliability concerns measurement consistency. Neither follows merely because software calculated a result.",purpose:"Review study-specific diagnostic, measurement, data and methodological evidence.",formula:"",assumptions:"Assessment depends on the intended construct, population, design and evidence.",interpretation:"The register distinguishes calculated checks, documented methodological evidence and unperformed recommendations.",example:"Illustrative: before/after clinician ratings are not a test–retest reliability design.",mistake:"Treating statistical significance, successful calculation or reliability as proof of all forms of validity.",related:["reference","bias","roc"]});
 
 /* Short, study-specific reading text; authoritative coding and formulas elsewhere remain unchanged. */
+HUB_GLOSSARY_DATA.entries.push({id:"loocv",term:"Leave-One-Out Cross-Validation (LOOCV)",category:"Correlation and regression",aliases:["LOOCV","leave-one-out","cross-validation"],definition:"Repeatedly fit a model leaving out one observation, then test it on that observation.",purpose:"Assess held-out diagnostic prediction performance in this appendicitis study.",interpretation:"Internal validation, not a diagnostic cut-off or independent external validation.",related:["roc","bias"]});
 window.HUB_GLOSSARY_BRIEF = {
+  "loocv": [
+    "Fit a model repeatedly, leaving out one observation each time and testing it on that observation.",
+    "Helps assess appendicitis-model predictions on observations not used to fit them, when the sample, model and validation design are suitable. It is internal validation, not a diagnostic cut-off or independent external validation."
+  ],
   "mean": [
     "The average: add the values and divide by the number measured.",
     "Summarises average hs-CRP, hospital stay or expenditure; extreme values can pull it away from a typical patient."
