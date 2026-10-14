@@ -154,7 +154,7 @@ body{color:var(--ink);background:var(--bg);}.topbar{min-height:7.125rem;padding:
  --type-title:1.5625rem;--type-section:1.25rem;--type-card:1.0625rem;--type-body:1rem;
  --type-control:.9375rem;--type-label:.875rem;--type-table:.9375rem;--type-meta:.8125rem;--type-chart:10px;--type-subheading:1.125rem;--type-input:1rem;--type-kpi:1.375rem;
  --weight-regular:400;--weight-medium:500;--weight-heading:600;
- --leading-body:1.5;--leading-heading:1.3;--space-panel:1.125rem;--space-gap:0.9375rem;
+ --leading-body:1.6;--leading-heading:1.3;--space-panel:1rem;--space-gap:.75rem;--control-height:2.75rem;--control-radius:.5rem;
 }
 body{font-family:var(--font-ui);font-size:var(--type-body);font-weight:var(--weight-regular);line-height:var(--leading-body);letter-spacing:0}
 button,input,select,textarea,dialog,[popover]{font-family:var(--font-ui);font-size:var(--type-control);line-height:1.4}
@@ -259,7 +259,7 @@ body{--sidebar-width:20.625rem;--navigation-top:5.25rem}
  .top-actions{max-width:100%;gap:.375rem}.brand{font-size:var(--type-card)}.brand strong{font-size:var(--type-meta)}.brand-mark{width:2.5rem;height:2.5rem;font-size:1.5rem}
  .page-shell,.sidebar-collapsed .page-shell{padding-left:.875rem;padding-right:.875rem}
  .catalog-data th,.catalog-data td,.result-preview th,.result-preview td,.results-table th,.results-table td{padding:.5rem .625rem;min-width:5.5rem}
- .result-preview svg,.analysis-figure svg{min-width:600px}
+ .result-preview svg,.analysis-figure svg{min-width:0;max-width:100%;height:auto}
  .catalog-controls input,.catalog-controls select,.catalog-item input[type=text],.search-box input,.variable-filters select{font-size:1rem;min-height:44px}
 }
 /* Wrapping also supports larger browser text defaults without clipping controls. */
@@ -290,22 +290,34 @@ body.dark-theme,body.colored-theme{--ui-divider:color-mix(in srgb,var(--ink) 12%
 #objective-results:has(#report-title){--section-color:var(--section-reports)}
 #statistical-glossary{--section-color:var(--section-glossary)}
 h1,h2,h3,h4{font-family:var(--font-heading);text-wrap:pretty}
-h1{font-weight:650;letter-spacing:-.032em}h2{font-weight:650;letter-spacing:-.025em}h3,h4{font-weight:600;letter-spacing:-.012em}
+h1{font-weight:600;letter-spacing:-.025em}h2{font-weight:600;letter-spacing:-.018em}h3,h4{font-weight:600;letter-spacing:-.012em}
 p{margin-bottom:1em}sup,sub{font-size:.75em;line-height:0}
 :is(#main,#objective-results,#statistical-glossary)>.section-label{color:var(--section-color);font-weight:600;margin-bottom:.45rem}
 :is(#objective-results,#statistical-glossary)>h2,.glossary-heading h2,.section-heading h2{display:flex;align-items:center;gap:.65rem;padding-bottom:.65rem;border-bottom:1px solid var(--ui-divider);margin-bottom:1rem}
 :is(#objective-results,#statistical-glossary)>h2::before,.glossary-heading h2::before,.section-heading h2::before{content:"";width:.45rem;height:1.2em;flex:none;border-radius:2px;background:var(--section-color,var(--teal))}
+/* Shared control rhythm; appearance only, no navigation or inclusion-state changes. */
+:is(.quiet-button,.copy-button,.full-button,.review-button,.open-objective,.variable-chip,.mode-switch button,.catalog-bulk button,.workspace-tabs button,.objective-nav button,.analysis-subnav button,.word-export-button){min-height:var(--control-height);border-radius:var(--control-radius);padding:.6rem .85rem;white-space:normal;line-height:1.4}
+:is(.quiet-button,.variable-chip,.objective-nav button,.analysis-subnav button){border-color:var(--ui-divider)}
+:is(button,input,select,textarea):focus-visible{outline:2px solid var(--teal);outline-offset:3px}
+:where(.catalog-controls,.variable-filters,.glossary-controls) label{display:grid;align-content:start;gap:.4rem;line-height:1.4}
+:where(.catalog-controls,.variable-filters,.glossary-controls) :is(input,select){min-height:var(--control-height);border-radius:var(--control-radius);padding:.65rem .75rem}
+.catalog-bulk,.result-export-actions,.supporting-actions{gap:.5rem;align-items:center;flex-wrap:wrap}
+.workspace-tabs button{border-color:transparent;background:var(--surface);font-weight:500}
+.workspace-tabs button[aria-pressed=true]{box-shadow:inset 0 -3px currentColor;font-weight:600}
+:where(.method-card,.variable-card,.catalog-item,.supporting-tools){border-color:var(--ui-divider)}
+:where(.section-heading,.glossary-heading,.about-heading){align-items:center;gap:var(--space-gap)}
+@media(max-width:50rem){.workspace-tabs{grid-template-columns:repeat(2,minmax(0,1fr))}.catalog-bulk{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,14rem),1fr))}.catalog-bulk button{width:100%}}
 /* Selective card hierarchy; narrative paragraphs remain continuous prose. */
 :is(body,body.dark-theme,body.colored-theme) .objective-card{border:0;border-radius:var(--ui-radius);box-shadow:0 2px 14px color-mix(in srgb,var(--ink) 4%,transparent);padding:1.35rem}
-.objective-card .card-label{margin:-1.35rem -1.35rem 1.2rem;padding:1rem 1.35rem;background:color-mix(in srgb,var(--accent) 8%,var(--surface));border-radius:var(--ui-radius) var(--ui-radius) 0 0}
+.objective-card .card-label{margin:-1.35rem -1.35rem 1rem;padding:.85rem 1.35rem;background:color-mix(in srgb,var(--accent) 8%,var(--surface));border-radius:var(--ui-radius) var(--ui-radius) 0 0}
 .objective-card .objective-number{font-weight:600;letter-spacing:.02em}.objective-card .number-disc{width:2.5rem;height:2.5rem;font-weight:650}
 :is(body,body.dark-theme,body.colored-theme) .objective-head{border:0;border-left:3px solid var(--section-color,var(--accent));border-radius:var(--ui-radius);padding:1.2rem 1.35rem}
-.catalog-controls,.glossary-controls{padding:1rem;background:color-mix(in srgb,var(--section-color,var(--teal)) 7%,var(--surface));border-radius:var(--ui-radius)}
+.catalog-controls,.glossary-controls{padding:var(--space-panel);gap:var(--space-gap);background:color-mix(in srgb,var(--section-color,var(--teal)) 7%,var(--surface));border-radius:var(--ui-radius)}
 .catalog-item-top{font-size:var(--type-meta);align-items:center;gap:.5rem}.result-status{font-weight:500;padding:.25rem .5rem;border-radius:.35rem}
 :is(body,body.dark-theme,body.colored-theme) .catalog-selected{box-shadow:inset 3px 0 var(--section-outputs);background:color-mix(in srgb,var(--section-outputs) 7%,var(--surface))}
 .catalog-preview>h3,.glossary-detail h3{font-size:var(--type-subheading);font-weight:650}
 .output-narrative,.interpretation,.glossary-detail dd{line-height:1.65;max-width:78ch}
-.interpretation-card{padding:1.25rem;border-radius:var(--ui-radius);margin-bottom:1rem;border:0;border-top:1px solid var(--ui-divider)}
+.interpretation-card{padding:var(--space-panel);border-radius:var(--ui-radius);margin-bottom:var(--space-gap);border:0}
 .glossary-detail dl{display:grid;grid-template-columns:minmax(7rem,auto) minmax(0,1fr);column-gap:1.25rem;row-gap:.8rem;align-items:baseline}
 .glossary-detail dt{margin:0;color:var(--section-glossary);font-weight:600}.glossary-detail dd{margin:0}
 .glossary-related{padding-top:1rem;border-top:1px solid var(--ui-divider)}
@@ -402,3 +414,15 @@ body .glossary-back[data-shared-back],body [data-about-return][data-shared-back]
 
 /* Read-only methodological register reuses theme surfaces and disclosure controls. */
 .validity-register,.validity-output{min-width:0;margin-block:1rem}.validity-register h4{font-size:1rem}.validity-entry{margin-block:.65rem}.validity-entry summary,.validity-output summary{cursor:pointer;line-height:1.5}.validity-entry dl{display:grid;grid-template-columns:minmax(8rem,1fr) minmax(0,3fr);gap:.5rem 1rem}.validity-entry dt{font-weight:600}.validity-entry dd{margin:0;overflow-wrap:anywhere}.validity-register input,.validity-register select{max-width:100%}.validity-register .results-scroll{overflow:auto;max-height:24rem;overscroll-behavior:contain}.validity-register table{width:100%;border-collapse:collapse}.validity-register th,.validity-register td{text-align:left;padding:.4rem;overflow-wrap:anywhere}.validity-entry button{margin:.15rem}.validity-entry summary:focus-visible{outline:2px solid currentColor;outline-offset:3px}@media(max-width:40rem){.validity-entry dl{grid-template-columns:1fr;gap:.25rem}.validity-entry dd{margin-bottom:.65rem}}
+
+.master-controls{margin-block:1rem;min-width:0}.master-controls label{display:block;margin-block:.5rem}.master-controls input[type=search],.master-controls select{max-width:100%}.master-strategy-list{max-height:24rem;overflow:auto;overscroll-behavior:contain}.master-strategy-list summary{cursor:pointer;overflow-wrap:anywhere}.master-controls fieldset{border:0;padding:.5rem 0}.master-controls p{overflow-wrap:anywhere}
+
+/* Bulk controls use the existing theme surfaces and compact typography. */
+.bulk-panel{margin:var(--space-gap) 0;padding:var(--space-panel);background:var(--surface);border-radius:var(--ui-radius);min-width:0}
+.bulk-panel h3{margin-top:0}.bulk-selection,.bulk-controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:.65rem}
+.bulk-panel label{display:flex;align-items:center;gap:.5rem;overflow-wrap:anywhere}.bulk-controls label{display:flex;flex-direction:column;align-items:stretch}.bulk-panel input[type=checkbox]{width:18px;height:18px;flex:none}
+.bulk-panel .result-export-actions{flex-wrap:wrap;gap:.5rem}.bulk-panel button{min-height:40px;white-space:normal}.bulk-panel progress{width:100%;height:8px;accent-color:var(--accent)}
+.bulk-output-list{max-height:320px;overflow-y:auto;overscroll-behavior:contain}.bulk-output-list label{padding:.45rem 0}.bulk-summary{max-height:380px;overflow:auto;overscroll-behavior:contain}.bulk-summary>div{padding:.6rem 0;border-bottom:1px solid var(--line)}.bulk-panel summary{cursor:pointer;padding:.5rem 0}.bulk-panel select,.bulk-panel input:not([type=checkbox]){min-width:0;width:100%}
+.bulk-panel .result-export-actions{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));align-items:stretch}
+.bulk-panel .result-export-actions button{width:100%;min-width:0;overflow-wrap:normal;padding:.6rem .75rem}
+.bulk-controls select,.bulk-controls input{font:inherit;padding:.5rem .6rem;background:var(--soft,var(--surface));color:var(--ink);border:1px solid var(--line);border-radius:6px}
