@@ -45,6 +45,7 @@ window.RESULT_EXPORTS=(()=>{
   return 'Unclassified source note — review';
  }
  function publicationNotes(item){const r=item.result,k=publicationKey(item),notes=[];
+  if(k==='adjusted_cost_unavailable'){const a=r.adjustedCost,d=a.diagnostics;return [r.notes[0],r.notes[1],'Exploratory whole-cohort model: continuous age replaces the redundant age-group indicator. Hospital stay may be downstream; coefficients are conditional associations, not causal effects. Patient observations are assumed independent. Coefficient p-values are unadjusted.',`Model intercept = NGN ${number(a.terms[0].estimate)}; R² = ${number(d.r2)}; maximum VIF = ${number(Math.max(...d.vif))}; maximum leverage = ${number(d.maxLeverage)}. Quadratic fitted-value RESET p = ${number(d.resetP)}. Leave-one-out coefficient ranges: age ${d.looRanges[1].map(number).join(' to ')}, stay ${d.looRanges[2].map(number).join(' to ')}. HC3 = leverage-adjusted heteroskedasticity-robust covariance; CI = confidence interval.`];}
   if(k.startsWith('costgroup_'))return [...r.notes.slice(0,4),'n = number of observations; SD = standard deviation; CI = confidence interval; Q1–Q3 = interquartile limits.'];
   if(k==='conf_inference_unavailable')return [...(r.notes||[]).filter(n=>/^(Complete paired|Clinician structure|Before:|Confidence changes)/.test(n)),'MAS = Modified Alvarado Score; hs-CRP = high-sensitivity C-reactive protein; CI = confidence interval.'];
   if(k==='sign_combination_unavailable')return [...new Set([...(r.notes||[]).filter(n=>/^(Histology codes|No recovered protocol)/.test(n)),'MAS = Modified Alvarado Score; AIR = Appendicitis Inflammatory Response score. Present/absent counts use labelled responses; other codes remain unknown.'])];
@@ -80,7 +81,7 @@ window.RESULT_EXPORTS=(()=>{
  }
  function publicationCell(v){return typeof v==='string'?v.replace(/Not estimable|Not estimated/ig,'—'):v;}
  function publicationMethod(item){const r=item.result,k=publicationKey(item);if(k==='conf_inference_unavailable')return r.methods;if(k.startsWith('conf_'))return 'Descriptive paired ordinal summaries.';if(/^(s2_|cost_)/.test(k)&&r.log?.mann)return 'Independent-group Mann–Whitney U and Welch t comparisons; within-group percentile bootstrap and Welch confidence intervals, as labelled.';return r.methods.replace(/; see loaded selection rationale and assumptions\./i,'.').replace(/ No (?:causal|clinical superiority) claims\.?/ig,'');}
- function publicationStatistics(item){if(item.result.master&&item.result.kind==='table')return [];const r=item.result,rows=r.reportingEvidence?.rows,k=publicationKey(item),g=r.log;
+ function publicationStatistics(item){if(publicationKey(item)==='adjusted_cost_unavailable')return [];if(item.result.master&&item.result.kind==='table')return [];const r=item.result,rows=r.reportingEvidence?.rows,k=publicationKey(item),g=r.log;
   // Rates and intervals already printed in diagnostic tables need not be repeated as raw log fields.
   if(r.kind==='table'&&g?.strategies&&/_(classification|performance|predictive)$/.test(k))return ['Reference-positive n = '+g.positive+'; reference-negative n = '+g.negative+'; common complete-case n = '+g.n+'.',...(k.endsWith('_classification')?[]:g.strategies.map(x=>x.name+': TP = '+x.metrics.tp+', TN = '+x.metrics.tn+', FP = '+x.metrics.fp+', FN = '+x.metrics.fn+'.'))];
 
