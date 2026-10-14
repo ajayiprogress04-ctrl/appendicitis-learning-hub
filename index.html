@@ -40,6 +40,7 @@
   <script src="./statistical-glossary.js?v=20261014-validity" defer></script>
   <script src="./disclosure-controls.js?v=20261014-shared" defer></script>
   <script src="./about.js?v=20261014-global-back" defer></script>
+  <script src="./papers.js?v=20261014-papers" defer></script>
   <script src="./navigation-history.js?v=20261014-master" defer></script>
 </head>
 <body>
@@ -63,6 +64,7 @@
  <button data-side-target="interpretations-tab">Interpretations</button>
  <button data-side-target="glossary-tab">Statistical Glossary</button>
  <button data-side-target="reports-tab">Reports</button>
+ <button data-side-target="papers-tab">Papers</button>
  <button id="about-tab" data-side-about type="button" aria-pressed="false" aria-controls="about-developer">About the Developer</button>
  <div class="side-version">Connected research workflow<br>13 October 2026</div>
  </aside><button id="sidebar-backdrop" class="sidebar-backdrop" type="button" aria-label="Close navigation" tabindex="-1" hidden></button><div class="page-shell">
@@ -73,7 +75,7 @@
       <div class="hero-tags"><span>MAS + hsCRP</span><span>Study-aware explanations</span><span id="method-count"></span></div>
     </section>
     <section class="research-overview" aria-labelledby="research-title"><div class="section-label">The research behind the methods</div><h2 id="research-title"></h2><details class="reading-disclosure"><summary>Study background and purpose</summary><p id="research-purpose"></p></details></section>
-    <nav class="workspace-tabs" aria-label="Research reporting workflow"><button id="objectives-tab" type="button" aria-pressed="true" aria-controls="main">Objectives</button><button id="results-tab" type="button" aria-pressed="false" aria-controls="objective-results">Tables &amp; Figures</button><button id="interpretations-tab" type="button" aria-pressed="false" aria-controls="objective-results">Interpretations</button><button id="glossary-tab" type="button" aria-pressed="false" aria-controls="statistical-glossary">Statistical Glossary</button><button id="reports-tab" type="button" aria-pressed="false" aria-controls="objective-results">Reports</button></nav>
+    <nav class="workspace-tabs" aria-label="Research reporting workflow"><button id="objectives-tab" type="button" aria-pressed="true" aria-controls="main">Objectives</button><button id="results-tab" type="button" aria-pressed="false" aria-controls="objective-results">Tables &amp; Figures</button><button id="interpretations-tab" type="button" aria-pressed="false" aria-controls="objective-results">Interpretations</button><button id="glossary-tab" type="button" aria-pressed="false" aria-controls="statistical-glossary">Statistical Glossary</button><button id="reports-tab" type="button" aria-pressed="false" aria-controls="objective-results">Reports</button><button id="papers-tab" type="button" aria-pressed="false" aria-controls="papers">Papers</button></nav>
     <details class="supporting-tools"><summary>Supporting tools</summary><div class="supporting-actions"><button id="variables-tab" type="button" class="quiet-button" aria-pressed="false">Research variables</button><button id="analysis-tab" type="button" class="quiet-button" aria-pressed="false">Aggregate analysis workspace</button><span class="small-note">Statistical learning stays within each objective; study notes are available in the header.</span></div></details>
     <section class="progress-strip" aria-label="Learning progress"><div><strong id="progress-label"></strong><span id="storage-note">Saved in this browser · reviewed, not assessed</span></div><progress id="progress-bar" max="34" value="0"></progress></section>
     <section class="learning-tools" aria-label="Learning controls">
@@ -86,6 +88,7 @@
     <p id="analysis-search-status" role="status" hidden></p>
     <section id="analysis-workspace" tabindex="-1" aria-label="Private research analysis workspace" hidden></section>
     <section id="objective-results" tabindex="-1" aria-label="Objective results catalogue" hidden></section>
+    <section id="papers" tabindex="-1" aria-label="Research papers" hidden></section>
     <section id="statistical-glossary" tabindex="-1" aria-label="Statistical Glossary" hidden></section>
     <section id="about-developer" tabindex="-1" aria-labelledby="about-title" hidden></section>
     <section id="notes" class="notes-section" aria-labelledby="notes-title" hidden>

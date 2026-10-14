@@ -519,3 +519,11 @@ body.dark-theme #research-title{color:var(--brand-ruby)}
 #hub-title>span{font-family:var(--font-heading)}
 #analysis-workspace>h2,.glossary-heading h2,#objective-results>h2,#notes-title{font-family:var(--font-cursive);font-size:1.625rem;line-height:1.3;letter-spacing:0}
 .research-overview>.section-label{font-family:var(--font-cursive);font-size:1.125rem;line-height:1.45;letter-spacing:0}
+
+/* Papers reuses existing theme roles and compact research controls. */
+.workspace-tabs{flex-wrap:wrap}.workspace-tabs>button{min-width:0}
+.papers-layout{display:grid;grid-template-columns:minmax(13rem,1fr) minmax(0,3fr);gap:1.25rem;margin-top:1rem}.papers-layout>nav{display:flex;flex-direction:column;gap:.5rem;align-self:start}.papers-layout>nav button{text-align:left;white-space:normal}.papers-layout>nav button[aria-pressed=true]{background:var(--brand-action-gradient);color:var(--brand-on-action)}
+#papers{min-width:0}#papers h2{font-family:var(--font-cursive);font-size:1.625rem}#papers input:not([type=checkbox]){width:100%;padding:.65rem;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:var(--control-radius)}.paper-output{border-bottom:1px solid var(--ui-divider);padding:.85rem 0}.paper-qualification{border-left:3px solid var(--brand-bronze);padding:.6rem .85rem;background:var(--soft);color:var(--ink)}.papers-layout article{min-width:0}.paper-outputs label{overflow-wrap:anywhere}#papers input[type=checkbox]{accent-color:var(--brand-action)}
+@media(max-width:60rem){.papers-layout{grid-template-columns:minmax(0,1fr)}.papers-layout>nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:30rem){.papers-layout>nav{grid-template-columns:minmax(0,1fr)}}
+#papers{scroll-margin-top:calc(var(--navigation-top,5rem) + 1rem)}
