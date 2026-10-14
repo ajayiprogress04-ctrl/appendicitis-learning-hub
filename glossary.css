@@ -35,3 +35,8 @@
 .reference-matrix{table-layout:fixed;width:100%}.reference-matrix th:first-child{width:26%;word-break:normal;overflow-wrap:normal}
 
 .glossary-back{display:inline-flex;align-items:center;gap:.45rem;white-space:normal;text-align:left;min-height:2.75rem}.glossary-back span{font-size:1.2em}
+
+/* Compact range guidance; no changes to result tables or scientific calculations. */
+.glossary-ranges { max-width:100%;overflow-x:auto; }
+.glossary-range-table { width:100%;min-width:0;table-layout:auto;font-size:var(--type-control); }
+.glossary-range-table th,.glossary-range-table td { padding:.4rem .5rem;white-space:normal;overflow-wrap:anywhere;text-align:left;vertical-align:top; }

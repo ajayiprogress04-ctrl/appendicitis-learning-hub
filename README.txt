@@ -1,1 +1,11 @@
-Replace glossary-data.js in the existing app root. Adds Leave-One-Out Cross-Validation (LOOCV) with exactly the existing two explanation fields and aliases LOOCV, leave-one-out and cross-validation. No calculations, navigation or other files changed.
+Glossary interpretation ranges update
+
+Replace the four matching files in the existing app root: glossary-data.js, statistical-glossary.js, glossary.css and parameter-reference.js. No dependencies, datasets, calculations or export logic changed.
+
+21 applicable entries now show What it means, Interpretation ranges and Meaning for this study. Other entries, including LOOCV, keep their existing two-field format. Added requested AUC convention with exact half-open boundaries: exactly0.50 is chance; >0.50 and <0.60 is poor;0.60≤AUC<0.70 weak;0.70≤AUC<0.80 acceptable;0.80≤AUC<0.90 good;0.90≤AUC<1 excellent;1 perfect in the evaluated sample. Values below0.50 are worse than chance for the stated direction. These are approximate descriptive guides explicitly requested for this app, not universally validated grades or diagnostic cutoffs.
+
+Sensitivity, specificity, accuracy, PPV and NPV show their mathematical0–100% ranges without invented quality thresholds. The existing Likelihood ratio entry covers both LR+ and LR−, including qualified conventional LR+>10 and LR−<0.10 evidence guides. No new clinical decision thresholds are imposed. p-value,95%CI, generic effects, correlations, rank-biserial, CramérV, OR/RR, binary Brier score, log loss and calibration get appropriate domains, null values and concise context. Brier/log-loss are probability-prediction scores, not pure calibration or clinical-utility measures. Sources are linked within applicable entries; AUC quality bands are identified as the app-requested convention.
+
+Search full names and aliases, including AUC/AUROC, ROC, TPR/TNR, ACC, PPV/NPV, LR+/LR−,95%CI, ES, OR/RR, BS and NLL. Existing aliases retained.
+
+Tests actually run: JavaScript syntax checks; all original entries, short explanations and aliases preserved;21 entries opened and verified with three fields in Chromium1440/390 across Light/Dark/Colored; search aliases; related CI link and context-aware Back; LOOCV two-field format; no page overflow or runtime errors. AUC boundaries verified at10,001 grid points plus endpoint probes with no gaps/overlaps. Rendered AUC detail screenshots inspected internally. Static app has no production compilation step; no deployment performed.
