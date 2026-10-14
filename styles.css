@@ -543,3 +543,5 @@ body.dark-theme #research-title{color:var(--brand-ruby)}
 :root{--type-body:.9375rem;--type-control:.875rem;--type-label:.8125rem;--type-table:.875rem;--type-chart:12.5px;--type-meta:.75rem;--leading-body:1.65}
 #papers h2,.glossary-heading h2,#objective-results>h2,#analysis-workspace>h2{font-size:1.625rem}
 #hub-title>span{font-size:.5em}
+
+.paper-choice{display:flex;flex-direction:column;gap:.4rem;padding:.6rem 0;border-bottom:1px solid var(--ui-divider)}.paper-choice button{width:100%}.paper-batch{padding:.8rem 0;border-block:1px solid var(--ui-divider);margin:1rem 0}.paper-batch p{overflow-wrap:anywhere}.papers-layout>nav{max-height:65vh;overflow-y:auto;overscroll-behavior:contain;padding-right:.35rem}.paper-batch .result-export-actions{flex-wrap:wrap}@media(max-width:60rem){.papers-layout>nav{max-height:22rem;display:block}.paper-choice{padding:.65rem 0}}
