@@ -1541,11 +1541,11 @@ window.HUB_GLOSSARY_BRIEF = {
   ],
   "abdominal_pain": [
     "Whether abdominal pain was reported.",
-    "Describes presentation, not pain severity or a specific pain location; source Yes/No responses determine the derived presence field."
+    "Describes clinical presentation; source Yes/No responses determine the derived presence field."
   ],
   "ABDOMINAL_PAIN_PRESENT": [
     "Whether abdominal pain was reported.",
-    "Describes presentation, not pain severity or a specific pain location; source Yes/No responses determine the derived presence field."
+    "Describes clinical presentation; source Yes/No responses determine the derived presence field."
   ],
   "migratory": [
     "Whether the patient reported pain moving from one area to another.",
@@ -1569,11 +1569,11 @@ window.HUB_GLOSSARY_BRIEF = {
   ],
   "tendernessRIF": [
     "Tenderness found when examining the right lower abdomen.",
-    "A recorded examination finding evaluated against histology; tenderness must not be relabelled as a separate pain-location measure."
+    "A recorded examination finding evaluated against histology."
   ],
   "RIF_TENDERNESS": [
     "Tenderness found when examining the right lower abdomen.",
-    "A recorded examination finding evaluated against histology; tenderness must not be relabelled as a separate pain-location measure."
+    "A recorded examination finding evaluated against histology."
   ],
   "reboundtenderness": [
     "Pain elicited when pressure on the abdomen is released.",
@@ -1641,7 +1641,7 @@ window.HUB_GLOSSARY_BRIEF = {
   ],
   "Appendix_position": [
     "The recorded anatomical position of the appendix.",
-    "Describes the surgical specimen or operative setting; it is not a recorded pain location or a disease-status classification."
+    "Describes the surgical specimen or operative setting, independently of the histopathological disease-status classification."
   ],
   "length_of_appendix": [
     "The recorded length of the removed appendix.",
