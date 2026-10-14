@@ -545,3 +545,21 @@ body.dark-theme #research-title{color:var(--brand-ruby)}
 #hub-title>span{font-size:.5em}
 
 .paper-choice{display:flex;flex-direction:column;gap:.4rem;padding:.6rem 0;border-bottom:1px solid var(--ui-divider)}.paper-choice button{width:100%}.paper-batch{padding:.8rem 0;border-block:1px solid var(--ui-divider);margin:1rem 0}.paper-batch p{overflow-wrap:anywhere}.papers-layout>nav{max-height:65vh;overflow-y:auto;overscroll-behavior:contain;padding-right:.35rem}.paper-batch .result-export-actions{flex-wrap:wrap}@media(max-width:60rem){.papers-layout>nav{max-height:22rem;display:block}.paper-choice{padding:.65rem 0}}
+
+/* Preferred system faces with bundled fallbacks; no proprietary fonts redistributed. */
+@font-face{font-family:"Hub Bahnschrift";src:local("Bahnschrift Condensed"),local("Bahnschrift SemiCondensed"),local("Bahnschrift");font-weight:100 900;font-stretch:condensed;font-style:normal;font-display:swap}
+:root{--font-heading:Garamond,"Cormorant Garamond",Georgia,serif;--font-controls:"Hub Bahnschrift","Bahnschrift Condensed",Bahnschrift,"Josefin Sans","Segoe UI",sans-serif;--font-editorial:var(--font-heading);--type-body:.9375rem;--type-control:.875rem;--type-label:.8125rem;--type-table:.875rem;--leading-body:1.6;--weight-heading:600}
+body{line-height:var(--leading-body)}
+#hub-title{font-family:var(--font-heading);font-size:clamp(2.5rem,4.2vw,3.75rem);font-weight:600;line-height:1.12;letter-spacing:-.012em}
+#hub-title>span{font-family:var(--font-heading);font-size:.5em;font-weight:400;line-height:1.3;letter-spacing:0}
+#research-title{font-family:var(--font-heading);font-size:clamp(1.625rem,2.5vw,2.125rem);font-weight:600;line-height:1.25;letter-spacing:0;max-width:38em}
+:is(#main,#objective-results,#statistical-glossary,#papers,#analysis-workspace) h2{font-family:var(--font-heading);font-size:1.5rem;font-weight:600;line-height:1.3;letter-spacing:0}
+:is(#main,#objective-results,#statistical-glossary,#papers,#analysis-workspace) :is(h3,h4){font-family:var(--font-controls);font-stretch:condensed;font-weight:500;line-height:1.4;letter-spacing:0}
+:is(#main,#objective-results,#statistical-glossary,#papers,#analysis-workspace) h3{font-size:1.125rem}
+:is(#main,#objective-results,#statistical-glossary,#papers,#analysis-workspace) h4{font-size:1rem}
+:is(#main,#objective-results,#statistical-glossary,#papers,#analysis-workspace) .glossary-detail h3{font-family:var(--font-heading);font-size:1.375rem;font-weight:600}
+button,input,select,textarea,label,summary,nav,.desktop-sidebar,.workspace-tabs,.section-label,.brand,.glossary-controls,.catalog-controls,.report-order{font-family:var(--font-controls);font-stretch:condensed;letter-spacing:0}
+button,label,summary{font-weight:500}
+:where(.interpretation,.output-narrative,.glossary-detail dd,p){font-family:var(--font-ui);line-height:1.6}
+:where(.workspace-tabs button,.paper-choice button,.catalog-item h4){white-space:normal;overflow-wrap:break-word;word-break:normal}
+.research-overview>.section-label{font-family:var(--font-cursive);font-stretch:normal;font-size:1.0625rem;font-weight:400;line-height:1.45}
