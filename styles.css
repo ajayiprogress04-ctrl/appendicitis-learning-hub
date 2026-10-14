@@ -484,3 +484,7 @@ h1,.research-overview>.section-label{font-family:var(--font-editorial);font-weig
 .validity-register h4{font-size:var(--type-card)}
 /* Preserve 16px mobile inputs to avoid focus-zoom; reading text is 14px. */
 @media(max-width:50rem){input:not([type=checkbox],[type=radio]),select,textarea{font-size:1rem}}
+
+/* Primary identity and secondary learning tagline; existing colours retained. */
+#hub-title{font-family:var(--font-editorial);font-size:clamp(2.75rem,4.5vw,4.5rem);font-weight:600;line-height:1.15;letter-spacing:0;margin-bottom:1rem}
+#hub-title>span{display:inline-block;font-size:.72em;font-weight:500;line-height:1.25;margin-top:.2em}
