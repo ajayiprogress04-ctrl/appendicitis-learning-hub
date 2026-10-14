@@ -39,12 +39,13 @@ window.RESULT_EXPORTS=(()=>{
   if(/^(Loaded records:|Figure sample size|Reference-positive prevalence|The association table supplies|No RIF pain|Binary severity|AIR comparisons)/.test(text))return 'Internal workflow / teaching';
   if(/^(CI =|MAS =|ROC =|Box =|Points are|Vertical error bars|ROC axes)/.test(text))return 'Scientific notation / figure convention';
   if(/^(Age missing|Complete paired|Complete valid|Unit:|Category counts|Original binary|The single signs|Only RIF|Histology |Histological severity|Specimen-linked|Reactive lymphoid|Recorded original|PCV remains|Original AIR|Scaling and coefficients|Model AUC|Multiple |Two subgroup|Within-group|Small complicated|The same pooled|Paediatric |Before:|Clinician |Confidence |Components,|No recovered|Reference standard:|Firth estimates|These are prediction|All supplied|Exploratory monotonic|The retained primary|Retained reporting)/.test(text))return 'Method / qualification (edited for publication)';
-  if(/^(Complicated|Simple|Histology-positive|Histology-negative|Recorded complication|Explicit none):/.test(text))return 'Group summaries';
+  if(/^(Children <16 years|Adults ≥16 years|Histopathology-positive|Histopathology-negative|Complicated|Simple|Histology-positive|Histology-negative|Recorded complication|Explicit none):/.test(text))return 'Group summaries';
   if(/^(Histopathological examination|Histopathology is the operational|Current operating points|TP\/TN are|The same pooled exploratory|Recorded AIR ≥9|Only independently recorded|hs-CRP >3|PCV is investigated)/.test(text))return 'Reference / measurement qualification (edited for publication)';
   if(/^>3 mg\/L/.test(text))return 'Diagnostic threshold qualification';
   return 'Unclassified source note — review';
  }
  function publicationNotes(item){const r=item.result,k=publicationKey(item),notes=[];
+  if(k.startsWith('costgroup_'))return [...r.notes.slice(0,4),'n = number of observations; SD = standard deviation; CI = confidence interval; Q1–Q3 = interquartile limits.'];
   if(k==='conf_inference_unavailable')return [...(r.notes||[]).filter(n=>/^(Complete paired|Clinician structure|Before:|Confidence changes)/.test(n)),'MAS = Modified Alvarado Score; hs-CRP = high-sensitivity C-reactive protein; CI = confidence interval.'];
   if(k==='sign_combination_unavailable')return [...new Set([...(r.notes||[]).filter(n=>/^(Histology codes|No recovered protocol)/.test(n)),'MAS = Modified Alvarado Score; AIR = Appendicitis Inflammatory Response score. Present/absent counts use labelled responses; other codes remain unknown.'])];
   notes.push('n = number of observations; CI = confidence interval; SD = standard deviation; IQR = interquartile range.');
@@ -117,7 +118,7 @@ window.RESULT_EXPORTS=(()=>{
  problems.push(...publicationAudit(item).problems);
  return {introduction,results:item.resultsText?item.resultsText.split(/\n\s*\n/).filter(Boolean):resultParagraphs(item),statistics:publicationStatistics(item),problems,notes:[...publicationNotes(item),...(window.HUB_VALIDITY?.publication(item)||[])],interpretation:item.writing?.interpretation||r.interpretation||''};}
 
- function prose(r,key=''){if(r.confidenceNarrative)return r.confidenceNarrative;
+ function prose(r,key=''){if(r.costNarrative)return r.costNarrative;if(r.confidenceNarrative)return r.confidenceNarrative;
  if(key==='sign_combination_unavailable'&&r.f7Narrative)return r.f7Narrative;
  const rows=r.rows||[],median=rows.find(row=>/^Age, years.*median/i.test(String(row[0])));
  const rate=x=>Number.isFinite(x?.estimate)?(100*x.estimate).toFixed(1)+'%'+(x.ci?.every(Number.isFinite)?' (95% CI '+x.ci.map(v=>(100*v).toFixed(1)+'%').join('–')+')':' (CI not estimable)'):'not estimable';
