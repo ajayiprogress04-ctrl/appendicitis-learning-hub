@@ -45,6 +45,7 @@ window.RESULT_EXPORTS=(()=>{
   return 'Unclassified source note — review';
  }
  function publicationNotes(item){const r=item.result,k=publicationKey(item),notes=[];
+  if(k==='conf_inference_unavailable')return [...(r.notes||[]).filter(n=>/^(Complete paired|Clinician structure|Before:|Confidence changes)/.test(n)),'MAS = Modified Alvarado Score; hs-CRP = high-sensitivity C-reactive protein; CI = confidence interval.'];
   if(k==='sign_combination_unavailable')return [...new Set([...(r.notes||[]).filter(n=>/^(Histology codes|No recovered protocol)/.test(n)),'MAS = Modified Alvarado Score; AIR = Appendicitis Inflammatory Response score. Present/absent counts use labelled responses; other codes remain unknown.'])];
   notes.push('n = number of observations; CI = confidence interval; SD = standard deviation; IQR = interquartile range.');
   if(/^(d1_|db_|age_|neg_|s2_|cost_|air_.*(?:histology|severity|performance|roc)|pcv_.*(?:histology|severity)|sign_.*(?:histology|severity|performance|likelihood|rates))/.test(k)){notes.push('No additional clinical exclusions were inferred from the recorded fields; complete protocol eligibility could not be independently verified.');notes.push(window.HUB_REFERENCE?.publicationDefinition||'Histopathology was the reference standard under the study case definition: codes 1–5 were positive for acute appendicitis; Reactive lymphoid hyperplasia (code 6) was negative for acute appendicitis.');}
@@ -77,7 +78,7 @@ window.RESULT_EXPORTS=(()=>{
   notes.push(...(r.notes||[]).filter(n=>/^(Complicated|Simple|Histology-positive|Histology-negative|Recorded complication|Explicit none):/.test(n)).map(n=>n.replace('Units are those of the measured variable in the title/source notes.','')));return [...new Set(notes)];
  }
  function publicationCell(v){return typeof v==='string'?v.replace(/Not estimable|Not estimated/ig,'—'):v;}
- function publicationMethod(item){const r=item.result,k=publicationKey(item);if(k.startsWith('conf_'))return 'Descriptive paired ordinal summaries.';if(/^(s2_|cost_)/.test(k)&&r.log?.mann)return 'Independent-group Mann–Whitney U and Welch t comparisons; within-group percentile bootstrap and Welch confidence intervals, as labelled.';return r.methods.replace(/; see loaded selection rationale and assumptions\./i,'.').replace(/ No (?:causal|clinical superiority) claims\.?/ig,'');}
+ function publicationMethod(item){const r=item.result,k=publicationKey(item);if(k==='conf_inference_unavailable')return r.methods;if(k.startsWith('conf_'))return 'Descriptive paired ordinal summaries.';if(/^(s2_|cost_)/.test(k)&&r.log?.mann)return 'Independent-group Mann–Whitney U and Welch t comparisons; within-group percentile bootstrap and Welch confidence intervals, as labelled.';return r.methods.replace(/; see loaded selection rationale and assumptions\./i,'.').replace(/ No (?:causal|clinical superiority) claims\.?/ig,'');}
  function publicationStatistics(item){if(item.result.master&&item.result.kind==='table')return [];const r=item.result,rows=r.reportingEvidence?.rows,k=publicationKey(item),g=r.log;
   // Rates and intervals already printed in diagnostic tables need not be repeated as raw log fields.
   if(r.kind==='table'&&g?.strategies&&/_(classification|performance|predictive)$/.test(k))return ['Reference-positive n = '+g.positive+'; reference-negative n = '+g.negative+'; common complete-case n = '+g.n+'.',...(k.endsWith('_classification')?[]:g.strategies.map(x=>x.name+': TP = '+x.metrics.tp+', TN = '+x.metrics.tn+', FP = '+x.metrics.fp+', FN = '+x.metrics.fn+'.'))];
@@ -116,7 +117,7 @@ window.RESULT_EXPORTS=(()=>{
  problems.push(...publicationAudit(item).problems);
  return {introduction,results:item.resultsText?item.resultsText.split(/\n\s*\n/).filter(Boolean):resultParagraphs(item),statistics:publicationStatistics(item),problems,notes:[...publicationNotes(item),...(window.HUB_VALIDITY?.publication(item)||[])],interpretation:item.writing?.interpretation||r.interpretation||''};}
 
- function prose(r,key=''){
+ function prose(r,key=''){if(r.confidenceNarrative)return r.confidenceNarrative;
  if(key==='sign_combination_unavailable'&&r.f7Narrative)return r.f7Narrative;
  const rows=r.rows||[],median=rows.find(row=>/^Age, years.*median/i.test(String(row[0])));
  const rate=x=>Number.isFinite(x?.estimate)?(100*x.estimate).toFixed(1)+'%'+(x.ci?.every(Number.isFinite)?' (95% CI '+x.ci.map(v=>(100*v).toFixed(1)+'%').join('–')+')':' (CI not estimable)'):'not estimable';

@@ -220,7 +220,7 @@ window.HUB_DATA = {
       "color": "#a43c68",
       "description": "Describe confirmed before-and-after case ratings.",
       "approved": "test the ease of diagnosis of acute appendicitis among resident doctors and medical officers using the combined MAS and hsCRP",
-      "note": "The liaison confirmed before/after timing and the same clinician within each patient pair. Clinician IDs and professional-group linkage are unavailable. The report therefore describes case-level confidence without clinician-group tests or independent-pair p-values.",
+      "note": "The liaison confirmed before/after timing and the same clinician within each patient pair. Clinician IDs and professional-group linkage are unavailable. For Table 5.4, the researcher directs an assumption of one unique doctor per patient and no doctor assessing multiple patients. A two-sided exact paired sign test is used for ordinal change; this independence structure requires protocol confirmation. Clinician-group tests remain unsupported.",
       "contribution": "Show perceived diagnostic assurance while distinguishing it from objectively faster or more accurate diagnosis.",
       "methods": [
         {
@@ -245,7 +245,7 @@ window.HUB_DATA = {
           "id": "wilcoxon",
           "status": "Not used \u00b7 conditional teaching",
           "here": "Explain why a familiar paired test cannot simply bypass unknown clinician dependence.",
-          "client": "A paired test still needs valid independence across pairs or a cluster-aware design; our current report is descriptive."
+          "client": "Table 5.4 uses an exact paired sign test under the stated unique-doctor assumption. Signed ranks are not required because equal category spacing and symmetric difference magnitudes are not assumed."
         }
       ]
     },
