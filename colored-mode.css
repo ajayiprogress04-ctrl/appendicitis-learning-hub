@@ -102,3 +102,10 @@ body.colored-theme ::-webkit-scrollbar-thumb {background:#6176a3;}
 body.colored-theme button:disabled{background:var(--soft);color:var(--muted);border-color:var(--line);box-shadow:none;cursor:not-allowed}
 body.colored-theme .word-export-button:not(:disabled){background:var(--brand-action-gradient);color:var(--brand-on-action)}
 body.colored-theme .word-export-button:not(:disabled):hover{background:var(--brand-action-hover);color:var(--brand-on-action);filter:none}
+
+/* Richer existing palette with bright text on deeper reading surfaces. */
+body.colored-theme{--bg:#0a030c;--paper:#0a030c;--science-base:#0a030c;--surface:#170716;--soft:#250c21;--input:#170716;--ink:#fffaff;--navy:#fffaff;--muted:#e0c9db;--line:#685363;--border:#685363;--brand-ruby:#ff8cb2;--brand-bronze:#ffcb62;--brand-science:#92c2ff;--brand-success:#77f0b0;--brand-action:#b00840;--hover:#38112f;--colored-action:linear-gradient(125deg,#b00840,#70124f);--colored-action-hover:linear-gradient(125deg,#990433,#5e0a41);--brand-header:linear-gradient(115deg,#170716,#39051f 70%,#3a2205);--colored-editorial:linear-gradient(120deg,#170716,#350721 65%,#321b04)}
+body.colored-theme #research-title{color:var(--brand-ruby)}
+body.colored-theme input::placeholder,body.colored-theme textarea::placeholder{color:var(--muted)}
+body.colored-theme .result-preview th,body.colored-theme .catalog-data th,body.colored-theme .results-table th{background:#161b31;color:var(--ink)}
+body.colored-theme .result-preview tbody tr:nth-child(even),body.colored-theme .catalog-data tr:nth-child(even),body.colored-theme .results-table tbody tr:nth-child(even){background:#111426}
