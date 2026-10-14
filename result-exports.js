@@ -45,6 +45,7 @@ window.RESULT_EXPORTS=(()=>{
   return 'Unclassified source note — review';
  }
  function publicationNotes(item){const r=item.result,k=publicationKey(item),notes=[];
+  if(k==='sign_combination_unavailable')return [...new Set([...(r.notes||[]).filter(n=>/^(Histology codes|No recovered protocol)/.test(n)),'MAS = Modified Alvarado Score; AIR = Appendicitis Inflammatory Response score. Present/absent counts use labelled responses; other codes remain unknown.'])];
   notes.push('n = number of observations; CI = confidence interval; SD = standard deviation; IQR = interquartile range.');
   if(/^(d1_|db_|age_|neg_|s2_|cost_|air_.*(?:histology|severity|performance|roc)|pcv_.*(?:histology|severity)|sign_.*(?:histology|severity|performance|likelihood|rates))/.test(k)){notes.push('No additional clinical exclusions were inferred from the recorded fields; complete protocol eligibility could not be independently verified.');notes.push(window.HUB_REFERENCE?.publicationDefinition||'Histopathology was the reference standard under the study case definition: codes 1–5 were positive for acute appendicitis; Reactive lymphoid hyperplasia (code 6) was negative for acute appendicitis.');}
   if(/^(s2_|cost_)|severity/.test(k))notes.push('Simple appendicitis comprised histology codes 1–3 and complicated appendicitis codes 4–5; code 6 was excluded from severity analyses. This grouping assumes that suppurative/phlegmonous inflammation was confined to the appendix.');
@@ -116,6 +117,7 @@ window.RESULT_EXPORTS=(()=>{
  return {introduction,results:item.resultsText?item.resultsText.split(/\n\s*\n/).filter(Boolean):resultParagraphs(item),statistics:publicationStatistics(item),problems,notes:[...publicationNotes(item),...(window.HUB_VALIDITY?.publication(item)||[])],interpretation:item.writing?.interpretation||r.interpretation||''};}
 
  function prose(r,key=''){
+ if(key==='sign_combination_unavailable'&&r.f7Narrative)return r.f7Narrative;
  const rows=r.rows||[],median=rows.find(row=>/^Age, years.*median/i.test(String(row[0])));
  const rate=x=>Number.isFinite(x?.estimate)?(100*x.estimate).toFixed(1)+'%'+(x.ci?.every(Number.isFinite)?' (95% CI '+x.ci.map(v=>(100*v).toFixed(1)+'%').join('–')+')':' (CI not estimable)'):'not estimable';
  if(/^(d1|db)_performance$/.test(key)&&r.log?.strategies){const strategies=r.log.strategies,shown=strategies.filter(x=>x.kind==='unfitted'||x.id==='model_MAS_CRP');return 'Against the histopathological reference classification, '+shown.map(x=>x.name+(x.kind==='model'?' at the exploratory held-out probability threshold':' at its declared fixed threshold')+' had sensitivity '+rate(x.metrics.sensitivity)+' and specificity '+rate(x.metrics.specificity)).join('; ')+'. These estimates describe the ability to identify appendicitis and its absence among the '+r.n+' evaluated records. Accuracy must be considered with the reference-positive proportion, and these estimates alone do not establish that one approach is superior or clinically more useful.';}
