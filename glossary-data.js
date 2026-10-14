@@ -1222,3 +1222,5 @@ window.HUB_GLOSSARY_DATA = {
     }
   ]
 };
+
+HUB_GLOSSARY_DATA.entries.push({id:"validity-reliability",term:"Validity and Reliability",aliases:["methodological quality","assessment register","model validation","measurement quality"],category:"Statistical reporting and interpretation",definition:"Validity concerns support for a specified interpretation or use; reliability concerns measurement consistency. Neither follows merely because software calculated a result.",purpose:"Review study-specific diagnostic, measurement, data and methodological evidence.",formula:"",assumptions:"Assessment depends on the intended construct, population, design and evidence.",interpretation:"The register distinguishes calculated checks, documented methodological evidence and unperformed recommendations.",example:"Illustrative: before/after clinician ratings are not a test–retest reliability design.",mistake:"Treating statistical significance, successful calculation or reliability as proof of all forms of validity.",related:["reference","bias","roc"]});

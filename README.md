@@ -153,3 +153,34 @@ Word and HTML reports now use a separate publication-content policy. Internal va
 Scientific methods, reference definitions, sample sizes, tests, p-values, effects and intervals remain. Repeated identical method notes are printed once per objective in combined reports; standalone output reports retain their applicable notes. A mathematically non-estimable value is shown as an explained dash, while **Not applicable** retains its distinct meaning. Publication content auditing does not independently validate clinical source records or factual accuracy of researcher-authored paragraphs.
 
 See `PUBLICATION_CONTENT_AUDIT.md` and `PUBLICATION_CLEAN_VALIDATION.md`. No new dependencies or environment variables are required.
+
+
+Current presentation: every catalogue output has an Essence and Practical Importance section. It opens beneath the output and uses the existing shared collapse controls. Reports has an independent inclusion checkbox for Word/HTML export. See PRACTICAL_IMPORTANCE_INVENTORY.md and PRACTICAL_IMPORTANCE_VALIDATION.md for coverage and actual tests.
+
+## Study histopathology classification — 14 October 2026
+
+The Glossary's study-classification shortcut and contextual pathology links show the confirmed positive/negative disease definition. Reactive lymphoid hyperplasia is negative; Acute, Suppurative, Phlegmonous, Gangrenous and Perforated appendicitis are positive. Back returns to the originating output/view. Original source labels remain intact; display names use the documented crosswalk. Labelled imports with conflicting pathology labels are blocked for review.
+
+See `HISTOPATHOLOGY_CLASSIFICATION_VALIDATION.md` for source-label/count verification, changed files, completed tests, export behaviour and limitations. This update does not change the underlying diagnostic rules or results.
+
+## Reports Word export repair — 14 October 2026
+
+Export Word now has a visible primary-action style, readiness/loading/error feedback and duplicate-click protection. Optional authored legends are included by default only when saved writing exists; explicit missing-legend requests and unsaved scientific prose still require review. Calculated captions/evidence and selected notes are retained.
+
+For a manual update, replace `reports.js`, `styles.css` and `index.html` together from this project's folder. Open Reports, select calculated outputs, resolve any visible review message, then click **Export Word**. The browser downloads `Appendicitis_Results_Report.docx`.
+
+See `WORD_EXPORT_FIX_VALIDATION.md` for the reproduced cause, changed files, actual downloaded-document checks, tests and limits. No deployment was performed as part of the repair.
+
+## Global Back navigation — 14 October 2026
+
+The shared **← Back** control beside Menu restores the actual previous in-app view, including selected output, scroll, filters, viewer settings and drafts. Browser Back/Forward follow the same sequence. Ordinary accordions and layout adjustments do not add destinations. On mobile, Back first closes an open navigation drawer. Refresh or replacing the dataset starts fresh navigation history.
+
+For manual installation, replace the complete project folder from this package; the new `navigation-history.js` must be installed together with its updated scripts, styles, entry point and runtime allowlist. Run `python3 -m http.server 8000` from the project folder and open http://localhost:8000. No additional application dependency or secret environment variable is required. See `GLOBAL_BACK_VALIDATION.md` for changed files, completed tests and limitations.
+
+## Validity and Reliability register — 14 October 2026
+
+Open **Statistical Glossary → Validity and Reliability** or follow the methodological-quality links from an objective, result, interpretation or Reports. Search/filter the 19 study-specific assessments, inspect read-only coding/denominator checks, and navigate back without losing the selected output. Every catalogue output has a related method/evidence record; the supporting aggregate audit remains available.
+
+To include a calculated methodological assessment in Word, select its manuscript checkbox in the register, then enable **Include selected methodological assessments** for the relevant report output. Recommendations and pending evidence are not exported as completed assessments. Selections remain in memory only and clear when the dataset changes.
+
+Install the complete updated project folder together, including `validity-quality.js`. No new dependencies or environment variables are needed. See `VALIDITY_QUALITY_VALIDATION.md`, `VALIDITY_OBJECTIVE_MAP.md` and `VALIDITY_SOURCE_INVENTORY.json` for actual checks, scope, findings and unresolved evidence. No deployment was performed.

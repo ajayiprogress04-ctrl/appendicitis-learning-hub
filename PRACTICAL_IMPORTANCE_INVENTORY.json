@@ -1,0 +1,776 @@
+[
+  {
+    "id": "1:baseline",
+    "scope": "1",
+    "title": "Demographic and baseline characteristics of included participants",
+    "type": "table",
+    "heading": "Essence and Practical Importance",
+    "text": "Knowing the age and sex of participants helps you judge which patients this research describes. The population profile provides context for judging whether later findings apply to another clinical setting.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "1:d1_population",
+    "scope": "1",
+    "title": "Analysis population and histopathological reference diagnosis",
+    "type": "table",
+    "heading": "Essence and Practical Importance",
+    "text": "Fair diagnostic comparisons need the same participants and the same histopathological reference diagnosis. The included, excluded and reference-positive/negative counts show which records support the comparison.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "1:d1_classification",
+    "scope": "1",
+    "title": "Diagnostic classifications for MAS, hsCRP and exploratory models",
+    "type": "table",
+    "heading": "Essence and Practical Importance",
+    "text": "Counting correct and incorrect classifications shows what happens at each declared diagnostic threshold. TP and FN describe confirmed disease; TN and FP describe its absence. Equal totals need not mean identical participant predictions.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "1:d1_performance",
+    "scope": "1",
+    "title": "Sensitivity, specificity and accuracy of the diagnostic approaches",
+    "type": "table",
+    "heading": "Essence and Practical Importance",
+    "text": "A useful diagnostic approach must identify appendicitis while also recognising its absence against histopathology. Together, sensitivity, specificity and their uncertainty describe the balance between identifying disease and recognising its absence.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "1:d1_predictive",
+    "scope": "1",
+    "title": "Predictive values and likelihood ratios of the diagnostic approaches",
+    "type": "table",
+    "heading": "Essence and Practical Importance",
+    "text": "Predictive values and likelihood ratios connect a positive or negative test result to diagnostic uncertainty. PPV and NPV describe this cohort; likelihood ratios describe how results change prior odds. Their intervals express estimation uncertainty.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "1:d1_auc",
+    "scope": "1",
+    "title": "Discrimination of MAS and the exploratory MAS plus hsCRP model",
+    "type": "table",
+    "heading": "Essence and Practical Importance",
+    "text": "Discrimination asks whether a score ranks confirmed cases above reference-negative cases across thresholds. AUC summarises ranking, with its interval and evaluation method indicating the precision and context of that assessment.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "1:d1_calibration",
+    "scope": "1",
+    "title": "Apparent and held-out model performance and calibration summaries",
+    "type": "table",
+    "heading": "Essence and Practical Importance",
+    "text": "Comparing apparent and held-out prediction performance helps reveal how a fitted model behaves beyond its own training observations. Lower Brier score or log loss indicates better probability performance in the displayed evaluation; this differs from ranking by AUC.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "1:d1_paired",
+    "scope": "1",
+    "title": "Paired comparisons of the fixed recorded diagnostic markers",
+    "type": "table",
+    "heading": "Essence and Practical Importance",
+    "text": "Comparing markers on the same participants preserves the paired study design. DeLong addresses raw-marker ranking; stratified McNemar addresses discordant fixed classifications. They address different aspects of paired diagnostic performance.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "1:d1_roc",
+    "scope": "1",
+    "title": "ROC curves for MAS, hsCRP and exploratory diagnostic models",
+    "type": "figure",
+    "heading": "Essence and Practical Importance",
+    "text": "ROC curves make the trade-off between detecting disease and false-positive results visible as thresholds change. A curve’s shape shows ranking across thresholds; the declared operating-point table explains actual binary decisions.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "1:d1_aucplot",
+    "scope": "1",
+    "title": "AUC estimates with conditional 95% intervals",
+    "type": "figure",
+    "heading": "Essence and Practical Importance",
+    "text": "Plotting AUC with intervals shows both diagnostic ranking and its uncertainty in one view. Point estimates show the diagnostic ranking, while interval widths show its precision.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "1:d1_confusion",
+    "scope": "1",
+    "title": "Confusion matrices for the diagnostic approaches",
+    "type": "figure",
+    "heading": "Essence and Practical Importance",
+    "text": "A confusion-matrix picture locates the correct decisions and the two kinds of diagnostic error. The cell counts identify the denominators behind sensitivity, specificity and predictive values.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "1:d1_calplot",
+    "scope": "1",
+    "title": "Held-out calibration of exploratory diagnostic models",
+    "type": "figure",
+    "heading": "Essence and Practical Importance",
+    "text": "Calibration plots compare predicted probabilities with observed disease proportions. Agreement with the diagonal supports probability agreement within the plotted bins; inspect each bin’s size and interval.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "2:s2_descriptive",
+    "scope": "2",
+    "title": "hsCRP distribution by histological appendicitis severity",
+    "type": "table",
+    "heading": "Essence and Practical Importance",
+    "text": "Describing hs-CRP separately in simple and complicated histology reveals the measurements behind the severity question. Medians, spread and group sizes help you see variability before considering a diagnostic threshold.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "2:s2_comparison",
+    "scope": "2",
+    "title": "Comparison of hsCRP between simple and complicated appendicitis",
+    "type": "table",
+    "heading": "Essence and Practical Importance",
+    "text": "The severity comparison asks whether recorded hs-CRP differs between the defined simple and complicated groups. The difference, its interval and the test result distinguish effect magnitude from statistical evidence.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "2:s2_severityPerformance",
+    "scope": "2",
+    "title": "Discrimination of complicated histology by continuous hsCRP",
+    "type": "table",
+    "heading": "Essence and Practical Importance",
+    "text": "This analysis asks how hs-CRP distinguishes complicated from simple confirmed appendicitis. The positive target here is complicated histology, not appendicitis versus its absence; interpret the denominators accordingly.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "2:s2_box",
+    "scope": "2",
+    "title": "Distribution of hsCRP in simple and complicated appendicitis",
+    "type": "figure",
+    "heading": "Essence and Practical Importance",
+    "text": "The box plot makes the spread and overlap of hs-CRP in simple and complicated histology easy to inspect. The medians and boxes show typical values and variability; the adjacent test provides evidence beyond the visual pattern.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "2:s2_severityROC",
+    "scope": "2",
+    "title": "ROC curve of hsCRP for complicated histological appendicitis",
+    "type": "figure",
+    "heading": "Essence and Practical Importance",
+    "text": "This ROC curve shows the trade-off when hs-CRP ranks complicated rather than simple confirmed appendicitis. The curve and companion AUC interval describe severity discrimination across thresholds.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "3:age_population",
+    "scope": "3",
+    "title": "Reference diagnosis and analysis population by predefined age group",
+    "type": "table",
+    "heading": "Essence and Practical Importance",
+    "text": "Subgroup denominators show how much evidence is available for children under 16 and adults aged 16 or above. The reference-positive and negative counts explain why subgroup estimates may differ in precision.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "3:age_performance",
+    "scope": "3",
+    "title": "Performance of the pooled MAS plus hsCRP model by age group",
+    "type": "table",
+    "heading": "Essence and Practical Importance",
+    "text": "The age analysis checks the same pooled combined model within the predefined child and adult groups. Separate subgroup denominators and intervals show how precisely sensitivity and specificity are estimated.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "3:age_comparison_unavailable",
+    "scope": "3",
+    "title": "Reliable between-age-group comparison of model AUC",
+    "type": "table",
+    "heading": "Essence and Practical Importance",
+    "text": "This planned output addresses reliable between-age-group comparison of model AUC. Only one reference-negative child is present in the supplied cohort. Reliable paediatric AUC uncertainty and between-group comparison cannot be established; more independent reference-negative children are required.",
+    "status": "Planned; source-limited"
+  },
+  {
+    "id": "3:age_roc",
+    "scope": "3",
+    "title": "Descriptive age-specific ROC curves for the pooled combined model",
+    "type": "figure",
+    "heading": "Essence and Practical Importance",
+    "text": "Separate age-group ROC curves make subgroup ranking patterns visible for the pooled combined model. Reference counts indicate how much evidence supports each subgroup curve.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "3:age_rates",
+    "scope": "3",
+    "title": "Age-specific sensitivity and specificity with 95% intervals",
+    "type": "figure",
+    "heading": "Essence and Practical Importance",
+    "text": "Displaying age-specific sensitivity and specificity together highlights which type of diagnostic performance is supported in each group. Wide intervals signal limited precision even when a point estimate appears high.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "4:neg_histology",
+    "scope": "4",
+    "title": "Detailed histopathological diagnoses in the specimen-linked operated cohort",
+    "type": "table",
+    "heading": "Essence and Practical Importance",
+    "text": "Detailed pathology frequencies explain which diagnoses underlie the final disease-status classification. Keep confirmed inflammation separate from isolated reactive lymphoid hyperplasia and unknown findings.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "4:neg_rate",
+    "scope": "4",
+    "title": "Proportion negative for acute appendicitis in the operated cohort",
+    "type": "table",
+    "heading": "Essence and Practical Importance",
+    "text": "The negative appendicectomy estimate describes operated specimens without confirmed acute appendicitis under the operational definition. The denominator and interval describe the frequency and precision of this outcome.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "4:neg_subgroups",
+    "scope": "4",
+    "title": "Negative reference diagnosis by age group and sex",
+    "type": "table",
+    "heading": "Essence and Practical Importance",
+    "text": "This comparison asks whether reference-negative proportions differ across the recorded age and sex groups. Subgroup denominators and Fisher’s exact results distinguish observed proportions from evidence of a group difference.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "4:neg_histology_bar",
+    "scope": "4",
+    "title": "Distribution of specimens across detailed histopathological diagnoses",
+    "type": "figure",
+    "heading": "Essence and Practical Importance",
+    "text": "The bars show how operated specimens are distributed across the original histopathology labels. The heights reveal which diagnoses contribute most to the cohort’s reference-status distribution.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "5:conf_distribution",
+    "scope": "5",
+    "title": "Diagnostic-confidence ratings before and after MAS and hsCRP information",
+    "type": "table",
+    "heading": "Essence and Practical Importance",
+    "text": "Before-and-after confidence distributions describe how clinicians rated certainty for complete paired cases. The five ordered categories describe reported certainty without assuming equally spaced numerical measurements.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "5:conf_transition",
+    "scope": "5",
+    "title": "Paired transitions in diagnostic-confidence ratings",
+    "type": "table",
+    "heading": "Essence and Practical Importance",
+    "text": "The transition table preserves each case’s before-and-after rating rather than comparing unrelated totals. Cells above or below the unchanged diagonal identify the direction of movement between ordered ratings.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "5:conf_change",
+    "scope": "5",
+    "title": "Direction of paired diagnostic-confidence change",
+    "type": "table",
+    "heading": "Essence and Practical Importance",
+    "text": "Counting increased, unchanged and decreased ratings gives a simple overview of paired confidence movement. The direction of change is meaningful without assuming equal distances between Likert categories.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "5:conf_inference_unavailable",
+    "scope": "5",
+    "title": "Inferential comparison of paired diagnostic confidence",
+    "type": "table",
+    "heading": "Essence and Practical Importance",
+    "text": "This planned output addresses inferential comparison of paired diagnostic confidence. Same clinician within each patient pair is confirmed, but clinician identifiers and repeated-case linkage are unavailable. An independent-pair Wilcoxon p-value or a clinician-clustered alternative cannot be justified without that structure.",
+    "status": "Planned; source-limited"
+  },
+  {
+    "id": "5:conf_profession_unavailable",
+    "scope": "5",
+    "title": "Comparison between resident doctors and medical officers",
+    "type": "table",
+    "heading": "Essence and Practical Importance",
+    "text": "This planned output addresses comparison between resident doctors and medical officers. The SAV has neither professional-group assignment nor clinician identifiers, and no direct ease-of-diagnosis item. Confidence cannot be relabelled as ease or used to invent these groups.",
+    "status": "Planned; source-limited"
+  },
+  {
+    "id": "5:conf_heatmap",
+    "scope": "5",
+    "title": "Paired diagnostic-confidence transitions before and after information",
+    "type": "figure",
+    "heading": "Essence and Practical Importance",
+    "text": "The heatmap makes common before-and-after confidence transitions visible while retaining the paired structure. Movement away from the diagonal shows changes between ordered ratings.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "5:conf_bars",
+    "scope": "5",
+    "title": "Before and after diagnostic-confidence rating distributions",
+    "type": "figure",
+    "heading": "Essence and Practical Importance",
+    "text": "Side-by-side rating distributions show how the overall confidence profile changes among complete pairs. The accompanying transition output distinguishes individual changes that marginal bars cannot reveal.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "6:overallcost_summary",
+    "scope": "6",
+    "title": "Recorded total hospital expenditure in the study cohort",
+    "type": "table",
+    "heading": "Essence and Practical Importance",
+    "text": "The expenditure summary describes the recorded financial burden in this cohort in NGN. Typical costs and their spread show whether an average alone adequately represents the observed amounts.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "6:incremental_cost_unavailable",
+    "scope": "6",
+    "title": "Incremental direct hospital cost of adding hsCRP to MAS",
+    "type": "table",
+    "heading": "Essence and Practical Importance",
+    "text": "This planned output addresses incremental direct hospital cost of adding hsCRP to MAS. Itemised hsCRP costs, resource quantities/unit prices and a comparable routine diagnostic pathway are absent. Recorded total costs alone cannot estimate incremental cost, savings or cost-effectiveness.",
+    "status": "Planned; source-limited"
+  },
+  {
+    "id": "6:overallcost_histogram",
+    "scope": "6",
+    "title": "Distribution of recorded total hospital expenditure",
+    "type": "figure",
+    "heading": "Essence and Practical Importance",
+    "text": "The histogram shows how recorded total hospital expenditure is distributed rather than hiding its shape in one average. Concentration, skew and high-cost tails help explain why mean and median may differ.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "A:cost_descriptive",
+    "scope": "A",
+    "title": "Recorded hospital costs by histological appendicitis severity",
+    "type": "table",
+    "heading": "Essence and Practical Importance",
+    "text": "Cost summaries by histological severity describe the recorded expenditure behind the simple-versus-complicated comparison. Typical costs, variation and group sizes provide the descriptive context for the financial comparison.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "A:cost_comparison",
+    "scope": "A",
+    "title": "Hospital-cost differences between simple and complicated appendicitis",
+    "type": "table",
+    "heading": "Essence and Practical Importance",
+    "text": "The cost comparison evaluates the magnitude and statistical evidence for differences between the severity groups. Complicated-minus-simple effects and intervals in NGN quantify the financial difference alongside the rank or Welch result.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "A:adjusted_cost_unavailable",
+    "scope": "A",
+    "title": "Adjusted hospital-cost association estimates",
+    "type": "table",
+    "heading": "Essence and Practical Importance",
+    "text": "This planned output addresses adjusted hospital-cost association estimates. No approved adjustment set or itemised cost-driver measurements were supplied; only eight complicated cases are present. An automatic multivariable cost-driver model would be unsupported.",
+    "status": "Planned; source-limited"
+  },
+  {
+    "id": "A:cost_box",
+    "scope": "A",
+    "title": "Recorded hospital costs in simple and complicated histological appendicitis",
+    "type": "figure",
+    "heading": "Essence and Practical Importance",
+    "text": "The box plot shows how recorded hospital costs vary and overlap between simple and complicated histology. Median and spread reveal features hidden by a single group average; the adjacent test informs the comparison.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "B:db_population",
+    "scope": "B",
+    "title": "Common analysis population for AIR, MAS, hsCRP and combined models",
+    "type": "table",
+    "heading": "Essence and Practical Importance",
+    "text": "Fair diagnostic comparisons need the same participants and the same histopathological reference diagnosis. The included, excluded and reference-positive/negative counts show which records support the comparison.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "B:db_classification",
+    "scope": "B",
+    "title": "Classification counts for all diagnostic strategies",
+    "type": "table",
+    "heading": "Essence and Practical Importance",
+    "text": "Counting correct and incorrect classifications shows what happens at each declared diagnostic threshold. TP and FN describe confirmed disease; TN and FP describe its absence. Equal totals need not mean identical participant predictions.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "B:db_performance",
+    "scope": "B",
+    "title": "Sensitivity, specificity and accuracy across diagnostic strategies",
+    "type": "table",
+    "heading": "Essence and Practical Importance",
+    "text": "A useful diagnostic approach must identify appendicitis while also recognising its absence against histopathology. Together, sensitivity, specificity and their uncertainty describe the balance between identifying disease and recognising its absence.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "B:db_predictive",
+    "scope": "B",
+    "title": "Predictive values and likelihood ratios across diagnostic strategies",
+    "type": "table",
+    "heading": "Essence and Practical Importance",
+    "text": "Predictive values and likelihood ratios connect a positive or negative test result to diagnostic uncertainty. PPV and NPV describe this cohort; likelihood ratios describe how results change prior odds. Their intervals express estimation uncertainty.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "B:db_auc",
+    "scope": "B",
+    "title": "AUC estimates for recorded scores and exploratory combined models",
+    "type": "table",
+    "heading": "Essence and Practical Importance",
+    "text": "Discrimination asks whether a score ranks confirmed cases above reference-negative cases across thresholds. AUC summarises ranking, with its interval and evaluation method indicating the precision and context of that assessment.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "B:db_paired",
+    "scope": "B",
+    "title": "Paired comparisons of unfitted diagnostic markers",
+    "type": "table",
+    "heading": "Essence and Practical Importance",
+    "text": "Comparing markers on the same participants preserves the paired study design. DeLong addresses raw-marker ranking; stratified McNemar addresses discordant fixed classifications. They address different aspects of paired diagnostic performance.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "B:db_calibration",
+    "scope": "B",
+    "title": "Apparent and held-out performance of exploratory multivariable models",
+    "type": "table",
+    "heading": "Essence and Practical Importance",
+    "text": "Comparing apparent and held-out prediction performance helps reveal how a fitted model behaves beyond its own training observations. Lower Brier score or log loss indicates better probability performance in the displayed evaluation; this differs from ranking by AUC.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "B:db_roc",
+    "scope": "B",
+    "title": "ROC curves for AIR, MAS, hsCRP and exploratory combined models",
+    "type": "figure",
+    "heading": "Essence and Practical Importance",
+    "text": "ROC curves make the trade-off between detecting disease and false-positive results visible as thresholds change. A curve’s shape shows ranking across thresholds; the declared operating-point table explains actual binary decisions.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "B:db_aucplot",
+    "scope": "B",
+    "title": "AUC estimates and conditional intervals across strategies",
+    "type": "figure",
+    "heading": "Essence and Practical Importance",
+    "text": "Plotting AUC with intervals shows both diagnostic ranking and its uncertainty in one view. Point estimates show the diagnostic ranking, while interval widths show its precision.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "B:db_confusion",
+    "scope": "B",
+    "title": "Classification confusion matrices across strategies",
+    "type": "figure",
+    "heading": "Essence and Practical Importance",
+    "text": "A confusion-matrix picture locates the correct decisions and the two kinds of diagnostic error. The cell counts identify the denominators behind sensitivity, specificity and predictive values.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "B:db_calplot",
+    "scope": "B",
+    "title": "Held-out calibration plots for exploratory combined models",
+    "type": "figure",
+    "heading": "Essence and Practical Importance",
+    "text": "Calibration plots compare predicted probabilities with observed disease proportions. Agreement with the diagonal supports probability agreement within the plotted bins; inspect each bin’s size and interval.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "C:assoc_continuous",
+    "scope": "C",
+    "title": "Exploratory score, biomarker, interval and cost associations",
+    "type": "table",
+    "heading": "Essence and Practical Importance",
+    "text": "The association table explores how recorded scores, biomarkers, costs and intervals vary together. Correlation direction and uncertainty indicate monotonic relationships; use the supplied Holm-adjusted p-values for this family.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "C:adjusted_association_unavailable",
+    "scope": "C",
+    "title": "Prespecified multivariable association or causal estimates",
+    "type": "table",
+    "heading": "Essence and Practical Importance",
+    "text": "This planned output addresses prespecified multivariable association or causal estimates. No approved causal adjustment set or multivariable exploratory specification is supplied. Do not automatically regress every available variable against every outcome.",
+    "status": "Planned; source-limited"
+  },
+  {
+    "id": "C:assoc_scatter",
+    "scope": "C",
+    "title": "Recorded AIR score and hsCRP association",
+    "type": "figure",
+    "heading": "Essence and Practical Importance",
+    "text": "The scatter plot lets you inspect the actual recorded AIR–hs-CRP pairs rather than only a correlation coefficient. The plotted direction, spread and unusual pairs complement the matching Spearman result.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "C:assoc_forest",
+    "scope": "C",
+    "title": "Exploratory associations with conditional 95% intervals",
+    "type": "figure",
+    "heading": "Essence and Practical Importance",
+    "text": "The forest plot puts exploratory correlation directions and uncertainty side by side. Intervals show how precisely each relationship is estimated; the companion table carries multiplicity-aware evidence.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "D:air_distribution",
+    "scope": "D",
+    "title": "Distribution of recorded AIR scores and working risk categories",
+    "type": "table",
+    "heading": "Essence and Practical Importance",
+    "text": "The AIR distribution summarises the recorded measurements and their assigned reference or risk categories. Continuous values in points and category denominators show the variation concealed by grouped categories.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "D:air_histology",
+    "scope": "D",
+    "title": "Comparison of AIR scores by histopathological reference diagnosis",
+    "type": "table",
+    "heading": "Essence and Practical Importance",
+    "text": "This comparison asks whether recorded AIR differs between histopathology-positive and negative specimens. Group sizes, effect magnitude, uncertainty and the test result together describe the strength and precision of the comparison.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "D:air_category_histology",
+    "scope": "D",
+    "title": "Association of AIR risk categories with histopathological diagnosis",
+    "type": "table",
+    "heading": "Essence and Practical Importance",
+    "text": "The category cross-tabulation asks how AIR categories are distributed across histopathological disease status. Category counts, the exact test and association effect provide the denominators and evidence needed to assess the relationship.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "D:air_category_severity",
+    "scope": "D",
+    "title": "Association of AIR risk categories with histological severity",
+    "type": "table",
+    "heading": "Essence and Practical Importance",
+    "text": "This cross-tabulation asks how the working AIR risk groups relate to simple and complicated histology. Category counts and the exact association test show whether the distribution differs, not whether AIR determines severity.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "D:air_performance",
+    "scope": "D",
+    "title": "Diagnostic performance of continuous AIR and its working high-risk threshold",
+    "type": "table",
+    "heading": "Essence and Practical Importance",
+    "text": "This output evaluates recorded AIR against histopathology using continuous ranking and a working high-risk threshold. Distinguish the AUC question from the sensitivity/specificity at the declared score cutoff.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "D:air_associations",
+    "scope": "D",
+    "title": "Exploratory AIR associations with costs and recorded hospital intervals",
+    "type": "table",
+    "heading": "Essence and Practical Importance",
+    "text": "These correlations examine how recorded AIR varies with the other listed scores, costs or hospital intervals. Each named pair’s direction, interval, sample size and supplied adjustment describe its association and uncertainty.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "D:air_histogram",
+    "scope": "D",
+    "title": "Distribution of recorded AIR scores",
+    "type": "figure",
+    "heading": "Essence and Practical Importance",
+    "text": "The histogram shows the shape and concentration of recorded AIR measurements in points. A distribution shows spread and tails that a single average cannot communicate.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "D:air_categories",
+    "scope": "D",
+    "title": "Participants in the working AIR risk categories",
+    "type": "figure",
+    "heading": "Essence and Practical Importance",
+    "text": "The category bars show how many participants fall into the working AIR risk bands. Category definitions and counts identify the comparisons represented by the disease-status outcomes.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "D:air_roc",
+    "scope": "D",
+    "title": "ROC curve for continuous AIR against histopathology",
+    "type": "figure",
+    "heading": "Essence and Practical Importance",
+    "text": "The AIR ROC curve shows its ranking of reference-positive versus negative specimens across score thresholds. The companion AUC interval and threshold-specific rates describe the diagnostic trade-off.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "D:air_box_histology",
+    "scope": "D",
+    "title": "AIR scores by histopathological reference diagnosis",
+    "type": "figure",
+    "heading": "Essence and Practical Importance",
+    "text": "The box plot makes the spread and overlap of AIR in reference-positive and negative specimens visible. Plotted medians and spread complement the matching statistical comparison.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "D:air_postop",
+    "scope": "D",
+    "title": "Recorded AIR scores by postoperative-complication status",
+    "type": "table",
+    "heading": "Essence and Practical Importance",
+    "text": "The postoperative comparison asks whether recorded AIR differs between documented complication and explicit no-complication groups. Actual group counts and the test result provide context for the observed difference.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "E:pcv_distribution",
+    "scope": "E",
+    "title": "Distribution of PCV and external reference categories",
+    "type": "table",
+    "heading": "Essence and Practical Importance",
+    "text": "The PCV distribution summarises the recorded measurements and their assigned reference or risk categories. Continuous values in % and category denominators show the variation concealed by grouped categories.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "E:pcv_references",
+    "scope": "E",
+    "title": "Age- and sex-specific PCV reference intervals used in classification",
+    "type": "table",
+    "heading": "Essence and Practical Importance",
+    "text": "The reference table makes the age- and sex-specific PCV boundaries used for classification transparent. Checking these limits helps distinguish a measured percentage from an externally assigned low, normal or high category.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "E:pcv_histology",
+    "scope": "E",
+    "title": "Comparison of PCV by histopathological reference diagnosis",
+    "type": "table",
+    "heading": "Essence and Practical Importance",
+    "text": "This comparison asks whether recorded PCV differs between histopathology-positive and negative specimens. Group sizes, effect magnitude, uncertainty and the test result together describe the strength and precision of the comparison.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "E:pcv_severity",
+    "scope": "E",
+    "title": "Comparison of PCV in simple and complicated appendicitis",
+    "type": "table",
+    "heading": "Essence and Practical Importance",
+    "text": "This comparison asks whether PCV differs between the defined simple and complicated appendicitis groups. Effect magnitude, group sizes and the test result distinguish an observed difference from the evidence supporting it.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "E:pcv_category_histology",
+    "scope": "E",
+    "title": "Association of PCV category with histopathological diagnosis",
+    "type": "table",
+    "heading": "Essence and Practical Importance",
+    "text": "The category cross-tabulation asks how PCV categories are distributed across histopathological disease status. Category counts, the exact test and association effect provide the denominators and evidence needed to assess the relationship.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "E:pcv_category_air",
+    "scope": "E",
+    "title": "Association of PCV category with working AIR risk category",
+    "type": "table",
+    "heading": "Essence and Practical Importance",
+    "text": "The cross-tabulation compares external PCV categories with working AIR risk categories. The exact test and association effect describe category alignment, rather than proving the scores measure the same process.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "E:pcv_associations",
+    "scope": "E",
+    "title": "Exploratory PCV associations with AIR, costs and hospital stay",
+    "type": "table",
+    "heading": "Essence and Practical Importance",
+    "text": "These correlations examine how recorded PCV varies with the other listed scores, costs or hospital intervals. Each named pair’s direction, interval, sample size and supplied adjustment describe its association and uncertainty.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "E:pcv_histogram",
+    "scope": "E",
+    "title": "Distribution of recorded PCV",
+    "type": "figure",
+    "heading": "Essence and Practical Importance",
+    "text": "The histogram shows the shape and concentration of recorded PCV measurements in %. A distribution shows spread and tails that a single average cannot communicate.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "E:pcv_box_histology",
+    "scope": "E",
+    "title": "PCV by histopathological reference diagnosis",
+    "type": "figure",
+    "heading": "Essence and Practical Importance",
+    "text": "The box plot makes the spread and overlap of PCV in reference-positive and negative specimens visible. Plotted medians and spread complement the matching statistical comparison.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "E:pcv_scatter",
+    "scope": "E",
+    "title": "Recorded PCV and AIR score",
+    "type": "figure",
+    "heading": "Essence and Practical Importance",
+    "text": "The scatter plot shows paired recorded PCV percentages and AIR scores. The pattern and matching Spearman result help distinguish a directional relationship from scattered variation.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "E:pcv_postop",
+    "scope": "E",
+    "title": "Recorded PCV by postoperative-complication status",
+    "type": "table",
+    "heading": "Essence and Practical Importance",
+    "text": "The postoperative comparison asks whether recorded PCV differs between documented complication and explicit no-complication groups. Actual group counts and the test result provide context for the observed difference.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "F:sign_distribution",
+    "scope": "F",
+    "title": "Documented presence, absence and unknown status of clinical signs",
+    "type": "table",
+    "heading": "Essence and Practical Importance",
+    "text": "The sign inventory distinguishes documented presence, explicit absence and unknown status. A selected sign in a single-choice field supplies a documented positive, not proof that every other sign was absent.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "F:sign_histology",
+    "scope": "F",
+    "title": "Recorded clinical signs by histopathological reference diagnosis",
+    "type": "table",
+    "heading": "Essence and Practical Importance",
+    "text": "The sign cross-tabulation asks how documented findings are distributed across reference-positive and negative histology. Each finding’s group counts, exact-test evidence and recording rules define the scope of its comparison.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "F:sign_severity",
+    "scope": "F",
+    "title": "Recorded clinical signs by histological severity",
+    "type": "table",
+    "heading": "Essence and Practical Importance",
+    "text": "The sign cross-tabulation asks how documented findings are distributed across simple and complicated histology. Each finding’s group counts, exact-test evidence and recording rules define the scope of its comparison.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "F:sign_air",
+    "scope": "F",
+    "title": "Recorded clinical signs across working AIR risk categories",
+    "type": "table",
+    "heading": "Essence and Practical Importance",
+    "text": "The sign cross-tabulation asks how documented findings are distributed across working AIR categories. Each finding’s group counts, exact-test evidence and recording rules define the scope of its comparison.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "F:sign_performance",
+    "scope": "F",
+    "title": "Diagnostic rates of fully documented binary signs",
+    "type": "table",
+    "heading": "Essence and Practical Importance",
+    "text": "Diagnostic rates show how fully recorded binary signs agree with histopathological disease status. Sensitivity and specificity require explicit recorded absence as well as presence; inspect each sign’s denominator.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "F:sign_likelihood",
+    "scope": "F",
+    "title": "Classification counts and likelihood ratios of documented binary signs",
+    "type": "table",
+    "heading": "Essence and Practical Importance",
+    "text": "Classification counts and likelihood ratios show how a documented binary sign changes diagnostic odds. Check the true/false counts and uncertainty rather than treating a present sign as diagnostic proof.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "F:sign_bar",
+    "scope": "F",
+    "title": "Documented clinical-sign presence among study participants",
+    "type": "figure",
+    "heading": "Essence and Practical Importance",
+    "text": "The sign bars show documented presence across recorded fields. Distinguish positive-only selected-sign counts from prevalence based on complete Yes/No recording.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "F:sign_rates",
+    "scope": "F",
+    "title": "Sensitivity and specificity of confirmed binary clinical signs",
+    "type": "figure",
+    "heading": "Essence and Practical Importance",
+    "text": "The rate plot compares sensitivity and specificity for explicitly documented binary signs. Intervals and sign-specific denominators reveal precision alongside the point estimates.",
+    "status": "Output-specific rationale; findings reported separately"
+  },
+  {
+    "id": "F:sign_combination_unavailable",
+    "scope": "F",
+    "title": "Incremental value of clinical signs added to existing scores",
+    "type": "table",
+    "heading": "Essence and Practical Importance",
+    "text": "This planned output addresses incremental value of clinical signs added to existing scores. MAS and AIR already incorporate overlapping signs. No justified nonredundant predictor specification, complete sign absences or adequate rare-reference sample for further model development has been supplied.",
+    "status": "Planned; source-limited"
+  }
+]
