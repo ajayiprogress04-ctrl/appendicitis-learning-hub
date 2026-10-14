@@ -1,3 +1,15 @@
+## Three selectable appearances
+
+Choose **Light Mode**, **Dark Mode** or **Colored Mode** from the header's Appearance selector. Colored Mode adds coordinated violet/cyan/teal/magenta gradients and original gradient scientific illustrations throughout the existing app. Dense research content stays on solid reading surfaces.
+
+The selected theme is remembered using the existing browser preference. Switching does not reload the app or clear current datasets, outputs or drafts. No new runtime dependencies or environment variables are required. See `COLORED_MODE_VALIDATION.md` for the exact changed files, actual tests and limits.
+
+## Rich scientific backgrounds in both themes
+
+The app now uses large DNA, molecular, cellular, schematic intestine/appendix, waveform and data-grid artwork throughout its existing views. Light mode uses warm grey on off-white; dark mode keeps black/charcoal. Dense results, charts, writing and definitions retain solid reading surfaces.
+
+Keep `scientific-textures/` with the project when serving or deploying. The standalone preview embeds the artwork for offline use. No runtime dependencies or environment variables were added. See `RICH_SCIENTIFIC_TEXTURE_VALIDATION.md` for changed files, actual native-browser tests and verification limits.
+
 ## Legends and Interpretations update
 
 Use **Legends** to select a table/figure, inspect the actual output and edit its four writing components. Save the reviewed legend, then use **View / write interpretation** to explain the finding's meaning separately. Saved writing appears in the linked output and HTML/DOCX reports. Source changes flag writing for review; stale edited prose is excluded from reports until reviewed and saved again.
@@ -20,13 +32,13 @@ Use the fixed ☰ button to open/close navigation. Desktop collapse releases wor
 
 # Appendicitis Research Statistical Test Learning Hub
 
-A buildless research-learning app with three connected reporting views plus a dedicated Statistical Glossary, local dataset import and calculation, compact Inter typography and a black/charcoal gradient dark theme.
+A buildless research-learning app with three connected reporting views plus a dedicated Statistical Glossary, local dataset import and calculation, comfortable Inter typography and a black/charcoal gradient dark theme.
 
 ## Start locally
 
 1. Extract the complete ZIP. Keep the root files and `vendor/` directory together.
 2. Open the standalone preview, or serve the extracted project with `python -m http.server 8080` and visit `http://localhost:8080`.
-3. Switch between light/dark modes with the header button. The server serves application assets; imported patient files are read in browser memory and are not sent to this server.
+3. Switch between Light, Dark and Colored modes with the header Appearance selector. The server serves application assets; imported patient files are read in browser memory and are not sent to this server.
 
 No npm installation/build is required. Directly opening `index.html` also provides system-font fallback where a browser blocks local font loading. The standalone preview embeds scripts, styles and Inter for offline use.
 
@@ -78,3 +90,19 @@ No repository or deployment was modified or verified in this task.
 5. Test the live site: three-tab links, supporting tools, theme, synthetic SAV/CSV import, a table/figure, its interpretation, selected report export and a narrow mobile viewport.
 
 The deployment allowlist includes all runtime assets, both parser libraries, local Inter and their licences. It excludes samples/tests/analysis directories. Do not publish real imports, patient rows, private outputs or credentials. Local validation does not establish live deployment success.
+
+## Approved Word report export
+
+Open **Reports**, choose calculated outputs and reviewed legends/interpretations, arrange them, preview and **Export to Word**. The approved combined reporting style is the permanent default. Missing/stale requested writing must be reviewed or deselected. See WORD_REPORT_VALIDATION.md for the measured format, actual tests and limitations. App use needs no additional dependencies or environment variables.
+
+## About the Developer
+
+Choose **About the Developer** in the collapsible sidebar or click the footer name. The approved profile, portrait and professional links adapt to all three themes. Return to research without losing the mounted workspace. See ABOUT_VALIDATION.md for changed files and actual checks. Profile details become public when the app is published.
+
+## Comfortable default size
+
+At 100% browser zoom, the current default follows the previous 150% appearance: larger shared type, proportional controls/spacing and responsive research panels. Phones use a balanced adaptation. Browser zoom remains available, and exports retain the approved Word format. See READABLE_DEFAULT_VALIDATION.md for measured values, comparison method, changed files and actual checks.
+
+## Five main research tabs
+
+Objectives → Tables & Figures → Interpretations → Statistical Glossary → Reports. Figure legends and table notes are now edited beside the selected output in Tables & Figures. Reports can include or exclude legends independently and links directly to that inline editor. About remains in the sidebar/footer. See FIVE_TAB_NAVIGATION_VALIDATION.md for changed files and actual tests.

@@ -57,9 +57,10 @@
  document.querySelectorAll('[data-side-target]').forEach(b=>b.addEventListener('click',()=>document.getElementById(b.dataset.sideTarget).click()));
  document.querySelectorAll('[data-side-analysis]').forEach(b=>b.addEventListener('click',()=>open(b.dataset.sideAnalysis)));
  const theme=document.getElementById('theme-toggle');
- function setTheme(dark){document.body.classList.toggle('dark-theme',dark);theme.setAttribute('aria-pressed',String(dark));theme.textContent=dark?'Light mode':'Dark mode';try{localStorage.setItem('appendicitis-hub-theme',dark?'dark':'light');}catch{}}
- try{setTheme(localStorage.getItem('appendicitis-hub-theme')==='dark');}catch{setTheme(false);}
- theme.addEventListener('click',()=>setTheme(theme.getAttribute('aria-pressed')!=='true'));
+ function setTheme(value){const name=['light','dark','colored'].includes(value)?value:'light';document.body.classList.toggle('dark-theme',name!=='light');document.body.classList.toggle('colored-theme',name==='colored');theme.value=name;try{localStorage.setItem('appendicitis-hub-theme',name);}catch{}}
+ try{setTheme(localStorage.getItem('appendicitis-hub-theme'));}catch{setTheme('light');}
+ theme.addEventListener('change',()=>setTheme(theme.value));
+ window.HUB_THEME={set:setTheme,current:()=>theme.value};
  window.HUB_WORKSPACE={open,leave,searchEntries:()=>bundle?['costs','diagnostics','associations'].map(id=>({id,title:{costs:'Loaded costs and severity results',diagnostics:'Loaded diagnostic strategy results',associations:'Loaded association results'}[id],content:bundle[id]})):[]};
  if(window.__HUB_TEST__)window.__WORKSPACE_TEST__={validate,open,leave,render,load:v=>{bundle=validate(v);render();},getBundle:()=>bundle,exportCsv};
 })();

@@ -1,0 +1,98 @@
+/* Original static scientific artwork. One theme-aware system; no overlays or animations. */
+:root {
+ --art-dna:url("./scientific-textures/dna-light.svg");
+ --art-molecules:url("./scientific-textures/molecules-light.svg");
+ --art-cells:url("./scientific-textures/cells-light.svg");
+ --art-anatomy:url("./scientific-textures/anatomy-light.svg");
+ --art-data:url("./scientific-textures/data-light.svg");
+ --art-waveforms:url("./scientific-textures/waveforms-light.svg");
+ --science-base:#f7f6f2;
+ --science-cover:rgba(247,246,242,.90);
+ --science-soft-cover:rgba(247,246,242,.48);
+ --science-panel-cover:rgba(255,255,255,.87);
+ --science-panel-edge:rgba(255,255,255,.63);
+ --science-light:rgba(153,141,116,.08);
+}
+body.dark-theme {
+ --art-dna:url("./scientific-textures/dna-dark.svg");
+ --art-molecules:url("./scientific-textures/molecules-dark.svg");
+ --art-cells:url("./scientific-textures/cells-dark.svg");
+ --art-anatomy:url("./scientific-textures/anatomy-dark.svg");
+ --art-data:url("./scientific-textures/data-dark.svg");
+ --art-waveforms:url("./scientific-textures/waveforms-dark.svg");
+ --science-base:#000000;
+ --science-cover:rgba(0,0,0,.90);
+ --science-soft-cover:rgba(0,0,0,.43);
+ --science-panel-cover:rgba(8,8,8,.90);
+ --science-panel-edge:rgba(8,8,8,.64);
+ --science-light:rgba(168,164,150,.065);
+}
+body {
+ min-height:100vh;
+ background-color:var(--science-base);
+ background-image:var(--art-dna),var(--art-molecules),var(--art-cells),var(--art-anatomy),var(--art-waveforms),var(--art-data),radial-gradient(ellipse at 70% 15%,var(--science-light),transparent 60%);
+ background-size:45rem 90rem,103.125rem 103.125rem,86.25rem 86.25rem,98.4375rem 98.4375rem,93.75rem 93.75rem,121.875rem 121.875rem,100% 100%;
+ background-position:right -9.375rem top 8.90625rem,left -26.25rem top 38%,right -26.25rem top 63%,left -13.125rem bottom 4%,right -13.125rem bottom 25%,left -15rem top 4%,center;
+ background-repeat:no-repeat;
+}
+/* Large welcome illustration with a protected text zone. */
+:is(body,body.dark-theme) .hero {
+ max-width:none;
+ background-image:linear-gradient(90deg,var(--science-cover) 0%,var(--science-cover) 44%,var(--science-soft-cover) 100%),var(--art-dna),var(--art-molecules);
+ background-size:100% 100%,30.9375rem 61.875rem,63.75rem 63.75rem;
+ background-position:center,right 5% top -16.875rem,right -21.5625rem top -15rem;
+ background-repeat:no-repeat;
+}
+:is(body,body.dark-theme) .research-overview,:is(body,body.dark-theme) .objective-head,:is(body,body.dark-theme) .catalog-data,:is(body,body.dark-theme) .notes-section,:is(body,body.dark-theme) .desktop-sidebar {
+ background-color:var(--surface);
+ background-image:linear-gradient(100deg,var(--science-panel-cover) 0%,var(--science-panel-cover) 52%,var(--science-panel-edge) 100%),var(--art-molecules);
+ background-size:100% 100%,60.9375rem 60.9375rem;
+ background-position:center,right -7.5rem center;
+ background-repeat:no-repeat;
+}
+:is(body,body.dark-theme) #main,:is(body,body.dark-theme) #objective-results,:is(body,body.dark-theme) #analysis-workspace,:is(body,body.dark-theme) #statistical-glossary {
+ background-color:var(--science-base);
+ background-image:linear-gradient(95deg,var(--science-cover),var(--science-soft-cover)),var(--art-cells),var(--art-molecules);
+ background-size:100% 100%,80.625rem 80.625rem,67.5rem 67.5rem;
+ background-position:center,right -9.375rem top 8.4375rem,left -15.9375rem bottom 5%;
+ background-repeat:no-repeat;
+}
+:is(body,body.dark-theme) #main { background-image:linear-gradient(95deg,var(--science-cover),var(--science-soft-cover)),var(--art-dna),var(--art-cells);background-size:100% 100%,31.875rem 63.75rem,84.375rem 84.375rem;background-position:center,left -13.125rem top 16.875rem,right -11.25rem bottom 10%; }
+:is(body,body.dark-theme) #objective-results { background-image:linear-gradient(95deg,var(--science-cover),var(--science-soft-cover)),var(--art-data),var(--art-waveforms); }
+:is(body,body.dark-theme) #objective-results:has(.writing-fields) { background-image:linear-gradient(95deg,var(--science-cover),var(--science-soft-cover)),var(--art-anatomy),var(--art-cells);background-position:center,right -7.5rem top 3.75rem,left -13.125rem bottom 5%; }
+:is(body,body.dark-theme) #objective-results:has(.interpretation-list) { background-image:linear-gradient(95deg,var(--science-cover),var(--science-soft-cover)),var(--art-cells),var(--art-dna);background-size:100% 100%,84.375rem 84.375rem,30rem 60rem; }
+:is(body,body.dark-theme) #analysis-workspace { background-image:linear-gradient(95deg,var(--science-cover),var(--science-soft-cover)),var(--art-waveforms),var(--art-data); }
+:is(body,body.dark-theme) #statistical-glossary { background-image:linear-gradient(95deg,var(--science-cover),var(--science-soft-cover)),var(--art-molecules),var(--art-cells);background-position:center,right -5.625rem top 3.75rem,left -9.375rem bottom 10%; }
+:is(body,body.dark-theme) .catalog-data { background-image:linear-gradient(100deg,var(--science-panel-cover),var(--science-panel-edge)),var(--art-data);background-size:100% 100%,75rem 75rem; }
+:is(body,body.dark-theme) .desktop-sidebar { background-image:linear-gradient(180deg,var(--science-panel-cover) 0%,var(--science-panel-cover) 48%,var(--science-panel-edge) 100%),var(--art-dna);background-size:100% 100%,19.6875rem 39.375rem;background-position:center,center bottom -6.5625rem; }
+:is(body,body.dark-theme) .topbar,:is(body,body.dark-theme) .progress-strip,:is(body,body.dark-theme) .learning-tools,:is(body,body.dark-theme) .supporting-tools {
+ background-color:var(--surface);
+ background-image:linear-gradient(90deg,var(--science-panel-cover),var(--science-panel-edge)),var(--art-waveforms);
+ background-size:100% 100%,67.5rem 67.5rem;
+ background-position:center,right center;
+ background-repeat:no-repeat;
+}
+:is(body,body.dark-theme) .objective-card,:is(body,body.dark-theme) .analysis-card,:is(body,body.dark-theme) .method-card,:is(body,body.dark-theme) .variable-card {
+ background-color:var(--surface);
+ background-image:linear-gradient(110deg,var(--science-panel-cover),var(--science-panel-cover) 65%,var(--science-panel-edge)),var(--art-cells);
+ background-size:100% 100%,45rem 45rem;
+ background-position:center,right -14.0625rem top -16.875rem;
+ background-repeat:no-repeat;
+}
+:is(body,body.dark-theme) .objective-card:nth-child(3n+2),:is(body,body.dark-theme) .analysis-card:nth-child(2n) {background-image:linear-gradient(110deg,var(--science-panel-cover),var(--science-panel-cover) 65%,var(--science-panel-edge)),var(--art-molecules);background-position:center,right -12.1875rem bottom -14.0625rem;}
+:is(body,body.dark-theme) .objective-card:nth-child(3n) {background-image:linear-gradient(110deg,var(--science-panel-cover),var(--science-panel-cover) 65%,var(--science-panel-edge)),var(--art-data);}
+/* Dense outputs and reading/editing surfaces stay opaque in both themes. */
+:is(body,body.dark-theme) .result-preview,:is(body,body.dark-theme) .catalog-item,:is(body,body.dark-theme) .interpretation-card,:is(body,body.dark-theme) .glossary-detail,:is(body,body.dark-theme) .glossary-entry,:is(body,body.dark-theme) .writing-editor,:is(body,body.dark-theme) .writing-final,:is(body,body.dark-theme) .report-order,:is(body,body.dark-theme) .interpretation,:is(body,body.dark-theme) .analysis-notes,:is(body,body.dark-theme) .results-scroll,:is(body,body.dark-theme) .catalog-data table,:is(body,body.dark-theme) .analysis-figure,:is(body,body.dark-theme) .result-preview figure {
+ background:var(--surface);
+}
+:is(body,body.dark-theme) .glossary-entry:hover,:is(body,body.dark-theme) .glossary-entry[aria-pressed=true] {background:var(--soft);}
+:is(body,body.dark-theme) .writing-editor {padding:0.9375rem;border-radius:0.75rem;}
+@media(max-width:75rem) {
+ body { background-size:28.125rem 56.25rem,67.5rem 67.5rem,60.9375rem 60.9375rem,67.5rem 67.5rem,63.75rem 63.75rem,76.875rem 76.875rem,100% 100%;background-position:right -8.90625rem top 13.125rem,left -23.4375rem top 35%,right -22.5rem top 62%,left -19.6875rem bottom 4%,right -18.75rem bottom 24%,left -18.75rem top 5%,center; }
+:is(body,body.dark-theme) .hero { background-size:100% 100%,20.625rem 41.25rem,42.1875rem 42.1875rem;background-position:center,right -7.5rem top -7.03125rem,right -26.25rem top -7.5rem; }
+:is(body,body.dark-theme) #main,:is(body,body.dark-theme) #objective-results,:is(body,body.dark-theme) #analysis-workspace,:is(body,body.dark-theme) #statistical-glossary {background-size:100% 100%,60.9375rem 60.9375rem,50.625rem 50.625rem;background-position:center,right -19.6875rem top 11.25rem,left -19.6875rem bottom 5%;}
+:is(body,body.dark-theme) #main {background-size:100% 100%,21.5625rem 43.125rem,60.9375rem 60.9375rem;}
+:is(body,body.dark-theme) #objective-results:has(.interpretation-list) {background-size:100% 100%,60.9375rem 60.9375rem,22.5rem 45rem;}
+:is(body,body.dark-theme) #objective-results:has(.writing-fields) {background-position:center,right -19.6875rem top 5.625rem,left -18.75rem bottom 5%;}
+:is(body,body.dark-theme) .research-overview,:is(body,body.dark-theme) .objective-head,:is(body,body.dark-theme) .catalog-data,:is(body,body.dark-theme) .notes-section {background-size:100% 100%,48.75rem 48.75rem;background-position:center,right -22.5rem center;}
+}
