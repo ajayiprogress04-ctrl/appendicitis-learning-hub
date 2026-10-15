@@ -1,0 +1,11 @@
+Objective One complete diagnostic methods update
+
+Preserves four fixed strategies (MAS>=7,hs-CRP>3mg/L,AND,OR), raw data and other objectives. No AIR in Objective1. Added2 raw-marker AUC/ROC outputs, paired DeLong,1 exploratory continuous MAS+CRP Firth adjunct with penalised-profile OR95% intervals and chi-square1 likelihood-ratio p-values,85fold LOOCV and200 stratified bootstrap refits, Youden threshold table. No artificial AND/OR ROC. Primary cutoffs retained.
+
+All85 eligible:77positive8negative. Marker AUCs MAS0.828 hsCRP0.751; paired difference0.077 z0.721 p0.471. Firth adjusted ORs MAS2.601(1.170-6.724),hsCRP1.081(0.988-1.197), unadjusted exploratory p0.018 and0.090. Model apparentAUC0.881,LOOCV0.810(conditionalCI0.679-0.917),bootstrapoptimismcorrected0.866.200/200 refits succeeded. Sparse negative sample and linear-log-odds assumption limit model reliability; this adjunct does not replace fixed rules. No external validation, no full model-refitting CI for corrected AUC.
+
+Raw-marker percentile CIs1000 stratified resamples; DeLong's single comparison separate from nine fixed-rule McNemar tests/Holm family. Firth two coefficient tests exploratory/unadjusted. Sample-optimal Youden cutoffs MAS>=8,CRP>=5.3mg/L are secondary and not replacements.
+
+Verified independently with NumPy/SciPy: AUCs and1000bootstrap intervals, DeLong, all Youden maxima; Firth penalised likelihood/profile roots/LR tests;85independent LOOCV fits;200bootstrap refits and optimism. Actual SAV imported in running app; all10 Objective1 outputs generated; real downloaded Word contained8editabletables and2embeddedfigures with expected numeric results and refit counts. Cached reuse avoids duplicate model calculations; seeded score CIs independent of request order. Final report rendered/reviewed. No unrelated objective regenerated for this update.
+
+Runtime changed: analysis-engine.js,result-catalog.js,result-exports.js,client-report-style.js,output-essence.js,index.html. Complete runtime files included; no patient data/private QA files included. Live deployment not updated; use existing manual deployment workflow.
