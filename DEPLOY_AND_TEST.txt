@@ -1,0 +1,16 @@
+GOOGLE DRIVE CONFIGURATION UPDATE
+
+The supplied OAuth client ID, restricted browser API key and Google Cloud project number are now set in google-drive-config.js. These are public browser identifiers; no client secret is used.
+
+If the previous Google Drive import update is installed, replace only google-drive-config.js in your existing app and redeploy. Otherwise also replace index.html and results-browser.js, and add google-drive-import.js from this package. Keep all other existing application files, including client-report-style.js from the report-style update.
+
+Current authorized app origin:
+https://appendicitis-learning-jogtpmk1v-progress04.vercel.app
+
+IMPORTANT: deploying may produce a new deployment-specific URL. Before testing, add the exact URL you will actually use to the OAuth client's Authorized JavaScript origins and to the API key's website restrictions (with /* for the latter). Prefer the project's stable production domain, obtained from Vercel's Domains settings. Keep https://docs.google.com/* as an additional API-key website restriction. Do not remove restrictions.
+
+Keep the dataset private. Share it with each approved researcher's own Google account. While the Google consent app is in Testing, add those accounts under Google Auth Platform > Audience > Test users. Researchers authorize through Google's official popup; do not share account passwords.
+
+After deployment: open Tables & Figures > Import Private Dataset > Connect Google Drive. First use loads Google controls; click again when prompted. Authorize, choose the private .sav file, inspect the preview, then click Use this dataset for analysis and generate a result. Manual upload remains available.
+
+Only local configuration syntax has been checked in this update. Prior browser tests used simulated Google responses with real SAV parsing and analysis. Live consent, Picker, Drive download, restrictions and deployment have NOT been verified. Report any exact error after deployment; do not share access tokens or client secrets.
