@@ -1,10 +1,9 @@
-Appendicitis report style update
+APPENDICITIS REPORT STYLE UPDATE
 
-Replace the four existing files included in this archive in your app folder; add REPORTING_STYLE_REFERENCE.md for the reusable formatting policy. Preserve the remaining project files and private dataset. Reload the app after applying the update. No dependency installation is required.
+Replace index.html, result-exports.js, report-preview.js and reports.js in the existing app. Add client-report-style.js beside them. Upload these files together using your usual manual deployment method. No new dependencies are required.
 
-Changed files: result-exports.js, report-preview.js, reports.js, index.html.
-The shared report template now uses the approved reference style for Word and previews. It preserves editable tables, generated figures, selected outputs, custom ordering, reviewed writing and strict publication checks. The Reports prose editor uses the same generated paragraph as the export.
+In Reports, choose Client report selection, then Preview or Export Selected. All original outputs remain available for individual selection or Select All.
 
-Tests actually performed: full All Objectives generation using actual data; 113 supported outputs and four unsupported outputs identified; complete browser Word download and full preview (74 tables, 39 figures); Objective 2 preview/export (5 outputs); all 113 result objects unchanged; all 74 table matrices identical to the uploaded report; scientific note conservation; authored narrative preservation; selection/order controls; empty/invalid/unsaved-content guards; JavaScript syntax; Word package/XML, table headers, image count and margins; rendered document layout inspection. Desktop/mobile and three-theme controls were checked. Word was inspected with python-docx and a compatible LibreOffice renderer, not Microsoft Word.
+This update standardises the report presentation, readable editable table panels, associated figures, concise scientific prose, and shared Word/preview formatting. Research data and statistical calculations are unchanged.
 
-No deployment was performed. The changes apply after you update your hosted app using your existing manual workflow. Existing protocol qualifications and unsupported analyses are retained; this is not a new audit or validation of the statistical methods.
+Deployment has not been performed.
