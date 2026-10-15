@@ -8,6 +8,7 @@ window.RESULT_CATALOG = (()=>{
  add('1','table','d1_population','Analysis population and histopathological reference diagnosis','Descriptive',['MAS','CRP','histology'],'Common complete-case reconciliation.');
  add('1','table','d1_classification','Diagnostic classifications for MAS, hsCRP and exploratory models','Diagnostic',['MAS','CRP','histology'],'TP/TN/FP/FN at declared thresholds.');
  add('1','table','d1_performance','Sensitivity, specificity and accuracy of the diagnostic approaches','Diagnostic',['MAS','CRP','histology'],'Wilson intervals; held-out model classification.');
+ add('1','table','requested_diagnostic_comparisons','Priority diagnostic comparisons under Objective 1','Diagnostic',['MAS','CRP','AIR','histology'],'Fixed-cutoff paired exact McNemar comparisons with Holm adjustment; undocumented combined rules remain unestimated.');
  add('1','table','d1_predictive','Predictive values and likelihood ratios of the diagnostic approaches','Diagnostic',['MAS','CRP','histology'],'Wilson predictive-value and log-LR intervals.');
  add('1','table','d1_auc','Discrimination of MAS and the exploratory MAS plus hsCRP model','Diagnostic',['MAS','CRP','histology'],'Tie-aware AUC; stratified bootstrap.');
  add('1','table','d1_calibration','Apparent and held-out model performance and calibration summaries','Validation',['MAS','CRP','histology'],'Firth models; leave-one-out Brier and log loss.');

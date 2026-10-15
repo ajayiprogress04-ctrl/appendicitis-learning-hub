@@ -10,7 +10,7 @@ window.HUB_DATA = {
       "color": "#166b79",
       "description": "Compare MAS alone with a defensible combined model.",
       "approved": "compare the accuracy of modified Alvarado score (MAS) alone versus MAS plus high sensitivity c-reactive protein (hsCRP) in the diagnosis of acute appendicitis",
-      "note": "No prespecified combined AND/OR rule was recovered. The workspace uses exploratory Firth models with a fixed analyst 0.50 probability cutoff and leave-one-out evaluation. MAS \u22657 is protocol-supported categorization; hsCRP >3 mg/L is laboratory elevation, not a universally validated appendicitis cutoff.",
+      "note": "No prespecified combined AND/OR rule was recovered. The workspace uses exploratory Firth models with a fixed analyst 0.50 probability cutoff and leave-one-out evaluation. MAS \u22657 is protocol-supported categorization; hsCRP >3 mg/L is the confirmed study-positive threshold; ≤3 mg/L is negative.",
       "contribution": "Ask whether hsCRP supplies information beyond MAS, while separating apparent discrimination from validated clinical benefit.",
       "methods": [
         {
@@ -1045,7 +1045,7 @@ window.HUB_DATA = {
         "name": "HS_CRP_3MG_CATEGORY",
         "role": "Derived main diagnostic predictor",
         "why": "Traceable derivation from CRP. Nonnegative nonmissing CRP <=3 ->0; CRP >3 ->1; negative or missing ->system missing",
-        "result": "hsCRP elevation using study laboratory upper reference limit of 3 mg/L. Protocol specifies elevation above 3 mg/L. This is a study laboratory elevation threshold, not a universally validated appendicitis cutoff. Continuous CRP is retained without conversion.",
+        "result": "hsCRP elevation using study laboratory upper reference limit of 3 mg/L. Protocol specifies elevation above 3 mg/L. This is the confirmed study diagnostic cutoff: >3 mg/L positive and ≤3 mg/L negative; it is not a universal cutoff. Continuous CRP is retained without conversion.",
         "methods": [
           "logistic",
           "firth",
@@ -1190,7 +1190,7 @@ window.HUB_DATA = {
         "name": "HS_CRP_3MG_CATEGORY",
         "role": "Derived main diagnostic measurement",
         "why": "Traceable derivation from CRP. Nonnegative nonmissing CRP <=3 ->0; CRP >3 ->1; negative or missing ->system missing",
-        "result": "hsCRP elevation using study laboratory upper reference limit of 3 mg/L. Protocol specifies elevation above 3 mg/L. This is a study laboratory elevation threshold, not a universally validated appendicitis cutoff. Continuous CRP is retained without conversion.",
+        "result": "hsCRP elevation using study laboratory upper reference limit of 3 mg/L. Protocol specifies elevation above 3 mg/L. This is the confirmed study diagnostic cutoff: >3 mg/L positive and ≤3 mg/L negative; it is not a universal cutoff. Continuous CRP is retained without conversion.",
         "methods": [
           "summaries",
           "welch",
@@ -1335,7 +1335,7 @@ window.HUB_DATA = {
         "name": "HS_CRP_3MG_CATEGORY",
         "role": "Derived main diagnostic predictor",
         "why": "Traceable derivation from CRP. Nonnegative nonmissing CRP <=3 ->0; CRP >3 ->1; negative or missing ->system missing",
-        "result": "hsCRP elevation using study laboratory upper reference limit of 3 mg/L. Protocol specifies elevation above 3 mg/L. This is a study laboratory elevation threshold, not a universally validated appendicitis cutoff. Continuous CRP is retained without conversion.",
+        "result": "hsCRP elevation using study laboratory upper reference limit of 3 mg/L. Protocol specifies elevation above 3 mg/L. This is the confirmed study diagnostic cutoff: >3 mg/L positive and ≤3 mg/L negative; it is not a universal cutoff. Continuous CRP is retained without conversion.",
         "methods": [
           "sensitivity",
           "roc",
@@ -1588,7 +1588,7 @@ window.HUB_DATA = {
         "name": "HS_CRP_3MG_CATEGORY",
         "role": "Derived supplementary description",
         "why": "Traceable derivation from CRP. Nonnegative nonmissing CRP <=3 ->0; CRP >3 ->1; negative or missing ->system missing",
-        "result": "hsCRP elevation using study laboratory upper reference limit of 3 mg/L. Protocol specifies elevation above 3 mg/L. This is a study laboratory elevation threshold, not a universally validated appendicitis cutoff. Continuous CRP is retained without conversion.",
+        "result": "hsCRP elevation using study laboratory upper reference limit of 3 mg/L. Protocol specifies elevation above 3 mg/L. This is the confirmed study diagnostic cutoff: >3 mg/L positive and ≤3 mg/L negative; it is not a universal cutoff. Continuous CRP is retained without conversion.",
         "methods": [
           "summaries"
         ]
@@ -1917,7 +1917,7 @@ window.HUB_DATA = {
         "name": "HS_CRP_3MG_CATEGORY",
         "role": "Derived diagnostic context \u2014 not a price",
         "why": "Traceable derivation from CRP. Nonnegative nonmissing CRP <=3 ->0; CRP >3 ->1; negative or missing ->system missing",
-        "result": "hsCRP elevation using study laboratory upper reference limit of 3 mg/L. Protocol specifies elevation above 3 mg/L. This is a study laboratory elevation threshold, not a universally validated appendicitis cutoff. Continuous CRP is retained without conversion.",
+        "result": "hsCRP elevation using study laboratory upper reference limit of 3 mg/L. Protocol specifies elevation above 3 mg/L. This is the confirmed study diagnostic cutoff: >3 mg/L positive and ≤3 mg/L negative; it is not a universal cutoff. Continuous CRP is retained without conversion.",
         "methods": [
           "incremental"
         ]

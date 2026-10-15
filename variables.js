@@ -1156,7 +1156,7 @@ window.HUB_VARIABLES = {
       "storage": "double",
       "analysisType": "nominal derived measurement",
       "unit": "See exact operational definition",
-      "issue": "Nonnegative nonmissing CRP <=3 ->0; CRP >3 ->1; negative or missing ->system missing. Protocol specifies elevation above 3 mg/L. This is a study laboratory elevation threshold, not a universally validated appendicitis cutoff. Continuous CRP is retained without conversion.",
+      "issue": "Nonnegative nonmissing CRP <=3 ->0; CRP >3 ->1; negative or missing ->system missing. Protocol specifies elevation above 3 mg/L. This is the confirmed study diagnostic cutoff: >3 mg/L positive and ≤3 mg/L negative; it is not a universal cutoff. Continuous CRP is retained without conversion.",
       "objectives": [
         1,
         2,
