@@ -1,0 +1,21 @@
+/* Scoped help workspace, using the existing three-theme tokens and typography. */
+dialog.user-guide { width:min(850px,calc(100vw - 2rem));max-width:calc(100vw - 2rem);max-height:calc(100dvh - 2rem);padding:0;border:1px solid var(--ui-divider);border-radius:var(--ui-radius,.75rem);background:var(--surface);color:var(--ink);font:inherit;overflow:auto;overscroll-behavior:contain; }
+.user-guide::backdrop { background:rgb(0 0 0 / .6); }
+.user-guide .guide-header { position:sticky;top:0;z-index:1;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1rem 1.25rem;background:var(--surface);border-bottom:1px solid var(--ui-divider); }
+.user-guide h2 { margin:.15rem 0 0;font-size:var(--type-h2,1.5rem); }
+.user-guide h3 { font-size:var(--type-subheading,1.125rem);margin:1rem 0 .5rem; }
+.user-guide .guide-body { padding:.25rem 1.25rem 1.25rem; }
+.user-guide p { line-height:1.6;margin:.5rem 0 .85rem; }
+.user-guide .guide-link { display:inline;border:0;border-bottom:1px solid currentColor;border-radius:0;padding:.1rem 0;background:transparent;color:var(--ink);font:inherit;font-weight:600;text-align:left;cursor:pointer; }
+.user-guide .guide-link:hover { color:var(--brand-ruby,var(--accent)); }
+.user-guide button:focus-visible,.user-guide summary:focus-visible { outline:2px solid var(--accent);outline-offset:3px; }
+.user-guide .guide-steps { list-style:none;padding:0;margin:.75rem 0;display:grid;grid-template-columns:1fr 1fr;gap:.75rem 1.25rem; }
+.user-guide .guide-steps li { display:flex;gap:.7rem;align-items:flex-start;min-width:0; }
+.user-guide .guide-step-number { flex:0 0 1.8rem;display:grid;place-items:center;height:1.8rem;border:1px solid var(--ui-divider);border-radius:50%;font-variant-numeric:tabular-nums;color:var(--ink); }
+.user-guide .guide-steps p { font-size:var(--type-control,.875rem);margin:.3rem 0; }
+.user-guide .guide-scenarios { list-style:none;padding:0;margin:.5rem 0 1rem; }
+.user-guide .guide-scenarios li { display:flex;justify-content:space-between;align-items:center;gap:.75rem;padding:.55rem 0;border-bottom:1px solid var(--ui-divider); }
+.user-guide details { margin:.75rem 0;padding:.65rem 0;border-top:1px solid var(--ui-divider); }
+.user-guide summary { cursor:pointer;font-weight:600; }
+.user-guide .quiet-button { flex-shrink:0;white-space:normal; }
+@media(max-width:600px){dialog.user-guide { width:calc(100vw - 1rem);max-width:calc(100vw - 1rem);max-height:calc(100dvh - 1rem); }.user-guide .guide-header { padding:.8rem;align-items:flex-start; }.user-guide .guide-body { padding:.25rem .8rem 1rem; }.user-guide .guide-steps { grid-template-columns:1fr;gap:.8rem; }.user-guide .guide-scenarios li { display:grid;gap:.4rem; }.user-guide .guide-scenarios button { justify-self:start;min-height:44px; }.user-guide .guide-header button { max-width:7rem;min-height:44px; }}
