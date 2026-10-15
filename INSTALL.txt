@@ -1,0 +1,9 @@
+SHARED VIEW MATCHES MAIN VIEW
+
+Replace public-sharing.js in your current updated app, then redeploy to the same Vercel project. Keep all other files. Refresh the main app and use Copy app link or Share app again. Previously distributed links still identify their original deployments and are not rewritten by this change.
+
+Cause: the sharing helper preferred a fixed canonical URL identifying an older deployment. It now uses the address of the app currently open, excluding query parameters and fragments. Both copy and native-share paths use the same helper. Research data, analyses, styles, reports and Google authentication were not changed.
+
+Verified locally in Chromium: actual clipboard copy, opening that URL in a new tab with identical updated title/introduction/controls, ignored stale canonical, removed query/hash, and correct simulated native-share payload. JavaScript syntax passed. No live deployment was performed.
+
+Keep social metadata configured for your stable production domain separately; this fix changes the destination of copied/shared links, not cached previews or older deployed pages.

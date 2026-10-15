@@ -1,7 +1,9 @@
 /* Shares only the public app address, never dataset links, tokens, filters or results. */
 (()=>{'use strict';
  const copy=document.getElementById('copy-app-link'),share=document.getElementById('share-app-link'),status=document.getElementById('public-share-status'),fallback=document.getElementById('public-share-fallback'),field=document.getElementById('public-share-url');
- function url(){return document.querySelector('link[rel="canonical"]')?.href||location.origin+location.pathname;}
+ // A copied deployment must never send visitors back to an older canonical deployment.
+ // Omit query/hash state so sharing cannot disclose private workspace information.
+ function url(){return location.origin+location.pathname;}
  function manual(){fallback.hidden=false;field.value=url();field.focus();field.select();status.textContent='Select and copy the app link below.';}
  async function copyLink(){try{if(!navigator.clipboard?.writeText)return manual();await navigator.clipboard.writeText(url());fallback.hidden=true;status.textContent='App link copied.';}catch{manual();}}
  copy?.addEventListener('click',copyLink);
