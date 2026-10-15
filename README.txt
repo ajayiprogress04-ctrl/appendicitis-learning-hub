@@ -1,5 +1,11 @@
-Copy the application files into the existing project root, replacing matching files. Regenerate Table 1.1 (Demographic and baseline characteristics) from the active dataset. Select that same output in Reports or Papers; no new duplicate output was created.
+Replace these four files in the existing project.
 
-Adds religion, education, marital status and occupation counts/percentages, validated source codes, denominator/missingness handling, integrated interpretation, purpose and glossary explanations. This update intentionally adds descriptive analyses only; see DEMOGRAPHIC_ANALYSIS_REVIEW.md for the evaluation of exploratory comparisons and unresolved protocol/coding questions. All 85 source records were audited; no original data changed.
+Bulk Analysis & Report Export: the existing shared disclosure system now places lengthy selection/configuration/instructions behind its clickable heading, collapsed by default. Selected counts, analysis/export actions, progress and error messages remain outside the fold. Existing individual-output lists, previews and qualifications retain their independent controls. The extra surrounding Bulk analysis tools accordion in Reports was removed to avoid unnecessary nesting.
 
-Tests: SPSS reconciliation; missing/unknown/absent field safeguards; seven unrelated analyses unchanged; in-app table/Interpretations desktop/mobile in three themes; preview and Word download; DOCX XML and two rendered pages inspected. No live deployment performed.
+Reports: per-output component/editing controls start collapsed, keeping each inclusion checkbox and title visible. Essence remains outside the editing fold. Existing scientific results, notes and interpretations remain accessible and are not automatically hidden.
+
+Audit: Objectives already use independent objective/method disclosures; Interpretations and Glossary already have shared disclosures; Papers already uses progressive detail panels. Those working behaviours were reused rather than adding another layer to every paragraph.
+
+Open/closed choices persist across bulk rerenders and both workspaces. Existing Expand all / Collapse all controls work with the new folds. Collapse is view state only and does not alter report selection or content. No scientific or export-generation logic changed.
+
+Actual Chromium checks: desktop 1440x900 and mobile 390x844, in all three themes; keyboard Enter expansion, heading clicks, independent sections, closed/open persistence after selection changes, visible key actions and retained report selections. Actual single-output bulk processing completed; progress stayed visible. Downloaded Word export retained all 25 demographic rows plus header as a genuine editable table when report editing controls were collapsed. Changed JS syntax checks passed. No deployment performed.
