@@ -1,0 +1,494 @@
+{
+  "tested": [
+    {
+      "id": "1:baseline",
+      "state": "ready"
+    },
+    {
+      "id": "1:d1_population",
+      "state": "ready"
+    },
+    {
+      "id": "1:d1_classification",
+      "state": "ready"
+    },
+    {
+      "id": "1:d1_performance",
+      "state": "ready"
+    },
+    {
+      "id": "1:d1_predictive",
+      "state": "ready"
+    },
+    {
+      "id": "1:d1_auc",
+      "state": "ready"
+    },
+    {
+      "id": "1:d1_calibration",
+      "state": "ready"
+    },
+    {
+      "id": "1:d1_paired",
+      "state": "ready"
+    },
+    {
+      "id": "1:d1_roc",
+      "state": "ready"
+    },
+    {
+      "id": "1:d1_aucplot",
+      "state": "ready"
+    },
+    {
+      "id": "1:d1_confusion",
+      "state": "ready"
+    },
+    {
+      "id": "1:d1_calplot",
+      "state": "ready"
+    },
+    {
+      "id": "2:s2_descriptive",
+      "state": "ready"
+    },
+    {
+      "id": "2:s2_comparison",
+      "state": "ready"
+    },
+    {
+      "id": "2:s2_severityPerformance",
+      "state": "ready"
+    },
+    {
+      "id": "2:s2_box",
+      "state": "ready"
+    },
+    {
+      "id": "2:s2_severityROC",
+      "state": "ready"
+    },
+    {
+      "id": "3:age_population",
+      "state": "ready"
+    },
+    {
+      "id": "3:age_performance",
+      "state": "ready"
+    },
+    {
+      "id": "3:age_comparison_unavailable",
+      "state": "pending"
+    },
+    {
+      "id": "3:age_roc",
+      "state": "ready"
+    },
+    {
+      "id": "3:age_rates",
+      "state": "ready"
+    },
+    {
+      "id": "4:neg_histology",
+      "state": "ready"
+    },
+    {
+      "id": "4:neg_rate",
+      "state": "ready"
+    },
+    {
+      "id": "4:neg_subgroups",
+      "state": "ready"
+    },
+    {
+      "id": "4:neg_histology_bar",
+      "state": "ready"
+    },
+    {
+      "id": "4:o4_cost_summary",
+      "state": "review"
+    },
+    {
+      "id": "4:o4_stay",
+      "state": "review"
+    },
+    {
+      "id": "4:o4_pain_duration",
+      "state": "review"
+    },
+    {
+      "id": "4:o4_diagnosis_time",
+      "state": "review"
+    },
+    {
+      "id": "4:o4_surgery_time",
+      "state": "review"
+    },
+    {
+      "id": "4:o4_pain_findings",
+      "state": "review"
+    },
+    {
+      "id": "5:conf_distribution",
+      "state": "ready"
+    },
+    {
+      "id": "5:conf_transition",
+      "state": "ready"
+    },
+    {
+      "id": "5:conf_change",
+      "state": "ready"
+    },
+    {
+      "id": "5:conf_inference_unavailable",
+      "state": "ready"
+    },
+    {
+      "id": "5:conf_profession_unavailable",
+      "state": "pending"
+    },
+    {
+      "id": "5:conf_heatmap",
+      "state": "ready"
+    },
+    {
+      "id": "5:conf_bars",
+      "state": "ready"
+    },
+    {
+      "id": "6:overallcost_summary",
+      "state": "ready"
+    },
+    {
+      "id": "6:incremental_cost_unavailable",
+      "state": "pending"
+    },
+    {
+      "id": "6:overallcost_histogram",
+      "state": "ready"
+    },
+    {
+      "id": "A:cost_descriptive",
+      "state": "ready"
+    },
+    {
+      "id": "A:cost_comparison",
+      "state": "ready"
+    },
+    {
+      "id": "A:adjusted_cost_unavailable",
+      "state": "ready"
+    },
+    {
+      "id": "A:cost_box",
+      "state": "ready"
+    },
+    {
+      "id": "A:costgroup_histology_summary",
+      "state": "ready"
+    },
+    {
+      "id": "A:costgroup_histology_comparison",
+      "state": "ready"
+    },
+    {
+      "id": "A:costgroup_histology_box",
+      "state": "ready"
+    },
+    {
+      "id": "A:costgroup_age_summary",
+      "state": "ready"
+    },
+    {
+      "id": "A:costgroup_age_comparison",
+      "state": "ready"
+    },
+    {
+      "id": "A:costgroup_age_box",
+      "state": "ready"
+    },
+    {
+      "id": "B:db_population",
+      "state": "ready"
+    },
+    {
+      "id": "B:db_classification",
+      "state": "ready"
+    },
+    {
+      "id": "B:db_performance",
+      "state": "ready"
+    },
+    {
+      "id": "B:db_predictive",
+      "state": "ready"
+    },
+    {
+      "id": "B:db_auc",
+      "state": "ready"
+    },
+    {
+      "id": "B:db_paired",
+      "state": "ready"
+    },
+    {
+      "id": "B:db_calibration",
+      "state": "ready"
+    },
+    {
+      "id": "B:db_roc",
+      "state": "ready"
+    },
+    {
+      "id": "B:db_aucplot",
+      "state": "ready"
+    },
+    {
+      "id": "B:db_confusion",
+      "state": "ready"
+    },
+    {
+      "id": "B:db_calplot",
+      "state": "ready"
+    },
+    {
+      "id": "B:master_performance",
+      "state": "ready"
+    },
+    {
+      "id": "B:master_comparisons",
+      "state": "ready"
+    },
+    {
+      "id": "B:master_rates",
+      "state": "ready"
+    },
+    {
+      "id": "C:assoc_continuous",
+      "state": "ready"
+    },
+    {
+      "id": "C:adjusted_association_unavailable",
+      "state": "pending"
+    },
+    {
+      "id": "C:assoc_scatter",
+      "state": "ready"
+    },
+    {
+      "id": "C:assoc_forest",
+      "state": "ready"
+    },
+    {
+      "id": "D:air_distribution",
+      "state": "ready"
+    },
+    {
+      "id": "D:air_histology",
+      "state": "ready"
+    },
+    {
+      "id": "D:air_category_histology",
+      "state": "ready"
+    },
+    {
+      "id": "D:air_category_severity",
+      "state": "ready"
+    },
+    {
+      "id": "D:air_performance",
+      "state": "ready"
+    },
+    {
+      "id": "D:air_associations",
+      "state": "ready"
+    },
+    {
+      "id": "D:air_histology_proportions",
+      "state": "ready"
+    },
+    {
+      "id": "D:air_histogram",
+      "state": "ready"
+    },
+    {
+      "id": "D:air_categories",
+      "state": "ready"
+    },
+    {
+      "id": "D:air_roc",
+      "state": "ready"
+    },
+    {
+      "id": "D:air_box_histology",
+      "state": "ready"
+    },
+    {
+      "id": "D:air_postop",
+      "state": "ready"
+    },
+    {
+      "id": "E:pcv_distribution",
+      "state": "ready"
+    },
+    {
+      "id": "E:pcv_references",
+      "state": "ready"
+    },
+    {
+      "id": "E:pcv_histology",
+      "state": "ready"
+    },
+    {
+      "id": "E:pcv_severity",
+      "state": "ready"
+    },
+    {
+      "id": "E:pcv_category_histology",
+      "state": "ready"
+    },
+    {
+      "id": "E:pcv_category_air",
+      "state": "ready"
+    },
+    {
+      "id": "E:pcv_associations",
+      "state": "ready"
+    },
+    {
+      "id": "E:pcv_histogram",
+      "state": "ready"
+    },
+    {
+      "id": "E:pcv_box_histology",
+      "state": "ready"
+    },
+    {
+      "id": "E:pcv_scatter",
+      "state": "ready"
+    },
+    {
+      "id": "E:pcv_postop",
+      "state": "ready"
+    },
+    {
+      "id": "F:sign_distribution",
+      "state": "ready"
+    },
+    {
+      "id": "F:sign_histology",
+      "state": "review"
+    },
+    {
+      "id": "F:sign_severity",
+      "state": "review"
+    },
+    {
+      "id": "F:sign_air",
+      "state": "review"
+    },
+    {
+      "id": "F:sign_performance",
+      "state": "ready"
+    },
+    {
+      "id": "F:sign_likelihood",
+      "state": "ready"
+    },
+    {
+      "id": "F:sign_bar",
+      "state": "ready"
+    },
+    {
+      "id": "F:sign_rates",
+      "state": "ready"
+    },
+    {
+      "id": "F:sign_combination_unavailable",
+      "state": "ready"
+    },
+    {
+      "id": "G:labwbc_distribution",
+      "state": "ready"
+    },
+    {
+      "id": "G:labwbc_histology",
+      "state": "ready"
+    },
+    {
+      "id": "G:labwbc_performance",
+      "state": "ready"
+    },
+    {
+      "id": "G:labwbc_histogram",
+      "state": "ready"
+    },
+    {
+      "id": "G:labwbc_box",
+      "state": "ready"
+    },
+    {
+      "id": "G:labwbc_roc",
+      "state": "ready"
+    },
+    {
+      "id": "H:labneut_distribution",
+      "state": "ready"
+    },
+    {
+      "id": "H:labneut_histology",
+      "state": "ready"
+    },
+    {
+      "id": "H:labneut_performance",
+      "state": "ready"
+    },
+    {
+      "id": "H:labneut_histogram",
+      "state": "ready"
+    },
+    {
+      "id": "H:labneut_box",
+      "state": "ready"
+    },
+    {
+      "id": "H:labneut_roc",
+      "state": "ready"
+    },
+    {
+      "id": "I:scan_distribution",
+      "state": "ready"
+    },
+    {
+      "id": "I:scan_histology",
+      "state": "ready"
+    },
+    {
+      "id": "I:scan_bar",
+      "state": "ready"
+    }
+  ],
+  "papers": [
+    "diagnosis",
+    "severity",
+    "resources",
+    "confidence",
+    "strategies",
+    "air-triage",
+    "age",
+    "pcv",
+    "clinical-presentation",
+    "pathway",
+    "postoperative",
+    "wbc-biomarkers",
+    "scan-description",
+    "imaging-combination",
+    "anatomy",
+    "affordability",
+    "cost-effectiveness"
+  ],
+  "combined": 113,
+  "themes": 6,
+  "errors": []
+}

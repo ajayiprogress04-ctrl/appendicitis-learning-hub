@@ -558,3 +558,12 @@ blockquote{font-family:var(--font-ui);font-style:normal;font-size:var(--type-bod
 }
 /* Preserve intentional background locks; panel/dialog scrolling remains independent. */
 html:has(body.result-focus,body.nav-drawer-open,dialog:modal) { overflow-y:hidden; }
+
+/* Shared report-review dialog; scientific output styling comes from the export renderer. */
+.shared-report-dialog { width:min(1100px,calc(100vw - 2rem));max-width:calc(100vw - 2rem);max-height:calc(100dvh - 2rem);padding:1rem;border:1px solid var(--ui-divider);border-radius:var(--ui-radius,.75rem);background:var(--surface);color:var(--ink);overflow:auto;overscroll-behavior:contain; }
+.shared-report-dialog::backdrop { background:rgb(0 0 0 / .6); }
+.shared-preview-header { display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:.75rem; }
+.shared-preview-header h2 { margin:0;font-size:var(--type-card);overflow-wrap:anywhere; }
+.shared-preview-header button { flex-shrink:0;min-height:44px; }
+.shared-report-dialog .shared-report-frame { height:75vh!important; }
+@media(max-width:600px){.shared-report-dialog{width:calc(100vw - 1rem);max-width:calc(100vw - 1rem);padding:.6rem}.shared-preview-header{align-items:flex-start;gap:.5rem}.shared-preview-header button{max-width:7rem;white-space:normal}}

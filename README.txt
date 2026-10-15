@@ -1,9 +1,20 @@
-Visible main-page scrollbar update
+Preview Report repair — 15 October 2026
 
-Replace styles.css at the existing app root. Only this stylesheet changed. No JavaScript, datasets, calculations, navigation or report content changed.
+Apply: copy the eight application files from this archive into the existing project root, replacing matching files. Keep report-preview.js beside index.html. Deploy using your usual manual workflow; no live deployment was performed here.
 
-Inspection: initial landing content already uses normal document flow and can exceed the viewport. There is no startup fixed-height or overflow:hidden lock to remove. The missing discoverability came from relying on the browser/OS default auto/overlay scrollbar. Explicit native root overflow-y:scroll, a stable gutter, contrasting theme-aware thumb/track and WebKit styling now make the document scrollbar visible on fine-pointer/hover desktops from the landing screen. This is the actual root scroller, not a decorative element or an inner results panel. No artificial blank content or wheel handlers.
+Cause: report and bulk previews reused strict publication-export validation, so a single unresolved note or non-estimable statistic stopped the entire preview. Papers had no dedicated preview action, and uncalculated bulk selections could abort assembly.
 
-Touch/coarse-pointer devices retain native auto/touch scrolling without a forced desktop scrollbar. Intentional focus-mode, mobile drawer and modal background locks are preserved at the root, preventing explicit desktop overflow from bypassing them. Existing independently scrolling left/right result panels remain unchanged.
+Changes: one shared, read-only report renderer; Preview Report in paper details; individual table/figure report previews; shared Reports and bulk previews. Selected titles, output IDs and content are retained. Pending/unsupported and review-required outputs are explicitly identified, not silently omitted. Existing Word validation, calculations and data remain unchanged. Escape/Close returns to the originating interface. Preview glossary links dismiss the dialog before opening the existing glossary.
 
-Actual checks: Chromium1440desktop and390mobile touch emulation; untouched initial landing before any tab/sidebar interaction; visible native scrollbar gutter and actual thumb drag; wheel scrolling; native touch-event swipe; document top/bottom on the landing view and all six existing main tabs(Objectives, Tables & Figures, Interpretations, Statistical Glossary, Papers, Reports) across Light/Dark/Colored. Desktop left/right panel independence; dialog, mobile sidebar and result-focus scroll locks; no page horizontal overflow/runtime errors. Landing screenshot inspected. Touchpad hardware and other browser/OS combinations were not separately tested. Static app has no compilation step. No deployment performed.
+Checks actually performed in Chromium with the original 85-record dataset:
+- All 117 individual catalogue Preview Report buttons: correct ID and actual table/SVG for every calculated output.
+- 104 cleared previews, nine review previews retaining their calculated content, four unsupported definitions with explicit reasons.
+- All 17 paper preview actions: exact selected output IDs and correct paper title.
+- Combined preview: all 113 calculated outputs, no missing or duplicate IDs.
+- Desktop/mobile modal sizing and Escape in Light, OLED Dark and Colored themes (six combinations); desktop/mobile screenshots inspected.
+- Bulk preview before analysis: all 113 selected eligible outputs listed as pending.
+- Edited paper title appears in preview; source data and calculated result unchanged by preview.
+- Existing Reports Word button downloaded a DOCX; ZIP/XML inspected and one genuine editable Word table confirmed. Microsoft Word opening/pagination was not tested in this task.
+- Syntax checks passed for all five changed JavaScript modules.
+
+No unsupported analyses were invented or publication checks relaxed. The four unsupported definitions remain unsupported; the nine existing publication-review issues remain visible and continue to prevent unsafe Word export. Generate available results from the active dataset before expecting populated reports.
