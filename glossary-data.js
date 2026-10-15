@@ -1526,19 +1526,19 @@ window.HUB_GLOSSARY_BRIEF = {
   ],
   "education": [
     "The patient’s recorded level of education.",
-    "Describes participants’ backgrounds; it is not evidence of diagnostic performance or a demonstrated cause of appendicitis."
+    "The demographic table counts each recorded education category; these categories are not years of schooling or evidence of diagnostic performance."
   ],
   "religion": [
     "The patient’s recorded religious affiliation.",
-    "A participant-description field, not an appendicitis diagnostic test or an established explanation for the findings."
+    "The demographic table describes recorded religious groups; no religion–appendicitis association or causal effect is estimated."
   ],
   "occupation": [
     "The patient’s recorded occupation.",
-    "Describes the study population; no occupational effect on appendicitis is inferred from its presence in the dataset."
+    "The demographic table preserves recorded occupations, including the unexplained code label cs. Small categories do not establish occupational differences in appendicitis or costs."
   ],
   "marital_status": [
     "The patient’s recorded marital status.",
-    "Provides participant background; it does not establish an association with appendicitis unless a suitable analysis is reported."
+    "The demographic table counts single, married and widow responses. It does not test marital-status differences in diagnosis, confidence or hospital costs."
   ],
   "hosp_n0": [
     "The source record’s hospital identifier.",
