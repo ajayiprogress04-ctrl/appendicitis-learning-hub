@@ -1,38 +1,34 @@
-Failed / Blocked Output — Verified State-Handling Repair
+Tables & Figures — Eight-Step Workflow Ordering
 
-Replace the four matching app files in this archive. Actual changes for this task: bulk-analysis.js and index.html. Matching unchanged results-browser.js and result-exports.js are included to preserve the existing progress/worker/export dependencies. No study data is included. Not deployed.
+Replace results-browser.js,result-viewer.css,index.html in the existing app root. These are the only changed files. No dataset is included. Not deployed.
 
-Verified root cause:
-The All Objectives workflow selects 117 definitions, including four explicitly unsupported analyses. The prior processor saved unsupported definitions as status=blocked with a separate skip flag. Several completion/count/retry paths still treated blocked as an error, and Word validation overwrote their state as blocked again. Thus an otherwise successful 113-output report could be labelled Completed with errors. A fresh run did not reproduce a failure of a supported analysis with the supplied study data.
+The existing controls are organised in this order:
+1. Import Private Dataset
+2. Supported File Formats and Data Coding
+3. Objectives for Additional Analysis
+4. Selected Analysis Summary
+5. Generated Results and Export Controls
+6. Selected Reports Order
+7. Main Results List and Focus Workspace
+8. Bulk Analysis and Report Export
 
-Underlying fix:
-- Shared outcome state distinguishes ready/review, unsupported, unavailable (missing columns), blocked (actual report validation), failed (actual processing) and cancelled.
-- Generation and Word validation retain these classifications. Completion, progress, retry, preview and exclusion reporting consume the same state.
-- Unsupported/missing-data exclusions do not create fake failures or retry jobs. An entirely ineligible selection reports No eligible outputs and downloads nothing.
-- Genuine validation failures, calculation errors/timeouts, figure errors and document errors remain errors; no validation was weakened.
-- Visible item-specific reasons and corrective actions remain, and valid outputs still export together.
-- Bounded diagnostics, available through HUB_BULK.diagnostics() and the developer console, record item identifier/title, objective, operation/run, stage, diagnostic code, reason and action. Exception stacks appear in console errors. No participant records are logged.
-- Global preparation/compilation stages clear a stale current-item label.
+Implementation:
+- Existing DOM nodes and delegated event handlers are reused. No duplicate import,objective,browser,ordering,workspace or bulk panels are created.
+- Existing individual report-selection checkboxes move into step3,with full output titles. They remain available by default and can be collapsed. No new selection state is introduced.
+- Step4 reports the actual selected objectives/scopes,tables,figures,calculated availability and N where available. The current objective explanation is retained.
+- Existing statistical reporting audit remains in step5 with generated results/export controls.
+- Existing report ordering and focus/list/fit workspace are retained. Bulk updates replace the same panel within the final step8 wrapper.
+- Scoped CSS supplies spacing and bounded selection-list scrolling. No statistical engine,report-generation logic,theme tokens or navigation code changed.
 
-Actual tests:
-- Fresh generation from the 85-record study extract, with no preloaded results:113 successful supported outputs,0 failed/blocked,4 unsupported exclusions.
-- Complete preview:74 tables,39 figures. Word download:113 outputs,74 editable tables,39 images,15 objective/scope headings.
-- All table cells, caption ordering, ZIP/XML and image integrity checked. File SHA256 matches the previously LibreOffice-rendered complete report exactly, confirming unchanged scientific output.
-- Individual Objective2 generation, navigation and all-objective interpretations passed; genuine progress and report compilation were observed.
-- Missing-CRP test copy:valid demographic output generated/exported; missing-column analysis reported unavailable; unsupported analysis remained separate;0 false failures.
-- No-eligible-content selection:clear status,no document,no fabricated success or failure.
-- Persistent injected calculation error:real successful figure still downloaded; genuine failure and unsupported exclusion identified separately.
-- Retry processed only the failed eligible item and rebuilt the complete selected preview.
-- Worker watchdog tested with a deliberately dropped response and test-only accelerated timeout:timeout recorded,next real figure generated after worker restart.
-- Actual partial Word download after injected image-conversion failure and successful retry; ordinary Word validation still rejects unreviewed content.
-- Cancellation,restart,individual recalculation after cancellation,duplicate prevention and source-change compilation safeguards passed.
-- Progress/failure/retry UI checked at1440px and390px across Light,Dark,Colored themes; screenshots inspected;no horizontal overflow.
-- JavaScript syntax check passed.
-
-Remaining unsupported definitions (not repaired by inventing analyses):
-1. Reliable between-age-group AUC comparison:insufficient reference-negative children for the existing comparison.
-2. Resident doctor versus medical officer comparison:profession/group/clinician information absent.
-3. Incremental direct cost of adding hs-CRP:itemised and comparative diagnostic-pathway data absent.
-4. Prespecified multivariable association/causal estimates:no approved causal adjustment set/model specification. Existing supported exploratory OLS cost analyses remain intact.
-
-No supported-output calculation failure remains in the tested supplied dataset. Different datasets can still have genuine missing-data or analysis errors; those are now classified and diagnosed explicitly rather than hidden.
+Actual verification:
+- Initial empty screen and post-import/render states:all eight steps in order;Bulk remains the final child;no duplicate scope selector or bulk panel.
+- Original SPSS SAV selected through the file input,previewed and confirmed:85 records.
+- Individual demographic table and histopathology figure genuinely generated from that import.
+- Moved checkboxes,actual selection summary,selected result,focus mode,sidebar collapse/reopen and independent list/result scrolling passed.
+- Report move-up ordering passed and was reflected in the selected Word document.
+- Actual downloads:Word,HTML,calculation log;one selected editable table and one figure present;selected versus bulk scientific order verified.
+- Bottom bulk panel:analysis,live progress,report compilation,preview and Word download passed.
+- All eight steps and responsive layout checked at1440px and390px in Light,Dark,Colored themes;screenshots inspected;no horizontal overflow.
+- All Objectives run on imported SPSS data:113 eligible outputs generated/exported;four known unsupported definitions remain exclusions.
+- Complete Word download verified:74 editable tables,39 embedded figures,15 objective/scope headings,valid Word XML/ZIP and PNGs. Its SHA256 exactly matches the previously verified complete report.
+- No browser runtime errors;results-browser.js syntax check passed.

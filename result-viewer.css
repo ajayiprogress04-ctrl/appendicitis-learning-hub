@@ -32,3 +32,10 @@ body.result-focus{overflow:hidden}
 
 /* Inline educational links retain complete statistical words in table headings. */
 .result-viewer .glossary-term{overflow-wrap:normal;word-break:normal}
+
+/* Existing Tables & Figures controls, grouped in research workflow order. */
+#objective-results .result-workflow-step{min-width:0;margin-block:1.25rem;scroll-margin-top:var(--header-overlay-top,100px)}
+#objective-results .result-workflow-step>h3{margin-bottom:.75rem}
+#objective-results .workflow-selection-list{display:grid;gap:.5rem;max-height:320px;overflow:auto;overscroll-behavior:contain}
+#objective-results .workflow-selection-list label{display:flex;gap:.5rem;align-items:flex-start;overflow-wrap:anywhere}
+#objective-results .workflow-selection-list input{flex:none}
