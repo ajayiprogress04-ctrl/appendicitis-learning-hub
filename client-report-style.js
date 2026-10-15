@@ -17,7 +17,7 @@ window.HUB_CLIENT_REPORT=(()=>{'use strict';
  };
  function heading(i){return key(i)==='baseline'?'4.0.1 Participant characteristics':i.sectionNumber+' '+(specs[i.scopeId]||clean(i.scopeTitle));}
  function opening(items){const pop=items.find(i=>/^(d1|db)_population$/.test(key(i))),r=pop?.result,rows=r?.rows||[],find=s=>rows.find(x=>new RegExp(s,'i').test(x[0]))?.[1];return pop?'This chapter presents the results for '+find('Supplied')+' participants, including '+find('Histology-positive')+' with histopathologically confirmed appendicitis and '+find('Histology-negative')+' with negative histopathology. The objective-based analyses are followed by exploratory analyses. Denominators are stated for each output.':'This report presents the selected study results. Sample sizes and denominators refer to the participants evaluable for each analysis.';}
- function sectionIntroduction(i){const k=key(i);if(k==='baseline')return 'Participant characteristics are presented in '+(i.caption?.match(/^Table \d+/)?.[0]||'the following table')+'.';
+ function sectionIntroduction(i){const k=key(i);if(i.scopeId==='1')return 'Objective One compares MAS alone, hs-CRP alone, and the required MAS + hs-CRP AND and OR rules against histopathology. Both combinations are fully analysed; no single prespecified primary combination is documented.';if(k==='baseline')return 'Participant characteristics are presented in '+(i.caption?.match(/^Table \d+/)?.[0]||'the following table')+'.';
   const map={'1':'MAS and hs-CRP were evaluated against the histopathological reference diagnosis. Fixed classifications are distinguished from exploratory fitted models.',
   '2':'hs-CRP concentrations and severity discrimination were examined in simple and complicated histological appendicitis.',
   '3':'The pooled model was examined in the predefined child and adult groups, using the same held-out prediction rule.',
@@ -60,6 +60,7 @@ window.HUB_CLIENT_REPORT=(()=>{'use strict';
   });
  }
  function panels(i){let r=i.result;const k=key(i);if(r.kind!=='table')return [];
+  if(['d1_performance','d1_combinations'].includes(key(i))){const r=i.result;return [{title:'',headers:['Strategy','N','TP/FP/FN/TN',r.headers[6],r.headers[7],r.headers[10],r.headers[8],r.headers[9],r.headers[11],r.headers[12]],rows:r.rows.map(x=>[x[0],x[1],x.slice(2,6).join('/'),x[6],x[7],x[10],x[8],x[9],x[11],x[12]])}];}
   if(k.startsWith('db_')&&k!=='db_population'){
    const prior=i.reportPeers?.get('1/'+k.replace(/^db_/,'d1_'))?.result;
    if(prior&&JSON.stringify(prior.headers)===JSON.stringify(r.headers)){const known=new Set(prior.rows.map(row=>JSON.stringify(row))),distinct=r.rows.filter(row=>!known.has(JSON.stringify(row)));if(distinct.length)r={...r,rows:distinct};}
@@ -95,7 +96,7 @@ window.HUB_CLIENT_REPORT=(()=>{'use strict';
  }
  function evidence(i){return i.result.reportingEvidence?.rows||[];}
  function evidenceLine(x){let out=[x.method.replace(/ ·.*$/,'').replace(/; existing.*$/,''),x.statistic&& !/not applicable/i.test(x.statistic)?x.statistic:null,Number.isFinite(x.df)?'df = '+num(x.df):null,Number.isFinite(x.p)?p(x.p):null,Number.isFinite(x.adjustedP)?'Holm-adjusted '+p(x.adjustedP):null,x.effect,x.ci?.every(Number.isFinite)?'95% CI '+interval(x.ci):null].filter(Boolean).join('; ');return clean(out)+'.';}
- function notes(i){const r=i.result,k=key(i),out=[];const n='N = '+r.n+'. ';
+ function notes(i){const r=i.result,k=key(i),out=[];const n='N = '+r.n+'. ';if(['d1_performance','d1_combinations','requested_diagnostic_comparisons','d1_rules','d1_rates'].includes(k))return (r.notes||[]).filter(n=>/^(Required diagnostic rules:|AIR components)/.test(n)).map(n=>n.replace(/^Required diagnostic rules: /,''));
   if(k==='d1_population')return [n+'The common cohort is defined by evaluable recorded fields. Clinical eligibility beyond those fields was not independently verified. P-values are two-sided; 0.05 is the reporting convention, not a verified protocol-prespecified threshold.'];
   if(k==='baseline')return [n+'Values are counts and percentages of valid responses unless stated; age is reported as median (Q1–Q3). No demographic comparisons were performed.'];
   if(k==='neg_histology')return [n+'Reactive lymphoid hyperplasia is negative for acute appendicitis. Acute, suppurative, phlegmonous, gangrenous and perforated appendicitis are positive under the study case definition.'];
@@ -129,6 +130,7 @@ window.HUB_CLIENT_REPORT=(()=>{'use strict';
  function narrative(i,old){const r=i.result,k=key(i),rows=r.rows||[],ev=evidence(i),g=r.log?.strategies,provided=i.resultsText&&i.includeResults!==false||i.writing?.interpretation&&i.includeInterpretation!==false;
  if(provided||i.includeInterpretation===false||i.includeResults===false&&i.includeInterpretation===false)return finish(old(i));
  let text='';
+ if(['d1_performance','d1_combinations','requested_diagnostic_comparisons','d1_rules','d1_rates'].includes(k))return finish(r.exploratoryNarrative||r.interpretation||'');
  if(k==='baseline'){
   const v=s=>rows.find(x=>new RegExp(s,'i').test(x[0]))?.[1];text='The study included '+r.n+' participants, with age reported as a median (Q1–Q3) of '+cell(v('^Age, years'))+' years. Adults accounted for '+v('^Adults')+' and males for '+v('^Male$')+'. Students were the largest occupational group, accounting for '+v('Occupation · student')+'. These characteristics describe the population represented by the diagnostic and clinical results; the demographic summaries were not tests of association.';
  }else if(['s2_descriptive','cost_descriptive'].includes(k)){

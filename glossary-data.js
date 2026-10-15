@@ -1940,3 +1940,9 @@ HUB_GLOSSARY_BRIEF.HS_CRP_3MG_CATEGORY=HUB_GLOSSARY_BRIEF.CRP;
 
 HUB_GLOSSARY_BRIEF.AIR=["Appendicitis Inflammatory Response score, recorded on a 0–12 point scale.","The confirmed study rule is AIR ≥9 positive and AIR <9 negative against histopathology. Probability bands remain 0–4 low,5–8 intermediate,9–12 high. Its published components include CRP, WBC, neutrophils and clinical findings; it is not independent of these components."];
 HUB_GLOSSARY_BRIEF.AIR_CATEGORY=HUB_GLOSSARY_BRIEF.AIR;HUB_GLOSSARY_BRIEF.AIR_RISK_CATEGORY=HUB_GLOSSARY_BRIEF.AIR;
+
+/* Objective One: explicit clinical rules and threshold examples. */
+for(const [id,term,aliases,plain,study] of [
+ ['and-rule','AND rule',['both tests positive','MAS hs-CRP AND','AND combination'],'Both component tests must be positive for the combination to be positive.','Required MAS + hs-CRP (AND rule): MAS ≥7 and hs-CRP >3 mg/L. Hypothetical MAS 7 with hs-CRP 3 mg/L is negative; MAS 7 with 4 mg/L is positive.'],
+ ['or-rule','OR rule',['either test positive','MAS hs-CRP OR','OR combination'],'Either component test being positive makes the combination positive.','Required MAS + hs-CRP (OR rule): MAS ≥7 or hs-CRP >3 mg/L. Hypothetical MAS 7 with hs-CRP 3 mg/L is positive; MAS 6 with 3 mg/L is negative.']
+]){if(!HUB_GLOSSARY_DATA.entries.some(e=>e.id===id))HUB_GLOSSARY_DATA.entries.push({id,term,category:'Diagnostic accuracy',aliases,definition:plain,purpose:study,interpretation:'Compared with histopathology; no primary protocol rule recovered.',related:['sensitivity','specificity','accuracy']});HUB_GLOSSARY_BRIEF[id]=[plain,study+' Both rules are required analyses; neither is a fitted prediction model or designated prespecified primary rule.'];}
