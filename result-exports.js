@@ -45,6 +45,7 @@ window.RESULT_EXPORTS=(()=>{
   return 'Unclassified source note — review';
  }
  function publicationNotes(item){const r=item.result,k=publicationKey(item),notes=[];
+  if(/^(labwbc_|labneut_|scan_)/.test(k))return [...r.notes.slice(0,k.startsWith('scan_')?3:4),'CI = confidence interval; SD = standard deviation; Q1–Q3 = interquartile limits.'];
   if(k==='adjusted_cost_unavailable'){const a=r.adjustedCost,d=a.diagnostics;return [r.notes[0],r.notes[1],...(r.modelReview?.severityNote?[r.modelReview.severityNote]:[]),'Exploratory whole-cohort model: continuous age replaces the redundant age-group indicator. Hospital stay may be downstream; coefficients are conditional associations, not causal effects. Patient observations are assumed independent. Coefficient p-values are unadjusted.',`Model intercept = NGN ${number(a.terms[0].estimate)}; R² = ${number(d.r2)}; maximum VIF = ${number(Math.max(...d.vif))}; maximum leverage = ${number(d.maxLeverage)}. Quadratic fitted-value RESET p = ${number(d.resetP)}. Leave-one-out coefficient ranges: age ${d.looRanges[1].map(number).join(' to ')}, stay ${d.looRanges[2].map(number).join(' to ')}. HC3 = leverage-adjusted heteroskedasticity-robust covariance; CI = confidence interval.`];}
   if(k.startsWith('costgroup_'))return [...r.notes.slice(0,4),'n = number of observations; SD = standard deviation; CI = confidence interval; Q1–Q3 = interquartile limits.'];
   if(k==='conf_inference_unavailable')return [...(r.notes||[]).filter(n=>/^(Complete paired|Clinician structure|Before:|Confidence changes)/.test(n)),'MAS = Modified Alvarado Score; hs-CRP = high-sensitivity C-reactive protein; CI = confidence interval.'];
@@ -119,7 +120,7 @@ window.RESULT_EXPORTS=(()=>{
  problems.push(...publicationAudit(item).problems);
  return {introduction,results:item.resultsText?item.resultsText.split(/\n\s*\n/).filter(Boolean):resultParagraphs(item),statistics:publicationStatistics(item),problems,notes:[...publicationNotes(item),...(window.HUB_VALIDITY?.publication(item)||[])],interpretation:item.writing?.interpretation||r.interpretation||''};}
 
- function prose(r,key=''){if(r.costNarrative)return r.costNarrative;if(r.confidenceNarrative)return r.confidenceNarrative;
+ function prose(r,key=''){if(r.exploratoryNarrative)return r.exploratoryNarrative;if(r.costNarrative)return r.costNarrative;if(r.confidenceNarrative)return r.confidenceNarrative;
  if(key==='sign_combination_unavailable'&&r.f7Narrative)return r.f7Narrative;
  const rows=r.rows||[],median=rows.find(row=>/^Age, years.*median/i.test(String(row[0])));
  const rate=x=>Number.isFinite(x?.estimate)?(100*x.estimate).toFixed(1)+'%'+(x.ci?.every(Number.isFinite)?' (95% CI '+x.ci.map(v=>(100*v).toFixed(1)+'%').join('–')+')':' (CI not estimable)'):'not estimable';
