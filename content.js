@@ -215,11 +215,11 @@ window.HUB_DATA = {
     },
     {
       "id": 5,
-      "short": "Ease and confidence",
+      "short": "Diagnostic confidence",
       "title": "Did clinicians feel more confident?",
       "color": "#a43c68",
       "description": "Describe confirmed before-and-after case ratings.",
-      "approved": "test the ease of diagnosis of acute appendicitis among resident doctors and medical officers using the combined MAS and hsCRP",
+      "approved": "To assess changes in clinicians’ confidence in diagnosing acute appendicitis before and after receiving combined Modified Alvarado Score (MAS) and hs-CRP information.",
       "note": "The liaison confirmed before/after timing and the same clinician within each patient pair. Clinician IDs and professional-group linkage are unavailable. For Table 5.4, the researcher directs an assumption of one unique doctor per patient and no doctor assessing multiple patients. A two-sided exact paired sign test is used for ordinal change; this independence structure requires protocol confirmation. Clinician-group tests remain unsupported.",
       "contribution": "Show perceived diagnostic assurance while distinguishing it from objectively faster or more accurate diagnosis.",
       "methods": [
@@ -227,7 +227,7 @@ window.HUB_DATA = {
           "id": "ordinal",
           "status": "Primary description",
           "here": "Preserve the five confidence categories.",
-          "client": "Higher recorded confidence is an indirect aspect of perceived ease, not a diagnostic accuracy result."
+          "client": "Higher recorded confidence describes diagnostic assurance, not diagnostic accuracy."
         },
         {
           "id": "transitions",
@@ -243,9 +243,9 @@ window.HUB_DATA = {
         },
         {
           "id": "wilcoxon",
-          "status": "Not used \u00b7 conditional teaching",
-          "here": "Explain why a familiar paired test cannot simply bypass unknown clinician dependence.",
-          "client": "Table 5.4 uses an exact paired sign test under the stated unique-doctor assumption. Signed ranks are not required because equal category spacing and symmetric difference magnitudes are not assumed."
+          "status": "Conditional sensitivity analysis",
+          "here": "Report tied-rank and zero-change handling and the additional category-increment assumptions.",
+          "client": "The primary exact sign test preserves the ordinal direction. Wilcoxon is a conditional sensitivity analysis under rankable category increments and a symmetric-difference null. Both tests depend on the assumed unique doctor per case; clinician clustering cannot be verified."
         }
       ]
     },
