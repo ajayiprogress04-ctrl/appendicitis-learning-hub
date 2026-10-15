@@ -1,37 +1,17 @@
-# Public presentation and sharing update
+# Production sharing correction
 
-## Changes
+Public address: https://appendicitis-learning-hub.vercel.app/
 
-- Clear public identity: Appendicitis Research | Statistical Learning Hub; research/student-focused introduction and practical entry points.
-- Existing formal title/body/interface typography reused, with scoped responsive landing-page styles. Existing themes, research text and workspace styles retained.
-- Personal tutoring wording, dated sidebar footer and version label removed from public chrome. Study notes and learning progress remain available.
-- Server-rendered title, description, canonical URL, Open Graph and large-image social-card metadata. No JavaScript is required for a crawler to read it.
-- Native SVG favicon, 180px touch icon and a 1200×630 PNG social card using the established navy/ruby/gold identity. Decorative curve is not a study result.
-- Copy app link and Share app actions. Native share uses browser support; cancellation is handled; clipboard failure exposes a selectable link. Only the public canonical app URL is shared, with no dataset ID, token, participant data, search state or report selections.
-- .vercelignore updated to include the new assets and current report/Drive modules. Previously these recently added modules were absent from its allowlist; CLI deployment could omit them.
+The production page was fetched without Vercel authentication and returned HTTP200. Its landing introduction was current, but og:url and og:image still pointed to an older protected deployment. This explains why a branded production page could still have an incorrect preview.
 
-## Deployment and the public URL — action required
+Updated index.html canonical, og:url, og:image, og:image:secure_url and twitter:image to the stable production origin. The new sharing image, assets/appendicitis-social-v2.png, uses the requested clean white background, navy rounded-square Sigma logo and app title/subtitle. Its versioned name avoids reusing the previous image URL. The Vercel upload allowlist includes it. Current Copy/Share controls share the opened app address without query/hash, so use the stable production address for public sharing.
 
-The supplied URL https://appendicitis-learning-livguz7vc-progress04.vercel.app/ was requested without a logged-in Vercel session. It returned HTTP302 to Vercel's SSO flow and ultimately a login page. It is not currently a verified public sharing URL. A protected page cannot reliably provide link previews to social crawlers.
+Deploy to the EXISTING Vercel project serving appendicitis-learning-hub.vercel.app. The complete app package contains the current runtime app, existing report/Drive fixes and new sharing assets, without the private SAV. No new libraries/build process are required. The assistant has not deployed it.
 
-No connected Vercel deployment tool, local Vercel CLI or Git remote was available. No deployment or project setting was changed. Do not interpret the local checks below as a successful live update.
+After deployment, open https://appendicitis-learning-hub.vercel.app/ in a logged-out browser. Confirm the page and /assets/appendicitis-social-v2.png load publicly. Send a fresh production link in WhatsApp. Previously sent message previews may remain cached; LinkedIn also has a Post Inspector to refresh its crawler. Social clients choose their own thumbnail cropping and layout.
 
-1. In the existing Vercel project, Settings > Domains, obtain the stable production domain. Do not invent one or use a rotating deployment-specific address for general sharing.
-2. Keep previews protected if desired. Configure Deployment Protection so the intended public production domain can be opened by logged-out visitors. Do not publish any bypass token as a sharing link. Keep the SAV file restricted in Drive; public app access does not grant dataset access.
-3. Before deployment, set canonical/social-image URLs to that production origin. From this project directory run:
-   python3 scripts/configure-sharing-url.py https://YOUR-ACTUAL-PUBLIC-PRODUCTION-DOMAIN
-   Alternatively update canonical, og:url, og:image, og:image:secure_url and twitter:image in index.html consistently. The current values use the exact URL supplied by the user and must be updated if the production domain differs. The Copy/Share controls follow the canonical URL.
-4. Deploy the runtime files to the SAME Vercel project using your existing manual workflow. The full ZIP contains all current runtime files; it does not contain the private SAV. No new dependencies/build system are needed.
-5. If the app origin changes, add that exact origin to Google OAuth Authorized JavaScript origins and its /* pattern to the browser key's website restrictions. Preserve https://docs.google.com/*.
-6. Open the production domain in a private/logged-out browser. Verify HTTP200 for the page and /assets/appendicitis-social.png, and that both are accessible without Vercel login. Then inspect a freshly shared link in WhatsApp and LinkedIn's Post Inspector. Platforms cache previews; refreshed metadata does not guarantee an immediate update of older messages. Email preview support varies by client.
+If using Google Drive import at this production address, add https://appendicitis-learning-hub.vercel.app to the OAuth client's Authorized JavaScript origins and https://appendicitis-learning-hub.vercel.app/* to the browser API key's Website restrictions. Keep existing required entries, including https://docs.google.com/*, and private dataset permissions.
 
-## Checks actually completed
+Checks performed: unauthenticated HTTP200 for the live production page; inspection of its existing raw metadata; local corrected metadata and image dimensions1200x630 checked; new logo image visually inspected. Earlier local browser checks covered three themes, mobile/desktop, navigation, actual clipboard copy, same-view shared links, SAV parsing and an existing analysis. No research calculations were changed.
 
-- Running local Chromium app: all five tabs, landing Explore action and Quick Start dialog.
-- Real clipboard copy. Simulated native-share success/cancellation/failure and selectable-link fallback.
-- Server HTML metadata inspection without JavaScript; local icon and social PNG endpoints return200.
-- Desktop1440px and mobile390/320px in Light, OLED Dark and Colored modes; checked landing controls, page overflow and screenshots. Also inspected a150% CSS zoom view (not a platform-wide browser zoom certification).
-- Real attached SAV snapshot:85records, confirmation and existing population analysis; zero uncaught browser exceptions during the suite.
-- Social card visually inspected at1200×630. JavaScript syntax check passed.
-
-Not completed: production deployment, live metadata/image retrieval from a public app page, or actual WhatsApp/LinkedIn preview rendering. Live Google-account authorization and Word export were not rerun in this presentation task. Statistical engines, dataset coding, analyses and Word-export logic were not modified.
+Not verified: deployment of this correction, live availability of the new image, refreshed live metadata or actual WhatsApp preview after deployment. No automatic changes to Vercel or Google Cloud settings were performed.

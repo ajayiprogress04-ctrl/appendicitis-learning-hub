@@ -10,7 +10,7 @@ p=Path(__file__).resolve().parents[1]/'index.html';s=p.read_text()
 s,n=re.subn(r'(<link rel="canonical" href=")[^"]+(">)',lambda m:m[1]+origin+'/'+m[2],s)
 if n!=1:raise SystemExit('Canonical tag missing or duplicated. No file written.')
 for prop in ['og:url','og:image','og:image:secure_url','twitter:image']:
- suffix='/' if prop=='og:url' else '/assets/appendicitis-social.png'
+ suffix='/' if prop=='og:url' else '/assets/appendicitis-social-v2.png'
  s,n=re.subn(r'(<meta (?:property|name)="'+re.escape(prop)+r'" content=")[^"]+(">)',lambda m:m[1]+origin+suffix+m[2],s)
  if n!=1:raise SystemExit('Missing/duplicated '+prop+'. No file written.')
 p.write_text(s);print('Public sharing URLs updated to '+origin)
