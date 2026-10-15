@@ -12,7 +12,7 @@ window.HUB_CLIENT_REPORT=(()=>{'use strict';
  const finish=t=>clean(t).replace(/\.\./g,'.').replace(/\s+([.,;])/g,'$1');
  const sentenceList=a=>a.length<2?a.join(''):a.slice(0,-1).join(', ')+' and '+a.at(-1);
  const specs={
-  '1':'Diagnostic performance of MAS and hs-CRP','2':'hs-CRP and appendicitis severity','3':'Diagnostic performance in children and adults','4':'Histopathological findings and clinical outcomes','5':'Diagnostic confidence before and after test information','6':'Recorded hospital expenditure',
+  '1':'Diagnostic performance of MAS and hs-CRP','2':'hs-CRP and appendicitis severity','3':'Diagnostic performance in children and adults','4':'Rate of negative appendicectomy','5':'Diagnostic confidence before and after test information','6':'Recorded hospital expenditure',
   A:'Exploratory hospital-cost analyses',B:'Exploratory diagnostic strategies',C:'Exploratory clinical and laboratory associations',D:'Exploratory AIR score analyses',E:'Exploratory packed cell volume analyses',F:'Exploratory clinical signs',G:'Exploratory white blood cell analyses',H:'Exploratory neutrophil analyses',I:'Exploratory abdominal scan findings'
  };
  function heading(i){return key(i)==='baseline'?'4.0.1 Participant characteristics':i.sectionNumber+' '+(specs[i.scopeId]||clean(i.scopeTitle));}
@@ -21,7 +21,7 @@ window.HUB_CLIENT_REPORT=(()=>{'use strict';
   const map={'1':'MAS and hs-CRP were evaluated against the histopathological reference diagnosis. Fixed classifications are distinguished from exploratory fitted models.',
   '2':'hs-CRP concentrations and severity discrimination were examined in simple and complicated histological appendicitis.',
   '3':'The pooled model was examined in the predefined child and adult groups, using the same held-out prediction rule.',
-  '4':'The operated cohort was described by detailed histopathology, negative appendicectomy and recorded clinical outcomes.',
+  '4':'Objective Four determines the negative appendicectomy rate and describes the patients with negative and positive histopathological outcomes.',
   '5':'Diagnostic confidence was recorded before and after MAS and hs-CRP information for the same patients.',
   '6':'The following results describe recorded total hospital expenditure. The data do not support incremental diagnostic-pathway costs.',
   A:'Recorded hospital costs were compared across histological and age groups. The adjusted analysis is exploratory.',
@@ -96,7 +96,7 @@ window.HUB_CLIENT_REPORT=(()=>{'use strict';
  }
  function evidence(i){return i.result.reportingEvidence?.rows||[];}
  function evidenceLine(x){let out=[x.method.replace(/ ·.*$/,'').replace(/; existing.*$/,''),x.statistic&& !/not applicable/i.test(x.statistic)?x.statistic:null,Number.isFinite(x.df)?'df = '+num(x.df):null,Number.isFinite(x.p)?p(x.p):null,Number.isFinite(x.adjustedP)?'Holm-adjusted '+p(x.adjustedP):null,x.effect,x.ci?.every(Number.isFinite)?'95% CI '+interval(x.ci):null].filter(Boolean).join('; ');return clean(out)+'.';}
- function notes(i){const r=i.result,k=key(i),out=[];if(k.startsWith('s2_')||k.startsWith('age_'))return [r.methods,...r.notes];const n='N = '+r.n+'. ';if(['d1_score_auc','d1_score_roc','d1_firth_regression','d1_internal_validation','d1_thresholds','d1_performance','d1_combinations','requested_diagnostic_comparisons','d1_rules','d1_rates'].includes(k))return (r.notes||[]).filter(n=>/^(Required diagnostic rules:|AIR components)/.test(n)).map(n=>n.replace(/^Required diagnostic rules: /,''));
+ function notes(i){const r=i.result,k=key(i),out=[];if(['neg_rate','neg_characteristics'].includes(k))return [r.methods,...r.notes.filter(n=>n.startsWith('Objective Four'))];if(k.startsWith('s2_')||k.startsWith('age_'))return [r.methods,...r.notes];const n='N = '+r.n+'. ';if(['d1_score_auc','d1_score_roc','d1_firth_regression','d1_internal_validation','d1_thresholds','d1_performance','d1_combinations','requested_diagnostic_comparisons','d1_rules','d1_rates'].includes(k))return (r.notes||[]).filter(n=>/^(Required diagnostic rules:|AIR components)/.test(n)).map(n=>n.replace(/^Required diagnostic rules: /,''));
   if(k==='d1_population')return [n+'The common cohort is defined by evaluable recorded fields. Clinical eligibility beyond those fields was not independently verified. P-values are two-sided; 0.05 is the reporting convention, not a verified protocol-prespecified threshold.'];
   if(k==='baseline')return [n+'Values are counts and percentages of valid responses unless stated; age is reported as median (Q1–Q3). No demographic comparisons were performed.'];
   if(k==='neg_histology')return [n+'Reactive lymphoid hyperplasia is negative for acute appendicitis. Acute, suppurative, phlegmonous, gangrenous and perforated appendicitis are positive under the study case definition.'];
@@ -130,6 +130,7 @@ window.HUB_CLIENT_REPORT=(()=>{'use strict';
  function narrative(i,old){const r=i.result,k=key(i),rows=r.rows||[],ev=evidence(i),g=r.log?.strategies,provided=i.resultsText&&i.includeResults!==false||i.writing?.interpretation&&i.includeInterpretation!==false;
  if(provided||i.includeInterpretation===false||i.includeResults===false&&i.includeInterpretation===false)return finish(old(i));
  let text='';
+ if(['neg_rate','neg_characteristics'].includes(k))return finish(r.objective4Narrative||r.interpretation||'');
  if(k.startsWith('s2_')||k.startsWith('age_'))return finish(r.exploratoryNarrative||r.interpretation||'');
  if(['d1_score_auc','d1_score_roc','d1_firth_regression','d1_internal_validation','d1_thresholds','d1_performance','d1_combinations','requested_diagnostic_comparisons','d1_rules','d1_rates'].includes(k))return finish(r.exploratoryNarrative||r.interpretation||'');
  if(k==='baseline'){
