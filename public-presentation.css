@@ -1,0 +1,18 @@
+/* Public-facing introduction only; research workspaces retain their existing styles. */
+.topbar .brand .brand-name{color:var(--ink);font-weight:600;line-height:1.2}
+.topbar .brand .brand-name strong{font-weight:400;font-size:.82em;color:var(--muted);margin-top:.15rem}
+.public-hero{position:relative;padding-block:clamp(1.5rem,4vw,3rem) 1.5rem;max-width:78rem}
+.public-hero .eyebrow{font-family:var(--font-ui);font-size:.72rem;font-weight:600;letter-spacing:.12em;line-height:1.6;text-transform:uppercase;color:var(--muted);margin-bottom:.8rem}
+.public-hero #hub-title{font-size:clamp(2.1rem,4vw,3.3rem);max-width:24ch;margin-bottom:.85rem}
+.public-hero #hub-title>span{display:block;margin-top:.5rem;font-family:var(--font-ui);font-size:clamp(1rem,1.8vw,1.2rem);color:var(--muted);font-weight:400;letter-spacing:0;line-height:1.5}
+.public-hero .intro{font-size:1rem;max-width:65ch;line-height:1.7;margin-bottom:1rem;color:var(--ink)}
+.public-hero .hero-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1.2rem}
+.public-hero .hero-tags span{font-family:var(--font-ui);font-size:.8rem;background:var(--soft);color:var(--ink);padding:.3rem .6rem;border:1px solid var(--line);border-radius:.4rem}
+.public-actions{display:flex;flex-wrap:wrap;gap:.55rem;align-items:center}
+.public-actions button{min-height:44px;padding:.6rem .95rem;font-family:var(--font-ui);font-size:.9rem;border-radius:var(--control-radius,.5rem);white-space:normal}
+.public-hero .public-context{max-width:70ch;font-family:var(--font-ui);font-size:.85rem;line-height:1.6;color:var(--muted);margin:.85rem 0 0}
+#public-share-status{font-family:var(--font-ui);font-size:.85rem;color:var(--ink);margin:.4rem 0 0;min-height:1.4em}
+.public-share-fallback{margin-top:.4rem;max-width:40rem}
+.public-share-fallback label{display:block;font-family:var(--font-ui);font-size:.85rem}
+.public-share-fallback input{width:100%;min-height:44px;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:.4rem;padding:.5rem;font:inherit}
+@media(max-width:600px){.topbar .brand .brand-name{font-size:.8rem}.topbar .brand .brand-name strong{font-size:.74rem}.public-hero{padding-top:1.4rem}.public-hero #hub-title{font-size:2.2rem}.public-hero .intro{font-size:.95rem}.public-actions{gap:.45rem}.public-actions button{padding:.55rem .7rem;flex:1 1 auto}.public-hero .eyebrow{font-size:.66rem;letter-spacing:.09em}}
