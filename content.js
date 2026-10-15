@@ -255,7 +255,7 @@ window.HUB_DATA = {
       "title": "What do the monetary records show?",
       "color": "#2c63ad",
       "description": "Summarise recorded amounts without assuming cost savings.",
-      "approved": "estimate the direct hospital cost implications of using combined MAS and hsCRP in the evaluation of patients with suspected acute appendicitis",
+      "approved": "To estimate the direct hospital cost implications of using combined MAS and hs-CRP in evaluating patients with suspected acute appendicitis.",
       "note": "Currency is confirmed as Nigerian naira. The components, accounting basis and price year of total_costs are unknown. No itemised hsCRP cost or comparable routine pathway is supplied, so incremental cost and savings are not estimable.",
       "contribution": "Describe the available monetary records and identify the evidence needed for a defensible economic comparison.",
       "methods": [
@@ -274,8 +274,8 @@ window.HUB_DATA = {
         {
           "id": "incremental",
           "status": "Not estimable here",
-          "here": "Explain what a valid added-hsCRP comparison would require.",
-          "client": "Savings cannot be estimated without a documented hsCRP amount and a comparable alternative pathway."
+          "here": "Distinguish the two fixed combination strategies from their unrecorded management-pathway costs.",
+          "client": "Separate strategy costs and their difference require resource quantities, unit prices and a documented pathway for MAS and hs-CRP and MAS or hs-CRP. Recorded cohort totals alone do not identify these costs."
         }
       ]
     }
