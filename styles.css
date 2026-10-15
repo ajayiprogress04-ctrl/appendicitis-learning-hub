@@ -545,3 +545,16 @@ blockquote{font-family:var(--font-ui);font-style:normal;font-size:var(--type-bod
 @media(max-width:60rem){#papers .paper-workbench{grid-template-columns:minmax(0,1fr);gap:1rem}#papers .paper-proposal-list{position:static;max-height:28rem;padding-right:.4rem}#papers .paper-workflow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));overflow:visible}#papers .paper-workflow button{font-size:var(--type-meta);min-width:0;white-space:normal;padding:.4rem .45rem}#papers .papers-heading>p{width:100%}}
 /* Evaluate the selected-card wash in the active theme rather than at the root. */
 #papers .paper-card.is-current{background:color-mix(in srgb,var(--brand-ruby) 8%,var(--surface))}
+
+/* Native document scrollbar: visible from the landing view, outside all result panels. */
+@media (hover:hover) and (pointer:fine) {
+ html { --page-scroll-thumb:#526176;--page-scroll-track:var(--paper,#f7f9fc);scrollbar-gutter:stable;scrollbar-width:auto;scrollbar-color:var(--page-scroll-thumb) var(--page-scroll-track); }
+ html:not(:has(body.result-focus,body.nav-drawer-open,dialog:modal)) { overflow-y:scroll; }
+ html:has(body.dark-theme) { --page-scroll-thumb:#aebccc;--page-scroll-track:#000; }
+ html:has(body.colored-theme) { --page-scroll-thumb:#d2bcc8;--page-scroll-track:#100712; }
+ html::-webkit-scrollbar { width:14px; }
+ html::-webkit-scrollbar-track { background:var(--page-scroll-track); }
+ html::-webkit-scrollbar-thumb { background:var(--page-scroll-thumb);border:3px solid var(--page-scroll-track);border-radius:8px;min-height:36px; }
+}
+/* Preserve intentional background locks; panel/dialog scrolling remains independent. */
+html:has(body.result-focus,body.nav-drawer-open,dialog:modal) { overflow-y:hidden; }
