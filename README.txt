@@ -1,30 +1,26 @@
-Bulk Word Export — Focused Repair
+All Objectives — Existing App Update
 
-Replace bulk-analysis.js, result-exports.js and index.html in the existing application root. This archive contains only those updated files and these notes. No dataset is included. Deployment has not been performed.
+Replace these four files in the existing app root: results-browser.js, bulk-analysis.js, result-exports.js, index.html. No dataset is included. Not deployed.
 
-Cause: the bulk exporter previously threw on the first blocked selected output; any figure conversion error also aborted document assembly.
+Implemented:
+- All Objectives in the existing objective/formatting dropdown and linked Interpretations dropdown.
+- All-objective catalogue browsing, generation, selection, interpretation access, preview and combined Word export.
+- Reuses the existing bulk processor, eligibility checks, cached calculations, failure summaries and partial export mechanism.
+- All Objectives includes all existing objectives and exploratory scopes, identified by their original headings.
+- Unsupported and failed definitions remain selected and clearly identified; supported outputs continue into one Word document.
+- Individual objective generation and exports remain available.
+- Objective headings in the combined Word document, preserving existing tables, captions, notes, narratives and scientific order.
+- Shared bulk objective dropdown now updates its selection to the chosen objective or all objectives.
 
-Changes:
-- Validate selected definitions and current calculated results separately.
-- Prepare each Word output independently; isolate validation and figure-conversion failures.
-- Export all successful items in one document in the existing scientific order.
-- Show every excluded title, classification and reason directly below the controls; keep selections unchanged.
-- Provide retry export using current valid calculations; unsupported definitions require additional data/definition rather than a misleading retry.
-- Stop safely if dataset/settings change during export. Report empty selection, all-blocked and document errors clearly.
-- Preserve strict ordinary export validation, scientific calculations, formatting and other export types.
-- Add bounded figure loading and invalid-dimension checks.
+Actual local checks:
+- All Objectives processed all 117 definitions: 113 current supported results validated/reused, four unsupported definitions identified.
+- Complete preview contained 74 tables and 39 figures.
+- Actual combined Word download contained 113 outputs:74 editable tables,39 valid embedded PNG figures,15 objective/scope headings.
+- Verified all exported table cells against existing calculated results, caption order, Word ZIP/XML integrity and embedded images; exclusions all have reasons.
+- Complete document reopened/rendered in LibreOffice; representative pages inspected.
+- Individual Objective2 generation passed; separate focused Word download and Reports preview contained five outputs (three tables,two figures).
+- Individual result navigation and all-objective Interpretations passed without browser runtime errors.
+- Dropdown checked at1440px and390px across Light,Dark,Colored themes; no horizontal page overflow.
+- JavaScript syntax checks passed for all three changed modules.
 
-Checks completed locally:
-- JavaScript syntax checks for both changed modules.
-- Actual Select All browser download: 113 eligible outputs, 74 editable Word tables, 39 embedded PNG figures.
-- Mixed two-output selection: one table and one figure.
-- Missing required table cell: valid figure downloaded, blocked table identified; correction/retry included both.
-- Unsupported definition retained in mixed selection: supported table downloaded, unsupported title/reason shown.
-- All unsupported / empty selections: no false document success.
-- Injected figure-conversion error: valid table downloaded, figure identified; retry restored both.
-- Word ZIP/XML integrity, exact table cells, caption ordering and PNG validation for five selection cases; additional renderer failure/retry documents checked.
-- Failure summary and retry control checked at 1440px and 390px in Light, Dark and Colored themes without horizontal page overflow.
-- Ordinary Word export still rejects unreviewed edited content.
-- Representative two-output Word document reopened/rendered with LibreOffice; page and mobile-summary screenshots inspected.
-
-The export tests reused previously independently verified calculated results from the study dataset. They did not change study data or recalculate statistical methods. Injected failure fixtures were confined to testing.
+The complete-library export tests reused previously verified calculated study outputs, rather than rerunning unrelated statistical models. Individual Objective2 generation was also exercised. Study data and statistical engine were not modified.
