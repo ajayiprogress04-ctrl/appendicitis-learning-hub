@@ -1,6 +1,6 @@
 # Practical importance coverage
 
-86 catalogue outputs reviewed; 79 calculated export paths tested with synthetic data, 7 source-limited planned outputs. Explanations describe purpose and scope, not invented findings. Paired canonical/exploratory outputs can appropriately share their methodological rationale.
+87 catalogue explanations mapped. Earlier validation covered 79 calculated export paths with synthetic data and 7 source-limited planned outputs; the new AIR proportion figure was separately verified against the 85-record source. Explanations describe purpose and scope, not invented findings. Paired canonical/exploratory outputs can appropriately share their methodological rationale.
 
 | Output | Type | Coverage | Explanation |
 |---|---|---|---|
@@ -90,3 +90,5 @@
 | F:sign_bar | figure | Output-specific rationale; findings reported separately | The sign bars show documented presence across recorded fields. Distinguish positive-only selected-sign counts from prevalence based on complete Yes/No recording. |
 | F:sign_rates | figure | Output-specific rationale; findings reported separately | The rate plot compares sensitivity and specificity for explicitly documented binary signs. Intervals and sign-specific denominators reveal precision alongside the point estimates. |
 | F:sign_combination_unavailable | table | Planned; source-limited | This planned output addresses incremental value of clinical signs added to existing scores. MAS and AIR already incorporate overlapping signs. No justified nonredundant predictor specification, complete sign absences or adequate rare-reference sample for further model development has been supplied. |
+
+New output: **Histopathology-positive and negative proportions within AIR probability categories** (`D:air_histology_proportions`) has its own explanation in output-essence.js and was tested in all themes, desktop/mobile and Word. See AIR_HISTOPATHOLOGY_VALIDATION.md.

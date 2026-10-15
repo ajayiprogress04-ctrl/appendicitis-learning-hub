@@ -18,9 +18,9 @@ window.RESULT_CATALOG = (()=>{
  add('1','figure','d1_aucplot','AUC estimates with conditional 95% intervals','Diagnostic',['MAS','CRP','histology'],'Conditional stratified bootstrap precision.');
  add('1','figure','d1_confusion','Confusion matrices for the diagnostic approaches','Diagnostic',['MAS','CRP','histology'],'Actual classification counts at stated operating points.');
  add('1','figure','d1_calplot','Held-out calibration of exploratory diagnostic models','Validation',['MAS','CRP','histology'],'Five fixed probability bins; Wilson observed-rate intervals.');
- add('2','table','s2_descriptive','hsCRP distribution by histological appendicitis severity','Descriptive',['CRP','histology'],'Independent histology-only groups; distribution summaries.');
+ add('2','table','s2_descriptive','Comparison of hs-CRP levels between simple and complicated appendicitis','Descriptive',['CRP','histology'],'Independent histology-only groups; distribution summaries.');
  add('2','table','s2_comparison','Comparison of hsCRP between simple and complicated appendicitis','Comparative',['CRP','histology'],'Mann–Whitney/Welch with effect intervals.');
- add('2','table','s2_severityPerformance','Discrimination of complicated histology by continuous hsCRP','Diagnostic',['CRP','histology'],'Severity ROC and fixed laboratory elevation, not optimized cutoff.');
+ add('2','table','s2_severityPerformance','Diagnostic performance of hs-CRP for complicated appendicitis','Diagnostic',['CRP','histology'],'Severity ROC and fixed laboratory elevation, not optimized cutoff.');
  add('2','figure','s2_box','Distribution of hsCRP in simple and complicated appendicitis','Comparative',['CRP','histology'],'Box summaries with recorded min–max whiskers.');
  add('2','figure','s2_severityROC','ROC curve of hsCRP for complicated histological appendicitis','Diagnostic',['CRP','histology'],'Complicated histology is the positive target.');
  add('3','table','age_population','Reference diagnosis and analysis population by predefined age group','Descriptive',['age','MAS','CRP','histology'],'Children <16 and adults ≥16.');

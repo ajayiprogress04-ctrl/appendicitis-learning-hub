@@ -1,3 +1,17 @@
+# Latest usable project: bulk analysis and Word reports
+
+The five main tabs remain **Objectives, Tables & Figures, Interpretations, Statistical Glossary, Reports**. Figure legends are edited alongside their outputs. Light, OLED Dark and Colored modes, global Back, imports, existing analyses and exports are retained.
+
+Run `python3 -m http.server 8080` in the extracted project and open `http://localhost:8080`. No npm install/build, secrets, environment variables or new runtime dependencies are needed. Upload/confirm your dataset in Tables & Figures, then use **Bulk Analysis & Report Export**: select outputs → analyse → review qualifications/blockers → preview → export one editable `.docx`. The same panel is in Reports. A combined action is available, subject to the same validation gate.
+
+See **BULK_ANALYSIS_VALIDATION.md** for exact instructions, changed files, actual tests and limitations. The real-data audit processed 83 eligible outputs: 65 ready, 15 qualified and 3 blocked. An 80-output report was downloaded only after explicitly removing the blocked outputs and acknowledging qualifications. Private participant files and real-data Word documents are not packaged.
+
+Completed diagnostic-master work is retained in Exploratory B; see **MASTER_DIAGNOSTIC_VALIDATION.md**. Protocol-dependent WBC/scan/primary-combination definitions remain unresolved rather than invented.
+
+The notes below document earlier iterations; descriptions of removed standalone Legends navigation and older three-tab layouts are historical. The five-tab instructions above describe the current app.
+
+---
+
 ## Three selectable appearances
 
 Choose **Light Mode**, **Dark Mode** or **Colored Mode** from the header's Appearance selector. Colored Mode adds coordinated violet/cyan/teal/magenta gradients and original gradient scientific illustrations throughout the existing app. Dense research content stays on solid reading surfaces.
@@ -184,3 +198,7 @@ Open **Statistical Glossary → Validity and Reliability** or follow the methodo
 To include a calculated methodological assessment in Word, select its manuscript checkbox in the register, then enable **Include selected methodological assessments** for the relevant report output. Recommendations and pending evidence are not exported as completed assessments. Selections remain in memory only and clear when the dataset changes.
 
 Install the complete updated project folder together, including `validity-quality.js`. No new dependencies or environment variables are needed. See `VALIDITY_QUALITY_VALIDATION.md`, `VALIDITY_OBJECTIVE_MAP.md` and `VALIDITY_SOURCE_INVENTORY.json` for actual checks, scope, findings and unresolved evidence. No deployment was performed.
+
+## AIR bands versus histopathology — 14 October 2026
+
+Tables & Figures → **Exploratory AIR** now includes the upgraded three-category histopathology table, a matching within-category proportion figure, and completed accuracy/likelihood-ratio rows in the existing AIR performance table. Generate these from your locally imported dataset, then select them in Reports. AIR 0–4/5–8/9–12 are the requested working bands; ≥9 binary performance remains operational pending the original protocol. Source data were preserved. See `AIR_HISTOPATHOLOGY_VALIDATION.md` for actual results, methods, tests and limits.
