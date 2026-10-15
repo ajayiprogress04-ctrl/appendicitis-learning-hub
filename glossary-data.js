@@ -1358,7 +1358,7 @@ window.HUB_GLOSSARY_BRIEF = {
   ],
   "regression": [
     "A model describing how a numerical outcome changes with selected predictors.",
-    "An adjusted cost or stay model needs a justified predictor set; the app must not imply such an analysis exists when unsupported."
+    "Table A.3 examines recorded hospital costs against age, stay and diagnosis time together. Its coefficients are conditional mean differences, not causal costs; severity adjustment was not retained."
   ],
   "logistic": [
     "A model predicting the chance of a yes/no outcome.",
@@ -1910,3 +1910,8 @@ window.HUB_GLOSSARY_GUIDES=(()=>{
  for(const e of HUB_GLOSSARY_DATA.entries)if(aliases[e.id])e.aliases=[...new Set([...e.aliases,...aliases[e.id]])];
  return guides;
 })();
+
+/* Focused adjusted-cost terminology; no statistical calculations. */
+HUB_GLOSSARY_DATA.entries.push({id:'adjusted-cost',term:'Adjusted hospital-cost association',category:'Correlation and regression',aliases:['adjusted cost','adjusted mean cost difference','multivariable cost regression'],definition:'A cost difference estimated while holding selected recorded factors constant.',purpose:'Read Table A.3 conditional cost associations.',interpretation:'Not a causal or incremental pathway effect.',related:['regression','ci']},{id:'hc3',term:'HC3 robust standard errors',category:'Correlation and regression',aliases:['HC3','heteroskedasticity-robust standard errors','robust standard errors'],definition:'Uncertainty estimates allowing unequal residual variability, with leverage adjustment.',purpose:'Interpret uncertainty in Table A.3.',interpretation:'Not a correction for confounding or poor model specification.',related:['regression','ci']});
+HUB_GLOSSARY_BRIEF['adjusted-cost']=['A cost difference estimated while holding the model’s other recorded factors constant.','Table A.3 adjusts for age, stay and diagnosis time. It does not estimate a causal severity effect, added hs-CRP costs or savings.'];
+HUB_GLOSSARY_BRIEF.hc3=['A way to estimate uncertainty when residual variability differs, with adjustment for influential predictor values.','Table A.3 uses HC3 intervals for its cost coefficients. This does not fix confounding, dependence or an unsuitable model.'];
