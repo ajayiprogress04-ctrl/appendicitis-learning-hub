@@ -175,7 +175,7 @@ window.RESULT_EXPORTS=(()=>{
  }
  ready.push(item);
  }catch(error){excluded.push({id:item.id,title:item.title,kind:'Cannot generate',reason:error.message||String(error),retryable:true});}
- onProgress({completed:ready.length+excluded.length,total:items.length,item});
+ await onProgress({completed:ready.length+excluded.length,total:items.length,item});
  }
  return {items:ready,excluded,rasterizer:xml=>{if(!images.has(xml))throw Error('A prepared figure is missing; retry export.');return images.get(xml);}};
  }
