@@ -15,7 +15,7 @@
   let toastTimer;
   function getEntries(objective){return objective.methods.map(use => ({...data.methods[use.id],...use,objective:objective.id}));}
   function matches(method,objective,query){const haystack=norm([`objective ${objective.id}`,objective.title,objective.short,objective.approved,method.name,method.tags,method.kind,method.status,method.here,method.purpose,method.origin,method.meaning,method.interpret,method.example,method.client,method.limits,...method.terms.map(t=>data.glossary[t]),...(data.bindings[String(objective.id)]||[]).filter(b=>b.methods.includes(method.id)).map(b=>b.name)].join(' '));return norm(query).trim().split(/\s+/).every(word=>haystack.includes(word));}
-  function glossary(method){return `<details class="glossary" open><summary>Important terms · plain-English meanings</summary><dl class="glossary-list">${method.terms.map(t=>`<div><dt>${esc(t)}</dt><dd>${esc(data.glossary[t])}</dd></div>`).join('')}</dl></details>`;}
+  function glossary(method){return `<details class="glossary"><summary>Important terms · plain-English meanings</summary><dl class="glossary-list">${method.terms.map(t=>`<div><dt>${esc(t)}</dt><dd>${esc(data.glossary[t])}</dd></div>`).join('')}</dl></details>`;}
   function methodBindings(method,objective){const all=data.bindings[String(objective.id)]||[];const matches=all.filter(b=>b.methods.includes(method.id));return matches.length?matches:all.filter(b=>/Main|Primary|Reference|Grouping/.test(b.role));}
   function field(label,text,cls=''){return `<div class="field ${cls}"><h4>${esc(label)}</h4><p>${esc(text)}</p></div>`;}
   function methodCard(method,objective){
