@@ -1941,3 +1941,6 @@ window.HUB_VARIABLES = {
     }
   ]
 };
+
+/* Associate recorded fields with the supplementary plan; values/coding unchanged. */
+for(const v of window.HUB_VARIABLES.variables)if((window.HUB_DATA.bindings['7']||[]).some(b=>b.name===v.name)&&!v.objectives.includes(7))v.objectives.push(7);
