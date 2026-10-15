@@ -659,3 +659,14 @@ body.research-scrollbar-enabled .page-shell::-webkit-scrollbar { display:none; }
  .mobile-theme-menu>summary :is(small,span) { grid-column:1; }
  .mobile-theme-menu>summary::after { content:'▾';grid-column:2;grid-row:1 / span 2;align-self:center; }
 }
+
+/* Desktop viewport rail is independent of navigation drawer/side-panel state. */
+body.research-scrollbar-enabled:not(.result-focus):not(:has(dialog:modal)) .page-shell { overflow-y:scroll; }
+body.research-scrollbar-enabled .research-scrollbar { right:0;left:auto;z-index:64; }
+@media(min-width:601px) and (hover:hover) and (pointer:fine){
+ .page-shell { margin-right:16px; }
+ .sidebar-collapsed .page-shell { width:calc(100% - 16px);margin-right:16px; }
+}
+@media(min-width:601px) and (max-width:75rem) and (hover:hover) and (pointer:fine){
+ .page-shell,.sidebar-collapsed .page-shell { width:calc(100% - 16px);margin-left:0;margin-right:16px; }
+}
