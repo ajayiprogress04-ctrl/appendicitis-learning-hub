@@ -1,0 +1,350 @@
+{
+  "air_category_histology": {
+    "kind": "table",
+    "headers": [
+      "AIR category",
+      "Histopathology-positive n (row %)",
+      "Histopathology-negative n (row %)",
+      "Row total"
+    ],
+    "rows": [
+      [
+        "AIR 9–12: high probability",
+        "32 (100.0%)",
+        "0 (0.0%)",
+        32
+      ],
+      [
+        "AIR 5–8: intermediate probability",
+        "43 (84.3%)",
+        "8 (15.7%)",
+        51
+      ],
+      [
+        "AIR 0–4: low probability",
+        "2 (100.0%)",
+        "0 (0.0%)",
+        2
+      ],
+      [
+        "Overall jointly classifiable",
+        "77 (90.6%)",
+        "8 (9.4%)",
+        85
+      ],
+      [
+        "Excluded / unclassifiable",
+        "Not assigned",
+        "Not assigned",
+        0
+      ]
+    ],
+    "methods": "Fisher–Freeman–Halton exact fixed-margin test; unadjusted exploratory association.",
+    "notes": [
+      "Histology 1–5 reference-positive; code 6 negative under isolated reactive lymphoid hyperplasia assumption.",
+      "Histological severity 1–3 simple, 4–5 complicated; code 6 not applicable. Operative rupture remains independent.",
+      "All supplied records retained; full clinical eligibility remains unverified. Missing and unrecognised codes are not negative.",
+      "Original AIR totals are preserved; valid integer range 0–12. No AIR protocol or complete validated components were supplied. The approved working 0–4/5–8/9–12 categories and ≥9 operating point are operational, not claimed protocol-prespecified.",
+      "AIR comparisons and combinations are additional exploratory analyses, not silently added primary objectives.",
+      "Original AIR category percentages use classifiable histopathology within each AIR row; empty groups have no estimable proportion. Overall percentages use all jointly classifiable records.",
+      "Original AIR exclusions (mutually exclusive): missing AIR 0; invalid/non-integer AIR 0; missing histology with valid AIR 0; unexpected histology with valid AIR 0. Loaded n=85; jointly eligible n=85.",
+      "Original AIR association: Fisher–Freeman–Halton exact fixed-margin test; exact-test statistic and df not applicable; p = 0.042403; Cramér V=0.263; minimum expected count 0.188. Pearson chi-square 5.887 with active-table df 2 is provided only as the descriptive basis of Cramér V, not as the selected p-value test. No trend test, ordinal model or Cramér V interval was added.",
+      "Loaded records: 85; result-level analysis n: 85. Row-specific denominators take precedence where shown.",
+      "CI = confidence interval; SD = standard deviation; Q1–Q3 = first to third quartile (IQR limits); n = number of observations. Not estimable/Not estimated identifies unavailable evidence; Not applicable identifies an irrelevant field.",
+      "MAS = Modified Alvarado Score; hsCRP = high-sensitivity C-reactive protein; AIR = Appendicitis Inflammatory Response score; PCV = packed cell volume. Retained units and clinical definitions require verification against the study protocol.",
+      "Retained reporting convention α = 0.05. P-values are displayed to three decimals, or <0.001 when justified by the calculated value; unrounded inferential values remain in the calculation log where available. Statistical evidence alone does not establish clinical importance. Multiplicity treatment is stated in the methods; unadjusted exploratory comparisons require cautious interpretation."
+    ],
+    "interpretation": "AIR 9–12: high probability included 32 participants, of whom 32 (100.0%) were histopathology-positive and 0 (0.0%) were negative. AIR 5–8: intermediate probability included 51 participants, of whom 43 (84.3%) were histopathology-positive and 8 (15.7%) were negative. AIR 0–4: low probability included 2 participants, of whom 2 (100.0%) were histopathology-positive and 0 (0.0%) were negative. Among 85 classifiable records, Fisher–Freeman–Halton exact fixed-margin test gave p = 0.042403, with Cramér V = 0.263. The unadjusted exploratory result supports an association under the stated sampling assumptions, not diagnostic certainty or clinical usefulness. These results describe the operated specimen-linked cohort using the requested working AIR bands; scoring construction and protocol prespecification remain unverified.",
+    "figure": null,
+    "n": 85,
+    "precision": "Unrounded stored statistics appear in the calculation log where available; displayed estimates are rounded. Descriptive cells without an underlying logged summary retain their displayed precision. Retained reporting convention α = 0.05; 95% intervals. Protocol prespecification must be confirmed. Explicitly added analyses remain exploratory. All new tests exploratory unless explicitly supported by the approved objective.",
+    "airCross": {
+      "labels": [
+        "AIR 9–12: high probability",
+        "AIR 5–8: intermediate probability",
+        "AIR 0–4: low probability"
+      ],
+      "matrix": [
+        [
+          32,
+          0
+        ],
+        [
+          43,
+          8
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "test": {
+        "p": 0.042402704815245024,
+        "statistic": null,
+        "effect": 0.2631806779839076,
+        "method": "Fisher–Freeman–Halton exact fixed-margin test",
+        "expectedMinimum": 0.18823529411764706
+      },
+      "n": 85,
+      "loaded": 85,
+      "col": [
+        77,
+        8
+      ],
+      "exclusions": {
+        "missingAIR": 0,
+        "invalidAIR": 0,
+        "missingHistology": 0,
+        "invalidHistology": 0
+      },
+      "pearsonChi": 5.887445887445887,
+      "pearsonDF": 2
+    },
+    "log": {
+      "p": 0.042402704815245024,
+      "statistic": null,
+      "effect": 0.2631806779839076,
+      "method": "Fisher–Freeman–Halton exact fixed-margin test",
+      "expectedMinimum": 0.18823529411764706,
+      "n": 85
+    }
+  },
+  "air_histology_proportions": {
+    "kind": "figure",
+    "headers": [],
+    "rows": [],
+    "methods": "Fisher–Freeman–Halton exact fixed-margin test; same category denominators as the cross-tabulation.",
+    "notes": [
+      "Histology 1–5 reference-positive; code 6 negative under isolated reactive lymphoid hyperplasia assumption.",
+      "Histological severity 1–3 simple, 4–5 complicated; code 6 not applicable. Operative rupture remains independent.",
+      "All supplied records retained; full clinical eligibility remains unverified. Missing and unrecognised codes are not negative.",
+      "Original AIR totals are preserved; valid integer range 0–12. No AIR protocol or complete validated components were supplied. The approved working 0–4/5–8/9–12 categories and ≥9 operating point are operational, not claimed protocol-prespecified.",
+      "AIR comparisons and combinations are additional exploratory analyses, not silently added primary objectives.",
+      "Original AIR category percentages use classifiable histopathology within each AIR row; empty groups have no estimable proportion. Overall percentages use all jointly classifiable records.",
+      "Original AIR exclusions (mutually exclusive): missing AIR 0; invalid/non-integer AIR 0; missing histology with valid AIR 0; unexpected histology with valid AIR 0. Loaded n=85; jointly eligible n=85.",
+      "Original AIR association: Fisher–Freeman–Halton exact fixed-margin test; exact-test statistic and df not applicable; p = 0.042403; Cramér V=0.263; minimum expected count 0.188. Pearson chi-square 5.887 with active-table df 2 is provided only as the descriptive basis of Cramér V, not as the selected p-value test. No trend test, ordinal model or Cramér V interval was added.",
+      "Loaded records: 85; result-level analysis n: 85. Row-specific denominators take precedence where shown.",
+      "CI = confidence interval; SD = standard deviation; Q1–Q3 = first to third quartile (IQR limits); n = number of observations. Not estimable/Not estimated identifies unavailable evidence; Not applicable identifies an irrelevant field.",
+      "MAS = Modified Alvarado Score; hsCRP = high-sensitivity C-reactive protein; AIR = Appendicitis Inflammatory Response score; PCV = packed cell volume. Retained units and clinical definitions require verification against the study protocol.",
+      "Retained reporting convention α = 0.05. P-values are displayed to three decimals, or <0.001 when justified by the calculated value; unrounded inferential values remain in the calculation log where available. Statistical evidence alone does not establish clinical importance. Multiplicity treatment is stated in the methods; unadjusted exploratory comparisons require cautious interpretation.",
+      "Figure sample size and axis units follow the actual plotted observations and stated source definitions."
+    ],
+    "interpretation": "AIR 9–12: high probability included 32 participants, of whom 32 (100.0%) were histopathology-positive and 0 (0.0%) were negative. AIR 5–8: intermediate probability included 51 participants, of whom 43 (84.3%) were histopathology-positive and 8 (15.7%) were negative. AIR 0–4: low probability included 2 participants, of whom 2 (100.0%) were histopathology-positive and 0 (0.0%) were negative. Among 85 classifiable records, Fisher–Freeman–Halton exact fixed-margin test gave p = 0.042403, with Cramér V = 0.263. The unadjusted exploratory result supports an association under the stated sampling assumptions, not diagnostic certainty or clinical usefulness. These results describe the operated specimen-linked cohort using the requested working AIR bands; scoring construction and protocol prespecification remain unverified.",
+    "figure": {
+      "type": "airproportions",
+      "series": [
+        {
+          "name": "AIR 9–12: high probability",
+          "n": 32,
+          "positive": 32,
+          "negative": 0
+        },
+        {
+          "name": "AIR 5–8: intermediate probability",
+          "n": 51,
+          "positive": 43,
+          "negative": 8
+        },
+        {
+          "name": "AIR 0–4: low probability",
+          "n": 2,
+          "positive": 2,
+          "negative": 0
+        }
+      ],
+      "x": "Histopathology status within AIR category (%)",
+      "y": "Requested AIR probability category"
+    },
+    "n": 85,
+    "precision": "Unrounded stored statistics appear in the calculation log where available; displayed estimates are rounded. Descriptive cells without an underlying logged summary retain their displayed precision. Retained reporting convention α = 0.05; 95% intervals. Protocol prespecification must be confirmed. Explicitly added analyses remain exploratory. All new tests exploratory unless explicitly supported by the approved objective.",
+    "airCross": {
+      "labels": [
+        "AIR 9–12: high probability",
+        "AIR 5–8: intermediate probability",
+        "AIR 0–4: low probability"
+      ],
+      "matrix": [
+        [
+          32,
+          0
+        ],
+        [
+          43,
+          8
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "test": {
+        "p": 0.042402704815245024,
+        "statistic": null,
+        "effect": 0.2631806779839076,
+        "method": "Fisher–Freeman–Halton exact fixed-margin test",
+        "expectedMinimum": 0.18823529411764706
+      },
+      "n": 85,
+      "loaded": 85,
+      "col": [
+        77,
+        8
+      ],
+      "exclusions": {
+        "missingAIR": 0,
+        "invalidAIR": 0,
+        "missingHistology": 0,
+        "invalidHistology": 0
+      },
+      "pearsonChi": 5.887445887445887,
+      "pearsonDF": 2
+    },
+    "log": {
+      "p": 0.042402704815245024,
+      "statistic": null,
+      "effect": 0.2631806779839076,
+      "method": "Fisher–Freeman–Halton exact fixed-margin test",
+      "expectedMinimum": 0.18823529411764706,
+      "n": 85
+    }
+  },
+  "air_performance": {
+    "kind": "table",
+    "headers": [
+      "Measure",
+      "Estimate (95% CI)",
+      "Denominator"
+    ],
+    "rows": [
+      [
+        "Continuous AIR AUC",
+        "0.816 (0.674 to 0.943)",
+        85
+      ],
+      [
+        "Sensitivity at operational AIR ≥9",
+        "41.6% (31.2% to 52.7%)",
+        77
+      ],
+      [
+        "Specificity at operational AIR ≥9",
+        "100.0% (67.6% to 100.0%)",
+        8
+      ],
+      [
+        "PPV",
+        "100.0% (89.3% to 100.0%)",
+        32
+      ],
+      [
+        "NPV",
+        "15.1% (7.9% to 27.1%)",
+        53
+      ],
+      [
+        "Accuracy",
+        "47.1% (36.8% to 57.6%)",
+        85
+      ],
+      [
+        "LR+",
+        "Infinite; interval not estimable",
+        85
+      ],
+      [
+        "LR−",
+        "0.584 (0.484 to 0.706)",
+        85
+      ],
+      [
+        "TP / TN / FP / FN",
+        "32 / 8 / 0 / 45",
+        85
+      ]
+    ],
+    "methods": "Continuous AIR ranking; operational test-positive AIR 9–12 versus test-negative AIR 0–8, with intermediate scores retained. Wilson 95% intervals for proportions; log-normal likelihood-ratio intervals where estimable. Not protocol-prespecified.",
+    "notes": [
+      "Histology 1–5 reference-positive; code 6 negative under isolated reactive lymphoid hyperplasia assumption.",
+      "Histological severity 1–3 simple, 4–5 complicated; code 6 not applicable. Operative rupture remains independent.",
+      "All supplied records retained; full clinical eligibility remains unverified. Missing and unrecognised codes are not negative.",
+      "Original AIR totals are preserved; valid integer range 0–12. No AIR protocol or complete validated components were supplied. The approved working 0–4/5–8/9–12 categories and ≥9 operating point are operational, not claimed protocol-prespecified.",
+      "AIR comparisons and combinations are additional exploratory analyses, not silently added primary objectives.",
+      "Loaded records: 85; result-level analysis n: 85. Row-specific denominators take precedence where shown.",
+      "CI = confidence interval; SD = standard deviation; Q1–Q3 = first to third quartile (IQR limits); n = number of observations. Not estimable/Not estimated identifies unavailable evidence; Not applicable identifies an irrelevant field.",
+      "ROC = receiver operating characteristic; AUC = area under the ROC curve; TP/TN/FP/FN = true positive/true negative/false positive/false negative; PPV/NPV = positive/negative predictive value; LR+/LR− = positive/negative likelihood ratio. Sensitivity denominator = TP+FN; specificity = TN+FP; PPV = TP+FP; NPV = TN+FN; accuracy = all classified cases.",
+      "MAS = Modified Alvarado Score; hsCRP = high-sensitivity C-reactive protein; AIR = Appendicitis Inflammatory Response score; PCV = packed cell volume. Retained units and clinical definitions require verification against the study protocol."
+    ],
+    "interpretation": "Under the exploratory operational rule AIR ≥9 positive and AIR 0–8 negative, 32 of 77 histopathology-positive cases were test-positive and 45 were below the cutoff. Sensitivity was 41.6% (95% Wilson interval 31.2% to 52.7%); specificity was 100.0% among 8 reference-negative cases, with 0 false positives. Overall accuracy was 47.1%. Intermediate scores were retained in the lower-score group for this operational comparison, rather than establishing a clinical absence-of-disease classification. Predictive values reflect this operated cohort; an infinite LR+ with zero false positives does not prove perfect population specificity. The three-category cross-tabulation remains the direct description of the requested risk bands.",
+    "figure": null,
+    "n": 85,
+    "precision": "Unrounded stored statistics appear in the calculation log where available; displayed estimates are rounded. Descriptive cells without an underlying logged summary retain their displayed precision. Retained reporting convention α = 0.05; 95% intervals. Protocol prespecification must be confirmed. Explicitly added analyses remain exploratory. All new tests exploratory unless explicitly supported by the approved objective.",
+    "log": {
+      "tp": 32,
+      "tn": 8,
+      "fp": 0,
+      "fn": 45,
+      "n": 85,
+      "sensitivity": {
+        "estimate": 0.4155844155844156,
+        "ci": [
+          0.31209184642228643,
+          0.5270995760279946
+        ],
+        "n": 77,
+        "k": 32
+      },
+      "specificity": {
+        "estimate": 1,
+        "ci": [
+          0.6755924351161198,
+          1
+        ],
+        "n": 8,
+        "k": 8
+      },
+      "ppv": {
+        "estimate": 1,
+        "ci": [
+          0.8928208017449293,
+          1
+        ],
+        "n": 32,
+        "k": 32
+      },
+      "npv": {
+        "estimate": 0.1509433962264151,
+        "ci": [
+          0.07852417850846262,
+          0.27054249276195336
+        ],
+        "n": 53,
+        "k": 8
+      },
+      "accuracy": {
+        "estimate": 0.47058823529411764,
+        "ci": [
+          0.3680617001376212,
+          0.5756582694984995
+        ],
+        "n": 85,
+        "k": 40
+      },
+      "lrp": {
+        "estimate": null,
+        "infinite": true,
+        "ci": [
+          null,
+          null
+        ]
+      },
+      "lrn": {
+        "estimate": 0.5844155844155844,
+        "infinite": false,
+        "ci": [
+          0.48408466339231954,
+          0.7055409954828739
+        ]
+      }
+    }
+  }
+}

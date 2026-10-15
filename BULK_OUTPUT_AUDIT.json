@@ -1,0 +1,580 @@
+{
+  "schema": "bulk-output-audit-v1",
+  "scope": "Actual local 85-record test; aggregate review only, not a clinical-validity certification",
+  "eligible_definitions_processed": 83,
+  "outputs": [
+    {
+      "id": "1:baseline",
+      "status": "ready",
+      "blocking_reason": "",
+      "qualifications": []
+    },
+    {
+      "id": "1:d1_population",
+      "status": "ready",
+      "blocking_reason": "",
+      "qualifications": []
+    },
+    {
+      "id": "1:d1_classification",
+      "status": "ready",
+      "blocking_reason": "",
+      "qualifications": []
+    },
+    {
+      "id": "1:d1_performance",
+      "status": "ready",
+      "blocking_reason": "",
+      "qualifications": []
+    },
+    {
+      "id": "1:d1_predictive",
+      "status": "review",
+      "blocking_reason": "",
+      "qualifications": [
+        "MAS model \u00b7 LRN: effect/estimate interval is unavailable or not implemented; precision remains unresolved.",
+        "MAS + hsCRP model \u00b7 LRN: effect/estimate interval is unavailable or not implemented; precision remains unresolved.",
+        "The output contains unavailable estimates or tests; retain the explicit unavailable cells and do not infer significance/precision for them."
+      ]
+    },
+    {
+      "id": "1:d1_auc",
+      "status": "ready",
+      "blocking_reason": "",
+      "qualifications": []
+    },
+    {
+      "id": "1:d1_calibration",
+      "status": "ready",
+      "blocking_reason": "",
+      "qualifications": []
+    },
+    {
+      "id": "1:d1_paired",
+      "status": "review",
+      "blocking_reason": "",
+      "qualifications": [
+        "MAS vs hsCRP: effect/estimate interval is unavailable or not implemented; precision remains unresolved."
+      ]
+    },
+    {
+      "id": "1:d1_roc",
+      "status": "ready",
+      "blocking_reason": "",
+      "qualifications": []
+    },
+    {
+      "id": "1:d1_aucplot",
+      "status": "ready",
+      "blocking_reason": "",
+      "qualifications": []
+    },
+    {
+      "id": "1:d1_confusion",
+      "status": "ready",
+      "blocking_reason": "",
+      "qualifications": []
+    },
+    {
+      "id": "1:d1_calplot",
+      "status": "ready",
+      "blocking_reason": "",
+      "qualifications": []
+    },
+    {
+      "id": "2:s2_descriptive",
+      "status": "ready",
+      "blocking_reason": "",
+      "qualifications": []
+    },
+    {
+      "id": "2:s2_comparison",
+      "status": "ready",
+      "blocking_reason": "",
+      "qualifications": []
+    },
+    {
+      "id": "2:s2_severityPerformance",
+      "status": "ready",
+      "blocking_reason": "",
+      "qualifications": []
+    },
+    {
+      "id": "2:s2_box",
+      "status": "ready",
+      "blocking_reason": "",
+      "qualifications": []
+    },
+    {
+      "id": "2:s2_severityROC",
+      "status": "ready",
+      "blocking_reason": "",
+      "qualifications": []
+    },
+    {
+      "id": "3:age_population",
+      "status": "ready",
+      "blocking_reason": "",
+      "qualifications": []
+    },
+    {
+      "id": "3:age_performance",
+      "status": "review",
+      "blocking_reason": "",
+      "qualifications": [
+        "The output contains unavailable estimates or tests; retain the explicit unavailable cells and do not infer significance/precision for them."
+      ]
+    },
+    {
+      "id": "3:age_roc",
+      "status": "ready",
+      "blocking_reason": "",
+      "qualifications": []
+    },
+    {
+      "id": "3:age_rates",
+      "status": "ready",
+      "blocking_reason": "",
+      "qualifications": []
+    },
+    {
+      "id": "4:neg_histology",
+      "status": "ready",
+      "blocking_reason": "",
+      "qualifications": []
+    },
+    {
+      "id": "4:neg_rate",
+      "status": "ready",
+      "blocking_reason": "",
+      "qualifications": []
+    },
+    {
+      "id": "4:neg_subgroups",
+      "status": "review",
+      "blocking_reason": "",
+      "qualifications": [
+        "sex \u00b7 Male minus Female: effect/estimate interval is unavailable or not implemented; precision remains unresolved.",
+        "age \u00b7 Children <16 minus Adults \u226516: effect/estimate interval is unavailable or not implemented; precision remains unresolved."
+      ]
+    },
+    {
+      "id": "4:neg_histology_bar",
+      "status": "ready",
+      "blocking_reason": "",
+      "qualifications": []
+    },
+    {
+      "id": "5:conf_distribution",
+      "status": "ready",
+      "blocking_reason": "",
+      "qualifications": []
+    },
+    {
+      "id": "5:conf_transition",
+      "status": "ready",
+      "blocking_reason": "",
+      "qualifications": []
+    },
+    {
+      "id": "5:conf_change",
+      "status": "ready",
+      "blocking_reason": "",
+      "qualifications": []
+    },
+    {
+      "id": "5:conf_heatmap",
+      "status": "ready",
+      "blocking_reason": "",
+      "qualifications": []
+    },
+    {
+      "id": "5:conf_bars",
+      "status": "ready",
+      "blocking_reason": "",
+      "qualifications": []
+    },
+    {
+      "id": "6:overallcost_summary",
+      "status": "ready",
+      "blocking_reason": "",
+      "qualifications": []
+    },
+    {
+      "id": "6:overallcost_histogram",
+      "status": "ready",
+      "blocking_reason": "",
+      "qualifications": []
+    },
+    {
+      "id": "A:cost_descriptive",
+      "status": "ready",
+      "blocking_reason": "",
+      "qualifications": []
+    },
+    {
+      "id": "A:cost_comparison",
+      "status": "ready",
+      "blocking_reason": "",
+      "qualifications": []
+    },
+    {
+      "id": "A:cost_box",
+      "status": "ready",
+      "blocking_reason": "",
+      "qualifications": []
+    },
+    {
+      "id": "B:db_population",
+      "status": "ready",
+      "blocking_reason": "",
+      "qualifications": []
+    },
+    {
+      "id": "B:db_classification",
+      "status": "ready",
+      "blocking_reason": "",
+      "qualifications": []
+    },
+    {
+      "id": "B:db_performance",
+      "status": "ready",
+      "blocking_reason": "",
+      "qualifications": []
+    },
+    {
+      "id": "B:db_predictive",
+      "status": "review",
+      "blocking_reason": "",
+      "qualifications": [
+        "AIR \u00b7 LRP: effect/estimate interval is unavailable or not implemented; precision remains unresolved.",
+        "AIR model \u00b7 LRN: effect/estimate interval is unavailable or not implemented; precision remains unresolved.",
+        "MAS model \u00b7 LRN: effect/estimate interval is unavailable or not implemented; precision remains unresolved.",
+        "hsCRP model \u00b7 NPV: effect/estimate interval is unavailable or not implemented; precision remains unresolved.",
+        "hsCRP model \u00b7 LRP: effect/estimate interval is unavailable or not implemented; precision remains unresolved.",
+        "hsCRP model \u00b7 LRN: effect/estimate interval is unavailable or not implemented; precision remains unresolved.",
+        "AIR + MAS model \u00b7 LRN: effect/estimate interval is unavailable or not implemented; precision remains unresolved.",
+        "AIR + hsCRP model \u00b7 LRN: effect/estimate interval is unavailable or not implemented; precision remains unresolved.",
+        "MAS + hsCRP model \u00b7 LRN: effect/estimate interval is unavailable or not implemented; precision remains unresolved.",
+        "AIR + MAS + hsCRP model \u00b7 LRN: effect/estimate interval is unavailable or not implemented; precision remains unresolved.",
+        "The output contains unavailable estimates or tests; retain the explicit unavailable cells and do not infer significance/precision for them."
+      ]
+    },
+    {
+      "id": "B:db_auc",
+      "status": "ready",
+      "blocking_reason": "",
+      "qualifications": []
+    },
+    {
+      "id": "B:db_paired",
+      "status": "review",
+      "blocking_reason": "",
+      "qualifications": [
+        "AIR vs MAS: effect/estimate interval is unavailable or not implemented; precision remains unresolved.",
+        "AIR vs hsCRP: effect/estimate interval is unavailable or not implemented; precision remains unresolved.",
+        "MAS vs hsCRP: effect/estimate interval is unavailable or not implemented; precision remains unresolved."
+      ]
+    },
+    {
+      "id": "B:db_calibration",
+      "status": "ready",
+      "blocking_reason": "",
+      "qualifications": []
+    },
+    {
+      "id": "B:db_roc",
+      "status": "ready",
+      "blocking_reason": "",
+      "qualifications": []
+    },
+    {
+      "id": "B:db_aucplot",
+      "status": "ready",
+      "blocking_reason": "",
+      "qualifications": []
+    },
+    {
+      "id": "B:db_confusion",
+      "status": "ready",
+      "blocking_reason": "",
+      "qualifications": []
+    },
+    {
+      "id": "B:db_calplot",
+      "status": "ready",
+      "blocking_reason": "",
+      "qualifications": []
+    },
+    {
+      "id": "B:master_performance",
+      "status": "review",
+      "blocking_reason": "",
+      "qualifications": [
+        "The output contains unavailable estimates or tests; retain the explicit unavailable cells and do not infer significance/precision for them."
+      ]
+    },
+    {
+      "id": "B:master_comparisons",
+      "status": "ready",
+      "blocking_reason": "",
+      "qualifications": []
+    },
+    {
+      "id": "B:master_rates",
+      "status": "ready",
+      "blocking_reason": "",
+      "qualifications": []
+    },
+    {
+      "id": "C:assoc_continuous",
+      "status": "ready",
+      "blocking_reason": "",
+      "qualifications": []
+    },
+    {
+      "id": "C:assoc_scatter",
+      "status": "ready",
+      "blocking_reason": "",
+      "qualifications": []
+    },
+    {
+      "id": "C:assoc_forest",
+      "status": "ready",
+      "blocking_reason": "",
+      "qualifications": []
+    },
+    {
+      "id": "D:air_distribution",
+      "status": "ready",
+      "blocking_reason": "",
+      "qualifications": []
+    },
+    {
+      "id": "D:air_histology",
+      "status": "ready",
+      "blocking_reason": "",
+      "qualifications": []
+    },
+    {
+      "id": "D:air_category_histology",
+      "status": "review",
+      "blocking_reason": "",
+      "qualifications": [
+        "Association of AIR risk categories with histopathological diagnosis: effect/estimate interval is unavailable or not implemented; precision remains unresolved."
+      ]
+    },
+    {
+      "id": "D:air_category_severity",
+      "status": "review",
+      "blocking_reason": "",
+      "qualifications": [
+        "Association of AIR risk categories with histological severity: effect/estimate interval is unavailable or not implemented; precision remains unresolved."
+      ]
+    },
+    {
+      "id": "D:air_performance",
+      "status": "review",
+      "blocking_reason": "",
+      "qualifications": [
+        "The output contains unavailable estimates or tests; retain the explicit unavailable cells and do not infer significance/precision for them."
+      ]
+    },
+    {
+      "id": "D:air_associations",
+      "status": "ready",
+      "blocking_reason": "",
+      "qualifications": []
+    },
+    {
+      "id": "D:air_histology_proportions",
+      "status": "review",
+      "blocking_reason": "",
+      "qualifications": [
+        "Histopathology-positive and negative proportions within AIR probability categories: effect/estimate interval is unavailable or not implemented; precision remains unresolved."
+      ]
+    },
+    {
+      "id": "D:air_histogram",
+      "status": "ready",
+      "blocking_reason": "",
+      "qualifications": []
+    },
+    {
+      "id": "D:air_categories",
+      "status": "ready",
+      "blocking_reason": "",
+      "qualifications": []
+    },
+    {
+      "id": "D:air_roc",
+      "status": "ready",
+      "blocking_reason": "",
+      "qualifications": []
+    },
+    {
+      "id": "D:air_box_histology",
+      "status": "ready",
+      "blocking_reason": "",
+      "qualifications": []
+    },
+    {
+      "id": "D:air_postop",
+      "status": "ready",
+      "blocking_reason": "",
+      "qualifications": []
+    },
+    {
+      "id": "E:pcv_distribution",
+      "status": "ready",
+      "blocking_reason": "",
+      "qualifications": []
+    },
+    {
+      "id": "E:pcv_references",
+      "status": "ready",
+      "blocking_reason": "",
+      "qualifications": []
+    },
+    {
+      "id": "E:pcv_histology",
+      "status": "ready",
+      "blocking_reason": "",
+      "qualifications": []
+    },
+    {
+      "id": "E:pcv_severity",
+      "status": "ready",
+      "blocking_reason": "",
+      "qualifications": []
+    },
+    {
+      "id": "E:pcv_category_histology",
+      "status": "review",
+      "blocking_reason": "",
+      "qualifications": [
+        "Association of PCV category with histopathological diagnosis: effect/estimate interval is unavailable or not implemented; precision remains unresolved."
+      ]
+    },
+    {
+      "id": "E:pcv_category_air",
+      "status": "review",
+      "blocking_reason": "",
+      "qualifications": [
+        "Association of PCV category with working AIR risk category: effect/estimate interval is unavailable or not implemented; precision remains unresolved."
+      ]
+    },
+    {
+      "id": "E:pcv_associations",
+      "status": "ready",
+      "blocking_reason": "",
+      "qualifications": []
+    },
+    {
+      "id": "E:pcv_histogram",
+      "status": "ready",
+      "blocking_reason": "",
+      "qualifications": []
+    },
+    {
+      "id": "E:pcv_box_histology",
+      "status": "ready",
+      "blocking_reason": "",
+      "qualifications": []
+    },
+    {
+      "id": "E:pcv_scatter",
+      "status": "ready",
+      "blocking_reason": "",
+      "qualifications": []
+    },
+    {
+      "id": "E:pcv_postop",
+      "status": "ready",
+      "blocking_reason": "",
+      "qualifications": []
+    },
+    {
+      "id": "F:sign_distribution",
+      "status": "ready",
+      "blocking_reason": "",
+      "qualifications": []
+    },
+    {
+      "id": "F:sign_histology",
+      "status": "blocked",
+      "blocking_reason": "Right iliac fossa tenderness: required test p-value is not estimable. Abdominal pain: required test p-value is not estimable.",
+      "qualifications": [
+        "Right iliac fossa tenderness: test p-value is not estimable; no significance claim.",
+        "Right iliac fossa tenderness: effect/estimate interval is unavailable or not implemented; precision remains unresolved.",
+        "Rebound tenderness: effect/estimate interval is unavailable or not implemented; precision remains unresolved.",
+        "Migratory abdominal pain: effect/estimate interval is unavailable or not implemented; precision remains unresolved.",
+        "Abdominal pain: test p-value is not estimable; no significance claim.",
+        "Abdominal pain: effect/estimate interval is unavailable or not implemented; precision remains unresolved.",
+        "The output contains unavailable estimates or tests; retain the explicit unavailable cells and do not infer significance/precision for them."
+      ]
+    },
+    {
+      "id": "F:sign_severity",
+      "status": "blocked",
+      "blocking_reason": "Right iliac fossa tenderness: required test p-value is not estimable. Abdominal pain: required test p-value is not estimable.",
+      "qualifications": [
+        "Right iliac fossa tenderness: test p-value is not estimable; no significance claim.",
+        "Right iliac fossa tenderness: effect/estimate interval is unavailable or not implemented; precision remains unresolved.",
+        "Rebound tenderness: effect/estimate interval is unavailable or not implemented; precision remains unresolved.",
+        "Migratory abdominal pain: effect/estimate interval is unavailable or not implemented; precision remains unresolved.",
+        "Abdominal pain: test p-value is not estimable; no significance claim.",
+        "Abdominal pain: effect/estimate interval is unavailable or not implemented; precision remains unresolved.",
+        "The output contains unavailable estimates or tests; retain the explicit unavailable cells and do not infer significance/precision for them."
+      ]
+    },
+    {
+      "id": "F:sign_air",
+      "status": "blocked",
+      "blocking_reason": "Right iliac fossa tenderness: required test p-value is not estimable. Abdominal pain: required test p-value is not estimable.",
+      "qualifications": [
+        "Right iliac fossa tenderness: test p-value is not estimable; no significance claim.",
+        "Right iliac fossa tenderness: effect/estimate interval is unavailable or not implemented; precision remains unresolved.",
+        "Rebound tenderness: effect/estimate interval is unavailable or not implemented; precision remains unresolved.",
+        "Migratory abdominal pain: effect/estimate interval is unavailable or not implemented; precision remains unresolved.",
+        "Abdominal pain: test p-value is not estimable; no significance claim.",
+        "Abdominal pain: effect/estimate interval is unavailable or not implemented; precision remains unresolved.",
+        "The output contains unavailable estimates or tests; retain the explicit unavailable cells and do not infer significance/precision for them."
+      ]
+    },
+    {
+      "id": "F:sign_performance",
+      "status": "review",
+      "blocking_reason": "",
+      "qualifications": [
+        "The output contains unavailable estimates or tests; retain the explicit unavailable cells and do not infer significance/precision for them."
+      ]
+    },
+    {
+      "id": "F:sign_likelihood",
+      "status": "review",
+      "blocking_reason": "",
+      "qualifications": [
+        "The output contains unavailable estimates or tests; retain the explicit unavailable cells and do not infer significance/precision for them."
+      ]
+    },
+    {
+      "id": "F:sign_bar",
+      "status": "ready",
+      "blocking_reason": "",
+      "qualifications": []
+    },
+    {
+      "id": "F:sign_rates",
+      "status": "ready",
+      "blocking_reason": "",
+      "qualifications": []
+    }
+  ],
+  "exported_after_explicit_review": {
+    "tables": 50,
+    "figures": 30,
+    "total": 80
+  },
+  "source_records_included": false
+}
