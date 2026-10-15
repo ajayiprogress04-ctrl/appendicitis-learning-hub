@@ -1,0 +1,65 @@
+[
+  {
+    "file": "WORD_BULK_SINGLE.docx",
+    "selected": 1,
+    "tables": 1,
+    "figures": 0,
+    "valid": true
+  },
+  {
+    "file": "WORD_BULK_MULTIPLE.docx",
+    "selected": 2,
+    "tables": 1,
+    "figures": 1,
+    "valid": true
+  },
+  {
+    "file": "WORD_BULK_ALL.docx",
+    "selected": 113,
+    "tables": 74,
+    "figures": 39,
+    "valid": true
+  },
+  {
+    "file": "WORD_REPORTS_SINGLE.docx",
+    "selected": 1,
+    "tables": 1,
+    "figures": 0,
+    "valid": true
+  },
+  {
+    "file": "WORD_REPORTS_MULTIPLE.docx",
+    "selected": 2,
+    "tables": 1,
+    "figures": 1,
+    "valid": true
+  },
+  {
+    "file": "WORD_REPORTS_ALL.docx",
+    "selected": 113,
+    "tables": 74,
+    "figures": 39,
+    "valid": true
+  },
+  {
+    "file": "WORD_CATALOG_SINGLE.docx",
+    "selected": 1,
+    "tables": 1,
+    "figures": 0,
+    "valid": true
+  },
+  {
+    "file": "WORD_CATALOG_MULTIPLE.docx",
+    "selected": 2,
+    "tables": 1,
+    "figures": 1,
+    "valid": true
+  },
+  {
+    "file": "WORD_CATALOG_ALL.docx",
+    "selected": 113,
+    "tables": 74,
+    "figures": 39,
+    "valid": true
+  }
+]
