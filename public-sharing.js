@@ -8,5 +8,4 @@
  async function copyLink(){try{if(!navigator.clipboard?.writeText)return manual();await navigator.clipboard.writeText(url());fallback.hidden=true;status.textContent='App link copied.';}catch{manual();}}
  copy?.addEventListener('click',copyLink);
  share?.addEventListener('click',async()=>{if(!navigator.share)return copyLink();share.disabled=true;try{await navigator.share({title:'Appendicitis Research | Statistical Learning Hub',text:'Explore appendicitis research, statistical methods and scientific reporting.',url:url()});status.textContent='Sharing request completed.';}catch(e){if(e.name==='AbortError')status.textContent='Sharing cancelled.';else manual();}finally{share.disabled=false;}});
- document.getElementById('public-explore')?.addEventListener('click',()=>{document.getElementById('results-tab')?.click();document.getElementById('objective-results')?.scrollIntoView({block:'start'});});
 })();
