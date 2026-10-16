@@ -86,6 +86,7 @@ window.RESULT_CATALOG = (()=>{
  add('7','figure','o7_roc','Recorded AIR and MAS score ROC curves','Diagnostic',['AIR','MAS','CRP','histology','age','INTRAOP_FINDING','total_costs'],'Actual ordinal score ROC; no artificial combination curves.');
  const oneOrder=['d1_performance','d1_combinations','requested_diagnostic_comparisons','d1_rules','d1_rates','d1_score_auc','d1_score_roc','d1_firth_regression','d1_internal_validation','d1_thresholds'];entries.sort((a,b)=>scopes.findIndex(s=>s.id===a.scope)-scopes.findIndex(s=>s.id===b.scope)||(a.scope==='1'?oneOrder.indexOf(a.key)-oneOrder.indexOf(b.key):0));
  for(const e of entries)if(e.scope==='1')e.variables=e.variables.filter(v=>v!=='AIR');
+ const demographic=entries.find(e=>e.key==='baseline');demographic.scope='0';demographic.title='Demographic and baseline characteristics';scopes.unshift({id:'0',name:'Demographic Characteristics',statement:'Describe participants and baseline findings.',explanation:'Descriptive report, separate from Objectives 1–8.'});
  const counts={};for(const e of entries){const k=e.scope+e.type;counts[k]=(counts[k]||0)+1;e.sequence=counts[k];e.defaultNumber=(e.type==='table'?'Table':'Figure')+' '+e.scope+'.'+e.sequence;}
  return {scopes,entries:entries.filter(e=>scopes.some(s=>s.id===e.scope))};
 })();

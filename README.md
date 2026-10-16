@@ -43,10 +43,19 @@ See IMPLEMENTATION.md for the consolidated requirements and architecture,
 DEPENDENCIES.md for bundled libraries and optional checks, GOOGLE_DRIVE_SETUP.md
 for account configuration and VERIFICATION.md for the checks actually run.
 
+## Approved reports and glossary
+
+The nine approved Word templates are integrated with the live-result match
+guard. Reports also offers Demographic Characteristics separately. Objective
+dropdowns replace the redundant search inputs; detailed result inspection is
+in Objectives, and Reports keeps its actual Word preview and export. Click
+underlined terms or select unfamiliar text to Look up in Glossary, then use Back.
+
 ## Private study data
 
 The original participant dataset is NOT embedded in this public-ready package.
-It is not deleted or modified: import your original SAV locally or through the
+Approved templates contain aggregate report findings, not participant rows.
+The participant dataset is not deleted or modified: import your original SAV locally or through the
 existing authorised Drive workflow. Variables, labels, declared missing values
 and actual analyses remain in the existing import/calculation pipeline. Do not
 commit participant files, result exports, access tokens or passwords to GitHub.
