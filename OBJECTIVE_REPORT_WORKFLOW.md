@@ -61,3 +61,20 @@ validity-quality.js, papers.js and user-guide.js.
 No live Google authorization, Microsoft Word application, physical phone,
 Safari/Firefox or Vercel deployment was tested. This package is the updated
 project for the existing manual deployment workflow; no deployment is claimed.
+
+## Targeted section removal
+
+Standalone Bulk Analysis & Report Exports panels are no longer rendered in
+Tables & Figures or Reports. The separate Generate and Export Reports section
+and its associated export shortcuts were removed from Tables & Figures.
+Report-generation and export logic remains in Reports; shared calculation and
+progress helpers remain because individual generation still uses them. Guide
+instructions now point to objective-based generation. No standalone bulk/export
+links or landing shortcuts remain.
+
+Running Chromium checks passed: manual 85-record SAV import, Objective Four
+generation, preview and actual Word download, primary navigation, absence of
+removed panels/controls, unchanged three landing actions, mobile overflow and
+no uncaught runtime errors. The downloaded document passed ZIP/XML checks for
+editable tables and A4 portrait. Guide, actual clipboard, sharing-handler and
+cancellation simulations and sharing fallbacks passed again.
