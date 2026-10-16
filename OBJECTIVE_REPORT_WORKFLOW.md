@@ -115,3 +115,28 @@ remain cleared; multiple/empty/missing/invalid selection cases and unchanged
 dataset/results/selections passed again. No uncaught errors or mobile overflow.
 Changed JavaScript syntax passed. analysis-engine.js is byte-for-byte unchanged
 from the previous delivered ZIP. No research dataset was changed.
+
+## Landing-page order — 16 October
+
+The header and sharing actions remain in place. The research topic/background
+is followed by the existing importer, hub search, primary navigation and active
+workspace, then Exports. Preview/Word buttons are moved, not duplicated, and
+retain the existing objective-selection and export handlers. Import controls
+remain a single shared instance with delegated events after relocation. Google
+Drive controls retain their existing authentication path. The review counter
+is hidden while its stored learning state remains intact. Learning-mode
+settings remain available under Study notes.
+
+Files changed: index.html, results-browser.js, objective-workflow.js, script.js;
+new landing-layout.js. Search testing exposed a missing method-terms array; a
+small guard prevents the existing index from throwing. No statistical code or
+individual objective/report/paper content was changed.
+
+Actual Chromium checks: desktop 1440px and mobile 375px; specified DOM order;
+single importer; real 85-record SAV file selection, preview and confirmation
+from landing; search; three primary tabs; Objective Four generation; actual
+preview and Word download through the relocated buttons. Word ZIP/XML checks
+confirmed editable tables and A4 portrait. Screenshots inspected for header,
+import/search/navigation and exports. No horizontal overflow or uncaught
+runtime errors on the passing runs. Statistical engine unchanged byte-for-byte.
+Live Google sign-in and Vercel deployment were not tested or performed.

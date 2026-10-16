@@ -37,7 +37,7 @@
   <link rel="stylesheet" href="./result-viewer.css?v=20261015-workflow-order">
   <script src="./content.js?v=20261016-objective-eight-results" defer></script>
   <script src="./variables.js?v=20261016-objective-eight-results" defer></script>
-  <script src="./script.js?v=20261016-objective-eight-results" defer></script>
+  <script src="./script.js?v=20261016-search-guard" defer></script>
   <script src="./workspace.js?v=20261016-eight-objectives" defer></script>
   <script src="./analysis-engine.js?v=20261015-focused-objective-one" defer></script>
   <script src="./result-catalog.js?v=20261016-eight-objectives" defer></script>
@@ -54,7 +54,7 @@
   <script src="./data-import.js?v=20261014-histopathology" defer></script>
   <script src="./diagnostic-master.js?v=20261014-master" defer></script>
   <script src="./bulk-analysis.js?v=20261015-dual-progress" defer></script>
-  <script src="./results-browser.js?v=20261016-eight-objectives" defer></script>
+  <script src="./results-browser.js?v=20261016-landing-import" defer></script>
   <script src="./result-viewer.js?v=20261014-global-back" defer></script>
   <script src="./reports.js?v=20261015-client-report" defer></script>
   <script src="./global-search.js?v=20261014-global-back" defer></script>
@@ -73,7 +73,7 @@
   <link rel="stylesheet" href="./user-guide.css?v=20261015">
   <script src="./user-guide.js?v=20261015" defer></script>
   <script src="./navigation-history.js?v=20261014-master" defer></script>
-<link rel="stylesheet" href="./objective-workflow.css?v=20261016"><script src="./objective-workflow.js?v=20261016-eight-objectives" defer></script></head>
+<link rel="stylesheet" href="./objective-workflow.css?v=20261016"><script src="./objective-workflow.js?v=20261016-landing-order" defer></script></head>
 <body>
   <a class="skip-link" href="#main">Skip to learning content</a>
   <div class="mobile-back-bar" aria-hidden="true"></div>
@@ -110,14 +110,13 @@
       <div id="public-share-fallback" class="public-share-fallback" hidden><label for="public-share-url">App link</label><input id="public-share-url" type="url" readonly></div>
     </section>
     <section class="research-overview" aria-labelledby="research-title"><div class="section-label">The research behind the methods</div><h2 id="research-title"></h2><details class="reading-disclosure"><summary>Study background and purpose</summary><p id="research-purpose"></p></details></section>
-    <nav class="workspace-tabs" aria-label="Research reporting workflow"><button id="objectives-tab" type="button" aria-pressed="true" aria-controls="main">Objectives</button><button id="reports-tab" type="button" aria-pressed="false" aria-controls="objective-results">Reports</button><button id="papers-tab" type="button" aria-pressed="false" aria-controls="papers">Papers</button></nav>
-
-    <section class="progress-strip" aria-label="Learning progress"><div><strong id="progress-label"></strong><span id="storage-note">Saved in this browser · reviewed, not assessed</span></div><progress id="progress-bar" max="34" value="0"></progress></section>
+    <section id="landing-import" aria-label="Import Dataset"></section>
     <section class="learning-tools" aria-label="Learning controls">
-      <div class="search-wrap"><label for="search">Search the whole research hub</label><div class="search-box"><span aria-hidden="true">⌕</span><input id="search" type="search" autocomplete="off" placeholder="Try ROC, histology or objective 5"><button id="clear-search" type="button" aria-label="Clear search" hidden>×</button></div></div>
-      <div class="mode-wrap"><span id="mode-label">Learning mode</span><div class="mode-switch" role="group" aria-labelledby="mode-label"><button id="mode-detail" type="button" aria-pressed="true">Detailed learning</button><button id="mode-quick" type="button" aria-pressed="false">Quick revision</button></div></div>
+      <div class="search-wrap"><label for="search">Search the Research Hub</label><div class="search-box"><span aria-hidden="true">⌕</span><input id="search" type="search" autocomplete="off" placeholder="Try ROC, histology or objective 5"><button id="clear-search" type="button" aria-label="Clear search" hidden>×</button></div></div>
+
     </section>
     <section id="global-search-results" aria-label="Search across the research hub" hidden></section>
+    <nav class="workspace-tabs" aria-label="Research reporting workflow"><button id="objectives-tab" type="button" aria-pressed="true" aria-controls="main">Objectives</button><button id="reports-tab" type="button" aria-pressed="false" aria-controls="objective-results">Reports</button><button id="papers-tab" type="button" aria-pressed="false" aria-controls="papers">Papers</button></nav>
     <nav id="objective-nav" class="objective-nav" aria-label="Switch objective" hidden></nav>
     <main id="main" tabindex="-1"></main>
     <p id="analysis-search-status" role="status" hidden></p>
@@ -126,7 +125,10 @@
     <section id="papers" tabindex="-1" aria-label="Research papers" hidden></section>
     <section id="statistical-glossary" tabindex="-1" aria-label="Statistical Glossary" hidden></section>
     <section id="about-developer" tabindex="-1" aria-labelledby="about-title" hidden></section>
+    <section class="progress-strip" hidden aria-hidden="true"><strong id="progress-label"></strong><span id="storage-note"></span><progress id="progress-bar" max="45" value="0"></progress></section>
+    <section id="landing-exports" class="research-overview" aria-labelledby="landing-export-title"><h2 id="landing-export-title">Exports</h2><p class="small-note" data-landing-export-context></p><div class="result-export-actions" data-landing-export-actions></div></section>
     <section id="notes" class="notes-section" aria-labelledby="notes-title" hidden>
+      <details class="reading-disclosure"><summary>Learning display settings</summary>      <div class="mode-wrap"><span id="mode-label">Learning mode</span><div class="mode-switch" role="group" aria-labelledby="mode-label"><button id="mode-detail" type="button" aria-pressed="true">Detailed learning</button><button id="mode-quick" type="button" aria-pressed="false">Quick revision</button></div></div></details>
       <h2 id="notes-title">Study notes and sources</h2>
       <div id="study-notes" class="notes-grid"></div>
       <details class="learning-glossary"><summary>Statistical glossary</summary><dl id="learning-glossary-list" class="glossary-list"></dl></details>
@@ -138,5 +140,6 @@
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
   <noscript><p class="noscript">Enable JavaScript to open the objective cards and learning explanations.</p></noscript>
 <script src="./main-content-scrollbar.js?v=20261015-sidebar-independent" defer></script>
+<script src="./landing-layout.js?v=20261016-landing-order" defer></script>
 </body>
 </html>
