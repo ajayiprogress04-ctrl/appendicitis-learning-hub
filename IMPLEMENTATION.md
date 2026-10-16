@@ -11,7 +11,8 @@
   secondary. Do not restore the former five-tab navigation.
 - Objectives: searchable selector (All, 1–6, exploratory 7 AIR, exploratory 8
   ultrasound), relevant methods, Generate Outputs with genuine task status,
-  table/figure previews, Open Report, Open Paper. No internal importer, obsolete
+  table/figure previews, Open Report, Open Paper. The duplicate objective-button list is removed; retain the dropdown only.
+  No internal importer, obsolete
   exploratory letter categories or visible standalone bulk-export panels.
 - Reports: searchable objective selector; output selection; actual output
   previews; compiled Word-document preview; editable Word download; only Open
