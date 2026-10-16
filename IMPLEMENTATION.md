@@ -138,3 +138,6 @@ Upload this complete project together. `objective-workflow.js` keeps result gene
 
 ### Flexible approved report selections
 `approved-report-templates.js` now uses the same verified approved output blocks for full and partial selections, including cross-objective reports. Original output numbering is retained. If active numerical evidence changes, current calculated results are regenerated instead of reusing stale approved findings. The separate monitoring and unified-preview updates are included in this package.
+
+### Explain This Graph
+Click a generated graph or its Explain This Graph button to read the selected graph’s values, methods and interpretation. Close explanation returns focus to its control. Glossary lookup reuses the central glossary and Back restores the preview and panel. The new graph-explanations.js is dependency-free; keep it loaded before objective-workflow.js. Interactive explanation controls are not inserted into Word content. All prior monitoring, report subset, glossary table and scroll-restoration fixes are retained.

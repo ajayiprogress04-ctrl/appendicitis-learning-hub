@@ -1946,3 +1946,26 @@ for(const [id,term,aliases,plain,study] of [
  ['and-rule','MAS and hs-CRP',['AND rule','both tests positive','MAS hs-CRP AND','AND combination'],'Both component tests must be positive for the combination to be positive.','MAS and hs-CRP: MAS ≥7 and hs-CRP >3 mg/L. Hypothetical MAS 7 with hs-CRP 3 mg/L is negative; MAS 7 with 4 mg/L is positive. Objective Three uses the same >3 mg/L hs-CRP threshold in children and adults.'],
  ['or-rule','MAS or hs-CRP',['OR rule','either test positive','MAS hs-CRP OR','OR combination'],'Either component test being positive makes the combination positive.','MAS or hs-CRP: MAS ≥7 or hs-CRP >3 mg/L. Hypothetical MAS 7 with hs-CRP 3 mg/L is positive; MAS 6 with 3 mg/L is negative. Objective Three uses the same >3 mg/L hs-CRP threshold in children and adults.']
 ]){if(!HUB_GLOSSARY_DATA.entries.some(e=>e.id===id))HUB_GLOSSARY_DATA.entries.push({id,term,category:'Diagnostic accuracy',aliases,definition:plain,purpose:study,interpretation:'Compared with histopathology; no primary protocol rule recovered.',related:['sensitivity','specificity','accuracy']});HUB_GLOSSARY_BRIEF[id]=[plain,study+' Both rules are required analyses; neither is a fitted prediction model or designated prespecified primary rule.'];}
+
+/* Dedicated diagnostic/reporting terms; preserve thresholds and all calculations. */
+(()=>{
+ const definitions=[
+ ['youden','Youden J (Youden index)','ROC curves and AUC',['Youden J','Youden index','Youden’s J','Youden statistic','Youden J statistic'],
+ 'Sensitivity + specificity − 1: a summary that gives equal weight to detecting appendicitis and correctly identifying its absence.',
+ 'The app uses J to describe score thresholds. J = 0 means sensitivity and specificity sum to 1; J = 1 means both are 100%; a negative J indicates a less favourable operating point. A sample-selected maximum J does not replace MAS ≥7 or hs-CRP >3 mg/L and is not independently validated.', ['threshold','sensitivity','specificity','roc']],
+ ['fn','False negative (FN)','Diagnostic accuracy',['FN','false negative','false negatives','false-negative','false-negative result','false-negative results'],
+ 'The test says negative, but histopathology confirms appendicitis.',
+ 'For MAS, hs-CRP or a combined strategy, FN counts appendicitis cases missed by that classification. Sensitivity is TP/(TP + FN); these are missed test classifications, not proof that treatment was missed.', ['sensitivity','contingency','study-histopathology']],
+ ['tn','True negative (TN)','Diagnostic accuracy',['TN','true negative','true negatives','true-negative','true-negative result','true-negative results'],
+ 'The test says negative and histopathology also shows no acute appendicitis.',
+ 'A negative test in a reactive lymphoid hyperplasia case is TN under this study definition. Specificity is TN/(TN + FP). TN is a correct test classification; negative appendicectomy describes the surgical specimen outcome regardless of the test.', ['specificity','contingency','study-histopathology']],
+ ['holm','Holm adjustment','Hypothesis testing and p-values',['Holm','Holm adjustment','Holm correction','Holm-adjusted','Holm-adjusted p-value','Holm-adjusted p-values','Holm adjusted p values','Holm–Bonferroni','Holm-Bonferroni'],
+ 'A step-by-step adjustment of p-values that reduces the chance of at least one false-positive conclusion across a stated set of comparisons.',
+ 'Use the Holm-adjusted p-values for the comparison family named in the diagnostic or age-group table. A small unadjusted p-value may no longer meet the stated significance level after adjustment. Holm changes the evidence threshold, not the observed sensitivity, specificity, accuracy or effect difference.', ['multiple','pvalue','significance']],
+ ['diagnostic-tradeoff','Sensitivity–specificity trade-off','Diagnostic accuracy',['sensitivity–specificity trade-offs','sensitivity–specificity trade-off','sensitivity-specificity trade-offs','sensitivity-specificity trade-off','sensitivity and specificity trade-off','sensitivity specificity tradeoff','diagnostic trade-off','sensitivity–specificity trade-offs'],
+ 'A classification rule can detect more appendicitis cases while also labelling more patients without appendicitis as positive, or favour fewer false positives while missing more cases.',
+ 'On the same evaluable patients, MAS or hs-CRP accepts either positive test, so sensitivity cannot be lower than the both-positive rule, while specificity cannot be higher. MAS and hs-CRP requires both positives and reverses that balance. The actual counts, confidence intervals and paired comparisons show the size and uncertainty; neither rule is automatically best clinically.', ['and-rule','or-rule','sensitivity','specificity']]
+ ];
+ const threshold=HUB_GLOSSARY_DATA.entries.find(e=>e.id==='threshold');if(threshold)threshold.aliases=threshold.aliases.filter(a=>!/^Youden/i.test(a));
+ for(const [id,term,category,aliases,plain,study,related] of definitions){let e=HUB_GLOSSARY_DATA.entries.find(e=>e.id===id);if(!e){e={id};HUB_GLOSSARY_DATA.entries.push(e);}Object.assign(e,{term,category,aliases:[...new Set(aliases)],definition:plain,purpose:study,interpretation:study,related});HUB_GLOSSARY_BRIEF[id]=[plain,study];if(!HUB_GLOSSARY_DATA.categories.includes(category))HUB_GLOSSARY_DATA.categories.push(category);}
+})();
