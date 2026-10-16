@@ -9,17 +9,17 @@
 - Primary navigation ONLY **Objectives → Reports → Papers**. Glossary,
   Interpretations, variable explorer and other retained useful tools are
   secondary. Do not restore the former five-tab navigation.
-- Objectives: searchable selector (All, 1–6, exploratory 7 AIR, exploratory 8
+- Objectives: objective dropdown (All, 1–6, exploratory 7 AIR, exploratory 8
   ultrasound), relevant methods, Generate Outputs with genuine task status,
   table/figure previews, Open Report, Open Paper. The duplicate objective-button list is removed; retain the dropdown only.
   No internal importer, obsolete
   exploratory letter categories or visible standalone bulk-export panels.
-- Reports: searchable objective selector; output selection; actual output
+- Reports: objective dropdown; output selection; actual output
   previews; compiled Word-document preview; editable Word download; only Open
   Objective/Open Paper as contextual navigation. Empty/uncomputed selections
   receive explicit feedback rather than dummy content. Selection/cache signatures
   prevent downloading stale previews.
-- Papers: individual objective search/selection; editable proposed manuscript
+- Papers: individual objective dropdown; editable proposed manuscript
   title; sub-objectives; existing methods; linked verifiable references; Export
   Paper; Open Objective/Open Report. Removed cross-objective planning panels,
   Current Findings and Manuscript Components do not reappear in this view.
@@ -87,3 +87,39 @@ engine, import code and existing report writer are byte-identical to the precedi
 working project. The Vercel ignore rules were corrected so new workflow modules
 and social/icon assets are deployed. Update the canonical/share URLs together
 using scripts/configure-sharing-url.py when your domain changes.
+
+## Approved reports and global glossary update
+
+Approved Demographics and Objectives 1–8 Word files supplied in Appendicitis
+Report.zip are represented by approved-templates/0.json through 8.json. Their
+styles, table layouts, captions, figure placement, methods and prose are the
+reference standard. approved-report-templates.js integrates them with the
+existing writer. Complete report selections can use the approved wording only
+when every required live calculated evidence fingerprint matches the audited
+reference results. Partial selections or changed results are regenerated with
+current calculations and reference typography/section structure; reference
+numerical sentences and figures are never copied onto a different result set.
+The active dataset is still required and computations must finish before export.
+Do not weaken the match guard or regenerate its index merely to hide a mismatch.
+Changes to approved reports require a fresh numerical review against their source.
+
+Demographics is a separate Reports dropdown option, not a ninth study objective.
+All Objectives still denotes Objectives 1–8. The redundant Search Objectives
+inputs are removed from all three tabs; use their dropdowns. Reports no longer
+repeats the View Tables and Figures accordion list: choose outputs, then inspect
+the actual Word preview. The detailed scientific workspace remains in Objectives.
+
+The preview now reads named and direct OOXML paragraph/run styles, table column
+spans and shading. Its source is the exact package subsequently downloaded.
+Browser pagination is still not Microsoft Word pagination. Glossary links are
+presentation-only and never inserted into the actual downloaded Word XML.
+
+statistical-glossary.js now annotates registered statistical/clinical phrases
+and variable aliases in Objectives, Papers, import previews, generated results
+and supported HTML/Word preview frames. Matching SVG labels are keyboard
+accessible. Native buttons, selects and inputs are excluded from rewriting.
+Select unfamiliar text and choose Look up in Glossary when it has no inline
+link. Unknown terms get an explicit missing-definition message, not a guessed
+entry. The same central glossary opens its matching definition and expands it;
+Back restores the origin and selected objective. Rasterised text inside images
+cannot be linked word-by-word; captions and surrounding text remain linkable.
