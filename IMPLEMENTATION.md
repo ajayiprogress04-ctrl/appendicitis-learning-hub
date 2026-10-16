@@ -123,3 +123,15 @@ link. Unknown terms get an explicit missing-definition message, not a guessed
 entry. The same central glossary opens its matching definition and expands it;
 Back restores the origin and selected objective. Rasterised text inside images
 cannot be linked word-by-word; captions and surrounding text remain linkable.
+
+## Separate operation monitors
+
+Objective result calculation and report preparation/export now use separate
+progress objects and error state in objective-workflow.js. Objectives shows
+only calculation completion; Reports shows only Word compilation, preview,
+download-start or report errors. A completed results job does not appear as
+an exported report. Both still use the existing shared busy guard to prevent
+conflicting simultaneous work. Data replacement resets both monitors.
+
+### Included preview and monitoring update
+Upload this complete project together. `objective-workflow.js` keeps result generation separate from report compilation/export progress; both preview entry points now use the same generated Word bytes through `report-preview.js`. No additional dependencies or configuration are required.
