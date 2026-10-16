@@ -1,3 +1,5 @@
+> Historical validation only. The current Objectives → Reports → Papers navigation is documented in OBJECTIVE_REPORT_WORKFLOW.md.
+
 # Three connected research tabs — validation
 
 ## Implemented
