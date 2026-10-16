@@ -73,7 +73,7 @@
   <link rel="stylesheet" href="./user-guide.css?v=20261015">
   <script src="./user-guide.js?v=20261015" defer></script>
   <script src="./navigation-history.js?v=20261014-master" defer></script>
-</head>
+<link rel="stylesheet" href="./objective-workflow.css?v=20261016"><script src="./objective-workflow.js?v=20261016" defer></script></head>
 <body>
   <a class="skip-link" href="#main">Skip to learning content</a>
   <div class="mobile-back-bar" aria-hidden="true"></div>
@@ -85,17 +85,15 @@
       <span class="brand-mark" aria-hidden="true">∑</span>
       <span class="brand-name">Appendicitis Research<strong>Statistical Learning Hub</strong></span>
     </button>
-    <div class="top-actions"><label class="theme-picker"><span>Appearance</span><select id="theme-toggle" aria-label="Appearance"><option value="light">Light Mode</option><option value="dark">Dark Mode</option><option value="colored">Colored Mode</option></select></label><details class="supporting-tools"><summary aria-controls="supporting-tools-actions" aria-expanded="false">Supporting tools</summary><div class="supporting-actions" id="supporting-tools-actions"><button id="interpretations-tab" type="button" class="quiet-button" aria-pressed="false" aria-controls="objective-results">Interpretations</button><button type="button" class="quiet-button" data-open-guide aria-haspopup="dialog" aria-controls="user-guide">User Guide · How to use this app</button><button id="variables-tab" type="button" class="quiet-button" aria-pressed="false">Research variables</button><button id="analysis-tab" type="button" class="quiet-button" aria-pressed="false">Aggregate analysis workspace</button><span class="small-note">Statistical learning stays within each objective; study notes are available in the header.</span></div></details><button id="notes-toggle" type="button" class="quiet-button" aria-expanded="false" aria-controls="notes">Study notes</button></div>
+    <div class="top-actions"><label class="theme-picker"><span>Appearance</span><select id="theme-toggle" aria-label="Appearance"><option value="light">Light Mode</option><option value="dark">Dark Mode</option><option value="colored">Colored Mode</option></select></label><details class="supporting-tools"><summary aria-controls="supporting-tools-actions" aria-expanded="false">Supporting tools</summary><div class="supporting-actions" id="supporting-tools-actions"><button id="glossary-tab" type="button" aria-pressed="false" aria-controls="statistical-glossary">Statistical Glossary</button><button id="results-tab" type="button" aria-pressed="false" aria-controls="objective-results">Tables &amp; Figures</button><button id="interpretations-tab" type="button" class="quiet-button" aria-pressed="false" aria-controls="objective-results">Interpretations</button><button type="button" class="quiet-button" data-open-guide aria-haspopup="dialog" aria-controls="user-guide">User Guide · How to use this app</button><button id="variables-tab" type="button" class="quiet-button" aria-pressed="false">Research variables</button><button id="analysis-tab" type="button" class="quiet-button" aria-pressed="false">Aggregate analysis workspace</button><span class="small-note">Statistical learning stays within each objective; study notes are available in the header.</span></div></details><button id="notes-toggle" type="button" class="quiet-button" aria-expanded="false" aria-controls="notes">Study notes</button></div>
   </header>
   <aside id="navigation-sidebar" class="desktop-sidebar" aria-label="Research workflow" aria-hidden="true" inert>
  <button id="sidebar-close" class="quiet-button sidebar-close" type="button" aria-label="Close navigation" title="Close navigation">×</button>
  <div class="side-heading">Research workflow</div>
  <button data-side-target="objectives-tab">Objectives</button>
- <button data-side-target="results-tab">Tables &amp; Figures</button>
- <button data-side-target="glossary-tab">Statistical Glossary</button>
- <button data-side-target="reports-tab">Reports</button>
+   <button data-side-target="reports-tab">Reports</button>
  <button data-side-target="papers-tab">Papers</button>
- <div class="side-heading">Supporting tools</div>
+ <div class="side-heading">Supporting tools</div><button data-side-target="results-tab">Tables &amp; Figures</button><button data-side-target="glossary-tab">Statistical Glossary</button>
  <button data-side-target="interpretations-tab">Interpretations</button>
  <button id="about-tab" data-side-about type="button" aria-pressed="false" aria-controls="about-developer">About the Developer</button>
  <button type="button" data-open-guide aria-haspopup="dialog" aria-controls="user-guide">User Guide</button>
@@ -112,7 +110,7 @@
       <div id="public-share-fallback" class="public-share-fallback" hidden><label for="public-share-url">App link</label><input id="public-share-url" type="url" readonly></div>
     </section>
     <section class="research-overview" aria-labelledby="research-title"><div class="section-label">The research behind the methods</div><h2 id="research-title"></h2><details class="reading-disclosure"><summary>Study background and purpose</summary><p id="research-purpose"></p></details></section>
-    <nav class="workspace-tabs" aria-label="Research reporting workflow"><button id="objectives-tab" type="button" aria-pressed="true" aria-controls="main">Objectives</button><button id="results-tab" type="button" aria-pressed="false" aria-controls="objective-results">Tables &amp; Figures</button><button id="glossary-tab" type="button" aria-pressed="false" aria-controls="statistical-glossary">Statistical Glossary</button><button id="reports-tab" type="button" aria-pressed="false" aria-controls="objective-results">Reports</button><button id="papers-tab" type="button" aria-pressed="false" aria-controls="papers">Papers</button></nav>
+    <nav class="workspace-tabs" aria-label="Research reporting workflow"><button id="objectives-tab" type="button" aria-pressed="true" aria-controls="main">Objectives</button><button id="reports-tab" type="button" aria-pressed="false" aria-controls="objective-results">Reports</button><button id="papers-tab" type="button" aria-pressed="false" aria-controls="papers">Papers</button></nav>
 
     <section class="progress-strip" aria-label="Learning progress"><div><strong id="progress-label"></strong><span id="storage-note">Saved in this browser · reviewed, not assessed</span></div><progress id="progress-bar" max="34" value="0"></progress></section>
     <section class="learning-tools" aria-label="Learning controls">

@@ -10,7 +10,7 @@ window.HUB_DATA = {
       "color": "#166b79",
       "description": "Compare MAS alone with a defensible combined model.",
       "approved": "compare the accuracy of modified Alvarado score (MAS) alone versus MAS plus high sensitivity c-reactive protein (hsCRP) in the diagnosis of acute appendicitis",
-      "note": "No prespecified combined AND/OR rule was recovered. The workspace uses exploratory Firth models with a fixed analyst 0.50 probability cutoff and leave-one-out evaluation. MAS \u22657 is protocol-supported categorization; hsCRP >3 mg/L is the confirmed study-positive threshold; ≤3 mg/L is negative.",
+      "note": "No prespecified combined AND/OR rule was recovered. The workspace uses exploratory Firth models with a fixed analyst 0.50 probability cutoff and leave-one-out evaluation. MAS ≥7 is protocol-supported categorization; hsCRP >3 mg/L is the confirmed study-positive threshold; ≤3 mg/L is negative.",
       "contribution": "Ask whether hsCRP supplies information beyond MAS, while separating apparent discrimination from validated clinical benefit.",
       "methods": [
         {
@@ -76,7 +76,7 @@ window.HUB_DATA = {
         {
           "id": "youden",
           "status": "Exploratory cutoff",
-          "here": "Explain the protocol\u2019s planned empirical cutoff selection.",
+          "here": "Explain the protocol’s planned empirical cutoff selection.",
           "client": "A sample-optimal cutoff is exploratory and may not match the clinical priority."
         }
       ]
@@ -88,7 +88,7 @@ window.HUB_DATA = {
       "color": "#7654a3",
       "description": "Compare concentrations and severity discrimination.",
       "approved": "determine the diagnostic value of hsCRP in simple acute appendicitis and complicated appendicitis",
-      "note": "Approved histological severity is independent of operative findings: histology 1\u20133 simple, 4\u20135 complicated, 6 not applicable. No combined clinical severity endpoint is inferred.",
+      "note": "Approved histological severity is independent of operative findings: histology 1–3 simple, 4–5 complicated, 6 not applicable. No combined clinical severity endpoint is inferred.",
       "contribution": "Distinguish a concentration difference from useful severity classification.",
       "methods": [
         {
@@ -140,46 +140,40 @@ window.HUB_DATA = {
       "short": "Children vs adults",
       "title": "Does performance vary with age?",
       "color": "#bd561b",
-      "description": "Use the approved boundary: children <16; adults \u226516.",
+      "description": "Use the approved boundary: children <16; adults ≥16.",
       "approved": "compare the accuracy of combined MAS and hsCRP in children (under 16 years) and adults (16 years and above)",
-      "note": "Apply the same pooled model and threshold to both groups. The cohort has only one reference-negative child, so paediatric specificity is highly uncertain and a reliable between-group AUC test is not supported.",
-      "contribution": "Describe age-group performance without manufacturing differences by separately optimising models or cutoffs.",
+      "note": "Use MAS ≥7 and hs-CRP >3 mg/L for both MAS and hs-CRP (both positive) and MAS or hs-CRP (either positive). Children are under 16 years; adults are 16 years or older. Sparse reference-negative children limit specificity precision.",
+      "contribution": "Compare fixed-strategy sensitivity, specificity, predictive values and overall accuracy across independent age groups, using histopathology as the reference standard.",
       "methods": [
         {
           "id": "sensitivity",
-          "status": "Group description",
-          "here": "Describe the common classification separately by age.",
-          "client": "Both age groups use the same model and threshold, so the comparison has a common basis."
+          "status": "Age-stratified estimate",
+          "here": "Report TP/(TP+FN) for each fixed combination in each age group.",
+          "client": "MAS and hs-CRP requires both positive; MAS or hs-CRP requires either positive."
+        },
+        {
+          "id": "specificity",
+          "status": "Age-stratified estimate",
+          "here": "Report TN/(TN+FP) with its Wilson interval and reference-negative denominator.",
+          "client": "Very small reference-negative groups produce imprecise estimates."
         },
         {
           "id": "accuracy",
-          "status": "Group description",
-          "here": "Interpret correctness alongside each group\u2019s disease proportion.",
-          "client": "A numerical accuracy difference may partly reflect case mix rather than an intrinsically better test."
+          "status": "Age-stratified estimate",
+          "here": "Report (TP+TN)/N and its Wilson interval within each age group.",
+          "client": "Accuracy depends on the age group’s disease prevalence."
         },
         {
           "id": "ci",
-          "status": "Sparse-data uncertainty",
-          "here": "Show how sparse reference-negative children limit subgroup precision.",
-          "client": "Very wide specificity intervals prevent a confident age-specific conclusion."
+          "status": "Uncertainty",
+          "here": "Use Wilson intervals for rates and the existing conservative exact-bound intervals for independent differences.",
+          "client": "Intervals show the precision of observed age-group estimates."
         },
         {
           "id": "fisher",
-          "status": "Exploratory conditional comparison",
-          "here": "Compare suitable yes/no outcomes between children and adults. Because the rule was fitted on these cases, this comparison is exploratory and omits uncertainty from developing the model.",
-          "client": "These are separate age groups, so McNemar is inappropriate; tests of fitted classifications remain exploratory."
-        },
-        {
-          "id": "roc",
-          "status": "Descriptive AUC only",
-          "here": "Describe ranking while withholding unreliable paediatric AUC inference.",
-          "client": "A perfect paediatric AUC with sparse reference negatives is not proof of superior performance."
-        },
-        {
-          "id": "validation",
-          "status": "Exploratory internal check",
-          "here": "Use pooled refits consistently across ages.",
-          "client": "Held-out results can reveal optimism, but sparse reference-negative children limit subgroup inference."
+          "status": "Independent comparison",
+          "here": "Compare sensitivity, specificity and accuracy between children and adults with two-sided Fisher exact tests and Holm correction across six comparisons.",
+          "client": "Children and adults are separate groups. McNemar is not an age-group test."
         }
       ]
     },
@@ -232,7 +226,7 @@ window.HUB_DATA = {
         {
           "id": "transitions",
           "status": "Primary paired description",
-          "here": "Trace each patient\u2019s confirmed paired ratings.",
+          "here": "Trace each patient’s confirmed paired ratings.",
           "client": "Paired transitions count higher, unchanged and lower confidence ratings."
         },
         {
@@ -374,7 +368,7 @@ window.HUB_DATA = {
       "purpose": "Show how precise an estimate is under specified sampling assumptions.",
       "meaning": "Wider intervals mean greater uncertainty; they do not repair biased sampling or miscoding.",
       "interpret": "A valid 95% procedure covers the fixed target in about 95% of repeated samples. It is not a 95% probability assigned to this realised interval.",
-      "example": "A hypothetical sensitivity estimate of 80% with a 65\u201390% CI is less precise than the same estimate with a 77\u201383% CI.",
+      "example": "A hypothetical sensitivity estimate of 80% with a 65–90% CI is less precise than the same estimate with a 77–83% CI.",
       "limits": "Specify the interval method. Correlation, model development and tiny denominators can invalidate simple intervals.",
       "tags": "confidence limits precision uncertainty",
       "terms": [
@@ -411,7 +405,7 @@ window.HUB_DATA = {
       "id": "firth",
       "name": "Firth bias-reduced logistic regression",
       "kind": "Model",
-      "origin": "Firth is the statistician\u2019s name. Bias-reduced means reducing the small-sample distortion of estimated model coefficients.",
+      "origin": "Firth is the statistician’s name. Bias-reduced means reducing the small-sample distortion of estimated model coefficients.",
       "purpose": "Stabilise binary regression when outcomes are sparse or separation occurs.",
       "meaning": "It can provide finite coefficient estimates when ordinary logistic regression becomes unstable.",
       "interpret": "Report adjusted coefficients and compatible interval/testing methods. Finite estimates do not mean the data contain enough information.",
@@ -428,9 +422,9 @@ window.HUB_DATA = {
     },
     "mcnemar": {
       "id": "mcnemar",
-      "name": "McNemar\u2019s test",
+      "name": "McNemar’s test",
       "kind": "Inferential test",
-      "origin": "McNemar is the statistician\u2019s name. His test focuses on the same patients whose two binary results disagree.",
+      "origin": "McNemar is the statistician’s name. His test focuses on the same patients whose two binary results disagree.",
       "purpose": "Compare two binary classifications measured on the same participants.",
       "meaning": "Only the pairs that disagree contribute to the test; paired correctness can assess a change in accuracy.",
       "interpret": "Report both discordant counts and the paired effect, with uncertainty if supported. A small p-value does not measure benefit size.",
@@ -449,9 +443,9 @@ window.HUB_DATA = {
     },
     "delong": {
       "id": "delong",
-      "name": "DeLong\u2019s test for comparing AUCs",
+      "name": "DeLong’s test for comparing AUCs",
       "kind": "Inferential test",
-      "origin": "DeLong is the authors\u2019 family name. Their method estimates uncertainty in the difference between two areas under ROC curves.",
+      "origin": "DeLong is the authors’ family name. Their method estimates uncertainty in the difference between two areas under ROC curves.",
       "purpose": "Compare ROC areas while respecting whether the scores come from the same or different participants.",
       "meaning": "A paired comparison accounts for correlation between two scores measured on the same patients.",
       "interpret": "Read the AUC difference, its interval and p-value together; specify score direction and paired versus independent design.",
@@ -491,8 +485,8 @@ window.HUB_DATA = {
       "id": "youden",
       "name": "Youden index (J)",
       "kind": "Exploratory threshold measure",
-      "origin": "Youden is the statistician\u2019s name. Index means one summary number combining sensitivity and specificity.",
-      "purpose": "Find a threshold that maximises sensitivity + specificity \u2212 1 in the observed data.",
+      "origin": "Youden is the statistician’s name. Index means one summary number combining sensitivity and specificity.",
+      "purpose": "Find a threshold that maximises sensitivity + specificity − 1 in the observed data.",
       "meaning": "It gives equal weight to the two classification rates, not necessarily to their clinical consequences.",
       "interpret": "Label a data-selected cutoff exploratory and validate it independently; report its sensitivity and specificity.",
       "example": "Sensitivity 0.80 and specificity 0.75 give hypothetical J = 0.55.",
@@ -511,9 +505,9 @@ window.HUB_DATA = {
       "origin": "Mean is the average; median is the middle. Standard deviation describes spread around the mean; interquartile means between the first and third quarter-points.",
       "purpose": "Describe central values and variability.",
       "meaning": "Use mean and SD for appropriate distributions; median and quartiles are useful for skewed or ordinal measurements.",
-      "interpret": "SD describes variation between observations, not uncertainty in the estimated mean. IQR width is Q3 \u2212 Q1.",
+      "interpret": "SD describes variation between observations, not uncertainty in the estimated mean. IQR width is Q3 − Q1.",
       "example": "Hypothetical amounts 10, 10, 10 and 50 have mean 20 but median 10: the upper value pulls the mean upward.",
-      "limits": "Check units and distribution. Mean \u00b1 SD is not a confidence interval; report the denominator and define displayed quartile limits.",
+      "limits": "Check units and distribution. Mean ± SD is not a confidence interval; report the denominator and define displayed quartile limits.",
       "tags": "average descriptive continuous distribution skewness",
       "terms": [
         "SD",
@@ -526,9 +520,9 @@ window.HUB_DATA = {
     },
     "welch": {
       "id": "welch",
-      "name": "Welch\u2019s independent-samples t-test",
+      "name": "Welch’s independent-samples t-test",
       "kind": "Inferential test",
-      "origin": "Welch is the statistician\u2019s name. His t-test allows the two groups to have different amounts of variation.",
+      "origin": "Welch is the statistician’s name. His t-test allows the two groups to have different amounts of variation.",
       "purpose": "Compare the means of two independent groups.",
       "meaning": "It asks whether the underlying mean concentration differs between the defined groups.",
       "interpret": "Report the mean difference and CI alongside t, degrees of freedom and p. Welch degrees of freedom can be fractional.",
@@ -547,9 +541,9 @@ window.HUB_DATA = {
     },
     "mann": {
       "id": "mann",
-      "name": "Mann\u2013Whitney U test",
+      "name": "Mann–Whitney U test",
       "kind": "Inferential test",
-      "origin": "Mann and Whitney are the authors\u2019 names. U is the statistic based on how observations from the two groups rank against one another.",
+      "origin": "Mann and Whitney are the authors’ names. U is the statistic based on how observations from the two groups rank against one another.",
       "purpose": "Compare the distributions of two independent groups using ranks.",
       "meaning": "It assesses whether one group tends to have larger observations, without requiring normally distributed raw values.",
       "interpret": "Report U, a compatible effect estimate and uncertainty where feasible, and the p-value. It is not automatically a test of medians.",
@@ -567,11 +561,11 @@ window.HUB_DATA = {
     },
     "fisher": {
       "id": "fisher",
-      "name": "Fisher\u2019s exact test",
+      "name": "Fisher’s exact test",
       "kind": "Inferential test",
-      "origin": "Fisher is the statistician\u2019s name. Exact means using table probabilities rather than a large-sample approximation.",
+      "origin": "Fisher is the statistician’s name. Exact means using table probabilities rather than a large-sample approximation.",
       "purpose": "Compare categorical outcomes between independent groups using table probabilities. Chi-square instead uses a large-sample approximation and needs adequate expected counts.",
-      "meaning": "For a 2\u00d72 table, assess a binary outcome across independent groups.",
+      "meaning": "For a 2×2 table, assess a binary outcome across independent groups.",
       "interpret": "Report the cell counts, effect such as an odds ratio with suitable interval, and the exact p-value. A non-significant result is not equivalence.",
       "example": "A hypothetical independent child/adult comparison has only two failures in one group; an exact calculation avoids a crude large-sample approximation.",
       "limits": "Sparse data still mean wide uncertainty. Use disease-positive denominators for sensitivity and disease-negative denominators for specificity. It is not a paired comparison.",
@@ -583,7 +577,7 @@ window.HUB_DATA = {
         "CI",
         "paired",
         "null hypothesis",
-        "chi-square (\u03c7\u00b2)",
+        "chi-square (χ²)",
         "expected count",
         "association",
         "binary"
@@ -612,7 +606,7 @@ window.HUB_DATA = {
       "id": "wilson",
       "name": "Wilson score confidence interval for a proportion",
       "kind": "Uncertainty estimate",
-      "origin": "Wilson is the statistician\u2019s name. Score refers to a statistical calculation for a proportion, not the clinical MAS score.",
+      "origin": "Wilson is the statistician’s name. Score refers to a statistical calculation for a proportion, not the clinical MAS score.",
       "purpose": "Provide bounded uncertainty limits for a proportion, including near zero or one.",
       "meaning": "It avoids some problems of a simple symmetric normal interval.",
       "interpret": "State Wilson, the numerator and denominator; width reflects limited information, not a tolerance range.",
@@ -634,7 +628,7 @@ window.HUB_DATA = {
       "purpose": "Count each original confidence category and summarise its central rank.",
       "meaning": "A higher category denotes greater confidence, not necessarily a known amount of improvement.",
       "interpret": "Show category n (%) and median with quartiles. Do not invent a validated composite or treat confidence as correctness.",
-      "example": "\u201cModerately confident\u201d moving to \u201cvery confident\u201d is a one-category rise, not a proven clinical improvement of a fixed size.",
+      "example": "“Moderately confident” moving to “very confident” is a one-category rise, not a proven clinical improvement of a fixed size.",
       "limits": "Distinguish patient assessments from unique clinicians. Preserve labels and disclose missing responses.",
       "tags": "Likert confidence ordered survey",
       "terms": [
@@ -648,7 +642,7 @@ window.HUB_DATA = {
       "id": "transitions",
       "name": "Paired transition table and change direction",
       "kind": "Descriptive paired analysis",
-      "origin": "Transition means movement: follow one patient\u2019s rating from the before category to the after category.",
+      "origin": "Transition means movement: follow one patient’s rating from the before category to the after category.",
       "purpose": "Display within-case higher, unchanged and lower confidence ratings.",
       "meaning": "The diagonal records unchanged cases; off-diagonal cells show the direction of change.",
       "interpret": "Use the number of complete pairs as denominator. Describe category steps without claiming equal clinical distances.",
@@ -666,11 +660,11 @@ window.HUB_DATA = {
       "id": "wilcoxon",
       "name": "Wilcoxon signed-rank test",
       "kind": "Conditional inferential test",
-      "origin": "Wilcoxon is the statistician\u2019s name. Signed means increase or decrease; rank means order the sizes of those paired changes.",
+      "origin": "Wilcoxon is the statistician’s name. Signed means increase or decrease; rank means order the sizes of those paired changes.",
       "purpose": "Test a paired difference distribution under suitable assumptions.",
-      "meaning": "It can analyse linked quantitative differences; it is not the independent-samples Mann\u2013Whitney test.",
+      "meaning": "It can analyse linked quantitative differences; it is not the independent-samples Mann–Whitney test.",
       "interpret": "Read the paired effect and interval if supported, signed-rank statistic and p-value.",
-      "example": "Independent hypothetical pairs have changes of \u22122, +1 and +3; the test uses signed ranks of their magnitudes.",
+      "example": "Independent hypothetical pairs have changes of −2, +1 and +3; the test uses signed ranks of their magnitudes.",
       "limits": "Requires appropriate independent pairs and difference symmetry for a location interpretation. Equal category-step magnitudes in Likert ratings are debatable; a sign test needs fewer spacing assumptions. Clinician linkage is missing here.",
       "tags": "paired nonparametric future not used",
       "terms": [
@@ -746,7 +740,7 @@ window.HUB_DATA = {
   "studyNotes": [
     {
       "title": "Reference standard",
-      "text": "Histopathology is the approved reference. Histology codes 1\u20135 are positive; code 6 is negative under the agreed isolated reactive lymphoid hyperplasia interpretation. Histological severity is independent of operative findings."
+      "text": "Histopathology is the approved reference. Histology codes 1–5 are positive; code 6 is negative under the agreed isolated reactive lymphoid hyperplasia interpretation. Histological severity is independent of operative findings."
     },
     {
       "title": "Combined approach",
@@ -763,40 +757,40 @@ window.HUB_DATA = {
   ],
   "sources": [
     {
-      "name": "SciPy \u2014 Welch/independent t-test",
+      "name": "SciPy — Welch/independent t-test",
       "url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ttest_ind.html"
     },
     {
-      "name": "SciPy \u2014 Mann\u2013Whitney U",
+      "name": "SciPy — Mann–Whitney U",
       "url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.mannwhitneyu.html"
     },
     {
-      "name": "SciPy \u2014 Wilcoxon signed ranks",
+      "name": "SciPy — Wilcoxon signed ranks",
       "url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.wilcoxon.html"
     },
     {
-      "name": "SciPy \u2014 Fisher exact",
+      "name": "SciPy — Fisher exact",
       "url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.fisher_exact.html"
     },
     {
-      "name": "statsmodels \u2014 McNemar",
+      "name": "statsmodels — McNemar",
       "url": "https://www.statsmodels.org/stable/generated/statsmodels.stats.contingency_tables.mcnemar.html"
     },
     {
-      "name": "NIST \u2014 proportion confidence intervals",
+      "name": "NIST — proportion confidence intervals",
       "url": "https://www.itl.nist.gov/div898/handbook/prc/section2/prc241.htm"
     },
     {
-      "name": "pROC \u2014 AUC comparisons and uncertainty",
+      "name": "pROC — AUC comparisons and uncertainty",
       "url": "https://cran.r-project.org/web/packages/pROC/refman/pROC.html"
     },
     {
-      "name": "Medical University of Vienna \u2014 Firth correction",
+      "name": "Medical University of Vienna — Firth correction",
       "url": "https://data-science.meduniwien.ac.at/services/klinische-biometrie/software/statistische-software/firth-correction/"
     }
   ],
   "glossary": {
-    "MAS": "Modified Alvarado Score: the study\u2019s clinical score, based on symptoms, signs and white blood cells.",
+    "MAS": "Modified Alvarado Score: the study’s clinical score, based on symptoms, signs and white blood cells.",
     "hsCRP": "High-sensitivity C-reactive protein: the blood measurement used alongside MAS; CRP is its field name in this dataset.",
     "TP": "True positive: test-positive and disease-positive by the reference standard.",
     "FP": "False positive: test-positive but disease-negative by the reference standard.",
@@ -813,7 +807,7 @@ window.HUB_DATA = {
     "p-value": "Assuming the specified null hypothesis and test assumptions, the probability of a result at least as extreme as observed. It is not the probability the null is true.",
     "null hypothesis": "The claim the test evaluates, often no difference or no association.",
     "odds ratio": "A ratio comparing odds. It is not the same as a ratio of probabilities.",
-    "coefficient": "A model\u2019s estimated number describing a predictor\u2019s contribution.",
+    "coefficient": "A model’s estimated number describing a predictor’s contribution.",
     "calibration": "Whether predicted probabilities agree with observed outcome frequencies.",
     "bias": "A systematic distortion of an estimate, not simply random variation.",
     "separation": "A predictor divides binary outcomes so completely that ordinary logistic estimates can become unstable.",
@@ -823,15 +817,15 @@ window.HUB_DATA = {
     "discordant": "A paired case where two binary results disagree.",
     "bootstrap": "Create repeated samples from the observed cases, with replacement, to examine uncertainty or optimism.",
     "optimism": "Performance looks better on cases used to build the model than it is likely to look on new cases.",
-    "J": "Youden index: sensitivity + specificity \u2212 1.",
+    "J": "Youden index: sensitivity + specificity − 1.",
     "SD": "Standard deviation: spread of individual values around their mean; not uncertainty in the mean.",
     "IQR": "Interquartile range: Q3 minus Q1, describing the middle half of observations.",
     "Q1 / Q3": "First and third quartiles: the quarter-point and three-quarter-point of ordered observations.",
     "mg/L": "Milligrams per litre: the hsCRP concentration unit specified in the protocol.",
     "t": "The t-test statistic: the estimated mean difference relative to its statistical uncertainty.",
-    "df": "Degrees of freedom: a quantity used to calculate the test\u2019s reference distribution; Welch\u2019s df can be fractional.",
-    "rank": "A value\u2019s position when observations are ordered.",
-    "U": "The Mann\u2013Whitney rank-comparison statistic; its direction depends on which group is listed first.",
+    "df": "Degrees of freedom: a quantity used to calculate the test’s reference distribution; Welch’s df can be fractional.",
+    "rank": "A value’s position when observations are ordered.",
+    "U": "The Mann–Whitney rank-comparison statistic; its direction depends on which group is listed first.",
     "binomial": "A model for the number of yes/no outcomes in a set of suitable independent trials.",
     "ordinal": "Ordered categories whose numerical gaps are not necessarily equal.",
     "GEE": "Generalised estimating equations: a modelling approach that can allow for correlated observations.",
@@ -841,14 +835,14 @@ window.HUB_DATA = {
     "tariff": "A listed service price; it is not automatically a measure of hospital resource expenditure.",
     "resource cost": "The value of resources consumed; different from an amount charged to a patient.",
     "nominal": "Categories without a required order, such as sex or religion.",
-    "scale": "SPSS\u2019s measurement setting for interval/ratio-style numerical values; a setting does not verify units.",
+    "scale": "SPSS’s measurement setting for interval/ratio-style numerical values; a setting does not verify units.",
     "PCV": "Packed cell volume: a blood measurement; its source unit is not recorded here.",
-    "WBC": "White blood cell count, recorded in \u00d710\u2079/L. The protocol MAS threshold is >10 \u00d710\u2079/L; laboratory reference categories are separate.",
+    "WBC": "White blood cell count, recorded in ×10⁹/L. The protocol MAS threshold is >10 ×10⁹/L; laboratory reference categories are separate.",
     "AIR": "Appendicitis Inflammatory Response score: a separate stored score, not a replacement for MAS in these approved objectives.",
     "RIF": "Right iliac fossa: the lower-right abdominal region.",
     "SSI": "Surgical site infection; the complication value labels use this abbreviation.",
     "RVS": "An unexpanded comorbidity label in the dataset; its clinical meaning remains unverified.",
-    "chi-square (\u03c7\u00b2)": "An independent-category test based on squared differences between observed and expected counts; it uses a large-sample approximation.",
+    "chi-square (χ²)": "An independent-category test based on squared differences between observed and expected counts; it uses a large-sample approximation.",
     "expected count": "The count predicted for a table cell under the null hypothesis, not the actual observed count.",
     "association": "Two variables vary together. This alone does not show causation or useful diagnostic performance.",
     "binary": "A two-category outcome, such as disease present versus absent."
@@ -914,7 +908,7 @@ window.HUB_DATA = {
       },
       {
         "name": "migratory",
-        "role": "Score audit \u2014 not extra predictors",
+        "role": "Score audit — not extra predictors",
         "why": "Check the recorded MAS against protocol components; measured temperature and full component observations are incomplete.",
         "methods": [
           "summaries"
@@ -923,7 +917,7 @@ window.HUB_DATA = {
       },
       {
         "name": "anorexia",
-        "role": "Score audit \u2014 not extra predictors",
+        "role": "Score audit — not extra predictors",
         "why": "Check the recorded MAS against protocol components; measured temperature and full component observations are incomplete.",
         "methods": [
           "summaries"
@@ -932,7 +926,7 @@ window.HUB_DATA = {
       },
       {
         "name": "Vomiting",
-        "role": "Score audit \u2014 not extra predictors",
+        "role": "Score audit — not extra predictors",
         "why": "Check the recorded MAS against protocol components; measured temperature and full component observations are incomplete.",
         "methods": [
           "summaries"
@@ -941,7 +935,7 @@ window.HUB_DATA = {
       },
       {
         "name": "fever",
-        "role": "Score audit \u2014 not extra predictors",
+        "role": "Score audit — not extra predictors",
         "why": "Check the recorded MAS against protocol components; measured temperature and full component observations are incomplete.",
         "methods": [
           "summaries"
@@ -950,7 +944,7 @@ window.HUB_DATA = {
       },
       {
         "name": "tendernessRIF",
-        "role": "Score audit \u2014 not extra predictors",
+        "role": "Score audit — not extra predictors",
         "why": "Check the recorded MAS against protocol components; measured temperature and full component observations are incomplete.",
         "methods": [
           "summaries"
@@ -959,7 +953,7 @@ window.HUB_DATA = {
       },
       {
         "name": "reboundtenderness",
-        "role": "Score audit \u2014 not extra predictors",
+        "role": "Score audit — not extra predictors",
         "why": "Check the recorded MAS against protocol components; measured temperature and full component observations are incomplete.",
         "methods": [
           "summaries"
@@ -968,7 +962,7 @@ window.HUB_DATA = {
       },
       {
         "name": "wbc",
-        "role": "Score audit \u2014 not extra predictors",
+        "role": "Score audit — not extra predictors",
         "why": "Check the recorded MAS against protocol components; measured temperature and full component observations are incomplete.",
         "methods": [
           "summaries"
@@ -1013,7 +1007,7 @@ window.HUB_DATA = {
       },
       {
         "name": "REBOUND_TENDERNESS",
-        "role": "Derived score audit \u2014 not extra predictors",
+        "role": "Derived score audit — not extra predictors",
         "why": "Traceable derivation from reboundtenderness. 1 -> 1; 2 -> 0; other or missing source -> system missing",
         "result": "Documented rebound tenderness. ",
         "methods": [
@@ -1022,7 +1016,7 @@ window.HUB_DATA = {
       },
       {
         "name": "RIF_TENDERNESS",
-        "role": "Derived score audit \u2014 not extra predictors",
+        "role": "Derived score audit — not extra predictors",
         "why": "Traceable derivation from tendernessRIF. 1 -> 1; 2 -> 0; other or missing source -> system missing",
         "result": "Documented right iliac fossa tenderness. Tenderness is not a substitute for a separately documented RIF pain variable.",
         "methods": [
@@ -1054,7 +1048,7 @@ window.HUB_DATA = {
       },
       {
         "name": "ANOREXIA_PRESENT",
-        "role": "Derived score audit \u2014 not extra predictors",
+        "role": "Derived score audit — not extra predictors",
         "why": "Traceable derivation from anorexia. 1 -> 1; 2 -> 0; other or missing source -> system missing",
         "result": "Anorexia presence from labelled source responses. Only labelled responses are classified; unlabelled source values remain unchanged and derived status is system missing.",
         "methods": [
@@ -1063,7 +1057,7 @@ window.HUB_DATA = {
       },
       {
         "name": "WBC_CATEGORY",
-        "role": "Derived score audit \u2014 not extra predictors",
+        "role": "Derived score audit — not extra predictors",
         "why": "Traceable derivation from wbc; age. Below lower reference bound ->1; within inclusive bounds ->2; above upper bound ->3; invalid measurement or missing reference ->system missing",
         "result": "WBC classification against external reference intervals. WBC laboratory intervals are distinct from the protocol MAS diagnostic threshold. No conversion of original counts.",
         "methods": [
@@ -1072,7 +1066,7 @@ window.HUB_DATA = {
       },
       {
         "name": "WBC_MAS_THRESHOLD",
-        "role": "Derived score audit \u2014 not extra predictors",
+        "role": "Derived score audit — not extra predictors",
         "why": "Traceable derivation from wbc. Nonnegative WBC <=10 ->0; WBC >10 ->1; missing or negative ->system missing",
         "result": "Protocol MAS leukocytosis threshold greater than 10 x 10^9 cells/L. Protocol MAS table specifies this exact cutoff. This does not replace the age appropriate WBC laboratory reference classification. No separate neutrophil threshold is in the approved Modified Alvarado Score.",
         "methods": [
@@ -1081,7 +1075,7 @@ window.HUB_DATA = {
       },
       {
         "name": "MIGRATORY_PAIN",
-        "role": "Derived score audit \u2014 not extra predictors",
+        "role": "Derived score audit — not extra predictors",
         "why": "Traceable derivation: 1 -> 1; 2 -> 0; other or missing source -> system missing",
         "result": "Recorded migratory abdominal pain presence. Confirmed Yes/No source mapping; no imputation.",
         "methods": [
@@ -1212,7 +1206,7 @@ window.HUB_DATA = {
       {
         "name": "age",
         "role": "Grouping variable",
-        "why": "Derive <16 versus \u226516 years exactly as approved.",
+        "why": "Derive <16 versus ≥16 years exactly as approved.",
         "methods": [
           "sensitivity",
           "fisher",
@@ -1735,7 +1729,7 @@ window.HUB_DATA = {
       },
       {
         "name": "time_to_diagnosis",
-        "role": "Boundary \u2014 not paired ease outcome",
+        "role": "Boundary — not paired ease outcome",
         "why": "Single time field with unverified unit.",
         "methods": [
           "summaries"
@@ -1744,7 +1738,7 @@ window.HUB_DATA = {
       },
       {
         "name": "diagnosis_satisfaction",
-        "role": "Boundary \u2014 patient outcome",
+        "role": "Boundary — patient outcome",
         "why": "Distinguish patient satisfaction from clinician ease.",
         "methods": [
           "ordinal"
@@ -1773,7 +1767,7 @@ window.HUB_DATA = {
       },
       {
         "name": "DIAGNOSTIC_SATISFACTION",
-        "role": "Derived boundary \u2014 patient outcome",
+        "role": "Derived boundary — patient outcome",
         "why": "Traceable derivation from diagnosis_satisfaction. 1 -> 1; 2 -> 2; 3 -> 3; other or missing source -> system missing",
         "result": "Patient satisfaction with diagnosis using original questionnaire wording. Original questionnaire includes not satisfied, not slightly satisfied. This is patient satisfaction, distinct from clinician confidence.",
         "methods": [
@@ -1782,7 +1776,7 @@ window.HUB_DATA = {
       },
       {
         "name": "TIME_TO_DIAGNOSIS_HRS",
-        "role": "Derived boundary \u2014 not paired ease outcome",
+        "role": "Derived boundary — not paired ease outcome",
         "why": "Traceable derivation from time_to_diagnosis. Exact copy of source; no multiplication, division or conversion",
         "result": "Recorded time to diagnosis in hours. Exact recorded interval; see methods notes.",
         "methods": [
@@ -1791,7 +1785,7 @@ window.HUB_DATA = {
       },
       {
         "name": "TIME_TO_DIAGNOSIS_CAT",
-        "role": "Derived boundary \u2014 not paired ease outcome",
+        "role": "Derived boundary — not paired ease outcome",
         "why": "Traceable derivation from time_to_diagnosis. 0 to 6 inclusive ->1; >6 to 12 ->2; >12 to 24 ->3; >24 ->4; negative or missing ->system missing",
         "result": "Recorded hour category of recorded time to diagnosis. Analyst operational categories explicitly authorized in the correction prompt; not protocol prespecified. All original numeric values treated as hours without rescaling.",
         "methods": [
@@ -1831,7 +1825,7 @@ window.HUB_DATA = {
       },
       {
         "name": "Duration_of_admission",
-        "role": "Resource context \u2014 unpriced",
+        "role": "Resource context — unpriced",
         "why": "Describe stay length using the recorded day unit.",
         "methods": [
           "summaries"
@@ -1840,7 +1834,7 @@ window.HUB_DATA = {
       },
       {
         "name": "postop_complication",
-        "role": "Resource context \u2014 unpriced",
+        "role": "Resource context — unpriced",
         "why": "Describe complication categories without treatment prices.",
         "methods": [
           "summaries"
@@ -1849,7 +1843,7 @@ window.HUB_DATA = {
       },
       {
         "name": "abd_SCAN",
-        "role": "Resource context \u2014 unpriced",
+        "role": "Resource context — unpriced",
         "why": "Describe recorded scan categories, not scan quantities or prices.",
         "methods": [
           "summaries"
@@ -1858,7 +1852,7 @@ window.HUB_DATA = {
       },
       {
         "name": "MAS",
-        "role": "Diagnostic context \u2014 not a price",
+        "role": "Diagnostic context — not a price",
         "why": "Identify the score studied without assigning a monetary value.",
         "methods": [
           "incremental"
@@ -1867,7 +1861,7 @@ window.HUB_DATA = {
       },
       {
         "name": "CRP",
-        "role": "Diagnostic context \u2014 not a price",
+        "role": "Diagnostic context — not a price",
         "why": "A concentration is not an hsCRP test price.",
         "methods": [
           "incremental"
@@ -1906,7 +1900,7 @@ window.HUB_DATA = {
       },
       {
         "name": "MAS_CATEGORY",
-        "role": "Derived diagnostic context \u2014 not a price",
+        "role": "Derived diagnostic context — not a price",
         "why": "Traceable derivation from MAS. Integer MAS 0 to 4 ->1; 5 to 6 ->2; 7 to 9 ->3; other or missing ->system missing",
         "result": "Modified Alvarado Score category using approved protocol boundaries. Descriptive probability labels follow the requested category names; they do not provide an independently validated disease classification. No original MAS was recalculated.",
         "methods": [
@@ -1915,7 +1909,7 @@ window.HUB_DATA = {
       },
       {
         "name": "HS_CRP_3MG_CATEGORY",
-        "role": "Derived diagnostic context \u2014 not a price",
+        "role": "Derived diagnostic context — not a price",
         "why": "Traceable derivation from CRP. Nonnegative nonmissing CRP <=3 ->0; CRP >3 ->1; negative or missing ->system missing",
         "result": "hsCRP elevation using study laboratory upper reference limit of 3 mg/L. Protocol specifies elevation above 3 mg/L. This is the confirmed study diagnostic cutoff: >3 mg/L positive and ≤3 mg/L negative; it is not a universal cutoff. Continuous CRP is retained without conversion.",
         "methods": [
@@ -1924,7 +1918,7 @@ window.HUB_DATA = {
       },
       {
         "name": "SCAN_DIAGNOSIS",
-        "role": "Derived resource context \u2014 unpriced",
+        "role": "Derived resource context — unpriced",
         "why": "Traceable derivation from abd_SCAN. 1 -> 1; 4 -> 2; 2 -> 3; 5 -> 5; 6 -> 9; other or missing source -> system missing",
         "result": "Standardized recorded abdominal scan diagnosis - ambiguous source code 3 unclassified. Source code 3 combines normal study and inconclusive. Its 11 records remain system missing in this derived field and require source report review. Code 9 is user missing. No scan accuracy binary was fabricated.",
         "methods": [
@@ -1933,7 +1927,7 @@ window.HUB_DATA = {
       },
       {
         "name": "SUPERFICIAL_SSI",
-        "role": "Derived resource context \u2014 unpriced",
+        "role": "Derived resource context — unpriced",
         "why": "Traceable derivation from postop_complication. 1 -> 1; 7 -> 0; other or missing source -> system missing",
         "result": "Recorded superficial surgical site infection status. Selected complication ->Yes; explicit none ->No; other categories ->unknown. See postoperative complication definitions.",
         "methods": [
@@ -1942,7 +1936,7 @@ window.HUB_DATA = {
       },
       {
         "name": "DEEP_SSI",
-        "role": "Derived resource context \u2014 unpriced",
+        "role": "Derived resource context — unpriced",
         "why": "Traceable derivation from postop_complication. 2 -> 1; 7 -> 0; other or missing source -> system missing",
         "result": "Recorded deep surgical site infection status. Selected complication ->Yes; explicit none ->No; other categories ->unknown. See postoperative complication definitions.",
         "methods": [
@@ -1951,7 +1945,7 @@ window.HUB_DATA = {
       },
       {
         "name": "ORGAN_SPACE_SSI",
-        "role": "Derived resource context \u2014 unpriced",
+        "role": "Derived resource context — unpriced",
         "why": "Traceable derivation from postop_complication. 3 -> 1; 7 -> 0; other or missing source -> system missing",
         "result": "Recorded organ space surgical site infection status. Selected complication ->Yes; explicit none ->No; other categories ->unknown. See postoperative complication definitions.",
         "methods": [
@@ -1960,7 +1954,7 @@ window.HUB_DATA = {
       },
       {
         "name": "INCISIONAL_COMPLICATION",
-        "role": "Derived resource context \u2014 unpriced",
+        "role": "Derived resource context — unpriced",
         "why": "Traceable derivation from postop_complication. 4 -> 1; 7 -> 0; other or missing source -> system missing",
         "result": "Recorded incisional dehiscence status. Selected complication ->Yes; explicit none ->No; other categories ->unknown. See postoperative complication definitions.",
         "methods": [
@@ -1969,7 +1963,7 @@ window.HUB_DATA = {
       },
       {
         "name": "INCISIONAL_HERNIA",
-        "role": "Derived resource context \u2014 unpriced",
+        "role": "Derived resource context — unpriced",
         "why": "Traceable derivation from postop_complication. 5 -> 1; 7 -> 0; other or missing source -> system missing",
         "result": "Recorded incisional hernia status. Selected complication ->Yes; explicit none ->No; other categories ->unknown. See postoperative complication definitions.",
         "methods": [
@@ -1978,7 +1972,7 @@ window.HUB_DATA = {
       },
       {
         "name": "POSTOPERATIVE_ILEUS",
-        "role": "Derived resource context \u2014 unpriced",
+        "role": "Derived resource context — unpriced",
         "why": "Traceable derivation from postop_complication. 8 -> 1; 7 -> 0; other or missing source -> system missing",
         "result": "Recorded postoperative ileus status. Selected complication ->Yes; explicit none ->No; other categories ->unknown. See postoperative complication definitions.",
         "methods": [
@@ -1987,7 +1981,7 @@ window.HUB_DATA = {
       },
       {
         "name": "POSTOPERATIVE_DEATH",
-        "role": "Derived resource context \u2014 unpriced",
+        "role": "Derived resource context — unpriced",
         "why": "Traceable derivation from postop_complication. 6 -> 1; 7 -> 0; other or missing source -> system missing",
         "result": "Recorded postoperative death status. Selected complication ->Yes; explicit none ->No; other categories ->unknown. See postoperative complication definitions.",
         "methods": [
@@ -1996,7 +1990,7 @@ window.HUB_DATA = {
       },
       {
         "name": "ANY_POSTOP_COMPLICATION",
-        "role": "Derived resource context \u2014 unpriced",
+        "role": "Derived resource context — unpriced",
         "why": "Traceable derivation from postop_complication. 1 -> 1; 2 -> 1; 3 -> 1; 4 -> 1; 5 -> 1; 6 -> 1; 7 -> 0; 8 -> 1; other or missing source -> system missing",
         "result": "Any documented postoperative complication in the recorded category. No is assigned only to explicit source category none; see methods notes.",
         "methods": [
@@ -2005,7 +1999,7 @@ window.HUB_DATA = {
       },
       {
         "name": "LENGTH_OF_STAY_DAYS",
-        "role": "Derived resource context \u2014 unpriced",
+        "role": "Derived resource context — unpriced",
         "why": "Traceable derivation from Duration_of_admission. Exact copy of source; no multiplication, division or conversion",
         "result": "Recorded length of stay in days. Exact recorded days; see methods notes.",
         "methods": [
@@ -2024,7 +2018,7 @@ window.HUB_DATA = {
       },
       {
         "name": "LENGTH_OF_STAY_CAT",
-        "role": "Derived resource context \u2014 unpriced",
+        "role": "Derived resource context — unpriced",
         "why": "Traceable derivation from Duration_of_admission. 1 to 3 inclusive ->1; >3 to 7 ->2; >7 ->3; <1 or missing ->system missing",
         "result": "Provisional recorded hospital stay category in days. Zero and same-day stays remain unclassified rather than forced into 1 to 3 days.",
         "methods": [
@@ -2046,7 +2040,7 @@ window.HUB_DATA = {
   "missingByObjective": {
     "1": "No prespecified combined classification; a model output is derived, not a raw SAV field.",
     "2": "Histological severity is available under the approved histology-only operational mapping. A separate abscess endpoint is not ascertainable from the SAV codes.",
-    "3": "Paediatric AUC uncertainty depends on reference-class counts; sparse negatives may prevent reliable estimation.",
+    "3": "Fixed combined rules have no continuous combined-score ROC/AUC or refitting validation. Sparse reference-negative children limit specificity precision.",
     "4": "No explicit operation-status or normal-histology code; operated evidence and the negative rule are qualified.",
     "5": "No clinician ID, professional group, direct ease item or recorded binary clinician decisions.",
     "6": "No itemised hsCRP cost, unit prices, comparator pathway, price year or verified accounting basis."
@@ -2072,4 +2066,4 @@ d.missingByObjective['7']='AIR construction and AIR-specific protocol remain unv
 d.bindings['7']=[];for(const name of ['AIR','MAS','CRP','histology','age','INTRAOP_FINDING','total_costs','Duration_of_admission','time_to_diagnosis','time_to_surgery','diagnostic_confi1','diagnostic_confi2'])d.bindings['7'].push({name,role:name==='AIR'?'Primary recorded score':name==='histology'?'Reference standard':'Supporting recorded field',why:'Used only for the eligible supplementary questions listed here.',result:'A planned exploratory analysis, not a new calculated finding.',methods:methods.filter(m=>m.variables.split(', ').includes(name)).map(m=>m.id)});
 })();
 
-(()=>{const d=window.HUB_DATA;const plans=[['scan8_diagnostic','Ultrasound and MAS/hs-CRP strategies','Seven fixed strategies; Wilson intervals, paired exact McNemar tests with Holm adjustment, independent age comparisons and descriptive severity/negative appendicectomy.'],['scan8_rules','Ultrasound definition and indeterminate handling','Acute appendicitis detected (code 1) positive; other definitive findings (2,4) negative under the researcher rule. Mixed normal/inconclusive (3) and inconclusive (5) excluded, not done (6) and missing separate. Appendiceal mass negative coding is operational, not absence of pathology.'],['scan8_cost','Recorded costs and confidence limitations','Recorded total hospital expenditure (NGN) by scan finding only. No itemised strategy costs or ultrasound-specific confidence assessments.']];const methods=plans.map(([id,name,here])=>({id,name,kind:'Exploratory analysis',status:'Completed supported outputs',here,client:here,purpose:here,interpret:here,example:'Generate the Objective Eight outputs in Tables & Figures.',limits:'Complete-case performance may be biased by exclusion of mixed/inconclusive scans; source imaging reports/protocol not available for independent modality verification.',terms:[],tags:['ultrasound','abdominal scan'],variables:'abd_SCAN, MAS, CRP, histology, age, total_costs'}));methods.forEach(m=>d.methods[m.id]=m);d.objectives.push({id:8,supplementary:true,short:'Exploratory abdominal ultrasound',title:'Exploratory Objective Eight: Evaluation of Abdominal Ultrasound',color:'#2c63ad',approved:'To explore the diagnostic performance and potential clinical and direct hospital cost implications of abdominal ultrasound, alone and in combination with MAS and hs-CRP, for suspected acute appendicitis.',description:'Ultrasound diagnostic strategies, paired comparisons, age groups, clinical context and recorded hospital costs.',note:plans[1][2]+' MAS ≥7 and hs-CRP >3 mg/L are positive. Full combination names specify both-positive or either-positive rules. Source reports and protocol are not available for independent verification of imaging modality. No fabricated ROC/AUC from nominal diagnosis codes.',contribution:'Six tables and one figure; no unsupported incremental cost or ultrasound confidence estimate.',methods});d.missingByObjective['8']='Mixed normal/inconclusive reports cannot be separated. Modality verification, itemised strategy costs and ultrasound-specific confidence exposure are absent.';d.bindings['8']=['abd_SCAN','MAS','CRP','histology','age','INTRAOP_FINDING','total_costs'].map(name=>({name,role:'Recorded supporting variable',why:'Supported Objective Eight results.',result:'See generated Objective Eight results.',methods:methods.map(m=>m.id)}));})();
+(()=>{const d=window.HUB_DATA;const plans=[['scan8_diagnostic','Ultrasound and MAS/hs-CRP strategies','Seven fixed strategies; Wilson intervals, paired exact McNemar tests with Holm adjustment, independent age comparisons and descriptive severity/negative appendicectomy.'],['scan8_rules','Ultrasound definition and indeterminate handling','Acute appendicitis (code 1) and appendiceal mass consistent with appendicitis (code 4) are positive; other diagnosis (code 2) is negative. Mixed normal/inconclusive (3) and inconclusive (5) excluded, not done (6) and missing separate. The single mass-positive mapping is conditional because the original report wording is unavailable; histological severity is unchanged.'],['scan8_cost','Recorded costs and confidence limitations','Recorded total hospital expenditure (NGN) by scan finding only. No itemised strategy costs or ultrasound-specific confidence assessments.']];const methods=plans.map(([id,name,here])=>({id,name,kind:'Exploratory analysis',status:'Completed supported outputs',here,client:here,purpose:here,interpret:here,example:'Generate the Objective Eight outputs in Tables & Figures.',limits:'Complete-case performance may be biased by exclusion of mixed/inconclusive scans; source imaging reports/protocol not available for independent modality verification.',terms:[],tags:['ultrasound','abdominal scan'],variables:'abd_SCAN, MAS, CRP, histology, age, total_costs'}));methods.forEach(m=>d.methods[m.id]=m);d.objectives.push({id:8,supplementary:true,short:'Exploratory abdominal ultrasound',title:'Exploratory Objective Eight: Evaluation of Abdominal Ultrasound',color:'#2c63ad',approved:'To explore the diagnostic performance and potential clinical and direct hospital cost implications of abdominal ultrasound, alone and in combination with MAS and hs-CRP, for suspected acute appendicitis.',description:'Ultrasound diagnostic strategies, paired comparisons, age groups, clinical context and recorded hospital costs.',note:plans[1][2]+' MAS ≥7 and hs-CRP >3 mg/L are positive. Full combination names specify both-positive or either-positive rules. Source reports and protocol are not available for independent verification of imaging modality. No fabricated ROC/AUC from nominal diagnosis codes.',contribution:'Six tables and one figure; no unsupported incremental cost or ultrasound confidence estimate.',methods});d.missingByObjective['8']='Mixed normal/inconclusive reports cannot be separated. Modality verification, itemised strategy costs and ultrasound-specific confidence exposure are absent.';d.bindings['8']=['abd_SCAN','MAS','CRP','histology','age','INTRAOP_FINDING','total_costs'].map(name=>({name,role:'Recorded supporting variable',why:'Supported Objective Eight results.',result:'See generated Objective Eight results.',methods:methods.map(m=>m.id)}));})();
