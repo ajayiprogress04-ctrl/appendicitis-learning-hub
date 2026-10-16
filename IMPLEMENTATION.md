@@ -135,3 +135,6 @@ conflicting simultaneous work. Data replacement resets both monitors.
 
 ### Included preview and monitoring update
 Upload this complete project together. `objective-workflow.js` keeps result generation separate from report compilation/export progress; both preview entry points now use the same generated Word bytes through `report-preview.js`. No additional dependencies or configuration are required.
+
+### Flexible approved report selections
+`approved-report-templates.js` now uses the same verified approved output blocks for full and partial selections, including cross-objective reports. Original output numbering is retained. If active numerical evidence changes, current calculated results are regenerated instead of reusing stale approved findings. The separate monitoring and unified-preview updates are included in this package.
