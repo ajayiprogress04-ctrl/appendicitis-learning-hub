@@ -76,3 +76,18 @@ Imported real SAV preview variable links were additionally tested, including
 returning to the still-pending import confirmation. Generated SVG chart-label
 activation via Enter was tested; Back restored the same objective and the
 expanded figure. These passed without uncaught errors.
+
+## Separate result/report monitoring check
+
+Actual Chromium checks passed: calculate Objective Four; switch to Reports and
+verify no calculation progress appears there; observe genuine Word compilation
+updates; prepare preview and download a valid DOCX; verify the Objectives
+monitor remains unchanged. A controlled report-writer failure and successful
+retry changed only the report status. Objective-specific idle state and
+independent monitors were checked at 1440px and 375px. Syntax/static checks
+passed. This test does not change calculations or report contents.
+
+## Unified previews and separate monitoring — 16 October 2026
+Both Objective export and Reports preview now open the same generated-Word viewer in the shared reading dialog. Approved template content and downloaded bytes are unchanged. Result-generation and report-preparation/export monitors remain separate.
+
+Targeted Chromium test using 85 participant records: Objective Four generated; both entry points displayed identical report text with the same selection; desktop/mobile preview inspected; compilation progress, cached download, controlled failure/retry, objective scoping and isolated result/report status passed. Download inspected: valid DOCX XML, two editable tables, A4 portrait. Project asset/syntax checks passed. No live deployment performed.

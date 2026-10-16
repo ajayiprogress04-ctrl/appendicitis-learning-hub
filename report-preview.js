@@ -43,6 +43,21 @@ function build(config){
 function create(config={}){config=selection(config);const result=build(config),frame=document.createElement('iframe');frame.title=(config.title||'Selected report')+' · preview';frame.className='shared-report-frame';frame.sandbox='allow-same-origin';frame.style.cssText='width:100%;height:65vh;min-height:280px;border:0;background:white';frame.dataset.previewIds=JSON.stringify(result.ids);frame.dataset.previewStatus=JSON.stringify(result.status);frame.dataset.previewReady='false';window.HUB_GLOSSARY?.bindPreview(frame);window.HUB_DISCLOSURE?.bindPreview(frame,result.ids);frame.addEventListener('load',()=>{if(frame.contentDocument?.body?.hasAttribute('data-report-preview')){frame.dataset.previewReady='true';frame.contentDocument.addEventListener('click',event=>{if(dialog?.open&&dialog.contains(frame)&&event.target.closest('[data-glossary]')){returnFocus=null;dialog.close();}},true);}});frame.srcdoc=result.html;return frame;}
 function mount(target,config,{reveal=false}={}){if(!target)return null;try{const frame=create(config);target.replaceChildren(frame);if(reveal){for(let p=target;p;p=p.parentElement)if(p.tagName==='DETAILS')p.open=true;target.scrollIntoView({block:'nearest',behavior:'auto'});}return frame;}catch(error){console.error('Report preview failed',error);target.replaceChildren();const p=document.createElement('p');p.setAttribute('role','alert');p.textContent='Preview could not be prepared: '+error.message+'. Your selections and data are unchanged.';target.append(p);return null;}}
 function open(config={}){config=selection(config);if(!dialog){dialog=document.createElement('dialog');dialog.className='shared-report-dialog';dialog.setAttribute('aria-labelledby','shared-preview-title');dialog.innerHTML='<header class="shared-preview-header"><h2 id="shared-preview-title">Report preview</h2><button type="button" class="quiet-button" data-close-report-preview>Close preview ×</button></header><div data-shared-preview-target></div>';document.body.append(dialog);dialog.querySelector('button').addEventListener('click',()=>dialog.close());dialog.addEventListener('close',()=>returnFocus?.focus({preventScroll:true}));}returnFocus=document.activeElement;dialog.querySelector('h2').textContent=config.title||'Report preview';const frame=mount(dialog.querySelector('[data-shared-preview-target]'),config);if(!dialog.open)dialog.showModal();dialog.querySelector('button').focus();return frame;}
+// Objective previews use the generated Word bytes, never the generic review renderer.
+function openDocument(bytes,title){
+ if(!dialog){open({title,items:[]});}
+ returnFocus=document.activeElement;
+ const frame=HUB_WORD_PREVIEW.frame(bytes,title);
+ frame.classList.add('shared-report-frame');
+ frame.addEventListener('load',()=>{const d=frame.contentDocument;if(!d)return;
+ const style=d.createElement('style');style.textContent='body{background:white}.word-page{width:100%;min-height:0;margin:0;padding:18px 24px}@media(max-width:500px){.word-page{padding:12px}}';d.head.append(style);
+ d.addEventListener('click',event=>{if(event.target.closest('[data-glossary]')){returnFocus=null;dialog.close();}},true);
+ });
+ window.HUB_GLOSSARY?.bindPreview(frame);
+ dialog.querySelector('h2').textContent=title||'Report preview';
+ dialog.querySelector('[data-shared-preview-target]').replaceChildren(frame);
+ if(!dialog.open)dialog.showModal();dialog.querySelector('button').focus();return frame;
+}
 window.addEventListener('keydown',e=>{if(dialog?.open&&e.key==='Escape'){e.preventDefault();e.stopImmediatePropagation();dialog.close();}},true);
-window.HUB_PREVIEW={build,create,mount,open,close:()=>dialog?.open&&dialog.close()};
+window.HUB_PREVIEW={build,create,mount,open,openDocument,close:()=>dialog?.open&&dialog.close()};
 })();
