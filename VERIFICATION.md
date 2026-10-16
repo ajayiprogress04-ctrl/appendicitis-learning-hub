@@ -91,3 +91,16 @@ passed. This test does not change calculations or report contents.
 Both Objective export and Reports preview now open the same generated-Word viewer in the shared reading dialog. Approved template content and downloaded bytes are unchanged. Result-generation and report-preparation/export monitors remain separate.
 
 Targeted Chromium test using 85 participant records: Objective Four generated; both entry points displayed identical report text with the same selection; desktop/mobile preview inspected; compilation progress, cached download, controlled failure/retry, objective scoping and isolated result/report status passed. Download inspected: valid DOCX XML, two editable tables, A4 portrait. Project asset/syntax checks passed. No live deployment performed.
+
+## Approved partial selections — 16 October 2026
+Root cause: the approved-template guard required a complete objective selection, so partial selections used the generic writer. Verified-data subsets now retain only the selected approved table/figure blocks, captions, notes and interpretations, with original numbering. A scope note replaces the full-report overview; the full-report conclusion is omitted when it would describe excluded results. Source fingerprint checks and the current-data fallback remain in place.
+
+Actual Chromium checks: all 43 individual logical outputs across Demographics and Objectives 1–8; mixed table/figure subsets within every multi-output objective; mixed Objective One/Four report; actual Objective One comparison-only modal preview and downloaded DOCX. No runtime errors. Downloaded XML/ZIP valid, approved Table 3 present, unselected Table 1 and generic Panel A absent; all sections A4 portrait. Preview visually inspected. Separate result/report monitors retained. Full reports continue through the unchanged full-template branch. No deployment performed.
+
+## AND/OR glossary combination table
+Added the same four-row classification table to both MAS and hs-CRP and MAS or hs-CRP entries, with MAS ≥7 and hs-CRP >3 mg/L thresholds. No calculation changes. Chromium checks passed: both term lookups, all four Boolean outcomes, search, mobile display, no runtime errors; project asset and syntax checks passed.
+
+## Return from glossary to preview
+The shared preview now participates in navigation snapshots. Glossary navigation suspends the existing dialog instead of discarding it; Back restores that same frame, title, focus and reading scroll position. Explicit Close remains separate. Updated report-preview.js, navigation-history.js, statistical-glossary.js and cache versions in index.html.
+
+Actual Chromium test with Objective Four and 85 records: preview term link opens glossary; global Back restores identical document and reading position; repeat with browser Back; explicit Close closes; no runtime errors. Project checks passed. Prior approved partial-selection fix, AND/OR table, unified previews and independent progress monitors are included.
