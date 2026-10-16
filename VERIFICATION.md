@@ -37,3 +37,11 @@ pyreadstat is unavailable in this environment. Install analysis/requirements.txt
 in a virtual environment before running tests/test_statistics.py. This did not
 prevent the browser's actual calculations or DOCX generation tested above.
 No new analysis results were invented or silently substituted.
+
+## Dropdown-only objective navigation correction
+Removed the duplicate objective-button list above Objective-Linked Results.
+The searchable dropdown remains the sole objective selector in that view.
+Actual Chromium checks passed at 1440px and 375px: opening an objective from
+a linked route, all eight dropdown options plus All, no objective-nav buttons,
+output generation, Report/Paper links and unchanged imported dataset.
+Only script.js and its index.html cache version changed in runtime code.
