@@ -78,3 +78,40 @@ removed panels/controls, unchanged three landing actions, mobile overflow and
 no uncaught runtime errors. The downloaded document passed ZIP/XML checks for
 editable tables and A4 portrait. Guide, actual clipboard, sharing-handler and
 cancellation simulations and sharing fallbacks passed again.
+
+## Selected-report preview correction
+
+Reproduced failure: shared preview requested an empty HTML report for its CSS.
+The introduction formatter used Array.every on an empty array, which returned
+true, then accessed items[0].scopeId. This broke valid as well as empty previews.
+The introduction now requires a non-empty objective selection and identifies
+all objectives in multi-objective selections. Preview input validation preserves
+valid outputs, names invalid or uncalculated selections and refuses to render
+cached results when no active dataset is loaded. Unexpected failures retain
+console diagnostics. Asset versions were updated for the two fixed scripts.
+
+Checks: all 42 real-source objective outputs produced cleared preview content;
+a five-output cross-objective selection, actual two-output dialog and iframe,
+empty selection, malformed arrays/entries, missing result, unknown objective
+and absent dataset passed. The expanded iframe displayed the actual negative
+appendicectomy rate. Dataset, completed results and report selections were
+unchanged after preview tests. No uncaught runtime errors.
+
+## Eight-objective selection cleanup
+
+The public result catalogue now exposes only Objectives 1–6, Exploratory
+Objective 7: AIR score and Exploratory Objective 8: Abdominal Ultrasound.
+Obsolete A–I exploratory scopes are excluded from selection, results, report
+sections and search indexes. Legacy paper proposals tied to those categories
+are no longer selectable; the objective-based eight paper areas remain. Old
+A/B/C aggregate cards and navigation links were removed; aggregate-data
+management and underlying calculation functions remain. Stale catalogue
+history scopes fall back safely to Objective One.
+
+Checks passed in Chromium: exactly eight objective options accessible in
+Objectives, Reports and Papers; catalogue offers All Objectives plus 1–8;
+obsolete aggregate-category links absent; all 42 objective output previews
+remain cleared; multiple/empty/missing/invalid selection cases and unchanged
+dataset/results/selections passed again. No uncaught errors or mobile overflow.
+Changed JavaScript syntax passed. analysis-engine.js is byte-for-byte unchanged
+from the previous delivered ZIP. No research dataset was changed.
