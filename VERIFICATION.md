@@ -115,3 +115,8 @@ Actual Chromium test used an explicitly synthetic 40-record test cohort, not inv
 
 ## Missing diagnostic glossary terms
 Added dedicated Youden J, false negative (FN), true negative (TN), Holm adjustment and sensitivity–specificity trade-off entries. Removed the Youden-index alias from Diagnostic threshold so it resolves to its own definition. Included concise study-specific explanations and related-term links; no calculations changed. Chromium passed ten full-name/abbreviation/search lookups and five contextual links, with correct matching entries and no runtime errors. Project syntax/assets checks passed.
+
+## Simplified graph explanations
+Replaced the six-part lecture with exactly two concise explanations: What This Graph Shows and What It Means for This Research. Removed methods/notes/extra headings and related-term button lists from the panel; contextual glossary links remain. Explanations use the displayed graph values and recorded findings, with no new analysis. Added responsive graph/panel grouping: beside the graph when its container is wide enough (760px), below on narrow screens. Panel remains open until closed, including through glossary Back.
+
+Actual Chromium checks using a synthetic 40-record QA cohort: Objective One performance/ROC explanation matching; exactly two paragraphs/headings and no extra details; both generated-Word figure bindings; desktop beside and mobile below verified by element coordinates and screenshots; close; glossary Back retains panel; dataset unchanged; no runtime errors. Text generation checked for all 12 supported figure formats using explicitly synthetic fixtures. Asset and JavaScript syntax checks passed. Original study calculations and Word export functions were not changed.
