@@ -1944,3 +1944,5 @@ window.HUB_VARIABLES = {
 
 /* Associate recorded fields with the supplementary plan; values/coding unchanged. */
 for(const v of window.HUB_VARIABLES.variables)if((window.HUB_DATA.bindings['7']||[]).some(b=>b.name===v.name)&&!v.objectives.includes(7))v.objectives.push(7);
+
+(()=>{for(const v of window.HUB_VARIABLES.variables){if(["abd_SCAN","MAS","CRP","histology","age","INTRAOP_FINDING","total_costs"].includes(v.name)&&!v.objectives.includes(8))v.objectives.push(8);}})();
