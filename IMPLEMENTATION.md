@@ -141,3 +141,6 @@ Upload this complete project together. `objective-workflow.js` keeps result gene
 
 ### Explain This Graph
 Click a generated graph or its Explain This Graph button to read the selected graph’s values, methods and interpretation. Close explanation returns focus to its control. Glossary lookup reuses the central glossary and Back restores the preview and panel. The new graph-explanations.js is dependency-free; keep it loaded before objective-workflow.js. Interactive explanation controls are not inserted into Word content. All prior monitoring, report subset, glossary table and scroll-restoration fixes are retained.
+
+### Simplified graph reading panel
+Graph explanations now contain only two short paragraphs with the requested headings. The graph and panel share a responsive grid: side by side on a wide workspace, stacked on phones. The same renderer serves Objectives and report-preview figures. All earlier fixes are included.
