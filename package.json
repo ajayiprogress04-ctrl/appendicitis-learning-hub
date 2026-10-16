@@ -1,0 +1,11 @@
+{
+  "name": "appendicitis-research-hub",
+  "version": "2026.10.16",
+  "private": true,
+  "description": "Static biomedical research and objective-linked reporting app",
+  "scripts": {
+    "check": "python3 scripts/verify_project.py",
+    "test:browser": "node tests/workflow.cjs"
+  },
+  "devDependencies": {"playwright-core": "1.62.1"}
+}
