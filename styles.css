@@ -670,3 +670,5 @@ body.research-scrollbar-enabled .research-scrollbar { right:0;left:auto;z-index:
 @media(min-width:601px) and (max-width:75rem) and (hover:hover) and (pointer:fine){
  .page-shell,.sidebar-collapsed .page-shell { width:calc(100% - 16px);margin-left:0;margin-right:16px; }
 }
+
+.graph-explanation-panel{padding:1rem;margin:.75rem 0;background:var(--surface);color:var(--ink);border:1px solid var(--ui-divider);border-radius:.5rem}.graph-explanation-panel h4{margin:1rem 0 .35rem}.graph-explain-button{margin:.5rem 0}.graph-explanation-panel p{overflow-wrap:anywhere}
