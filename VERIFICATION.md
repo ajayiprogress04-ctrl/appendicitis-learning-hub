@@ -104,3 +104,6 @@ Added the same four-row classification table to both MAS and hs-CRP and MAS or h
 The shared preview now participates in navigation snapshots. Glossary navigation suspends the existing dialog instead of discarding it; Back restores that same frame, title, focus and reading scroll position. Explicit Close remains separate. Updated report-preview.js, navigation-history.js, statistical-glossary.js and cache versions in index.html.
 
 Actual Chromium test with Objective Four and 85 records: preview term link opens glossary; global Back restores identical document and reading position; repeat with browser Back; explicit Close closes; no runtime errors. Project checks passed. Prior approved partial-selection fix, AND/OR table, unified previews and independent progress monitors are included.
+
+## Deep preview scroll restoration
+Prevented iframe reinsertion when restoring the same preview: reinsertion can reload srcdoc after initial scroll restoration. A load fallback also restores the saved scroll when a frame genuinely reloads. Actual Chromium test: Objective One, deep report position beyond 500px, glossary term click, app Back and browser Back, wait 900ms for delayed rendering, same text and scroll within 2px; explicit Close still works, no runtime errors. Project checks passed.
